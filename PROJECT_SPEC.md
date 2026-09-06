@@ -3,7 +3,7 @@
 - 文書状態: 初期調査・要件整理
 - 調査基準日: 2026-08-16
 - 最終更新: 2026-08-16T12:20:19+09:00
-- 想定リポジトリ: https://github.com/pirosiki1144/japan-tax-and-public-burden
+- 想定リポジトリ: https://github.com/pirosiki4dev/japan-tax-and-public-burden
 - 目的: Codex CLIでリポジトリを構築する際の入力資料とし、将来のAGENTS.md、データスキーマ、巡回設定、GitHub Actionsへ分割する
 
 ## 1. このプロジェクトの趣旨
@@ -956,14 +956,14 @@ README.mdは一般利用者向け、PROJECT_SPEC.mdは設計根拠、AGENTS.md�
 
 ## 19. Codex CLIとGitHubでの運用案
 
-会話上の最終方針では、pirosiki1144を主アカウントとし、次のリポジトリを使用する。
+会話上の最終方針では、pirosiki4devを主アカウントとし、次のリポジトリを使用する。
 
-https://github.com/pirosiki1144/japan-tax-and-public-burden
+https://github.com/pirosiki4dev/japan-tax-and-public-burden
 
 基本作業:
 
 ~~~
-git clone git@github.com:pirosiki1144/japan-tax-and-public-burden.git
+git clone git@github.com:pirosiki4dev/japan-tax-and-public-burden.git
 cd japan-tax-and-public-burden
 git switch -c docs/initial-project-spec
 codex
@@ -977,7 +977,7 @@ gh pr create --draft
 
 実際のremote URLと認証方式に合わせて変更する。
 
-pirosiki1144とakane5108を同じ端末で使い分ける場合は、GitHub CLIのログイン切替またはSSH Host Aliasを使用し、作業前に次を確認する。
+pirosiki4devとakane5108を同じ端末で使い分ける場合は、GitHub CLIのログイン切替またはSSH Host Aliasを使用し、作業前に次を確認する。
 
 ~~~
 gh auth status

@@ -44,7 +44,7 @@ export async function fetchSourcePages(source, { fetchImpl = globalThis.fetch, n
   const pages = [];
   for (const sourceUrl of source.entry_urls) {
     const response = await fetchWithRetry(sourceUrl, {
-      headers: { "user-agent": "japan-tax-and-public-burden/0.1 (+https://github.com/pirosiki1144/japan-tax-and-public-burden)" }
+      headers: { "user-agent": "japan-tax-and-public-burden/0.1 (+https://github.com/pirosiki4dev/japan-tax-and-public-burden)" }
     }, { fetchImpl, retryAttempts, sleep, timeoutMs });
     const finalUrl = response.url || sourceUrl;
     if (new URL(finalUrl).origin !== new URL(source.base_url).origin) throw new SourceFetchError(`Unexpected redirect origin for ${sourceUrl}: ${finalUrl}`, { code: "url_unexpected_redirect", sourceUrl });
