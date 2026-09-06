@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/pirosiki1144/japan-tax-and-public-burden/schemas/public-burden-master.schema.json",
+  "$id": "https://github.com/pirosiki4dev/japan-tax-and-public-burden/schemas/public-burden-master.schema.json",
   "title": "Atomic public burden master",
   "type": "object",
   "additionalProperties": false,
