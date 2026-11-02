@@ -1,11 +1,96 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/pirosiki4dev/japan-tax-and-public-burden/schemas/common.schema.json",
-  "title": "Shared schema definitions",
+  "$id": "common.schema.json",
+  "title": "Common definitions",
   "$defs": {
-    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-    "verifiedAt": {"type": "string", "format": "date-time"},
-    "sourceIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
-    "holdReason": {"type": "string", "minLength": 20}
+    "kebabId": {
+      "title": "KebabId",
+      "description": "英小文字・数字のkebab-caseによる永続ID。一度公開したIDは変更しない。",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "lawId": {
+      "title": "LawId",
+      "description": "e-Gov法令ID（例: 363AC0000000108）。",
+      "type": "string",
+      "pattern": "^[0-9]{3}[0-9A-Z]{12}$"
+    },
+    "dateTime": {
+      "title": "DateTime",
+      "description": "タイムゾーン付きのISO 8601日時。",
+      "type": "string",
+      "format": "date-time"
+    },
+    "date": {
+      "title": "IsoDate",
+      "type": "string",
+      "format": "date"
+    },
+    "sourceUrl": {
+      "title": "SourceUrl",
+      "description": "根拠とした公式一次情報のURL。",
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "unknownValue": {
+      "title": "UnknownValue",
+      "description": "公式情報で確認できない値。推測で補完せず、根拠不足の理由を記録する。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unknown", "reason"],
+      "properties": {
+        "unknown": { "const": true },
+        "reason": { "type": "string", "minLength": 10 }
+      }
+    },
+    "knownDate": {
+      "title": "KnownDate",
+      "description": "原文（和暦等）と正規化した日付。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw", "value"],
+      "properties": {
+        "raw": { "type": "string", "minLength": 1 },
+        "value": { "$ref": "#/$defs/date" }
+      }
+    },
+    "dateValue": {
+      "title": "DateValue",
+      "oneOf": [
+        { "$ref": "#/$defs/knownDate" },
+        { "$ref": "#/$defs/unknownValue" }
+      ]
+    },
+    "legalReference": {
+      "title": "LegalReference",
+      "description": "根拠法令と条項。条項は原文の表記で記録する。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["law_id"],
+      "properties": {
+        "law_id": { "$ref": "#/$defs/lawId" },
+        "article": { "type": "string", "minLength": 1 }
+      }
+    },
+    "knownItem": {
+      "title": "KnownItem",
+      "description": "要約と、必要に応じて原文・根拠条項を持つ説明項目。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary"],
+      "properties": {
+        "summary": { "type": "string", "minLength": 1 },
+        "raw_text": { "type": "string", "minLength": 1 },
+        "legal_basis": { "$ref": "#/$defs/legalReference" }
+      }
+    },
+    "describedItem": {
+      "title": "DescribedItem",
+      "oneOf": [
+        { "$ref": "#/$defs/knownItem" },
+        { "$ref": "#/$defs/unknownValue" }
+      ]
+    }
   }
 }

@@ -1,0 +1,12 @@
+decisions:
+  - decision_id: example-included
+    subject: 例示税
+    decision: included
+    reason: テスト用の対象判断の記録
+    decided_at: 2026-11-01
+    burden_id: example-tax
+  - decision_id: example-excluded
+    subject: 例示手数料
+    decision: excluded
+    reason: テスト用の対象外判断の記録
+    decided_at: 2026-11-01

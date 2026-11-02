@@ -1,47 +1,29 @@
 {
   "name": "japan-tax-and-public-burden",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "description": "Structured data for taxes and public burdens in Japan",
   "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "test": "node --test",
-    "validate": "node scripts/cli/validate-data.js && node scripts/cli/architecture-inventory.js --check",
-    "scan": "node scripts/cli/scan-source.js",
-    "monitor": "node scripts/cli/run-monitoring.js",
-    "monitor:check": "node scripts/cli/run-monitoring.js --fixture-dir tests/fixtures/source-scan --semantic-baseline tests/fixtures/semantic-extraction/expected-baseline.json --dry-run --output .cache/monitoring-check.json",
-    "semantics:baseline": "node scripts/cli/write-semantic-baseline.js",
-    "prepare-update": "node scripts/cli/prepare-update.js",
-    "audit": "node scripts/cli/audit-repository.js",
-    "architecture:audit": "node scripts/cli/architecture-inventory.js",
-    "architecture:check": "node scripts/cli/architecture-inventory.js --check",
-    "architecture:strict": "node scripts/cli/architecture-inventory.js --check --strict",
-    "audit:coverage": "node scripts/cli/adapter-coverage-audit.js",
-    "audit:scan": "node scripts/cli/audit-source-scan.js",
-    "audit:issues": "node scripts/cli/publish-audit-issues.js",
-    "generate": "node scripts/cli/public-burden-csv.js",
-    "generate:check": "node scripts/cli/public-burden-csv.js --check && npm run master-contract:check",
-    "master-contract:generate": "node scripts/cli/public-burden-csv.js --input tests/fixtures/public-burden-master/representative-cases.json --output tests/fixtures/public-burden-master/expected.csv --as-of 2026-08-30",
-    "master-contract:check": "node scripts/cli/public-burden-csv.js --input tests/fixtures/public-burden-master/representative-cases.json --output tests/fixtures/public-burden-master/expected.csv --as-of 2026-08-30 --check",
-    "monitoring:generate": "node scripts/cli/build-monitoring-config.js",
-    "monitoring:check": "node scripts/cli/build-monitoring-config.js --check",
-    "monitoring:plan": "node scripts/cli/build-monitoring-execution-plan.js",
-    "monitoring:plan:check": "node scripts/cli/build-monitoring-execution-plan.js --check",
-    "inventory:generate": "node scripts/cli/build-monitoring-execution-plan.js",
-    "inventory:check": "node scripts/cli/build-monitoring-execution-plan.js --check",
-    "semantics:extract": "node scripts/cli/extract-egov-tax-semantics.js",
-    "semantics:check": "node scripts/cli/extract-egov-tax-semantics.js --fixture-dir tests/fixtures/source-scan --expected tests/fixtures/semantic-extraction/expected.json"
+    "check": "npm run typecheck && npm test && npm run validate && npm run types:check && npm run architecture:check",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"tests/**/*.test.ts\"",
+    "validate": "node src/cli/validate.ts",
+    "types:generate": "node src/cli/generate-types.ts",
+    "types:check": "node src/cli/generate-types.ts --check",
+    "architecture:check": "node src/cli/check-architecture.ts"
   },
   "devDependencies": {
-    "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1",
-    "csv-parse": "^7.0.2",
-    "yaml": "^2.8.1"
-  },
-  "engines": {
-    "node": ">=20"
+    "@types/node": "^24.19.2",
+    "json-schema-to-typescript": "^16.0.0",
+    "typescript": "^7.0.2"
   },
   "dependencies": {
-    "pdfjs-dist": "^5.4.149"
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.9.1"
   }
 }

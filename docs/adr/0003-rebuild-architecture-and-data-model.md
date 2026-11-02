@@ -1,6 +1,6 @@
 # ADR 0003: 作り直し後の技術方針、フォルダ構成、データモデル
 
-- 状態: proposed
+- 状態: accepted（PR #141のマージをもって承認）
 - 対応Issue: #139
 - 作成日: 2026-11-02
 - 前提: [ADR 0002](0002-rebuild-scope-and-requirements.md)

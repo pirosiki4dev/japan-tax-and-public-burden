@@ -1,7 +1,6 @@
 name: ニュース・構想の検知
 description: 新設・変更・終了の可能性を一次情報の確認前に追跡する
 title: "[検知] "
-labels: ["source:news", "needs-verification"]
 body:
   - type: textarea
     id: summary
@@ -12,7 +11,7 @@ body:
   - type: input
     id: burden
     attributes:
-      label: 対象となる税金等
+      label: 対象となる税・公的負担（既存の場合は burden_id）
   - type: input
     id: change_type
     attributes:
@@ -38,6 +37,6 @@ body:
     id: topic_key
     attributes:
       label: 重複判定キー
-      description: tax/name | change type | actor | scope | period | bill/policy id
+      description: burden_id または名称 | 変更種別 | 提案主体 | 範囲 | 時期 | 法案・政策ID
     validations:
       required: true

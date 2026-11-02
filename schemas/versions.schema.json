@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "versions.schema.json",
+  "title": "BurdenVersions",
+  "description": "版（data/burdens/<burden-id>/versions.yaml）。率・金額が変わるごとに版を追加する。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["burden_id", "versions"],
+  "properties": {
+    "burden_id": { "$ref": "common.schema.json#/$defs/kebabId" },
+    "versions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/version" }
+    }
+  },
+  "$defs": {
+    "version": {
+      "title": "BurdenVersion",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version_id", "dates", "rates", "source_url", "checked_at"],
+      "properties": {
+        "version_id": { "$ref": "common.schema.json#/$defs/kebabId" },
+        "dates": { "$ref": "#/$defs/versionDates" },
+        "rates": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/rate" }
+        },
+        "source_url": { "$ref": "common.schema.json#/$defs/sourceUrl" },
+        "checked_at": { "$ref": "common.schema.json#/$defs/dateTime" }
+      }
+    },
+    "versionDates": {
+      "title": "VersionDates",
+      "description": "公布日、施行日、適用開始日、徴収開始日を個別に持つ。適用終了日は終了が定まっている場合だけ持つ。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["promulgation", "enforcement", "application_start", "collection_start"],
+      "properties": {
+        "promulgation": { "$ref": "common.schema.json#/$defs/dateValue" },
+        "enforcement": { "$ref": "common.schema.json#/$defs/dateValue" },
+        "application_start": { "$ref": "common.schema.json#/$defs/dateValue" },
+        "collection_start": { "$ref": "common.schema.json#/$defs/dateValue" },
+        "application_end": { "$ref": "common.schema.json#/$defs/dateValue" }
+      }
+    },
+    "bracket": {
+      "title": "RateBracket",
+      "description": "累進の区分。upperがnullの区分は上限なし。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lower", "upper", "value"],
+      "properties": {
+        "lower": { "type": "number", "minimum": 0 },
+        "upper": { "type": ["number", "null"] },
+        "value": { "type": "number", "minimum": 0 }
+      }
+    },
+    "share": {
+      "title": "RateShare",
+      "description": "負担割合（本人・事業主・国庫等）。ratioは0より大きく1以下。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["party", "ratio"],
+      "properties": {
+        "party": { "type": "string", "minLength": 1 },
+        "ratio": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+      }
+    },
+    "rate": {
+      "title": "Rate",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rate_id", "kind", "role", "unit", "applies_to", "legal_basis", "raw_text"],
+      "properties": {
+        "rate_id": { "$ref": "common.schema.json#/$defs/kebabId" },
+        "kind": {
+          "title": "RateKind",
+          "description": "proportional: 比例、progressive: 累進、fixed_amount: 定額、per_unit: 従量。",
+          "enum": ["proportional", "progressive", "fixed_amount", "per_unit"]
+        },
+        "role": {
+          "title": "RateRole",
+          "description": "statutory: 法定、standard: 標準税率、limit: 制限税率、reduced: 軽減。",
+          "enum": ["statutory", "standard", "limit", "reduced"]
+        },
+        "value": { "type": "number", "minimum": 0 },
+        "unit": {
+          "title": "RateUnit",
+          "description": "valueの単位。percentは100分率（10は10%）。",
+          "enum": ["percent", "per_mille", "yen"]
+        },
+        "per": {
+          "description": "従量の基準となる数量（原文の表記。例: 1キロリットル）。",
+          "type": "string",
+          "minLength": 1
+        },
+        "bracket_unit": {
+          "description": "累進区分の境界の単位。",
+          "enum": ["yen"]
+        },
+        "brackets": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/bracket" }
+        },
+        "applies_to": { "$ref": "common.schema.json#/$defs/describedItem" },
+        "shares": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/share" }
+        },
+        "legal_basis": { "$ref": "common.schema.json#/$defs/legalReference" },
+        "raw_text": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "progressive" } }, "required": ["kind"] },
+          "then": { "required": ["brackets", "bracket_unit"], "properties": { "value": false } },
+          "else": { "required": ["value"], "properties": { "brackets": false, "bracket_unit": false } }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "per_unit" } }, "required": ["kind"] },
+          "then": { "required": ["per"] },
+          "else": { "properties": { "per": false } }
+        }
+      ]
+    }
+  }
+}
