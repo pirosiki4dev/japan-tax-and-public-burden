@@ -1,0 +1,65 @@
+# 初期マスタ監視設定
+
+- 対応Issue: #30（親Issue: #19）
+- 対象: 正本112制度
+- 正本: `config/monitoring.yaml`
+- メモリ上の派生view: runtime監視計画、実行・coverage計画、制度群別判断
+- 保存する派生成果物: 監視抽出対象レビュー
+
+document adapterと許可済み計算policyもこのmanifestへ統合した。URLは`config/sources.yaml`だけに置き、targetは`source_id`で参照する。#86の全項目対応と追加手順は[監視manifest統合と移行対応表](monitoring-manifest-migration.md)を参照する。
+
+## 判定結果
+
+| 監視区分 | 件数 | 内容 |
+| --- | ---: | --- |
+| `automated` | 10 | 実装済みのsource・semantic adapterを利用 |
+| `manual` | 102 | 公式根拠、根拠不足、解除条件、再確認方法を保持して人が確認 |
+| `out_of_scope` | 0 | 正本制度にはなし |
+
+正本は全112制度を重複なく持ち、実装Issue、実装状態、監視区分、cadence、自治体境界、制度固有の抽出判断を管理する。複数法令にまたがるsourceと対象URLは`config/sources.yaml`および制度マスタの公式根拠から派生させ、プログラムへ巡回URLを直書きしない。
+
+`manual`は監視不能を意味しない。公式URLを人が月次確認できるが、構造変更や誤抽出を安全に検知する制度固有adapterが未実装であることを表す。adapterを追加する際は、対象条文、期待文書、抽出規則、fixture、失敗時の扱いをレビューしてから`automated`へ変更する。
+
+レビュー指定の消費税と自動車税は、[監視抽出対象の設定候補](monitoring-extraction-target-review.md)に公式リンクと実際に監視する文面候補を列挙し、`config/monitoring.yaml`へ反映済みである。他制度の対象条文は公式本文の個別精査後に追加する。
+
+地方税23制度は国法レベルの地方税法を監視対象とする。自治体条例、自治体公式サイト、個別税率、法定外税の個別監視は#20へ分離し、`municipal_scope: issue_20`で識別する。
+
+`npm run monitoring:generate`は正本・制度マスタ・source設定から監視抽出対象レビューを再生成する。`npm run monitoring:check`はruntime監視計画をメモリ上で生成・検証し、レビュー文書の差分を比較する。`npm run validate`は全正本IDとsource IDの参照、重複、必須項目、URL形式を検証する。
+
+## 全制度adapter棚卸し
+
+実行・coverage計画は正本の112制度を重複なく実装先へ割り当てるメモリ上のviewである。内訳は#39の初号2制度、#42の国税23制度、#43の地方税22制度、#44の社会保険料5制度、#45のその他公的負担60制度となる。消費税・自動車税を含めると国税24制度、地方税23制度を網羅する。
+
+各targetは優先度、依存Issue、batch、共通source再利用キー、自治体範囲、納税義務者・課税対象・算定基礎・率／金額・適用期間の抽出可否を持つ。各公式sourceには`source_id`と`target_id`、形式、現在のadapter、必要な意味抽出adapter、実装状態を記録する。巡回URLは複製せず既存のsource・監視設定から参照する。e-Gov以外の形式は#46の共通形式adapterへも関連付ける。
+
+通常batchは15制度以下とし、20制度を超えるのは同一の共通法令・sourceを再利用する単位だけに限定する。地方税法を共有する地方税22制度がこの例外に該当する。自治体条例と自治体別実税率は引き続き#20で扱う。
+
+```bash
+npm run monitoring:plan
+npm run monitoring:plan:check
+```
+
+実行計画はファイルへ保存せず、各consumerが同じbuilderから決定的に生成する。`monitoring:plan:check`は未割当、未知target、重複、batch上限違反、地方税の#20分離違反を失敗にする。旧`inventory:*`コマンドは互換aliasとして当面維持する。PR CIでも実行する。
+
+## 後続工程との責務境界
+
+- #30（PR #38）: 監視元、条文selector、改訂ID・更新日時、対象ノードhashによる変更検知の契約を整備する。納税義務者や税率を意味のある値へ変換する処理は含めない。
+- #39（#19-8）: 消費税と自動車税について、納税義務者、課税対象、課税標準、税率を構造化抽出する。`npm run semantics:check`は縮小fixtureと期待JSONを比較し、`npm run semantics:extract -- --output .cache/semantic-extraction.json`は実APIのレビュー用JSONを生成する。PR CIは前者、定期／手動workflowは後者を実行する。
+- #41: 全制度を#39・#42〜#45へ割り当て、形式別共通処理を#46、最終coverage監査を#47へ分離する。
+- #31（#19-9）: #39の正規化結果と#41のregistryを共通pipelineへ接続し、定期監視、PR候補、不確実事項Issueへ連携する。意味抽出規則は再実装しない。
+
+実装順は `#30 → #39 → #41 → #31 → #42〜#46 → #47` とする。
+
+## 共通運用pipeline
+
+`npm run monitor`は#10のsource差分検出と、#41のregistryで`adapter_status: implemented`となった意味抽出jobを同じ`results[]`契約で実行する。現在は#39の消費税・自動車税が対象であり、#42〜#46は`required_adapter`に対応する実装を共通registryへ追加する。
+
+監視結果は次の経路へ排他的に振り分ける。
+
+- 対応先が一意で、取得・構造・source間整合に問題がない差分: #9の人間レビュー用PR候補
+- 取得失敗、構造変更、対応先不明、公式source間不一致: #8の重複防止付きIssue候補
+- 変更なし: GitHubへの書き込みなし
+
+意味抽出jobはtarget単位で失敗を捕捉するため、1件の失敗で後続targetを停止しない。全体statusは非成功にし、成功分を含む取得時刻・原文SHA-256・正規化結果・失敗理由を固定workflowのartifactへ保存する。正本の直接更新、`main`への直接push、自動mergeは行わない。
+
+`data/monitoring/review.json`の `baseline` には、e-Gov実APIで確認しPRレビューを通した意味値を保存する。比較時は法令の改正ID・更新日時そのものではなく、納税義務者、課税対象、課税標準、率・金額等の意味部分を項目単位で比較する。意味変更は旧値・新値付きの未対応差分としてIssue経路へ渡し、推測でbaselineや正本を更新しない。baseline候補の生成には`--confirm-reviewed`を必須とし、更新後も人間レビュー用PRを経由する。

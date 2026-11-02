@@ -3,4 +3,4 @@ coverage/
 .DS_Store
 *.log
 .cache/
-*:Zone.Identifier
+PROJECT_SPEC.md:Zone.Identifier

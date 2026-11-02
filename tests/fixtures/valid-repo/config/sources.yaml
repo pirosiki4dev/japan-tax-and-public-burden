@@ -1,6 +1,0 @@
-sources:
-  - source_id: example-source
-    name: 例示サイト
-    base_url: https://example.com/
-    rate_limit: テスト用
-    enabled: true

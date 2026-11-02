@@ -1,3 +1,0 @@
-# 対象・対象外の個別判断の記録（schemas/scope-decisions.schema.json）。
-# 判断の追加は #143 で行う。
-decisions: []
