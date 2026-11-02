@@ -1,13 +1,13 @@
 {
   "schema_version": 2,
   "scope": "tracked repository files",
-  "baseline_commit": "7b80948c95b9b17e658350103d4c2055e7f81a3b",
+  "baseline_commit": "42b72b98884c207a3347217f51cd460333c94740",
   "responsibility_registry": {
     "path": "config/architecture-responsibilities.json",
     "errors": []
   },
   "totals": {
-    "tracked_files": 164,
+    "tracked_files": 165,
     "javascript_files": 73,
     "import_edges": 290
   },
@@ -17,7 +17,7 @@
     "cli": 14,
     "composition_root": 9,
     "derived_artifact": 3,
-    "documentation": 19,
+    "documentation": 20,
     "domain": 13,
     "fixture": 37,
     "repository_support": 8,
@@ -99,6 +99,10 @@
     },
     {
       "path": "docs/adr/0002-rebuild-scope-and-requirements.md",
+      "responsibility": "documentation"
+    },
+    {
+      "path": "docs/adr/0003-rebuild-architecture-and-data-model.md",
       "responsibility": "documentation"
     },
     {
