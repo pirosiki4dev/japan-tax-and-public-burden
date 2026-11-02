@@ -27,10 +27,10 @@ test("validation workflow runs only for pull requests", async () => {
   assert.ok(workflow.jobs.validate.steps.some(({ run }) => run === "npm run generate:check"));
 });
 
-test("source scan workflow is fixed, scheduled, and manually runnable", async () => {
+test("source scan workflow is fixed, paused for the rebuild, and manually runnable", async () => {
   const workflow = parse(await readFile(new URL("../.github/workflows/source-scan.yml", import.meta.url), "utf8"));
   assert.ok(Object.hasOwn(workflow.on, "workflow_dispatch"));
-  assert.ok(Object.hasOwn(workflow.on, "schedule"));
+  assert.ok(!Object.hasOwn(workflow.on, "schedule"), "scheduled runs stay paused until the rebuild (#139) is resumed");
   assert.ok(!Object.hasOwn(workflow.on, "push"));
   assert.equal(workflow.permissions.contents, "read");
   assert.equal(workflow.jobs["update-pr"].permissions.contents, "write");
