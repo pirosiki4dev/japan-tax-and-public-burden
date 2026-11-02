@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sources.schema.json",
+  "title": "SourceRegistry",
+  "description": "巡回する公式サイトの一覧（config/sources.yaml）。巡回URLはこのファイルだけに置く。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sources"],
+  "properties": {
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    }
+  },
+  "$defs": {
+    "source": {
+      "title": "Source",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "name", "base_url", "rate_limit", "enabled"],
+      "properties": {
+        "source_id": { "$ref": "common.schema.json#/$defs/kebabId" },
+        "name": { "type": "string", "minLength": 1 },
+        "base_url": { "$ref": "common.schema.json#/$defs/sourceUrl" },
+        "rate_limit": { "type": "string", "minLength": 1 },
+        "enabled": { "type": "boolean" }
+      }
+    }
+  }
+}
