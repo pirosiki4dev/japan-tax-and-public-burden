@@ -1,9 +1,9 @@
 name: Scan official sources
 
+# Scheduled runs are paused during the full rebuild (#139).
+# Restore the weekly schedule only after the user decides to resume it.
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "23 18 * * 1"
 
 permissions:
   contents: read
