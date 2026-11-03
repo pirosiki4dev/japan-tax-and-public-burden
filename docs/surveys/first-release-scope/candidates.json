@@ -1,0 +1,5994 @@
+{
+  "survey_id": "first-release-scope",
+  "retrieved_at": "2026-11-03T03:22:26Z",
+  "base_url": "https://laws.e-gov.go.jp/api/2/",
+  "law_type": "Act",
+  "condition_results": [
+    {
+      "condition_id": "nt-category-national-tax",
+      "law_count": 62,
+      "excluded_repealed_count": 11
+    },
+    {
+      "condition_id": "nt-keyword-tax-liability",
+      "law_count": 29,
+      "excluded_repealed_count": 1
+    },
+    {
+      "condition_id": "nt-keyword-levy",
+      "law_count": 102,
+      "excluded_repealed_count": 1
+    },
+    {
+      "condition_id": "lt-category-local-finance",
+      "law_count": 30,
+      "excluded_repealed_count": 4
+    },
+    {
+      "condition_id": "si-category-social-insurance",
+      "law_count": 23,
+      "excluded_repealed_count": 0
+    },
+    {
+      "condition_id": "si-category-social-welfare",
+      "law_count": 77,
+      "excluded_repealed_count": 1
+    },
+    {
+      "condition_id": "si-category-labor",
+      "law_count": 58,
+      "excluded_repealed_count": 0
+    },
+    {
+      "condition_id": "si-keyword-premium-collection",
+      "law_count": 13,
+      "excluded_repealed_count": 0
+    },
+    {
+      "condition_id": "si-keyword-contribution-collection",
+      "law_count": 5,
+      "excluded_repealed_count": 1
+    },
+    {
+      "condition_id": "si-keyword-premium-payment-duty",
+      "law_count": 5,
+      "excluded_repealed_count": 0
+    },
+    {
+      "condition_id": "si-keyword-premium-rate",
+      "law_count": 111,
+      "excluded_repealed_count": 2
+    }
+  ],
+  "laws": [
+    {
+      "law_id": "129AC0000000089",
+      "law_title": "民法",
+      "law_num": "明治二十九年法律第八十九号",
+      "category": "民事",
+      "law_revision_id": "129AC0000000089_20260624_508AC0000000045",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "131AC0000000011",
+      "law_title": "民法施行法",
+      "law_num": "明治三十一年法律第十一号",
+      "category": "民事",
+      "law_revision_id": "131AC0000000011_20251001_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "131AC0000000014",
+      "law_title": "外国法人の登記及び夫婦財産契約の登記に関する法律",
+      "law_num": "明治三十一年法律第十四号",
+      "category": "民事",
+      "law_revision_id": "131AC0000000014_20230401_503AC0000000061",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "132AC0000000093",
+      "law_title": "行旅病人及行旅死亡人取扱法",
+      "law_num": "明治三十二年法律第九十三号",
+      "category": "社会福祉",
+      "law_revision_id": "132AC0000000093_20240401_505AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "138AC0000000052",
+      "law_title": "担保付社債信託法",
+      "law_num": "明治三十八年法律第五十二号",
+      "category": "民事",
+      "law_revision_id": "138AC0000000052_20251001_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "143AC0000000054",
+      "law_title": "関税定率法",
+      "law_num": "明治四十三年法律第五十四号",
+      "category": "国税",
+      "law_revision_id": "143AC0000000054_20260601_508AC0000000005",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "この法律は、関税の税率、関税を課する場合における課税標準及び関税の減免その他関税制度について定めるものとする。"
+        }
+      ]
+    },
+    {
+      "law_id": "211AC0000000070",
+      "law_title": "健康保険法",
+      "law_num": "大正十一年法律第七十号",
+      "category": "社会保険",
+      "law_revision_id": "211AC0000000070_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-payment-duty",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "付金、流行初期医療確保拠出金等並びに子ども・子育て支援納付金並びに健康保険組合においては、第百七十三条の規定による拠出金の納付に要する費用を含む。）に充てるため、保険料を徴収"
+        },
+        {
+          "condition_id": "si-keyword-premium-payment-duty",
+          "text": "事業主は、その使用する被保険者及び自己の負担する保険料を納付する義務を負う。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "介護保険法第九条第二号に規定する被保険者（以下「介護保険第二号被保険者」という。）である被保険者一般保険料等額（各被保険者の標準報酬月額及び標準賞与額にそれぞれ一般保険料率（"
+        }
+      ]
+    },
+    {
+      "law_id": "306AC0000000015",
+      "law_title": "抵当証券法",
+      "law_num": "昭和六年法律第十五号",
+      "category": "民事",
+      "law_revision_id": "306AC0000000015_20230401_503AC0000000024",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "306AC0000000042",
+      "law_title": "無尽業法",
+      "law_num": "昭和六年法律第四十二号",
+      "category": "金融・保険",
+      "law_revision_id": "306AC0000000042_20251001_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "308AC0000000021",
+      "law_title": "農村負債整理組合法",
+      "law_num": "昭和八年法律第二十一号",
+      "category": "農業",
+      "law_revision_id": "308AC0000000021_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "312AC0000000025",
+      "law_title": "森林保険法",
+      "law_num": "昭和十二年法律第二十五号",
+      "category": "林業",
+      "law_revision_id": "312AC0000000025_20170401_428AC0000000044",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "機構は、この法律に特別の定めがあるもののほか、森林保険の保険金額の標準、保険料率その他の引受けに関する条件（以下この条において「引受条件」という。）を定め、農林水産省令で定め"
+        }
+      ]
+    },
+    {
+      "law_id": "314AC0000000073",
+      "law_title": "船員保険法",
+      "law_num": "昭和十四年法律第七十三号",
+      "category": "社会保険",
+      "law_revision_id": "314AC0000000073_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-payment-duty",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "期医療確保拠出金等（第百二十一条第二項第二号において「流行初期医療確保拠出金等」という。）並びに子ども・子育て支援納付金の納付に要する費用を含む。）に充てるため、保険料を徴収"
+        },
+        {
+          "condition_id": "si-keyword-premium-payment-duty",
+          "text": "船舶所有者は、その使用する被保険者及び自己の負担する保険料を納付する義務を負う。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "介護保険法第九条第二号に規定する被保険者（以下「介護保険第二号被保険者」という。）である被保険者一般保険料等額（各被保険者の標準報酬月額及び標準賞与額にそれぞれ一般保険料率と"
+        }
+      ]
+    },
+    {
+      "law_id": "318AC0000000043",
+      "law_title": "金融機関の信託業務の兼営等に関する法律",
+      "law_num": "昭和十八年法律第四十三号",
+      "category": "金融・保険",
+      "law_revision_id": "318AC0000000043_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "321AC0000000007",
+      "law_title": "会社経理応急措置法",
+      "law_num": "昭和二十一年法律第七号",
+      "category": "産業通則",
+      "law_revision_id": "321AC0000000007_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "321AC0000000025",
+      "law_title": "労働関係調整法",
+      "law_num": "昭和二十一年法律第二十五号",
+      "category": "労働",
+      "law_revision_id": "321AC0000000025_20160401_426AC0000000069",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "321AC0000000039",
+      "law_title": "金融機関再建整備法",
+      "law_num": "昭和二十一年法律第三十九号",
+      "category": "産業通則",
+      "law_revision_id": "321AC0000000039_20080104_414AC0000000065",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "り入れる金額又は調整勘定から支出する金額は、法人税法（昭和四十年法律第三十四号）による各事業年度の所得の金額及び地方税法（昭和二十五年法律第二百二十六号）により事業税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "321AC0000000040",
+      "law_title": "企業再建整備法",
+      "law_num": "昭和二十一年法律第四十号",
+      "category": "産業通則",
+      "law_revision_id": "321AC0000000040_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "する金額又は第二会社が第三十四条の四第四項若しくは前条第二項の規定により積み立て、若しくは組み入れた金額は、法人税法による各事業年度の普通所得又は地方税法により事業税を課する"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "322AC0000000049",
+      "law_title": "労働基準法",
+      "law_num": "昭和二十二年法律第四十九号",
+      "category": "労働",
+      "law_revision_id": "322AC0000000049_20260717_508AC0000000060",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "322AC0000000050",
+      "law_title": "労働者災害補償保険法",
+      "law_num": "昭和二十二年法律第五十号",
+      "category": "労働",
+      "law_revision_id": "322AC0000000050_20260717_508AC0000000060",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "322AC0000000054",
+      "law_title": "昭和二十二年法律第五十四号（私的独占の禁止及び公正取引の確保に関する法律）",
+      "law_num": "昭和二十二年法律第五十四号",
+      "category": "産業通則",
+      "law_revision_id": "322AC0000000054_20260521_505AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "322AC0000000067",
+      "law_title": "地方自治法",
+      "law_num": "昭和二十二年法律第六十七号",
+      "category": "地方自治",
+      "law_revision_id": "322AC0000000067_20261102_508AC0000000062",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "が課するものの収入額と法人の行う事業に対する事業税の収入額（同法第七十二条の二十四の七第九項の規定により同条第一項から第五項までに規定する標準税率を超える税率で事業税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "322AC0000000109",
+      "law_title": "昭和二十二年法律第百九号（生命保険中央会及び損害保険中央会の保険業務に関する権利義務の承継等に関する法律）",
+      "law_num": "昭和二十二年法律第百九号",
+      "category": "金融・保険",
+      "law_revision_id": "322AC0000000109_20010106_411AC0000000160",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "法人税法による所得及び地方税法により営業税を課する場合における純益の計算については、協栄生命保険株式会社の旧戦争死亡傷害保険法による保険に関する業務に基く収入、生命保険におけ"
+        }
+      ]
+    },
+    {
+      "law_id": "322AC0000000120",
+      "law_title": "国家公務員法",
+      "law_num": "昭和二十二年法律第百二十号",
+      "category": "国家公務員",
+      "law_revision_id": "322AC0000000120_20261102_508AC0000000062",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "322AC0000000132",
+      "law_title": "農業協同組合法",
+      "law_num": "昭和二十二年法律第百三十二号",
+      "category": "農業",
+      "law_revision_id": "322AC0000000132_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "322AC0000000141",
+      "law_title": "職業安定法",
+      "law_num": "昭和二十二年法律第百四十一号",
+      "category": "労働",
+      "law_revision_id": "322AC0000000141_20260401_506AC0000000050",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "322AC0000000159",
+      "law_title": "昭和二十二年法律第百五十九号（赤十字の標章及び名称等の使用の制限に関する法律）",
+      "law_num": "昭和二十二年法律第百五十九号",
+      "category": "社会福祉",
+      "law_revision_id": "322AC0000000159_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "322AC0000000164",
+      "law_title": "児童福祉法",
+      "law_num": "昭和二十二年法律第百六十四号",
+      "category": "社会福祉",
+      "law_revision_id": "322AC0000000164_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "322AC0000000175",
+      "law_title": "昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律）",
+      "law_num": "昭和二十二年法律第百七十五号",
+      "category": "国税",
+      "law_revision_id": "322AC0000000175_20220101_503AC0000000011",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "322AC0000000185",
+      "law_title": "農業保険法",
+      "law_num": "昭和二十二年法律第百八十五号",
+      "category": "農業",
+      "law_revision_id": "322AC0000000185_20220401_502AC0000000008",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "前条第四項の規定により農林漁業信用基金が権利を承継する場合における当該承継に係る不動産の取得に対しては、不動産取得税を課することができない。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "国庫は、農業経営収入保険につき、被保険者の支払うべき保険料のうち、当該被保険者に係る保険金額に、当該被保険者に係る第百八十条第一項の基準保険料率を乗じて得た金額の二分の一に相"
+        }
+      ]
+    },
+    {
+      "law_id": "322IO0000000074",
+      "law_title": "閉鎖機関令",
+      "law_num": "昭和二十二年勅令第七十四号",
+      "category": "産業通則",
+      "law_revision_id": "322IO0000000074_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第七項の規定による納付金は、朝鮮銀行等に対し法人税法（昭和二十二年法律第二十八号）附則第五条の規定により法人税を課する場合の清算所得又は特別法人税法の一部を改正する等の法律（"
+        }
+      ]
+    },
+    {
+      "law_id": "323AC0000000025",
+      "law_title": "金融商品取引法",
+      "law_num": "昭和二十三年法律第二十五号",
+      "category": "金融・保険",
+      "law_revision_id": "323AC0000000025_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "323AC0000000109",
+      "law_title": "地方財政法",
+      "law_num": "昭和二十三年法律第百九号",
+      "category": "地方財政",
+      "law_revision_id": "323AC0000000109_20260603_508AC0000000027",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "323AC0000000129",
+      "law_title": "医療情報基盤・診療報酬審査支払機構法",
+      "law_num": "昭和二十三年法律第百二十九号",
+      "category": "社会保険",
+      "law_revision_id": "323AC0000000129_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "323AC0000000130",
+      "law_title": "船員職業安定法",
+      "law_num": "昭和二十三年法律第百三十号",
+      "category": "労働",
+      "law_revision_id": "323AC0000000130_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "323AC0000000144",
+      "law_title": "当せん金付証票法",
+      "law_num": "昭和二十三年法律第百四十四号",
+      "category": "地方財政",
+      "law_revision_id": "323AC0000000144_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "323AC0000000158",
+      "law_title": "競馬法",
+      "law_num": "昭和二十三年法律第百五十八号",
+      "category": "地方財政",
+      "law_revision_id": "323AC0000000158_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "323AC0000000193",
+      "law_title": "損害保険料率算出団体に関する法律",
+      "law_num": "昭和二十三年法律第百九十三号",
+      "category": "金融・保険",
+      "law_revision_id": "323AC0000000193_20220901_501AC0000000071",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "この法律は、損害保険における公正な保険料率の算出の基礎とし得る参考純率等を算出するために設立される損害保険料率算出団体について、その業務の適切な運営"
+        }
+      ]
+    },
+    {
+      "law_id": "323AC0000000198",
+      "law_title": "民生委員法",
+      "law_num": "昭和二十三年法律第百九十八号",
+      "category": "社会福祉",
+      "law_revision_id": "323AC0000000198_20230401_504AC0000000076",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "323AC0000000200",
+      "law_title": "消費生活協同組合法",
+      "law_num": "昭和二十三年法律第二百号",
+      "category": "商業",
+      "law_revision_id": "323AC0000000200_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "323AC0000000205",
+      "law_title": "医療法",
+      "law_num": "昭和二十三年法律第二百五号",
+      "category": "厚生",
+      "law_revision_id": "323AC0000000205_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "323AC0000000242",
+      "law_title": "水産業協同組合法",
+      "law_num": "昭和二十三年法律第二百四十二号",
+      "category": "水産業",
+      "law_revision_id": "323AC0000000242_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "323AC0000000257",
+      "law_title": "行政執行法人の労働関係に関する法律",
+      "law_num": "昭和二十三年法律第二百五十七号",
+      "category": "労働",
+      "law_revision_id": "323AC0000000257_20230401_503AC0000000061",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "323AC1000000209",
+      "law_title": "自転車競技法",
+      "law_num": "昭和二十三年法律第二百九号",
+      "category": "地方財政",
+      "law_revision_id": "323AC1000000209_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第一項の規定により競輪振興法人が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "323CO0000000298",
+      "law_title": "連合国財産上の家屋等の譲渡等に関する政令",
+      "law_num": "昭和二十三年政令第二百九十八号",
+      "category": "外事",
+      "law_revision_id": "323CO0000000298_20010106_411AC0000000160",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "地方公共団体は、第九条の規定による譲渡による連合国人の家屋等の取得については、地方税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "324AC0000000083",
+      "law_title": "公共企業体労働関係法の施行に関する法律",
+      "law_num": "昭和二十四年法律第八十三号",
+      "category": "労働",
+      "law_revision_id": "324AC0000000083_19520801_327AC0000000288",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "324AC0000000174",
+      "law_title": "労働組合法",
+      "law_num": "昭和二十四年法律第百七十四号",
+      "category": "労働",
+      "law_revision_id": "324AC0000000174_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "324AC0000000181",
+      "law_title": "中小企業等協同組合法",
+      "law_num": "昭和二十四年法律第百八十一号",
+      "category": "産業通則",
+      "law_revision_id": "324AC0000000181_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "324AC0000000182",
+      "law_title": "中小企業等協同組合法施行法",
+      "law_num": "昭和二十四年法律第百八十二号",
+      "category": "産業通則",
+      "law_revision_id": "324AC0000000182_19800609_355AC0000000079",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第四条又は第十一条から第十四条までの規定により財産を承継する場合においては、その移転に関しては、地方公共団体は、地方税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "324AC0000000183",
+      "law_title": "協同組合による金融事業に関する法律",
+      "law_num": "昭和二十四年法律第百八十三号",
+      "category": "産業通則",
+      "law_revision_id": "324AC0000000183_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "324AC1000000205",
+      "law_title": "弁護士法",
+      "law_num": "昭和二十四年法律第二百五号",
+      "category": "司法",
+      "law_revision_id": "324AC1000000205_20251001_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "324AC1000000283",
+      "law_title": "身体障害者福祉法",
+      "law_num": "昭和二十四年法律第二百八十三号",
+      "category": "社会福祉",
+      "law_revision_id": "324AC1000000283_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "324CO0000000310",
+      "law_title": "連合国財産である株式の回復に関する政令",
+      "law_num": "昭和二十四年政令第三百十号",
+      "category": "外事",
+      "law_revision_id": "324CO0000000310_20010106_411AC0000000160",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "この政令の規定に基く株式の移転又は取得については、地方公共団体は、地方税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC0000000047",
+      "law_title": "社会保険医療協議会法",
+      "law_num": "昭和二十五年法律第四十七号",
+      "category": "行政組織",
+      "law_revision_id": "325AC0000000047_20260605_508AC0000000031",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "から施行する。ただし、第一条中健康保険法第三条第一項の改正規定（同項の表に係る部分に限る。）、第二条中船員保険法第四条第一項の改正規定、同法第五十九条の改正規定（年金保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC0000000067",
+      "law_title": "貿易保険法",
+      "law_num": "昭和二十五年法律第六十七号",
+      "category": "外国為替・貿易",
+      "law_revision_id": "325AC0000000067_20260731_508AC0000000029",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "会社による前項各号の再保険の引受けに係る再保険料率は、第一項の業務の健全な運営に支障を生ずることのないように定めなければならない。"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC0000000073",
+      "law_title": "相続税法",
+      "law_num": "昭和二十五年法律第七十三号",
+      "category": "国税",
+      "law_revision_id": "325AC0000000073_20260401_506AC0000000008",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "次の各号のいずれかに掲げる者は、この法律により、相続税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第一条の三第一項第一号又は第二号の規定に該当する者については、その者が相続又は遺贈により取得した財産の全部に対し、相続税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC0000000110",
+      "law_title": "資産再評価法",
+      "law_num": "昭和二十五年法律第百十号",
+      "category": "国税",
+      "law_revision_id": "325AC0000000110_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-tax-liability",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "価を行つたものとみなされた者及び第八条第二項又は第九条の規定により再評価が行われたものとみなされた資産を基準日において有していた者は、この法律により再評価税を納める義務がある"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "損害保険料率算出団体及び家畜登録協会"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC0000000144",
+      "law_title": "生活保護法",
+      "law_num": "昭和二十五年法律第百四十四号",
+      "category": "社会福祉",
+      "law_revision_id": "325AC0000000144_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "325AC0000000177",
+      "law_title": "船主相互保険組合法",
+      "law_num": "昭和二十五年法律第百七十七号",
+      "category": "海運",
+      "law_revision_id": "325AC0000000177_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC0000000211",
+      "law_title": "地方交付税法",
+      "law_num": "昭和二十五年法律第二百十一号",
+      "category": "地方財政",
+      "law_revision_id": "325AC0000000211_20261102_508AC0000000062",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "における地方税法第三百四十九条の四に規定する大規模の償却資産又は同法第三百四十九条の五に規定する新設大規模償却資産で同法第七百四十条の規定により当該道府県が固定資産税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC0000000226",
+      "law_title": "地方税法",
+      "law_num": "昭和二十五年法律第二百二十六号",
+      "category": "地方財政",
+      "law_revision_id": "325AC0000000226_20261101_508AC0000000002",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance",
+        "nt-keyword-levy",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "を行う場合（当該国際競技大会のゴルフ競技の準備及び運営を行う者がその旨を証明する場合に限る。）のゴルフ場の利用に対しては、第七十五条の規定にかかわらず、ゴルフ場利用税を課する"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "損害保険料率算出団体、地方競馬全国協会、高圧ガス保安協会、日本電気計器検定所、危険物保安技術協会、日本消防検定協会、軽自動車検査協会、小型船舶検査機構、外国人技能実習機構、日"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC0000000239",
+      "law_title": "商品先物取引法",
+      "law_num": "昭和二十五年法律第二百三十九号",
+      "category": "商業",
+      "law_revision_id": "325AC0000000239_20260101_506AC0000000056",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC0000000256",
+      "law_title": "旧令による共済組合等からの年金受給者のための特別措置法",
+      "law_num": "昭和二十五年法律第二百五十六号",
+      "category": "地方財政",
+      "law_revision_id": "325AC0000000256_20220401_502AC0000000040",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "325AC0000000261",
+      "law_title": "地方公務員法",
+      "law_num": "昭和二十五年法律第二百六十一号",
+      "category": "地方自治",
+      "law_revision_id": "325AC0000000261_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC1000000197",
+      "law_title": "司法書士法",
+      "law_num": "昭和二十五年法律第百九十七号",
+      "category": "司法",
+      "law_revision_id": "325AC1000000197_20260521_505AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC1000000208",
+      "law_title": "小型自動車競走法",
+      "law_num": "昭和二十五年法律第二百八号",
+      "category": "地方財政",
+      "law_revision_id": "325AC1000000208_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第一項の規定により小型自動車競走振興法人が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "325AC1000000228",
+      "law_title": "土地家屋調査士法",
+      "law_num": "昭和二十五年法律第二百二十八号",
+      "category": "民事",
+      "law_revision_id": "325AC1000000228_20260521_505AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "326AC0000000045",
+      "law_title": "社会福祉法",
+      "law_num": "昭和二十六年法律第四十五号",
+      "category": "社会福祉",
+      "law_revision_id": "326AC0000000045_20260625_508AC0000000051",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "326AC0000000126",
+      "law_title": "宗教法人法",
+      "law_num": "昭和二十六年法律第百二十六号",
+      "category": "文化",
+      "law_revision_id": "326AC0000000126_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "326AC0000000264",
+      "law_title": "連合国財産補償法",
+      "law_num": "昭和二十六年法律第二百六十四号",
+      "category": "外事",
+      "law_revision_id": "326AC0000000264_20160401_426AC0000000069",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "この法律により連合国人が受領する補償金には、租税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "326AC0100000198",
+      "law_title": "投資信託及び投資法人に関する法律",
+      "law_num": "昭和二十六年法律第百九十八号",
+      "category": "金融・保険",
+      "law_revision_id": "326AC0100000198_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "326AC1000000004",
+      "law_title": "行政書士法",
+      "law_num": "昭和二十六年法律第四号",
+      "category": "行政手続",
+      "law_revision_id": "326AC1000000004_20260521_505AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "326AC1000000145",
+      "law_title": "納税貯蓄組合法",
+      "law_num": "昭和二十六年法律第百四十五号",
+      "category": "国税",
+      "law_revision_id": "326AC1000000145_20211122_503AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "326AC1000000237",
+      "law_title": "税理士法",
+      "law_num": "昭和二十六年法律第二百三十七号",
+      "category": "国税",
+      "law_revision_id": "326AC1000000237_20251001_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "都道府県は、新税理士会又は日本税理士会連合会が旧税理士会又は税理士会連合会から不動産を取得する場合における当該不動産の取得に対しては、不動産取得税を課することができない。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "326AC1000000238",
+      "law_title": "信用金庫法",
+      "law_num": "昭和二十六年法律第二百三十八号",
+      "category": "金融・保険",
+      "law_revision_id": "326AC1000000238_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "326AC1000000242",
+      "law_title": "モーターボート競走法",
+      "law_num": "昭和二十六年法律第二百四十二号",
+      "category": "地方財政",
+      "law_revision_id": "326AC1000000242_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "前条第一項の規定により指定法人が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "326CO0000000006",
+      "law_title": "連合国財産の返還等に関する政令",
+      "law_num": "昭和二十六年政令第六号",
+      "category": "外事",
+      "law_revision_id": "326CO0000000006_20010106_411AC0000000160",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "一項第二号の措置、同項第三号若しくは第五号の命令に係る措置又は同条第四項、第十四条第二項、第十六条第一項若しくは第十八条第二項の規定による財産の移転については、地方税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "327AC0000000111",
+      "law_title": "日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律",
+      "law_num": "昭和二十七年法律第百十一号",
+      "category": "国税",
+      "law_revision_id": "327AC0000000111_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "327AC0000000112",
+      "law_title": "日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律",
+      "law_num": "昭和二十七年法律第百十二号",
+      "category": "国税",
+      "law_revision_id": "327AC0000000112_20190317_429AC0000000013",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "対して有する割合をとん税法第三条第一号及び特別とん税法第三条第一号に規定する税率により算出した当該船舶のとん税及び特別とん税相当額に乗じて得た額のとん税及び特別とん税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "327AC0000000113",
+      "law_title": "日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う国税通則法等の臨時特例に関する法律",
+      "law_num": "昭和二十七年法律第百十三号",
+      "category": "国税",
+      "law_revision_id": "327AC0000000113_20260401_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "327AC0000000119",
+      "law_title": "日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律",
+      "law_num": "昭和二十七年法律第百十九号",
+      "category": "地方財政",
+      "law_revision_id": "327AC0000000119_20260401_508AC0000000002",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "合衆国軍隊の所有する自動車又は軽自動車等のうち、専ら合衆国軍隊以外のものが使用するものについては、前条の規定にかかわらず、その使用者に対して、自動車税又は軽自動車税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "327AC0000000127",
+      "law_title": "戦傷病者戦没者遺族等援護法",
+      "law_num": "昭和二十七年法律第百二十七号",
+      "category": "社会福祉",
+      "law_revision_id": "327AC0000000127_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "327AC0000000187",
+      "law_title": "長期信用銀行法",
+      "law_num": "昭和二十七年法律第百八十七号",
+      "category": "金融・保険",
+      "law_revision_id": "327AC0000000187_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "327AC0000000195",
+      "law_title": "貸付信託法",
+      "law_num": "昭和二十七年法律第百九十五号",
+      "category": "金融・保険",
+      "law_revision_id": "327AC0000000195_20150501_426AC0000000091",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "327AC0000000289",
+      "law_title": "地方公営企業等の労働関係に関する法律",
+      "law_num": "昭和二十七年法律第二百八十九号",
+      "category": "労働",
+      "law_revision_id": "327AC0000000289_20160401_426AC0000000069",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "327AC0000000299",
+      "law_title": "輸出入取引法",
+      "law_num": "昭和二十七年法律第二百九十九号",
+      "category": "外国為替・貿易",
+      "law_revision_id": "327AC0000000299_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "327AC0000000346",
+      "law_title": "中小漁業融資保証法",
+      "law_num": "昭和二十七年法律第三百四十六号",
+      "category": "水産業",
+      "law_revision_id": "327AC0000000346_20220401_503AC0000000044",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "327AC1000000028",
+      "law_title": "漁船損害等補償法",
+      "law_num": "昭和二十七年法律第二十八号",
+      "category": "水産業",
+      "law_revision_id": "327AC1000000028_20220901_501AC0000000071",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "（再保険料率）"
+        }
+      ]
+    },
+    {
+      "law_id": "327AC1000000305",
+      "law_title": "日本赤十字社法",
+      "law_num": "昭和二十七年法律第三百五号",
+      "category": "社会福祉",
+      "law_revision_id": "327AC1000000305_20131001_425AC0000000054",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "328AC0000000006",
+      "law_title": "酒税法",
+      "law_num": "昭和二十八年法律第六号",
+      "category": "国税",
+      "law_revision_id": "328AC0000000006_20260525_506AC0000000052",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "酒類の製造者は、その製造場から移出した酒類につき、酒税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "、その合計数量）が千八百リットル以上であるときは、当該酒類については、その者が酒類の製造者として当該酒類を指定日にその者の酒類の製造場から移出したものとみなして、酒税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "328AC0000000007",
+      "law_title": "酒税の保全及び酒類業組合等に関する法律",
+      "law_num": "昭和二十八年法律第七号",
+      "category": "国税",
+      "law_revision_id": "328AC0000000007_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "328AC0000000161",
+      "law_title": "未帰還者留守家族等援護法",
+      "law_num": "昭和二十八年法律第百六十一号",
+      "category": "社会福祉",
+      "law_revision_id": "328AC0000000161_20010106_411AC0000000160",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "328AC0000000171",
+      "law_title": "電気事業及び石炭鉱業における争議行為の方法の規制に関する法律",
+      "law_num": "昭和二十八年法律第百七十一号",
+      "category": "労働",
+      "law_revision_id": "328AC0000000171_20160401_426AC0000000072",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "328AC0000000196",
+      "law_title": "信用保証協会法",
+      "law_num": "昭和二十八年法律第百九十六号",
+      "category": "産業通則",
+      "law_revision_id": "328AC0000000196_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "328AC0000000206",
+      "law_title": "社会保険審査官及び社会保険審査会法",
+      "law_num": "昭和二十八年法律第二百六号",
+      "category": "社会保険",
+      "law_revision_id": "328AC0000000206_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "328AC0000000245",
+      "law_title": "私立学校教職員共済法",
+      "law_num": "昭和二十八年法律第二百四十五号",
+      "category": "教育",
+      "law_revision_id": "328AC0000000245_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-contribution-collection",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-contribution-collection",
+          "text": "前項の規定により介護納付金に係る掛金を徴収することとした場合においては、第二十五条の表第百二十六条の五第二項の項下欄中「にあつては介護納付金」とあるのは「及び介護保険第二号被"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "から施行する。ただし、第一条中健康保険法第三条第一項の改正規定（同項の表に係る部分に限る。）、第二条中船員保険法第四条第一項の改正規定、同法第五十九条の改正規定（年金保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "328AC0100000227",
+      "law_title": "労働金庫法",
+      "law_num": "昭和二十八年法律第二百二十七号",
+      "category": "金融・保険",
+      "law_revision_id": "328AC0100000227_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "329AC0000000061",
+      "law_title": "関税法",
+      "law_num": "昭和二十九年法律第六十一号",
+      "category": "国税",
+      "law_revision_id": "329AC0000000061_20260601_508AC0000000005",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "関税は、この法律又は関税定率法その他関税に関する法律に別段の規定がある場合を除く外、貨物を輸入する者が、これを納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "輸入貨物（信書を除く。）には、この法律及び関税定率法その他関税に関する法律により、関税を課する。ただし、条約中に関税について特別の規定があるときは、当該規定による。"
+        }
+      ]
+    },
+    {
+      "law_id": "329AC0000000110",
+      "law_title": "株式会社以外の法人の再評価積立金の資本組入に関する法律",
+      "law_num": "昭和二十九年法律第百十号",
+      "category": "国税",
+      "law_revision_id": "329AC0000000110_20060501_417AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "329AC0000000112",
+      "law_title": "日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律",
+      "law_num": "昭和二十九年法律第百十二号",
+      "category": "国税",
+      "law_revision_id": "329AC0000000112_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "329AC0000000115",
+      "law_title": "厚生年金保険法",
+      "law_num": "昭和二十九年法律第百十五号",
+      "category": "社会保険",
+      "law_revision_id": "329AC0000000115_20261001_507AC0000000074",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-category-social-insurance",
+        "si-keyword-contribution-collection",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-payment-duty",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第四項の規定により連合会が権利を承継する場合における当該承継に係る不動産の取得に対しては、不動産取得税を課することができない。"
+        },
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "保険料を徴収する権利が時効によつて消滅したときは、当該保険料に係る被保険者であつた期間に基づく保険給付は、行わない。ただし、当該被保険者であつた期間に係る被保険者の資格の取得"
+        },
+        {
+          "condition_id": "si-keyword-contribution-collection",
+          "text": "る改正後の昭和六十年国民年金等改正法（以下この条において「新法」という。）附則第八条第十一項及び第四十八条第七項の規定は、旧農林共済組合員期間につき旧農林共済組合の掛金を徴収"
+        },
+        {
+          "condition_id": "si-keyword-premium-payment-duty",
+          "text": "事業主は、その使用する被保険者及び自己の負担する保険料を納付する義務を負う。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "イに掲げる率をロに掲げる率で除して得た率〇・九一〇から当該年度の初日の属する年の三年前の年の九月一日におけるこの法律の規定による保険料率（以下「保険料率</spa"
+        }
+      ]
+    },
+    {
+      "law_id": "329AC0000000149",
+      "law_title": "日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律",
+      "law_num": "昭和二十九年法律第百四十九号",
+      "category": "国税",
+      "law_revision_id": "329AC0000000149_20190107_430AC0000000016",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "329AC0000000188",
+      "law_title": "日本国における国際連合の軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律",
+      "law_num": "昭和二十九年法律第百八十八号",
+      "category": "地方財政",
+      "law_revision_id": "329AC0000000188_20260401_508AC0000000002",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "329AC0000000194",
+      "law_title": "遺産、相続及び贈与に対する租税に関する二重課税の回避及び脱税の防止のための日本国とアメリカ合衆国との間の条約の実施に伴う相続税法の特例等に関する法律",
+      "law_num": "昭和二十九年法律第百九十四号",
+      "category": "国税",
+      "law_revision_id": "329AC0000000194_20010106_411AC0000000160",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "329AC0000000205",
+      "law_title": "日本中央競馬会法",
+      "law_num": "昭和二十九年法律第二百五号",
+      "category": "地方財政",
+      "law_revision_id": "329AC0000000205_20260910_508AC0000000011",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "329AC1000000189",
+      "law_title": "奄美群島振興開発特別措置法",
+      "law_num": "昭和二十九年法律第百八十九号",
+      "category": "国土開発",
+      "law_revision_id": "329AC1000000189_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第六条第一項の規定により基金が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "330AC0000000037",
+      "law_title": "輸入品に対する内国消費税の徴収等に関する法律",
+      "law_num": "昭和三十年法律第三十七号",
+      "category": "国税",
+      "law_revision_id": "330AC0000000037_20260401_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "保税地域からの引取りに係る課税物品に内国消費税を課する場合の基礎となる課税物品の性質及び数量は、当該物品に関税を課する場合（関税定率法その他の法律の"
+        }
+      ]
+    },
+    {
+      "law_id": "330AC0000000097",
+      "law_title": "自動車損害賠償保障法",
+      "law_num": "昭和三十年法律第九十七号",
+      "category": "陸運",
+      "law_revision_id": "330AC0000000097_20260401_508AC0000000002",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "（保険料率及び共済掛金率の基準）"
+        }
+      ]
+    },
+    {
+      "law_id": "330AC0000000104",
+      "law_title": "地方揮発油税法",
+      "law_num": "昭和三十年法律第百四号",
+      "category": "国税",
+      "law_revision_id": "330AC0000000104_20260401_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "項の規定の適用がある場合には、その現存する揮発油とし、同法第十六条の三第七項の規定の適用がある場合には、その譲り渡される揮発油とする。）につき、地方揮発油税を納める義務がある"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "都道府県及び市町村（特別区を含む。）に対し財源を譲与するため、揮発油には、この法律により、地方揮発油税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "330AC0000000113",
+      "law_title": "地方揮発油譲与税法",
+      "law_num": "昭和三十年法律第百十三号",
+      "category": "地方財政",
+      "law_revision_id": "330AC0000000113_20190401_431AC0000000002",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "331AC0000000082",
+      "law_title": "国有資産等所在市町村交付金法",
+      "law_num": "昭和三十一年法律第八十二号",
+      "category": "地方財政",
+      "law_revision_id": "331AC0000000082_20240401_506AC0000000004",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "される旧交納付金法第四条第三項の規定」と、「以外の者」とあるのは「以外の者（昭和五十五年度以後の各年度に係る当該多目的ダムに係る市町村交付金については、当該固定資産税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "331AC0000000126",
+      "law_title": "労働保険審査官及び労働保険審査会法",
+      "law_num": "昭和三十一年法律第百二十六号",
+      "category": "労働",
+      "law_revision_id": "331AC0000000126_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "332AC0000000026",
+      "law_title": "租税特別措置法",
+      "law_num": "昭和三十二年法律第二十六号",
+      "category": "国税",
+      "law_revision_id": "332AC0000000026_20261101_507AC0000000013",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "て「国外公社債等の利子等」という。）につき、国内における支払の取扱者を通じてその交付を受ける場合には、その支払を受けるべき国外公社債等の利子等について所得税を納める義務がある"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "いう。）については、同法第二十二条及び第八十九条並びに第百六十五条の規定にかかわらず、他の所得と区分し、その支払を受けるべき金額に対し百分の十五の税率を適用して所得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "332AC0000000037",
+      "law_title": "とん税法",
+      "law_num": "昭和三十二年法律第三十七号",
+      "category": "国税",
+      "law_revision_id": "332AC0000000037_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "外国貿易船の開港への入港には、この法律により、とん税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "332AC0000000038",
+      "law_title": "特別とん税法",
+      "law_num": "昭和三十二年法律第三十八号",
+      "category": "国税",
+      "law_revision_id": "332AC0000000038_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "別に法律で定めるところにより地方公共団体に財源を譲与するため、外国貿易船の開港への入港には、この法律により、特別とん税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "332AC0000000055",
+      "law_title": "揮発油税法",
+      "law_num": "昭和三十二年法律第五十五号",
+      "category": "国税",
+      "law_revision_id": "332AC0000000055_20260525_506AC0000000052",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "揮発油の製造者は、その製造場から移出した揮発油につき、揮発油税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "揮発油には、この法律により、揮発油税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "332AC0000000077",
+      "law_title": "特別とん譲与税法",
+      "law_num": "昭和三十二年法律第七十七号",
+      "category": "地方財政",
+      "law_revision_id": "332AC0000000077_20010106_411AC0000000160",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "332AC0000000094",
+      "law_title": "滞納処分と強制執行等との手続の調整に関する法律",
+      "law_num": "昭和三十二年法律第九十四号",
+      "category": "国税",
+      "law_revision_id": "332AC0000000094_20230614_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "332AC0000000104",
+      "law_title": "国有提供施設等所在市町村助成交付金に関する法律",
+      "law_num": "昭和三十二年法律第百四号",
+      "category": "地方財政",
+      "law_revision_id": "332AC0000000104_20050401_417AC0000000005",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "332AC0000000109",
+      "law_title": "引揚者給付金等支給法",
+      "law_num": "昭和三十二年法律第百九号",
+      "category": "社会福祉",
+      "law_revision_id": "332AC0000000109_20200401_429AC0000000045",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "332AC0000000185",
+      "law_title": "中小企業団体の組織に関する法律",
+      "law_num": "昭和三十二年法律第百八十五号",
+      "category": "産業通則",
+      "law_revision_id": "332AC0000000185_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "333AC0000000128",
+      "law_title": "国家公務員共済組合法",
+      "law_num": "昭和三十三年法律第百二十八号",
+      "category": "国家公務員",
+      "law_revision_id": "333AC0000000128_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-keyword-contribution-collection",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "こととなつたことに伴い連合会が連合会非加入組合の権利を承継する場合における当該承継に係る不動産の取得に対しては、不動産取得税又は土地の取得に対して課する特別土地保有税を課する"
+        },
+        {
+          "condition_id": "si-keyword-contribution-collection",
+          "text": "掛金を徴収し、又はその還付を受ける権利は、これらを行使することができる時から二年間行使しないときは、時効によつて消滅する。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "から施行する。ただし、第一条中健康保険法第三条第一項の改正規定（同項の表に係る部分に限る。）、第二条中船員保険法第四条第一項の改正規定、同法第五十九条の改正規定（年金保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "333AC0000000192",
+      "law_title": "国民健康保険法",
+      "law_num": "昭和三十三年法律第百九十二号",
+      "category": "社会保険",
+      "law_revision_id": "333AC0000000192_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-category-social-insurance",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "てるため、被保険者の属する世帯の世帯主（当該市町村の区域内に住所を有する世帯主に限る。）から保険料を徴収しなければならない。ただし、地方税法の規定により国民健康保険税を課する"
+        },
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "化基金拠出金の納付に要する費用その他の国民健康保険事業に要する費用に充てるため、被保険者の属する世帯の世帯主（当該市町村の区域内に住所を有する世帯主に限る。）から保険料を徴収"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "前項に規定する場合において、都道府県は、厚生労働省令で定めるところにより、遅滞なく、標準保険料率を公表するよう努めるものとする。"
+        }
+      ]
+    },
+    {
+      "law_id": "333AC0000000193",
+      "law_title": "国民健康保険法施行法",
+      "law_num": "昭和三十三年法律第百九十三号",
+      "category": "社会保険",
+      "law_revision_id": "333AC0000000193_19630331_338AC0000000062",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "333AC1000000158",
+      "law_title": "駐留軍関係離職者等臨時措置法",
+      "law_num": "昭和三十三年法律第百五十八号",
+      "category": "労働",
+      "law_revision_id": "333AC1000000158_20230331_505AC0000000008",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "334AC0000000137",
+      "law_title": "最低賃金法",
+      "law_num": "昭和三十四年法律第百三十七号",
+      "category": "労働",
+      "law_revision_id": "334AC0000000137_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "334AC0000000141",
+      "law_title": "国民年金法",
+      "law_num": "昭和三十四年法律第百四十一号",
+      "category": "社会保険",
+      "law_revision_id": "334AC0000000141_20261001_507AC0000000074",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance",
+        "si-keyword-contribution-collection",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "政府は、国民年金事業に要する費用に充てるため、保険料を徴収する。"
+        },
+        {
+          "condition_id": "si-keyword-contribution-collection",
+          "text": "基金は、基金が支給する年金及び一時金に関する事業に要する費用に充てるため、掛金を徴収する。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "イに掲げる率をロに掲げる率で除して得た率〇・九一〇から当該年度の初日の属する年の三年前の年の九月一日における厚生年金保険法の規定による保険料率（以下「保険料率</"
+        }
+      ]
+    },
+    {
+      "law_id": "334AC0000000147",
+      "law_title": "国税徴収法",
+      "law_num": "昭和三十四年法律第百四十七号",
+      "category": "国税",
+      "law_revision_id": "334AC0000000147_20260525_506AC0000000052",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "納税者国税に関する法律の規定により国税（国税通則法（昭和三十七年法律第六十六号）第二条第二号（定義）に規定する源泉徴収等による国税を除く。）を納める義務がある者及び当該源泉徴"
+        }
+      ]
+    },
+    {
+      "law_id": "334AC0000000160",
+      "law_title": "中小企業退職金共済法",
+      "law_num": "昭和三十四年法律第百六十号",
+      "category": "労働",
+      "law_revision_id": "334AC0000000160_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-category-labor"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "規定により新組合が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税若しくは土地の取得に対して課する特別土地保有税又は自動車取得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "334AC1000000007",
+      "law_title": "未帰還者に関する特別措置法",
+      "law_num": "昭和三十四年法律第七号",
+      "category": "社会福祉",
+      "law_revision_id": "334AC1000000007_20200401_429AC0000000045",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "335AC0000000030",
+      "law_title": "じん肺法",
+      "law_num": "昭和三十五年法律第三十号",
+      "category": "労働",
+      "law_revision_id": "335AC0000000030_20200401_429AC0000000045",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "335AC0000000036",
+      "law_title": "関税暫定措置法",
+      "law_num": "昭和三十五年法律第三十六号",
+      "category": "国税",
+      "law_revision_id": "335AC0000000036_20260401_508AC0000000005",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "平成七年度から令和八年度までの各年度において、別表第一の七に掲げる物品のうち、課税価格（数量を課税標準として関税を課する物品にあつては、関税定率法第四条から第四条の九までの規"
+        }
+      ]
+    },
+    {
+      "law_id": "335AC0000000037",
+      "law_title": "知的障害者福祉法",
+      "law_num": "昭和三十五年法律第三十七号",
+      "category": "社会福祉",
+      "law_revision_id": "335AC0000000037_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "335AC0000000123",
+      "law_title": "障害者の雇用の促進等に関する法律",
+      "law_num": "昭和三十五年法律第百二十三号",
+      "category": "労働",
+      "law_revision_id": "335AC0000000123_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-category-labor"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "前条の規定により新協会が権利を承継する場合における当該承継に係る不動産の取得に対しては、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "336AC0000000081",
+      "law_title": "技術研究組合法",
+      "law_num": "昭和三十六年法律第八十一号",
+      "category": "鉱業",
+      "law_revision_id": "336AC0000000081_20251001_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "336AC0000000112",
+      "law_title": "後進地域の開発に関する公共事業に係る国の負担割合の特例に関する法律",
+      "law_num": "昭和三十六年法律第百十二号",
+      "category": "地方財政",
+      "law_revision_id": "336AC0000000112_20070530_419AC0000000061",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "336AC0000000155",
+      "law_title": "社会福祉施設職員等退職手当共済法",
+      "law_num": "昭和三十六年法律第百五十五号",
+      "category": "社会福祉",
+      "law_revision_id": "336AC0000000155_20251001_504AC0000000104",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "336AC0000000204",
+      "law_title": "農業信用保証保険法",
+      "law_num": "昭和三十六年法律第二百四号",
+      "category": "農業",
+      "law_revision_id": "336AC0000000204_20210901_503AC0000000037",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "336AC0000000238",
+      "law_title": "児童扶養手当法",
+      "law_num": "昭和三十六年法律第二百三十八号",
+      "category": "社会福祉",
+      "law_revision_id": "336AC0000000238_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "337AC0000000066",
+      "law_title": "国税通則法",
+      "law_num": "昭和三十七年法律第六十六号",
+      "category": "国税",
+      "law_revision_id": "337AC0000000066_20261101_507AC0000000013",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "納税者国税に関する法律の規定により国税（源泉徴収等による国税を除く。）を納める義務がある者（国税徴収法（昭和三十四年法律第百四十七号）に規定する第二次納税義務者及び国税の保証"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "る国税についての調査があつたことにより当該国税について更正があるべきことを予知してされたものでないときは、百分の五の割合）を乗じて計算した金額に相当する過少申告加算税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "337AC0000000088",
+      "law_title": "辺地に係る公共的施設の総合整備のための財政上の特別措置等に関する法律",
+      "law_num": "昭和三十七年法律第八十八号",
+      "category": "地方財政",
+      "law_revision_id": "337AC0000000088_20160401_427AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "337AC0000000144",
+      "law_title": "外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律",
+      "law_num": "昭和三十七年法律第百四十四号",
+      "category": "国税",
+      "law_revision_id": "337AC0000000144_20260401_508AC0000000002",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "項第三号の規定により読み替えられた同法第七十二条から第八十七条までの規定の適用がある場合には、その適用後の金額）に百分の十五の税率を乗じて計算した金額に相当する所得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "337AC0000000152",
+      "law_title": "地方公務員等共済組合法",
+      "law_num": "昭和三十七年法律第百五十二号",
+      "category": "地方自治",
+      "law_revision_id": "337AC0000000152_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第八条第一項の規定により地方職員共済組合が権利を承継する場合における当該承継に係る不動産の取得に対しては、不動産取得税を課することができない。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "から施行する。ただし、第一条中健康保険法第三条第一項の改正規定（同項の表に係る部分に限る。）、第二条中船員保険法第四条第一項の改正規定、同法第五十九条の改正規定（年金保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "338AC0000000061",
+      "law_title": "戦没者等の妻に対する特別給付金支給法",
+      "law_num": "昭和三十八年法律第六十一号",
+      "category": "社会福祉",
+      "law_revision_id": "338AC0000000061_20230401_505AC0000000009",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "338AC0000000125",
+      "law_title": "商業登記法",
+      "law_num": "昭和三十八年法律第百二十五号",
+      "category": "民事",
+      "law_revision_id": "338AC0000000125_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "338AC0000000133",
+      "law_title": "老人福祉法",
+      "law_num": "昭和三十八年法律第百三十三号",
+      "category": "社会福祉",
+      "law_revision_id": "338AC0000000133_20260625_508AC0000000051",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "338AC1000000168",
+      "law_title": "戦傷病者特別援護法",
+      "law_num": "昭和三十八年法律第百六十八号",
+      "category": "社会福祉",
+      "law_revision_id": "338AC1000000168_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "339AC0000000101",
+      "law_title": "自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律",
+      "law_num": "昭和三十九年法律第百一号",
+      "category": "国税",
+      "law_revision_id": "339AC0000000101_20010106_411AC0000000160",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "339AC0000000118",
+      "law_title": "労働災害防止団体法",
+      "law_num": "昭和三十九年法律第百十八号",
+      "category": "労働",
+      "law_revision_id": "339AC0000000118_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "339AC0000000129",
+      "law_title": "母子及び父子並びに寡婦福祉法",
+      "law_num": "昭和三十九年法律第百二十九号",
+      "category": "社会福祉",
+      "law_revision_id": "339AC0000000129_20260401_507AC0000000029",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "339AC0000000134",
+      "law_title": "特別児童扶養手当等の支給に関する法律",
+      "law_num": "昭和三十九年法律第百三十四号",
+      "category": "社会福祉",
+      "law_revision_id": "339AC0000000134_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "340AC0000000033",
+      "law_title": "所得税法",
+      "law_num": "昭和四十年法律第三十三号",
+      "category": "国税",
+      "law_revision_id": "340AC0000000033_20261001_507AC0000000070",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "居住者は、この法律により、所得税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "において非永住者以外の居住者、非永住者又は当該各号に掲げる非居住者であつた期間に応じ、それぞれの期間内に生じた前条第一項第一号から第三号までに掲げる所得に対し、所得税を課する"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "進に関する法律（昭和四十二年法律第六十一号）全国健康保険協会健康保険法全国市町村職員共済組合連合会地方公務員等共済組合法全国社会保険労務士会連合会社会保険労務士法損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "340AC0000000034",
+      "law_title": "法人税法",
+      "law_num": "昭和四十年法律第三十四号",
+      "category": "国税",
+      "law_revision_id": "340AC0000000034_20261001_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "内国法人は、この法律により、法人税を納める義務がある。ただし、公益法人等又は人格のない社団等については、収益事業を行う場合、法人課税信託の引受けを行う場合、特定多国籍企業グル"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "内国法人に対しては、各事業年度の所得について、各事業年度の所得に対する法人税を課する。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "進に関する法律（昭和四十二年法律第六十一号）全国健康保険協会健康保険法全国市町村職員共済組合連合会地方公務員等共済組合法全国社会保険労務士会連合会社会保険労務士法損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "340AC0000000100",
+      "law_title": "戦没者等の遺族に対する特別弔慰金支給法",
+      "law_num": "昭和四十年法律第百号",
+      "category": "社会福祉",
+      "law_revision_id": "340AC0000000100_20250401_507AC0000000018",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "340AC0000000124",
+      "law_title": "地方住宅供給公社法",
+      "law_num": "昭和四十年法律第百二十四号",
+      "category": "建築・住宅",
+      "law_revision_id": "340AC0000000124_20260903_508AC0000000027",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "地方公社が、設立の際、直接その本来の業務の用に供する不動産を出資の目的として取得したときは、その取得については、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "340AC0000000141",
+      "law_title": "母子保健法",
+      "law_num": "昭和四十年法律第百四十一号",
+      "category": "社会福祉",
+      "law_revision_id": "340AC0000000141_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "340AC0000000156",
+      "law_title": "石油ガス税法",
+      "law_num": "昭和四十年法律第百五十六号",
+      "category": "国税",
+      "law_revision_id": "340AC0000000156_20260525_506AC0000000052",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "石油ガスを自動車用の石油ガス容器に充てんする者（以下「石油ガスの充てん者」という。）は、その石油ガスの充てん場から移出された課税石油ガスにつき、石油ガス税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "自動車用の石油ガス容器に充てんされている石油ガス（以下「課税石油ガス」という。）には、この法律により、石油ガス税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "340AC0000000157",
+      "law_title": "石油ガス譲与税法",
+      "law_num": "昭和四十年法律第百五十七号",
+      "category": "地方財政",
+      "law_revision_id": "340AC0000000157_20090401_421AC0000000009",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "341AC0000000020",
+      "law_title": "都市開発資金の貸付けに関する法律",
+      "law_num": "昭和四十一年法律第二十号",
+      "category": "地方財政",
+      "law_revision_id": "341AC0000000020_20260527_508AC0000000023",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "341AC0000000073",
+      "law_title": "地震保険に関する法律",
+      "law_num": "昭和四十一年法律第七十三号",
+      "category": "金融・保険",
+      "law_revision_id": "341AC0000000073_20200401_429AC0000000045",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "（保険料率及び再保険料率）"
+        }
+      ]
+    },
+    {
+      "law_id": "341AC0000000103",
+      "law_title": "野菜生産出荷安定法",
+      "law_num": "昭和四十一年法律第百三号",
+      "category": "農業",
+      "law_revision_id": "341AC0000000103_20130614_425AC0000000044",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "前条第三項の規定により基金が権利を承継する場合におけるその承継に係る不動産の取得については、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "341AC0000000109",
+      "law_title": "戦傷病者等の妻に対する特別給付金支給法",
+      "law_num": "昭和四十一年法律第百九号",
+      "category": "社会福祉",
+      "law_revision_id": "341AC0000000109_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "341AC0000000132",
+      "law_title": "労働施策の総合的な推進並びに労働者の雇用の安定及び職業生活の充実等に関する法律",
+      "law_num": "昭和四十一年法律第百三十二号",
+      "category": "労働",
+      "law_revision_id": "341AC0000000132_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "342AC0000000023",
+      "law_title": "印紙税法",
+      "law_num": "昭和四十二年法律第二十三号",
+      "category": "国税",
+      "law_revision_id": "342AC0000000023_20261001_507AC0000000070",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "欄に掲げる文書のうち、第五条の規定により印紙税を課さないものとされる文書以外の文書（以下「課税文書」という。）の作成者は、その作成した課税文書につき、印紙税を納める義務がある"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "別表第一の課税物件の欄に掲げる文書には、この法律により、印紙税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "342AC0000000035",
+      "law_title": "登録免許税法",
+      "law_num": "昭和四十二年法律第三十五号",
+      "category": "国税",
+      "law_revision_id": "342AC0000000035_20261101_508AC0000000021",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "登記等を受ける者は、この法律により登録免許税を納める義務がある。この場合において、当該登記等を受ける者が二人以上あるときは、これらの者は、連帯して登録免許税を納付する義務を負"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "登記又は登録につき債権金額を課税標準として登録免許税を課する場合において、一定の債権金額がないときは、当該登記又は登録の時における当該登記又は登録に係る債権の価額又は処分の制"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "342AC0000000057",
+      "law_title": "戦没者の父母等に対する特別給付金支給法",
+      "law_num": "昭和四十二年法律第五十七号",
+      "category": "社会福祉",
+      "law_revision_id": "342AC0000000057_20200401_429AC0000000045",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "342AC0000000092",
+      "law_title": "炭鉱災害による一酸化炭素中毒症に関する特別措置法",
+      "law_num": "昭和四十二年法律第九十二号",
+      "category": "労働",
+      "law_revision_id": "342AC0000000092_20151201_426AC0000000082",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "342AC0000000110",
+      "law_title": "公共用飛行場周辺における航空機騒音による障害の防止等に関する法律",
+      "law_num": "昭和四十二年法律第百十号",
+      "category": "環境保全",
+      "law_revision_id": "342AC0000000110_20160401_426AC0000000069",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第四条第二項の規定により新機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "342AC0000000114",
+      "law_title": "引揚者等に対する特別交付金の支給に関する法律",
+      "law_num": "昭和四十二年法律第百十四号",
+      "category": "社会福祉",
+      "law_revision_id": "342AC0000000114_20160401_426AC0000000069",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "342AC0000000122",
+      "law_title": "通関業法",
+      "law_num": "昭和四十二年法律第百二十二号",
+      "category": "国税",
+      "law_revision_id": "342AC0000000122_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "342AC0000000135",
+      "law_title": "石炭鉱業年金基金法",
+      "law_num": "昭和四十二年法律第百三十五号",
+      "category": "社会保険",
+      "law_revision_id": "342AC0000000135_20260401_507AC0000000074",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance",
+        "si-keyword-contribution-collection"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-contribution-collection",
+          "text": "基金は、基金が支給する年金たる給付及び一時金たる給付に関する事業に要する費用に充てるため、掛金を徴収する。"
+        }
+      ]
+    },
+    {
+      "law_id": "343AC0000000086",
+      "law_title": "金融機関の合併及び転換に関する法律",
+      "law_num": "昭和四十三年法律第八十六号",
+      "category": "金融・保険",
+      "law_revision_id": "343AC0000000086_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "343AC1000000089",
+      "law_title": "社会保険労務士法",
+      "law_num": "昭和四十三年法律第八十九号",
+      "category": "社会保険",
+      "law_revision_id": "343AC1000000089_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "連合会は、第十四条の二第一項の規定による登録に関し必要があると認めるときは、当該登録を受けようとする者の保険料の納付状況につき、当該保険料を徴収する者に対し、必要な書類の閲覧"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "344AC0000000046",
+      "law_title": "租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律",
+      "law_num": "昭和四十四年法律第四十六号",
+      "category": "国税",
+      "law_revision_id": "344AC0000000046_20260521_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "後の金額）に百分の十五の税率から適用限度税率を控除して得た率（当該居住者が第十一項の規定の適用を受ける場合には、百分の十五の税率）を乗じて計算した金額に相当する所得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "344AC0000000064",
+      "law_title": "職業能力開発促進法",
+      "law_num": "昭和四十四年法律第六十四号",
+      "category": "労働",
+      "law_revision_id": "344AC0000000064_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "344AC0000000084",
+      "law_title": "労働保険の保険料の徴収等に関する法律",
+      "law_num": "昭和四十四年法律第八十四号",
+      "category": "労働",
+      "law_revision_id": "344AC0000000084_20251001_506AC0000000026",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "政府は、労働保険の事業に要する費用にあてるため保険料を徴収する。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "一般保険料の額は、賃金総額に次条の規定による一般保険料に係る保険料率を乗じて得た額とする。"
+        }
+      ]
+    },
+    {
+      "law_id": "344AC0000000085",
+      "law_title": "失業保険法及び労働者災害補償保険法の一部を改正する法律及び労働保険の保険料の徴収等に関する法律の施行に伴う関係法律の整備等に関する法律",
+      "law_num": "昭和四十四年法律第八十五号",
+      "category": "労働",
+      "law_revision_id": "344AC0000000085_20260717_508AC0000000060",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "二第一項若しくは第二項又は前条第一項若しくは第二項の規定により保険給付を行うこととなつた場合には、厚生労働省令で定める期間、当該事業主から、労働保険料のほか、特別保険料を徴収"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "（一般保険料率の特例に関する経過措置）"
+        }
+      ]
+    },
+    {
+      "law_id": "345AC0000000060",
+      "law_title": "家内労働法",
+      "law_num": "昭和四十五年法律第六十号",
+      "category": "労働",
+      "law_revision_id": "345AC0000000060_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "345AC0000000077",
+      "law_title": "清酒製造業等の安定に関する特別措置法",
+      "law_num": "昭和四十五年法律第七十七号",
+      "category": "国税",
+      "law_revision_id": "345AC0000000077_20170401_429AC0000000004",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "345AC0000000098",
+      "law_title": "青少年の雇用の促進等に関する法律",
+      "law_num": "昭和四十五年法律第九十八号",
+      "category": "労働",
+      "law_revision_id": "345AC0000000098_20260513_507AC0000000032",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "345AC0000000136",
+      "law_title": "海洋汚染等及び海上災害の防止に関する法律",
+      "law_num": "昭和四十五年法律第百三十六号",
+      "category": "環境保全",
+      "law_revision_id": "345AC0000000136_20260916_508AC0000000043",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "前条第三項の規定によりセンターが権利を承継する場合における当該承継に係る不動産の取得については、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "345AC1000000084",
+      "law_title": "障害者基本法",
+      "law_num": "昭和四十五年法律第八十四号",
+      "category": "社会福祉",
+      "law_revision_id": "345AC1000000084_20160401_425AC0000000065",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "346AC0000000034",
+      "law_title": "預金保険法",
+      "law_num": "昭和四十六年法律第三十四号",
+      "category": "金融・保険",
+      "law_revision_id": "346AC0000000034_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "の額の合計額を平均した額を十二で除し、これに当該保険料を納付すべき日を含む事業年度の月数を乗じて計算した金額に、機構が委員会の議決を経て定める率（以下この条において「保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "346AC0000000065",
+      "law_title": "コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関する通関条約（ＴＩＲ条約）の実施に伴う関税法等の特例に関する法律",
+      "law_num": "昭和四十六年法律第六十五号",
+      "category": "国税",
+      "law_revision_id": "346AC0000000065_20120401_424AC0000000019",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "346AC0000000068",
+      "law_title": "高年齢者等の雇用の安定等に関する法律",
+      "law_num": "昭和四十六年法律第六十八号",
+      "category": "労働",
+      "law_revision_id": "346AC0000000068_20221001_504AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "346AC0000000073",
+      "law_title": "児童手当法",
+      "law_num": "昭和四十六年法律第七十三号",
+      "category": "社会福祉",
+      "law_revision_id": "346AC0000000073_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "346AC0000000089",
+      "law_title": "自動車重量税法",
+      "law_num": "昭和四十六年法律第八十九号",
+      "category": "国税",
+      "law_revision_id": "346AC0000000089_20220401_504AC0000000004",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "自動車検査証の交付等を受ける者及び車両番号の指定を受ける者は、当該検査自動車及び届出軽自動車につき、自動車重量税を納める義務がある。この場合において、当該自動車検査証の交付等"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "検査自動車及び届出軽自動車には、この法律により、自動車重量税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "346AC0000000090",
+      "law_title": "自動車重量譲与税法",
+      "law_num": "昭和四十六年法律第九十号",
+      "category": "地方財政",
+      "law_revision_id": "346AC0000000090_20260401_508AC0000000002",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "346AC0000000092",
+      "law_title": "勤労者財産形成促進法",
+      "law_num": "昭和四十六年法律第九十二号",
+      "category": "労働",
+      "law_revision_id": "346AC0000000092_20220401_504AC0000000007",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "346AC0000000112",
+      "law_title": "農村地域への産業の導入の促進等に関する法律",
+      "law_num": "昭和四十六年法律第百十二号",
+      "category": "工業",
+      "law_revision_id": "346AC0000000112_20220520_504AC0000000044",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "346AC0000000129",
+      "law_title": "沖縄の復帰に伴う特別措置に関する法律",
+      "law_num": "昭和四十六年法律第百二十九号",
+      "category": "憲法",
+      "law_revision_id": "346AC0000000129_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "ついては、政令で定めるところにより、この法律の施行の日又は当該変更若しくは廃止があつた日に、これらの者がこれらの物品をその製造場から移出したものとみなして、内国消費税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "347AC0000000007",
+      "law_title": "航空機燃料税法",
+      "law_num": "昭和四十七年法律第七号",
+      "category": "国税",
+      "law_revision_id": "347AC0000000007_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "航空機の所有者は、当該航空機に積み込まれた航空機燃料につき、航空機燃料税を納める義務がある。ただし、当該航空機についてその所有者以外の者が航空法（昭和二十七年法律第二百三十一"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "航空機燃料には、この法律により、航空機燃料税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "347AC0000000013",
+      "law_title": "航空機燃料譲与税法",
+      "law_num": "昭和四十七年法律第十三号",
+      "category": "地方財政",
+      "law_revision_id": "347AC0000000013_20240401_506AC0000000004",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "347AC0000000057",
+      "law_title": "労働安全衛生法",
+      "law_num": "昭和四十七年法律第五十七号",
+      "category": "労働",
+      "law_revision_id": "347AC0000000057_20261001_507AC0000000033",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "347AC0000000066",
+      "law_title": "公有地の拡大の推進に関する法律",
+      "law_num": "昭和四十七年法律第六十六号",
+      "category": "土地",
+      "law_revision_id": "347AC0000000066_20260903_508AC0000000027",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "都道府県は、土地開発公社がその設立の際出資の目的として不動産を取得した場合における当該不動産の取得については、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "347AC0000000113",
+      "law_title": "雇用の分野における男女の均等な機会及び待遇の確保等に関する法律",
+      "law_num": "昭和四十七年法律第百十三号",
+      "category": "労働",
+      "law_revision_id": "347AC0000000113_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "348AC0000000053",
+      "law_title": "農水産業協同組合貯金保険法",
+      "law_num": "昭和四十八年法律第五十三号",
+      "category": "金融・保険",
+      "law_revision_id": "348AC0000000053_20260625_508AC0000000015",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "一日までの間の各日（日曜日その他政令で定める日を除く。次条第一項において同じ。）における一般貯金等の額の合計額を平均した額に、機構が委員会の議決を経て定める率（以下「保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "348AC0000000070",
+      "law_title": "物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に関する法律",
+      "law_num": "昭和四十八年法律第七十号",
+      "category": "国税",
+      "law_revision_id": "348AC0000000070_20060301_417AC0000000022",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "349AC0000000079",
+      "law_title": "電源開発促進税法",
+      "law_num": "昭和四十九年法律第七十九号",
+      "category": "国税",
+      "law_revision_id": "349AC0000000079_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "一般送配電事業者等は、その販売電気につき、電源開発促進税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "安全の確保並びにこれらの発電施設による電気の供給の円滑化を図る等のための措置に要する費用に充てるため、一般送配電事業者等の販売電気には、この法律により、電源開発促進税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "349AC0000000116",
+      "law_title": "雇用保険法",
+      "law_num": "昭和四十九年法律第百十六号",
+      "category": "労働",
+      "law_revision_id": "349AC0000000116_20260513_507AC0000000032",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "350AC0000000028",
+      "law_title": "作業環境測定法",
+      "law_num": "昭和五十年法律第二十八号",
+      "category": "労働",
+      "law_revision_id": "350AC0000000028_20261001_507AC0000000033",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "351AC0000000033",
+      "law_title": "建設労働者の雇用の改善等に関する法律",
+      "law_num": "昭和五十一年法律第三十三号",
+      "category": "労働",
+      "law_revision_id": "351AC0000000033_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "351AC0000000034",
+      "law_title": "賃金の支払の確保等に関する法律",
+      "law_num": "昭和五十一年法律第三十四号",
+      "category": "労働",
+      "law_revision_id": "351AC0000000034_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "352AC0000000054",
+      "law_title": "電子情報処理組織による輸出入等関連業務の処理等に関する法律",
+      "law_num": "昭和五十二年法律第五十四号",
+      "category": "国税",
+      "law_revision_id": "352AC0000000054_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "352AC1000000094",
+      "law_title": "国際協定の締結等に伴う漁業離職者に関する臨時措置法",
+      "law_num": "昭和五十二年法律第九十四号",
+      "category": "労働",
+      "law_revision_id": "352AC1000000094_20230331_505AC0000000008",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "352AC1000000096",
+      "law_title": "船員の雇用の促進に関する特別措置法",
+      "law_num": "昭和五十二年法律第九十六号",
+      "category": "労働",
+      "law_revision_id": "352AC1000000096_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "353AC0000000025",
+      "law_title": "石油石炭税法",
+      "law_num": "昭和五十三年法律第二十五号",
+      "category": "国税",
+      "law_revision_id": "353AC0000000025_20260525_506AC0000000052",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "原油、ガス状炭化水素又は石炭の採取者は、その採取場から移出した原油、ガス状炭化水素又は石炭につき、石油石炭税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "原油及び石油製品、ガス状炭化水素並びに石炭には、この法律により、石油石炭税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "353AC0000000036",
+      "law_title": "森林組合法",
+      "law_num": "昭和五十三年法律第三十六号",
+      "category": "林業",
+      "law_revision_id": "353AC0000000036_20260525_506AC0000000052",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "353AC0000000080",
+      "law_title": "職員団体等に対する法人格の付与に関する法律",
+      "law_num": "昭和五十三年法律第八十号",
+      "category": "国家公務員",
+      "law_revision_id": "353AC0000000080_20220901_501AC0000000071",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "355AC0000000071",
+      "law_title": "非化石エネルギーの開発及び導入の促進に関する法律",
+      "law_num": "昭和五十五年法律第七十一号",
+      "category": "工業",
+      "law_revision_id": "355AC0000000071_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "の規定により機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税若しくは土地の取得に対して課する特別土地保有税又は自動車取得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "355AC0000000091",
+      "law_title": "こどもの国協会の解散及び事業の承継に関する法律",
+      "law_num": "昭和五十五年法律第九十一号",
+      "category": "社会福祉",
+      "law_revision_id": "355AC0000000091_20230401_504AC0000000076",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "356AC0000000028",
+      "law_title": "特定外貿埠頭の管理運営に関する法律",
+      "law_num": "昭和五十六年法律第二十八号",
+      "category": "海運",
+      "law_revision_id": "356AC0000000028_20251001_507AC0000000025",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第二条第一項の規定により指定法人が権利を承継する場合における当該承継に係る不動産の取得に対しては、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "356AC0000000059",
+      "law_title": "銀行法",
+      "law_num": "昭和五十六年法律第五十九号",
+      "category": "金融・保険",
+      "law_revision_id": "356AC0000000059_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "357AC0000000080",
+      "law_title": "高齢者の医療の確保に関する法律",
+      "law_num": "昭和五十七年法律第八十号",
+      "category": "社会福祉",
+      "law_revision_id": "357AC0000000080_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "医療確保拠出金等（第三項及び第百十六条第二項において「流行初期医療確保拠出金等」という。）並びに子ども・子育て支援納付金の納付に要する費用を含む。）に充てるため、保険料を徴収"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "前項の保険料は、後期高齢者医療広域連合が被保険者に対し、後期高齢者医療広域連合の全区域にわたつて均一の保険料率であることその他の政令で定める基準に従い後期高齢者医療広域連合の"
+        }
+      ]
+    },
+    {
+      "law_id": "357AC1000000085",
+      "law_title": "北方領土問題等の解決の促進のための特別措置に関する法律",
+      "law_num": "昭和五十七年法律第八十五号",
+      "category": "社会福祉",
+      "law_revision_id": "357AC1000000085_20260401_508AC0000000003",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "358AC1000000032",
+      "law_title": "貸金業法",
+      "law_num": "昭和五十八年法律第三十二号",
+      "category": "金融・保険",
+      "law_revision_id": "358AC1000000032_20251001_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "359AC0000000069",
+      "law_title": "日本たばこ産業株式会社法",
+      "law_num": "昭和五十九年法律第六十九号",
+      "category": "事業",
+      "law_revision_id": "359AC0000000069_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "会社の附則第六条の規定により公社が行う出資に係る不動産又は自動車の取得に対しては、不動産取得税若しくは土地の取得に対して課する特別土地保有税又は自動車取得税を課することができ"
+        }
+      ]
+    },
+    {
+      "law_id": "359AC0000000072",
+      "law_title": "たばこ税法",
+      "law_num": "昭和五十九年法律第七十二号",
+      "category": "国税",
+      "law_revision_id": "359AC0000000072_20260525_506AC0000000052",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "製造たばこの製造者は、その製造場から移出した製造たばこにつき、たばこ税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "きは、当該製造たばこについては、その者が製造たばこの製造者として当該製造たばこを同日にその者の製造たばこの製造場から移出したものとみなして、千本につき五百円のたばこ税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "359AC0000000085",
+      "law_title": "日本電信電話株式会社等に関する法律",
+      "law_num": "昭和五十九年法律第八十五号",
+      "category": "電気通信",
+      "law_revision_id": "359AC0000000085_20260527_507AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "会社の附則第三条第八項の規定により公社が行う出資に係る不動産又は自動車の取得に対しては、不動産取得税若しくは土地の取得に対して課する特別土地保有税又は自動車取得税を課すること"
+        }
+      ]
+    },
+    {
+      "law_id": "360AC0000000033",
+      "law_title": "電子情報処理組織による登記事務処理の円滑化のための措置等に関する法律",
+      "law_num": "昭和六十年法律第三十三号",
+      "category": "民事",
+      "law_revision_id": "360AC0000000033_20230401_503AC0000000024",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "360AC0000000088",
+      "law_title": "労働者派遣事業の適正な運営の確保及び派遣労働者の保護等に関する法律",
+      "law_num": "昭和六十年法律第八十八号",
+      "category": "労働",
+      "law_revision_id": "360AC0000000088_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "361AC0000000088",
+      "law_title": "旅客鉄道株式会社及び日本貨物鉄道株式会社に関する法律",
+      "law_num": "昭和六十一年法律第八十八号",
+      "category": "陸運",
+      "law_revision_id": "361AC0000000088_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "会社の事業所又は事務所のうち厚生年金保険法（昭和二十九年法律第百十五号）第六条第一項又は第三項に規定する適用事業所であるものに使用される同法による被保険者の同法による保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "361AC0000000093",
+      "law_title": "日本国有鉄道改革法等施行法",
+      "law_num": "昭和六十一年法律第九十三号",
+      "category": "陸運",
+      "law_revision_id": "361AC0000000093_20110801_423AC0000000066",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "人が日本国有鉄道の権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税若しくは土地の取得に対して課する特別土地保有税又は自動車取得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "362AC0000000023",
+      "law_title": "地域雇用開発促進法",
+      "law_num": "昭和六十二年法律第二十三号",
+      "category": "労働",
+      "law_revision_id": "362AC0000000023_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "362AC0000000030",
+      "law_title": "社会福祉士及び介護福祉士法",
+      "law_num": "昭和六十二年法律第三十号",
+      "category": "社会福祉",
+      "law_revision_id": "362AC0000000030_20260625_508AC0000000051",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "362AC1000000105",
+      "law_title": "台湾住民である戦没者の遺族等に対する弔慰金等に関する法律",
+      "law_num": "昭和六十二年法律第百五号",
+      "category": "社会福祉",
+      "law_revision_id": "362AC1000000105_19870929_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "363AC0000000031",
+      "law_title": "特定弔慰金等の支給の実施に関する法律",
+      "law_num": "昭和六十三年法律第三十一号",
+      "category": "社会福祉",
+      "law_revision_id": "363AC0000000031_19880701_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "363AC0000000040",
+      "law_title": "港湾労働法",
+      "law_num": "昭和六十三年法律第四十号",
+      "category": "労働",
+      "law_revision_id": "363AC0000000040_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "363AC0000000107",
+      "law_title": "税制改革法",
+      "law_num": "昭和六十三年法律第百七号",
+      "category": "国税",
+      "law_revision_id": "363AC0000000107_19881230_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "所得税の負担の公平の確保を図るため、株式等の譲渡による所得について他の所得と分離して所得税を課する制度を設けるとともに、社会保険診療報酬の所得計算の特例制度についてその縮減を"
+        }
+      ]
+    },
+    {
+      "law_id": "363AC0000000108",
+      "law_title": "消費税法",
+      "law_num": "昭和六十三年法律第百八号",
+      "category": "国税",
+      "law_revision_id": "363AC0000000108_20261101_507AC0000000013",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "三十条第二項及び第三十二条を除き、以下同じ。）及び特定課税仕入れ（課税仕入れのうち特定仕入れに該当するものをいう。以下同じ。）につき、この法律により、消費税を納める義務がある"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "等に該当するものを除く。第三項において同じ。）及び特定仕入れ（事業として他の者から受けた特定資産の譲渡等をいう。以下この章において同じ。）には、この法律により、消費税を課する"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "進に関する法律（昭和四十二年法律第六十一号）全国健康保険協会健康保険法全国市町村職員共済組合連合会地方公務員等共済組合法全国社会保険労務士会連合会社会保険労務士法損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "401AC0000000064",
+      "law_title": "地域における医療及び介護の総合的な確保の促進に関する法律",
+      "law_num": "平成元年法律第六十四号",
+      "category": "社会福祉",
+      "law_revision_id": "401AC0000000064_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "403AC0000000002",
+      "law_title": "湾岸地域における平和回復活動を支援するため平成二年度において緊急に講ずべき財政上の措置に必要な財源の確保に係る臨時措置に関する法律",
+      "law_num": "平成三年法律第二号",
+      "category": "国債",
+      "law_revision_id": "403AC0000000002_20010401_413AC0000000006",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "法人は、基準法人税額につき、この法律により、法人臨時特別税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "法人の各課税事業年度の基準法人税額には、この法律により、法人臨時特別税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "403AC0000000045",
+      "law_title": "新幹線鉄道に係る鉄道施設の譲渡等に関する法律",
+      "law_num": "平成三年法律第四十五号",
+      "category": "陸運",
+      "law_revision_id": "403AC0000000045_19981022_410AC0000000136",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第二条の規定により旅客鉄道株式会社が新幹線鉄道施設を譲り受ける場合における当該新幹線鉄道施設の取得に対しては、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "403AC0000000057",
+      "law_title": "中小企業における労働力の確保及び良好な雇用の機会の創出のための雇用管理の改善の促進に関する法律",
+      "law_num": "平成三年法律第五十七号",
+      "category": "労働",
+      "law_revision_id": "403AC0000000057_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "403AC0000000066",
+      "law_title": "商品投資に係る事業の規制に関する法律",
+      "law_num": "平成三年法律第六十六号",
+      "category": "商業",
+      "law_revision_id": "403AC0000000066_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "403AC0000000069",
+      "law_title": "地価税法",
+      "law_num": "平成三年法律第六十九号",
+      "category": "国税",
+      "law_revision_id": "403AC0000000069_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "土地等を有する個人及び法人は、この法律により、地価税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "個人又は法人が課税時期において有する土地等には、この法律により、地価税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "403AC0000000076",
+      "law_title": "育児休業、介護休業等育児又は家族介護を行う労働者の福祉に関する法律",
+      "law_num": "平成三年法律第七十六号",
+      "category": "労働",
+      "law_revision_id": "403AC0000000076_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "403AC0000000094",
+      "law_title": "国際的な協力の下に規制薬物に係る不正行為を助長する行為等の防止を図るための麻薬及び向精神薬取締法等の特例等に関する法律",
+      "law_num": "平成三年法律第九十四号",
+      "category": "厚生",
+      "law_revision_id": "403AC0000000094_20260521_507AC0000000039",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "404AC0000000015",
+      "law_title": "法人特別税法",
+      "law_num": "平成四年法律第十五号",
+      "category": "国税",
+      "law_revision_id": "404AC0000000015_20010401_413AC0000000006",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "法人は、基準法人税額につき、この法律により、法人特別税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "法人の各課税事業年度の基準法人税額には、この法律により、法人特別税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "404AC0000000063",
+      "law_title": "介護労働者の雇用管理の改善等に関する法律",
+      "law_num": "平成四年法律第六十三号",
+      "category": "労働",
+      "law_revision_id": "404AC0000000063_20110714_423AC0000000074",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "404AC0000000090",
+      "law_title": "労働時間等の設定の改善に関する特別措置法",
+      "law_num": "平成四年法律第九十号",
+      "category": "労働",
+      "law_revision_id": "404AC0000000090_20200331_502AC0000000014",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "405AC0000000038",
+      "law_title": "福祉用具の研究開発及び普及の促進に関する法律",
+      "law_num": "平成五年法律第三十八号",
+      "category": "社会福祉",
+      "law_revision_id": "405AC0000000038_20150401_426AC0000000067",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "405AC0000000044",
+      "law_title": "協同組織金融機関の優先出資に関する法律",
+      "law_num": "平成五年法律第四十四号",
+      "category": "金融・保険",
+      "law_revision_id": "405AC0000000044_20260625_508AC0000000015",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "405AC0000000076",
+      "law_title": "短時間労働者及び有期雇用労働者の雇用管理の改善等に関する法律",
+      "law_num": "平成五年法律第七十六号",
+      "category": "労働",
+      "law_revision_id": "405AC0000000076_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "406AC0000000077",
+      "law_title": "不動産特定共同事業法",
+      "law_num": "平成六年法律第七十七号",
+      "category": "建築・住宅",
+      "law_revision_id": "406AC0000000077_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "406AC1000000030",
+      "law_title": "中国残留邦人等の円滑な帰国の促進並びに永住帰国した中国残留邦人等及び特定配偶者の自立の支援に関する法律",
+      "law_num": "平成六年法律第三十号",
+      "category": "社会福祉",
+      "law_revision_id": "406AC1000000030_20151001_424AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "406AC1000000106",
+      "law_title": "政党交付金の交付を受ける政党等に対する法人格の付与に関する法律",
+      "law_num": "平成六年法律第百六号",
+      "category": "国会",
+      "law_revision_id": "406AC1000000106_20220901_501AC0000000071",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "407AC0000000011",
+      "law_title": "阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律",
+      "law_num": "平成七年法律第十一号",
+      "category": "国税",
+      "law_revision_id": "407AC0000000011_20200401_502AC0000000008",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "407AC0000000016",
+      "law_title": "阪神・淡路大震災に対処するための特別の財政援助及び助成に関する法律",
+      "law_num": "平成七年法律第十六号",
+      "category": "災害対策",
+      "law_revision_id": "407AC0000000016_20130920_425AC0000000057",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "第二項の確認を受けた者（指定期日までの間において従前の船舶所有者との使用関係が終了した者を除く。）の休業している間の保険料率については、船員保険法第五十九条の規定にかかわらず"
+        }
+      ]
+    },
+    {
+      "law_id": "407AC0000000105",
+      "law_title": "保険業法",
+      "law_num": "平成七年法律第百五号",
+      "category": "金融・保険",
+      "law_revision_id": "407AC0000000105_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "保険契約又は当該再保険に係る保険契約につき次に掲げる行為の全部又は一部に関し損害保険会社が他の損害保険会社（外国損害保険会社等を含む。）と行う共同行為保険約款の内容（保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "407AC0100000129",
+      "law_title": "高齢社会対策基本法",
+      "law_num": "平成七年法律第百二十九号",
+      "category": "労働",
+      "law_revision_id": "407AC0100000129_20261102_508AC0000000062",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "408AC0000000039",
+      "law_title": "塩事業法",
+      "law_num": "平成八年法律第三十九号",
+      "category": "事業",
+      "law_revision_id": "408AC0000000039_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "センターの附則第六条第一項の規定により会社が行う拠出に係る不動産の取得に対しては、不動産取得税又は土地の取得に対して課する特別土地保有税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "408AC0000000040",
+      "law_title": "社会保障研究所の解散に関する法律",
+      "law_num": "平成八年法律第四十号",
+      "category": "社会福祉",
+      "law_revision_id": "408AC0000000040_19961201_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "408AC0000000095",
+      "law_title": "金融機関等の更生手続の特例等に関する法律",
+      "law_num": "平成八年法律第九十五号",
+      "category": "金融・保険",
+      "law_revision_id": "408AC0000000095_20260625_508AC0000000015",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "408AC0000000118",
+      "law_title": "農林中央金庫及び特定農水産業協同組合等による信用事業の再編及び強化に関する法律",
+      "law_num": "平成八年法律第百十八号",
+      "category": "金融・保険",
+      "law_revision_id": "408AC0000000118_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "409AC0000000048",
+      "law_title": "日本私立学校振興・共済事業団法",
+      "law_num": "平成九年法律第四十八号",
+      "category": "教育",
+      "law_revision_id": "409AC0000000048_20260401_506AC0000000047",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "規定により事業団が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税若しくは土地の取得に対して課する特別土地保有税又は自動車取得税を課する"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "（保険料率の特例）"
+        }
+      ]
+    },
+    {
+      "law_id": "409AC0000000089",
+      "law_title": "日本銀行法",
+      "law_num": "平成九年法律第八十九号",
+      "category": "金融・保険",
+      "law_revision_id": "409AC0000000089_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "409AC0000000109",
+      "law_title": "財政構造改革の推進に関する特別措置法",
+      "law_num": "平成九年法律第百九号",
+      "category": "財務通則",
+      "law_revision_id": "409AC0000000109_20210401_502AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "将来の世代における負担の抑制を図るため、集中改革期間中において最初に行われる財政再計算（厚生年金保険法第八十一条第四項に規定する再計算等厚生年金保険法等の規定に基づく保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "409AC0000000110",
+      "law_title": "内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律",
+      "law_num": "平成九年法律第百十号",
+      "category": "国税",
+      "law_revision_id": "409AC0000000110_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "409AC0000000123",
+      "law_title": "介護保険法",
+      "law_num": "平成九年法律第百二十三号",
+      "category": "社会福祉",
+      "law_revision_id": "409AC0000000123_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "（保険料を徴収する権利が消滅した場合の保険給付の特例）"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "前項の保険料は、第一号被保険者に対し、政令で定める基準に従い条例で定めるところにより算定された保険料率により算定された保険料額によって課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "409AC0000000124",
+      "law_title": "介護保険法施行法",
+      "law_num": "平成九年法律第百二十四号",
+      "category": "社会福祉",
+      "law_revision_id": "409AC0000000124_20180401_429AC0000000052",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare",
+        "si-keyword-premium-collection"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "一号に規定する第一号被保険者（災害その他の特別な事情があることにより、特別徴収（同法第百三十一条に規定する特別徴収をいう。以下この条において同じ。）の方法によって保険料を徴収"
+        }
+      ]
+    },
+    {
+      "law_id": "410AC0000000025",
+      "law_title": "電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律",
+      "law_num": "平成十年法律第二十五号",
+      "category": "国税",
+      "law_revision_id": "410AC0000000025_20250401_507AC0000000013",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "410AC0000000076",
+      "law_title": "平成十四年ワールドカップサッカー大会特別措置法",
+      "law_num": "平成十年法律第七十六号",
+      "category": "国家公務員",
+      "law_revision_id": "410AC0000000076_20011128_413AC0000000132",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "都道府県は、外国サッカー協会が、大会に選手団を派遣することに対して連盟から支払を受ける対価については、事業税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "410AC0000000090",
+      "law_title": "投資事業有限責任組合契約に関する法律",
+      "law_num": "平成十年法律第九十号",
+      "category": "産業通則",
+      "law_revision_id": "410AC0000000090_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "410AC0000000104",
+      "law_title": "動産及び債権の譲渡の対抗要件に関する民法の特例等に関する法律",
+      "law_num": "平成十年法律第百四号",
+      "category": "民事",
+      "law_revision_id": "410AC0000000104_20250606_507AC0000000057",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "410AC0000000105",
+      "law_title": "資産の流動化に関する法律",
+      "law_num": "平成十年法律第百五号",
+      "category": "金融・保険",
+      "law_revision_id": "410AC0000000105_20251001_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "法、無尽業法、銀行等の事務の簡素化に関する法律、金融機関の信託業務の兼営等に関する法律、私的独占の禁止及び公正取引の確保に関する法律、農業協同組合法、証券取引法、損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "410AC0000000137",
+      "law_title": "一般会計における債務の承継等に伴い必要な財源の確保に係る特別措置に関する法律",
+      "law_num": "平成十年法律第百三十七号",
+      "category": "財務通則",
+      "law_revision_id": "410AC0000000137_20260525_506AC0000000052",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "規定の適用がある場合には、その換価された製造たばことし、同条第四項又は第五項の規定の適用がある場合には、その現存する製造たばことする。）につき、たばこ特別税を納める義務がある"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "製造たばこには、この法律により、当分の間、たばこ特別税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "410AC1000000130",
+      "law_title": "金融庁設置法",
+      "law_num": "平成十年法律第百三十号",
+      "category": "行政組織",
+      "law_revision_id": "410AC1000000130_20260723_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "損害保険料率算出団体の業務及び組織の適正な運営の確保に関すること。"
+        }
+      ]
+    },
+    {
+      "law_id": "411AC0000000017",
+      "law_title": "地方特例交付金等の地方財政の特別措置に関する法律",
+      "law_num": "平成十一年法律第十七号",
+      "category": "地方財政",
+      "law_revision_id": "411AC0000000017_20260401_508AC0000000003",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "411AC0000000152",
+      "law_title": "後見登記等に関する法律",
+      "law_num": "平成十一年法律第百五十二号",
+      "category": "民事",
+      "law_revision_id": "411AC0000000152_20260624_508AC0000000045",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "411AC0000000176",
+      "law_title": "国立研究開発法人量子科学技術研究開発機構法",
+      "law_num": "平成十一年法律第百七十六号",
+      "category": "行政組織",
+      "law_revision_id": "411AC0000000176_20260401_507AC0000000080",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "前条第一項の規定により機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "411AC0000000192",
+      "law_title": "国立研究開発法人農業・食品産業技術総合研究機構法",
+      "law_num": "平成十一年法律第百九十二号",
+      "category": "行政組織",
+      "law_revision_id": "411AC0000000192_20251001_507AC0000000069",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "条第一項の規定により独立行政法人農業・食品産業技術総合研究機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "411AC0000000199",
+      "law_title": "国立研究開発法人水産研究・教育機構法",
+      "law_num": "平成十一年法律第百九十九号",
+      "category": "行政組織",
+      "law_revision_id": "411AC0000000199_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第十六条第一項の規定により独立行政法人水産総合研究センターが権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "411AC0000000208",
+      "law_title": "国立研究開発法人海上・港湾・航空技術研究所法",
+      "law_num": "平成十一年法律第二百八号",
+      "category": "行政組織",
+      "law_revision_id": "411AC0000000208_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第二条第一項の規定により研究所又は機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "411AC0000000214",
+      "law_title": "独立行政法人海技教育機構法",
+      "law_num": "平成十一年法律第二百十四号",
+      "category": "行政組織",
+      "law_revision_id": "411AC0000000214_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第二条第一項の規定により研究所又は機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "411AC0000000218",
+      "law_title": "独立行政法人自動車技術総合機構法",
+      "law_num": "平成十一年法律第二百十八号",
+      "category": "行政組織",
+      "law_revision_id": "411AC0000000218_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第十一条第一項の規定により機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "412AC0000000034",
+      "law_title": "平成十二年度における国民年金法による年金の額等の改定の特例に関する法律",
+      "law_num": "平成十二年法律第三十四号",
+      "category": "社会保険",
+      "law_revision_id": "412AC0000000034_20000401_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "412AC0000000103",
+      "law_title": "会社分割に伴う労働契約の承継等に関する法律",
+      "law_num": "平成十二年法律第百三号",
+      "category": "労働",
+      "law_revision_id": "412AC0000000103_20150501_426AC0000000091",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "412AC1000000082",
+      "law_title": "児童虐待の防止等に関する法律",
+      "law_num": "平成十二年法律第八十二号",
+      "category": "社会福祉",
+      "law_revision_id": "412AC1000000082_20261001_507AC0000000029",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "413AC0000000013",
+      "law_title": "平成十三年度における国民年金法による年金の額等の改定の特例に関する法律",
+      "law_num": "平成十三年法律第十三号",
+      "category": "社会保険",
+      "law_revision_id": "413AC0000000013_20020401_413AC0000000101",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "413AC0000000050",
+      "law_title": "確定給付企業年金法",
+      "law_num": "平成十三年法律第五十号",
+      "category": "社会保険",
+      "law_revision_id": "413AC0000000050_20260401_507AC0000000074",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-category-social-insurance",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第四項の規定により連合会が権利を承継する場合における当該承継に係る不動産の取得に対しては、不動産取得税を課することができない。"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "当該率から平成二十五年改正法附則第五条第一項の規定によりなおその効力を有するものとされた平成二十五年改正法第一条の規定による改正前の第八十一条の三第一項に規定する免除保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "413AC0000000075",
+      "law_title": "社債、株式等の振替に関する法律",
+      "law_num": "平成十三年法律第七十五号",
+      "category": "民事",
+      "law_revision_id": "413AC0000000075_20260521_504AC0000000048",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "413AC0000000088",
+      "law_title": "確定拠出年金法",
+      "law_num": "平成十三年法律第八十八号",
+      "category": "社会保険",
+      "law_revision_id": "413AC0000000088_20260401_507AC0000000074",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "413AC0000000093",
+      "law_title": "農林中央金庫法",
+      "law_num": "平成十三年法律第九十三号",
+      "category": "金融・保険",
+      "law_revision_id": "413AC0000000093_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "413AC0000000112",
+      "law_title": "個別労働関係紛争の解決の促進に関する法律",
+      "law_num": "平成十三年法律第百十二号",
+      "category": "労働",
+      "law_revision_id": "413AC0000000112_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "414AC0000000021",
+      "law_title": "平成十四年度における国民年金法による年金の額等の改定の特例に関する法律",
+      "law_num": "平成十四年法律第二十一号",
+      "category": "社会保険",
+      "law_revision_id": "414AC0000000021_20020401_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "414AC0000000094",
+      "law_title": "独立行政法人エネルギー・金属鉱物資源機構法",
+      "law_num": "平成十四年法律第九十四号",
+      "category": "行政組織",
+      "law_revision_id": "414AC0000000094_20260522_506AC0000000038",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第五条第一項又は第六条第一項の規定により機構が権利の承継をする場合における当該承継に係る不動産の取得に対しては、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "414AC0000000127",
+      "law_title": "独立行政法人農業者年金基金法",
+      "law_num": "平成十四年法律第百二十七号",
+      "category": "行政組織",
+      "law_revision_id": "414AC0000000127_20260401_507AC0000000074",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-collection"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "基金は、農業者老齢年金及び死亡一時金に関する事業に要する費用に充てるため、保険料を徴収する。"
+        }
+      ]
+    },
+    {
+      "law_id": "414AC0000000136",
+      "law_title": "独立行政法人国際協力機構法",
+      "law_num": "平成十四年法律第百三十六号",
+      "category": "行政組織",
+      "law_revision_id": "414AC0000000136_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第二条第一項の規定により機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "414AC0000000154",
+      "law_title": "会社更生法",
+      "law_num": "平成十四年法律第百五十四号",
+      "category": "民事",
+      "law_revision_id": "414AC0000000154_20260521_505AC0000000053",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "414AC0000000171",
+      "law_title": "独立行政法人労働者健康安全機構法",
+      "law_num": "平成十四年法律第百七十一号",
+      "category": "行政組織",
+      "law_revision_id": "414AC0000000171_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第八条第一項の規定により機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "414AC0000000180",
+      "law_title": "独立行政法人鉄道建設・運輸施設整備支援機構法",
+      "law_num": "平成十四年法律第百八十号",
+      "category": "行政組織",
+      "law_revision_id": "414AC0000000180_20261101_508AC0000000021",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "機構の事業所又は事務所のうち厚生年金保険法（昭和二十九年法律第百十五号）第六条第一項又は第三項に規定する適用事業所であるものに使用される同法による被保険者の同法による保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "414AC1000000049",
+      "law_title": "身体障害者補助犬法",
+      "law_num": "平成十四年法律第四十九号",
+      "category": "社会福祉",
+      "law_revision_id": "414AC1000000049_20210901_503AC0000000036",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "414AC1000000105",
+      "law_title": "ホームレスの自立の支援等に関する特別措置法",
+      "law_num": "平成十四年法律第百五号",
+      "category": "社会福祉",
+      "law_revision_id": "414AC1000000105_20170621_429AC1000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "414AC1000000143",
+      "law_title": "北朝鮮当局によって拉致された被害者等の支援に関する法律",
+      "law_num": "平成十四年法律第百四十三号",
+      "category": "社会福祉",
+      "law_revision_id": "414AC1000000143_20150101_426AC0000000123",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "415AC0000000019",
+      "law_title": "平成十五年度における国民年金法による年金の額等の改定の特例に関する法律",
+      "law_num": "平成十五年法律第十九号",
+      "category": "社会保険",
+      "law_revision_id": "415AC0000000019_20030401_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "415AC0000000100",
+      "law_title": "独立行政法人都市再生機構法",
+      "law_num": "平成十五年法律第百号",
+      "category": "行政組織",
+      "law_revision_id": "415AC0000000100_20260401_507AC0000000047",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第三条第一項及び第四条第一項の規定により機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない"
+        }
+      ]
+    },
+    {
+      "law_id": "415AC0000000114",
+      "law_title": "独立行政法人大学改革支援・学位授与機構法",
+      "law_num": "平成十五年法律第百十四号",
+      "category": "行政組織",
+      "law_revision_id": "415AC0000000114_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第二条第一項の規定により機構が権利を承継する場合における当該承継に係る不動産の取得に対しては、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "415AC0000000120",
+      "law_title": "次世代育成支援対策推進法",
+      "law_num": "平成十五年法律第百二十号",
+      "category": "社会福祉",
+      "law_revision_id": "415AC0000000120_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "415AC1000000133",
+      "law_title": "少子化社会対策基本法",
+      "law_num": "平成十五年法律第百三十三号",
+      "category": "社会福祉",
+      "law_revision_id": "415AC1000000133_20230401_504AC1000000077",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "416AC0000000023",
+      "law_title": "平成十六年度における児童扶養手当法による手当の額等の改定の特例に関する法律",
+      "law_num": "平成十六年法律第二十三号",
+      "category": "社会福祉",
+      "law_revision_id": "416AC0000000023_20041001_416AC0000000132",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "416AC0000000102",
+      "law_title": "日本道路公団等民営化関係法施行法",
+      "law_num": "平成十六年法律第百二号",
+      "category": "道路",
+      "law_revision_id": "416AC0000000102_20210401_503AC0000000009",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第十五条第一項の規定により会社又は機構が公団の資産を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "416AC0000000105",
+      "law_title": "年金積立金管理運用独立行政法人法",
+      "law_num": "平成十六年法律第百五号",
+      "category": "行政組織",
+      "law_revision_id": "416AC0000000105_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第三条第一項の規定により管理運用法人が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "416AC0000000122",
+      "law_title": "公益通報者保護法",
+      "law_num": "平成十六年法律第百二十二号",
+      "category": "労働",
+      "law_revision_id": "416AC0000000122_20261102_508AC0000000062",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "416AC0000000123",
+      "law_title": "不動産登記法",
+      "law_num": "平成十六年法律第百二十三号",
+      "category": "民事",
+      "law_revision_id": "416AC0000000123_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "416AC0000000135",
+      "law_title": "国立研究開発法人医薬基盤・健康・栄養研究所法",
+      "law_num": "平成十六年法律第百三十五号",
+      "category": "行政組織",
+      "law_revision_id": "416AC0000000135_20251120_507AC0000000037",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "前条第一項の規定により研究所が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "416AC0000000143",
+      "law_title": "経済連携協定に基づく特定原産地証明書の発給等に関する法律",
+      "law_num": "平成十六年法律第百四十三号",
+      "category": "国税",
+      "law_revision_id": "416AC0000000143_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "416AC1000000166",
+      "law_title": "特定障害者に対する特別障害給付金の支給に関する法律",
+      "law_num": "平成十六年法律第百六十六号",
+      "category": "社会福祉",
+      "law_revision_id": "416AC1000000166_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "416AC1000000167",
+      "law_title": "発達障害者支援法",
+      "law_num": "平成十六年法律第百六十七号",
+      "category": "社会福祉",
+      "law_revision_id": "416AC1000000167_20160801_428AC1000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "417AC0000000009",
+      "law_title": "児童扶養手当法による児童扶養手当の額等の改定の特例に関する法律",
+      "law_num": "平成十七年法律第九号",
+      "category": "社会福祉",
+      "law_revision_id": "417AC0000000009_20131001_424AC0000000099",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "417AC0000000040",
+      "law_title": "有限責任事業組合契約に関する法律",
+      "law_num": "平成十七年法律第四十号",
+      "category": "産業通則",
+      "law_revision_id": "417AC0000000040_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "417AC0000000087",
+      "law_title": "会社法の施行に伴う関係法律の整備等に関する法律",
+      "law_num": "平成十七年法律第八十七号",
+      "category": "民事",
+      "law_revision_id": "417AC0000000087_20220901_501AC0000000071",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "417AC0000000097",
+      "law_title": "郵政民営化法",
+      "law_num": "平成十七年法律第九十七号",
+      "category": "郵務",
+      "law_revision_id": "417AC0000000097_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "第七十条第七項、第七十九条第七項、第九十六条第三項及び第百二十八条第三項の規定により公社が行う出資に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課する"
+        },
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "する休日を除く。次号において同じ。）における一般預金等の額の合計額を平均した額を十二で除し、これに当該保険料を納付すべき日を含む事業年度の月数を乗じて計算した金額に、保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "417AC0000000101",
+      "law_title": "独立行政法人郵便貯金簡易生命保険管理・郵便局ネットワーク支援機構法",
+      "law_num": "平成十七年法律第百一号",
+      "category": "行政組織",
+      "law_revision_id": "417AC0000000101_20260625_508AC1000000050",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "第一項の契約には、再保険関係に係る再保険金額、再保険期間、再保険料率、支払うべき再保険金の金額、再保険料の収受、再保険金の支払、再保険料の払戻し、当該契約の変更及び解除、当該"
+        }
+      ]
+    },
+    {
+      "law_id": "417AC0000000123",
+      "law_title": "障害者の日常生活及び社会生活を総合的に支援するための法律",
+      "law_num": "平成十七年法律第百二十三号",
+      "category": "社会福祉",
+      "law_revision_id": "417AC0000000123_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "417AC1000000124",
+      "law_title": "高齢者虐待の防止、高齢者の養護者に対する支援等に関する法律",
+      "law_num": "平成十七年法律第百二十四号",
+      "category": "社会福祉",
+      "law_revision_id": "417AC1000000124_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "418AC0000000004",
+      "law_title": "石綿による健康被害の救済に関する法律",
+      "law_num": "平成十八年法律第四号",
+      "category": "厚生",
+      "law_revision_id": "418AC0000000004_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "した日　その保険年度に使用したその保険年度の直前の保険年度に使用した　賃金総額賃金総額（その額に千円未満の端数があるときは、その端数は、切り捨てる。以下同じ。）　一般保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "418AC0000000048",
+      "law_title": "一般社団法人及び一般財団法人に関する法律",
+      "law_num": "平成十八年法律第四十八号",
+      "category": "民事",
+      "law_revision_id": "418AC0000000048_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "418AC0000000049",
+      "law_title": "公益社団法人及び公益財団法人の認定等に関する法律",
+      "law_num": "平成十八年法律第四十九号",
+      "category": "民事",
+      "law_revision_id": "418AC0000000049_20260401_506AC0000000030",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "418AC0000000050",
+      "law_title": "一般社団法人及び一般財団法人に関する法律及び公益社団法人及び公益財団法人の認定等に関する法律の施行に伴う関係法律の整備等に関する法律",
+      "law_num": "平成十八年法律第五十号",
+      "category": "民事",
+      "law_revision_id": "418AC0000000050_20260401_506AC0000000030",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "418AC0000000051",
+      "law_title": "競争の導入による公共サービスの改革に関する法律",
+      "law_num": "平成十八年法律第五十一号",
+      "category": "産業通則",
+      "law_revision_id": "418AC0000000051_20261102_508AC0000000062",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-payment-duty"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-payment-duty",
+          "text": "国民年金法第八十八条の規定により保険料を納付する義務を負う者であって、保険料を納期限までに納付しないもの（以下この条において「保険料滞納者」という。）に対し、保険料が納期限ま"
+        }
+      ]
+    },
+    {
+      "law_id": "418AC0000000108",
+      "law_title": "信託法",
+      "law_num": "平成十八年法律第百八号",
+      "category": "民事",
+      "law_revision_id": "418AC0000000108_20260624_508AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "引法第百二条の十一において準用する商業登記法第百四十五条」と読み替える」に改める部分を除く。）並びに同法第百四十五条第一項及び第百四十六条の改正規定、第二十七条中損害保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "418AC0100000085",
+      "law_title": "自殺対策基本法",
+      "law_num": "平成十八年法律第八十五号",
+      "category": "社会福祉",
+      "law_revision_id": "418AC0100000085_20260401_507AC0100000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "419AC0000000057",
+      "law_title": "株式会社日本政策金融公庫法",
+      "law_num": "平成十九年法律第五十七号",
+      "category": "金融・保険",
+      "law_revision_id": "419AC0000000057_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "十六条第一項、第十七条第一項及び第十八条第一項の規定により公庫が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "419AC0000000064",
+      "law_title": "地方公共団体金融機構法",
+      "law_num": "平成十九年法律第六十四号",
+      "category": "地方自治",
+      "law_revision_id": "419AC0000000064_20260401_508AC0000000003",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第九条第一項の規定により機構が権利を承継する場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "419AC0000000085",
+      "law_title": "株式会社日本政策投資銀行法",
+      "law_num": "平成十九年法律第八十五号",
+      "category": "金融・保険",
+      "law_revision_id": "419AC0000000085_20260812_508AC0000000064",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第九条の規定により政投銀が行う出資に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "419AC0000000094",
+      "law_title": "地方公共団体の財政の健全化に関する法律",
+      "law_num": "平成十九年法律第九十四号",
+      "category": "地方財政",
+      "law_revision_id": "419AC0000000094_20260401_508AC0000000003",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "十五年法律第二百二十六号）第四条第二項若しくは第五条第二項に掲げる普通税について標準税率を超える税率で課し、又は同法第四条第三項若しくは第五条第三項の規定による普通税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "419AC0000000104",
+      "law_title": "社会保障協定の実施に伴う厚生年金保険法等の特例等に関する法律",
+      "law_num": "平成十九年法律第百四号",
+      "category": "社会保険",
+      "law_revision_id": "419AC0000000104_20261001_507AC0000000074",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "419AC0000000109",
+      "law_title": "日本年金機構法",
+      "law_num": "平成十九年法律第百九号",
+      "category": "社会保険",
+      "law_revision_id": "419AC0000000109_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "419AC0000000128",
+      "law_title": "労働契約法",
+      "law_num": "平成十九年法律第百二十八号",
+      "category": "労働",
+      "law_revision_id": "419AC0000000128_20200401_430AC0000000071",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "419AC1000000111",
+      "law_title": "厚生年金保険の保険給付及び国民年金の給付に係る時効の特例等に関する法律",
+      "law_num": "平成十九年法律第百十一号",
+      "category": "社会保険",
+      "law_revision_id": "419AC1000000111_20120401_424AC0000000024",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "419AC1000000131",
+      "law_title": "厚生年金保険の保険給付及び保険料の納付の特例等に関する法律",
+      "law_num": "平成十九年法律第百三十一号",
+      "category": "社会保険",
+      "law_revision_id": "419AC1000000131_20240101_505AC0000000003",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance",
+        "si-keyword-premium-collection",
+        "si-keyword-premium-payment-duty"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-collection",
+          "text": "定による確認の請求又は同法第二十八条の二第一項（同条第二項及び第三項において準用する場合を含む。次項において同じ。）の規定による訂正の請求があった場合を除き、未納保険料を徴収"
+        },
+        {
+          "condition_id": "si-keyword-premium-payment-duty",
+          "text": "事業主が、同法第八十四条第一項又は第二項の規定により被保険者の負担すべき保険料を控除した事実があるにもかかわらず、当該被保険者に係る同法第八十二条第二項の保険料を納付する義務"
+        }
+      ]
+    },
+    {
+      "law_id": "420AC0000000084",
+      "law_title": "地方税等減収補てん臨時交付金に関する法律",
+      "law_num": "平成二十年法律第八十四号",
+      "category": "地方財政",
+      "law_revision_id": "420AC0000000084_20081022_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "421AC0000000071",
+      "law_title": "子ども・若者育成支援推進法",
+      "law_num": "平成二十一年法律第七十一号",
+      "category": "社会福祉",
+      "law_revision_id": "421AC0000000071_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "421AC1000000037",
+      "law_title": "厚生年金保険の保険給付及び国民年金の給付の支払の遅延に係る加算金の支給に関する法律",
+      "law_num": "平成二十一年法律第三十七号",
+      "category": "社会保険",
+      "law_revision_id": "421AC1000000037_20240101_505AC0000000003",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "421AC1000000081",
+      "law_title": "水俣病被害者の救済及び水俣病問題の解決に関する特別措置法",
+      "law_num": "平成二十一年法律第八十一号",
+      "category": "厚生",
+      "law_revision_id": "421AC1000000081_20251212_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "事業会社が認可事業再編計画に基づいて行われる事業譲渡により特定事業者から不動産を取得した場合における当該不動産の取得に対しては、不動産取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "422AC0000000008",
+      "law_title": "租税特別措置の適用状況の透明化等に関する法律",
+      "law_num": "平成二十二年法律第八号",
+      "category": "国税",
+      "law_revision_id": "422AC0000000008_20260401_507AC0000000013",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "422AC0000000019",
+      "law_title": "平成二十二年度等における子ども手当の支給に関する法律",
+      "law_num": "平成二十二年法律第十九号",
+      "category": "社会福祉",
+      "law_revision_id": "422AC0000000019_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "422AC0100000045",
+      "law_title": "戦後強制抑留者に係る問題に関する特別措置法",
+      "law_num": "平成二十二年法律第四十五号",
+      "category": "社会福祉",
+      "law_revision_id": "422AC0100000045_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "422AC1000000049",
+      "law_title": "平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての個人の道府県民税及び市町村民税の臨時特例に関する法律",
+      "law_num": "平成二十二年法律第四十九号",
+      "category": "地方財政",
+      "law_revision_id": "422AC1000000049_20101029_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "422AC1000000050",
+      "law_title": "平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律",
+      "law_num": "平成二十二年法律第五十号",
+      "category": "国税",
+      "law_revision_id": "422AC1000000050_20110701_423AC0000000016",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "423AC0000000029",
+      "law_title": "東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律",
+      "law_num": "平成二十三年法律第二十九号",
+      "category": "国税",
+      "law_revision_id": "423AC0000000029_20260401_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "423AC0000000039",
+      "law_title": "株式会社国際協力銀行法",
+      "law_num": "平成二十三年法律第三十九号",
+      "category": "金融・保険",
+      "law_revision_id": "423AC0000000039_20260918_508AC0000000038",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第十二条第一項の規定により会社が権利の承継を行う場合における当該承継に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "423AC0000000040",
+      "law_title": "東日本大震災に対処するための特別の財政援助及び助成に関する法律",
+      "law_num": "平成二十三年法律第四十号",
+      "category": "災害対策",
+      "law_revision_id": "423AC0000000040_20251001_504AC0000000104",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-keyword-premium-rate"
+      ],
+      "snippets": [
+        {
+          "condition_id": "si-keyword-premium-rate",
+          "text": "業主がその事業に使用する全ての労働者に支払う賃金の総額（その額に千円未満の端数があるときは、その端数は、切り捨てる。）に徴収法第十二条第一項に規定する一般保険料に係る保険料率"
+        }
+      ]
+    },
+    {
+      "law_id": "423AC0000000047",
+      "law_title": "職業訓練の実施等による特定求職者の就職の支援に関する法律",
+      "law_num": "平成二十三年法律第四十七号",
+      "category": "労働",
+      "law_revision_id": "423AC0000000047_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "423AC0000000054",
+      "law_title": "関西国際空港及び大阪国際空港の一体的かつ効率的な設置及び管理に関する法律",
+      "law_num": "平成二十三年法律第五十四号",
+      "category": "航空",
+      "law_revision_id": "423AC0000000054_20251201_507AC0000000055",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "附則第五条第八項又は第九項の規定により政府又は機構が行う出資に係る不動産又は自動車の取得に対しては、不動産取得税又は自動車取得税を課することができない。"
+        }
+      ]
+    },
+    {
+      "law_id": "423AC0000000107",
+      "law_title": "平成二十三年度における子ども手当の支給等に関する特別措置法",
+      "law_num": "平成二十三年法律第百七号",
+      "category": "社会福祉",
+      "law_revision_id": "423AC0000000107_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "423AC0000000117",
+      "law_title": "東日本大震災からの復興のための施策を実施するために必要な財源の確保に関する特別措置法",
+      "law_num": "平成二十三年法律第百十七号",
+      "category": "国債",
+      "law_revision_id": "423AC0000000117_20260401_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "所得税法第五条の規定その他の所得税に関する法令の規定により所得税を納める義務がある居住者、非居住者、内国法人又は外国法人は、基準所得税額につき、この法律により、復興特別所得税"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "居住者又は非居住者に対して課される平成二十五年から令和十九年までの各年分の所得税に係る基準所得税額には、この法律により、復興特別所得税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "423AC0000000118",
+      "law_title": "東日本大震災からの復興に関し地方公共団体が実施する防災のための施策に必要な財源の確保に係る地方税の臨時特例に関する法律",
+      "law_num": "平成二十三年法律第百十八号",
+      "category": "地方財政",
+      "law_revision_id": "423AC0000000118_20111202_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "423AC0100000113",
+      "law_title": "株式会社東日本大震災事業者再生支援機構法",
+      "law_num": "平成二十三年法律第百十三号",
+      "category": "産業通則",
+      "law_revision_id": "423AC0100000113_20261102_508AC0000000062",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "に基づく債権の買取りにより不動産を取得した場合及び機構が第十六条第一項第三号に掲げる業務として不動産を取得した場合におけるこれらの不動産の取得に対しては、不動産取得税を課する"
+        }
+      ]
+    },
+    {
+      "law_id": "423AC1000000079",
+      "law_title": "障害者虐待の防止、障害者の養護者に対する支援等に関する法律",
+      "law_num": "平成二十三年法律第七十九号",
+      "category": "社会福祉",
+      "law_revision_id": "423AC1000000079_20251001_504AC0000000104",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "424AC0000000065",
+      "law_title": "子ども・子育て支援法",
+      "law_num": "平成二十四年法律第六十五号",
+      "category": "社会福祉",
+      "law_revision_id": "424AC0000000065_20261001_507AC0000000087",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "424AC0000000068",
+      "law_title": "社会保障の安定財源の確保等を図る税制の抜本的な改革を行うための消費税法の一部を改正する等の法律",
+      "law_num": "平成二十四年法律第六十八号",
+      "category": "国税",
+      "law_revision_id": "424AC0000000068_20250401_506AC0000000046",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "424AC0000000102",
+      "law_title": "年金生活者支援給付金の支給に関する法律",
+      "law_num": "平成二十四年法律第百二号",
+      "category": "社会保険",
+      "law_revision_id": "424AC0000000102_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "424AC1000000050",
+      "law_title": "国等による障害者就労施設等からの物品等の調達の推進等に関する法律",
+      "law_num": "平成二十四年法律第五十号",
+      "category": "社会福祉",
+      "law_revision_id": "424AC1000000050_20251001_504AC0000000104",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "424AC1000000064",
+      "law_title": "社会保障制度改革推進法",
+      "law_num": "平成二十四年法律第六十四号",
+      "category": "社会福祉",
+      "law_revision_id": "424AC1000000064_20120822_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "424AC1000000092",
+      "law_title": "母子家庭の母及び父子家庭の父の就業の支援に関する特別措置法",
+      "law_num": "平成二十四年法律第九十二号",
+      "category": "社会福祉",
+      "law_revision_id": "424AC1000000092_20230401_504AC0000000076",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "425AC0000000065",
+      "law_title": "障害を理由とする差別の解消の推進に関する法律",
+      "law_num": "平成二十五年法律第六十五号",
+      "category": "社会福祉",
+      "law_revision_id": "425AC0000000065_20261102_508AC0000000062",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "425AC0000000105",
+      "law_title": "生活困窮者自立支援法",
+      "law_num": "平成二十五年法律第百五号",
+      "category": "社会福祉",
+      "law_revision_id": "425AC0000000105_20260625_508AC0000000051",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "425AC0000000112",
+      "law_title": "持続可能な社会保障制度の確立を図るための改革の推進に関する法律",
+      "law_num": "平成二十五年法律第百十二号",
+      "category": "社会福祉",
+      "law_revision_id": "425AC0000000112_20210901_503AC0000000036",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "425AC1000000064",
+      "law_title": "こどもの貧困の解消に向けた対策の推進に関する法律",
+      "law_num": "平成二十五年法律第六十四号",
+      "category": "社会福祉",
+      "law_revision_id": "425AC1000000064_20240925_506AC1000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "425AC1000000066",
+      "law_title": "死刑再審無罪者に対し国民年金の給付等を行うための国民年金の保険料の納付の特例等に関する法律",
+      "law_num": "平成二十五年法律第六十六号",
+      "category": "社会保険",
+      "law_revision_id": "425AC1000000066_20130924_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-insurance"
+      ]
+    },
+    {
+      "law_id": "426AC0000000011",
+      "law_title": "地方法人税法",
+      "law_num": "平成二十六年法律第十一号",
+      "category": "国税",
+      "law_revision_id": "426AC0000000011_20260401_507AC0000000013",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "法人税を納める義務がある法人（以下「法人」という。）は、この法律により、地方法人税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "法人の各課税事業年度の基準法人税額には、この法律により、基準法人税額に対する地方法人税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "426AC0000000112",
+      "law_title": "経済連携協定に基づく申告原産品に係る情報の提供等に関する法律",
+      "law_num": "平成二十六年法律第百十二号",
+      "category": "国税",
+      "law_revision_id": "426AC0000000112_20181230_428AC0000000108",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "426AC0000000137",
+      "law_title": "専門的知識等を有する有期雇用労働者等に関する特別措置法",
+      "law_num": "平成二十六年法律第百三十七号",
+      "category": "労働",
+      "law_revision_id": "426AC0000000137_20150401_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "426AC1000000097",
+      "law_title": "介護・障害福祉従事者の人材確保のための介護・障害福祉従事者の処遇改善に関する法律",
+      "law_num": "平成二十六年法律第九十七号",
+      "category": "社会福祉",
+      "law_revision_id": "426AC1000000097_20140627_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "426AC1000000100",
+      "law_title": "過労死等防止対策推進法",
+      "law_num": "平成二十六年法律第百号",
+      "category": "労働",
+      "law_revision_id": "426AC1000000100_20141101_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "427AC0000000064",
+      "law_title": "女性の職業生活における活躍の推進に関する法律",
+      "law_num": "平成二十七年法律第六十四号",
+      "category": "労働",
+      "law_revision_id": "427AC0000000064_20261001_507AC0000000063",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "427AC1000000069",
+      "law_title": "労働者の職務に応じた待遇の確保等のための施策の推進に関する法律",
+      "law_num": "平成二十七年法律第六十九号",
+      "category": "労働",
+      "law_revision_id": "427AC1000000069_20150930_427AC0000000073",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "428AC0100000110",
+      "law_title": "民間あっせん機関による養子縁組のあっせんに係る児童の保護等に関する法律",
+      "law_num": "平成二十八年法律第百十号",
+      "category": "社会福祉",
+      "law_revision_id": "428AC0100000110_20251001_507AC0000000029",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "428AC0100000111",
+      "law_title": "建設工事従事者の安全及び健康の確保の推進に関する法律",
+      "law_num": "平成二十八年法律第百十一号",
+      "category": "労働",
+      "law_revision_id": "428AC0100000111_20170316_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "428AC1000000012",
+      "law_title": "戦没者の遺骨収集の推進に関する法律",
+      "law_num": "平成二十八年法律第十二号",
+      "category": "社会福祉",
+      "law_revision_id": "428AC1000000012_20230616_505AC1000000055",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "430AC0000000016",
+      "law_title": "国際観光旅客税法",
+      "law_num": "平成三十年法律第十六号",
+      "category": "国税",
+      "law_revision_id": "430AC0000000016_20260701_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "国際観光旅客等は、この法律により、国際観光旅客税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "国際観光旅客等の国際船舶等による本邦からの出国には、この法律により、国際観光旅客税を課する。ただし、当該国際船舶等が天候その他やむを得ない理由により外国に寄港することなく本邦"
+        }
+      ]
+    },
+    {
+      "law_id": "430AC1000000104",
+      "law_title": "成育過程にある者及びその保護者並びに妊産婦に対し必要な成育医療等を切れ目なく提供するための施策の総合的な推進に関する法律",
+      "law_num": "平成三十年法律第百四号",
+      "category": "社会福祉",
+      "law_revision_id": "430AC1000000104_20230401_504AC0000000076",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "431AC0000000001",
+      "law_title": "平成三十年度分として交付すべき地方交付税の総額の特例に関する法律",
+      "law_num": "平成三十一年法律第一号",
+      "category": "地方財政",
+      "law_revision_id": "431AC0000000001_20190214_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    },
+    {
+      "law_id": "431AC0000000003",
+      "law_title": "森林環境税及び森林環境譲与税に関する法律",
+      "law_num": "平成三十一年法律第三号",
+      "category": "国税",
+      "law_revision_id": "431AC0000000003_20260401_508AC0000000002",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax",
+        "nt-keyword-levy"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "この法律の施行地に住所を有する個人に対しては、この法律により、国が均等の額により森林環境税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "431AC0000000004",
+      "law_title": "特別法人事業税及び特別法人事業譲与税に関する法律",
+      "law_num": "平成三十一年法律第四号",
+      "category": "地方財政",
+      "law_revision_id": "431AC0000000004_20260401_508AC0000000002",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance",
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "法人は、この法律により、特別法人事業税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "法人の基準法人所得割額及び基準法人収入割額には、この法律により、国が特別法人事業税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "501AC0100000032",
+      "law_title": "自殺対策の総合的かつ効果的な実施に資するための調査研究及びその成果の活用等の推進に関する法律",
+      "law_num": "令和元年法律第三十二号",
+      "category": "社会福祉",
+      "law_revision_id": "501AC0100000032_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "502AC0000000025",
+      "law_title": "新型コロナウイルス感染症等の影響に対応するための国税関係法律の臨時特例に関する法律",
+      "law_num": "令和二年法律第二十五号",
+      "category": "国税",
+      "law_revision_id": "502AC0000000025_20260401_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "502AC0000000054",
+      "law_title": "新型コロナウイルス感染症等の影響に対応するための雇用保険法の臨時特例等に関する法律",
+      "law_num": "令和二年法律第五十四号",
+      "category": "労働",
+      "law_revision_id": "502AC0000000054_20251001_506AC0000000026",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "502AC1000000078",
+      "law_title": "労働者協同組合法",
+      "law_num": "令和二年法律第七十八号",
+      "category": "労働",
+      "law_revision_id": "502AC1000000078_20251001_504AC0000000104",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "503AC0000000081",
+      "law_title": "医療的ケア児及びその家族に対する支援に関する法律",
+      "law_num": "令和三年法律第八十一号",
+      "category": "社会福祉",
+      "law_revision_id": "503AC0000000081_20251001_507AC0000000029",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "503AC1000000080",
+      "law_title": "中小事業主が行う事業に従事する者等の労働災害等に係る共済事業に関する法律",
+      "law_num": "令和三年法律第八十号",
+      "category": "労働",
+      "law_revision_id": "503AC1000000080_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "504AC0100000052",
+      "law_title": "困難な問題を抱える女性への支援に関する法律",
+      "law_num": "令和四年法律第五十二号",
+      "category": "社会福祉",
+      "law_revision_id": "504AC0100000052_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "504AC1000000077",
+      "law_title": "こども基本法",
+      "law_num": "令和四年法律第七十七号",
+      "category": "社会福祉",
+      "law_revision_id": "504AC1000000077_20240925_506AC1000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "504AC1000000078",
+      "law_title": "性をめぐる個人の尊厳が重んぜられる社会の形成に資するために性行為映像制作物への出演に係る被害の防止を図り及び出演者の救済に資するための出演契約等に関する特則等に関する法律",
+      "law_num": "令和四年法律第七十八号",
+      "category": "労働",
+      "law_revision_id": "504AC1000000078_20250601_504AC0000000068",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "505AC0000000025",
+      "law_title": "特定受託事業者に係る取引の適正化等に関する法律",
+      "law_num": "令和五年法律第二十五号",
+      "category": "労働",
+      "law_revision_id": "505AC0000000025_20241101_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-labor"
+      ]
+    },
+    {
+      "law_id": "505AC0000000045",
+      "law_title": "孤独・孤立対策推進法",
+      "law_num": "令和五年法律第四十五号",
+      "category": "社会福祉",
+      "law_revision_id": "505AC0000000045_20240517_506AC0000000027",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "505AC0000000069",
+      "law_title": "我が国の防衛力の抜本的な強化等のために必要な財源の確保に関する特別措置法",
+      "law_num": "令和五年法律第六十九号",
+      "category": "財務通則",
+      "law_revision_id": "505AC0000000069_20260401_508AC0000000012",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-keyword-levy",
+        "nt-keyword-tax-liability"
+      ],
+      "snippets": [
+        {
+          "condition_id": "nt-keyword-tax-liability",
+          "text": "各事業年度の所得に対する法人税を課される法人は、この法律により、防衛特別法人税を納める義務がある。"
+        },
+        {
+          "condition_id": "nt-keyword-levy",
+          "text": "法人の各課税事業年度の基準法人税額には、この法律により、当分の間、防衛特別法人税を課する。"
+        }
+      ]
+    },
+    {
+      "law_id": "506AC0000000001",
+      "law_title": "令和六年能登半島地震災害の被災者に係る所得税法及び災害被害者に対する租税の減免、徴収猶予等に関する法律の臨時特例に関する法律",
+      "law_num": "令和六年法律第一号",
+      "category": "国税",
+      "law_revision_id": "506AC0000000001_20240221_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "nt-category-national-tax"
+      ]
+    },
+    {
+      "law_id": "506AC1000000013",
+      "law_title": "令和六年能登半島地震災害に係る住宅再建支援等給付金に係る差押禁止等に関する法律",
+      "law_num": "令和六年法律第十三号",
+      "category": "社会福祉",
+      "law_revision_id": "506AC1000000013_20240405_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "507AC0100000078",
+      "law_title": "手話に関する施策の推進に関する法律",
+      "law_num": "令和七年法律第七十八号",
+      "category": "社会福祉",
+      "law_revision_id": "507AC0100000078_20250625_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "507AC1000000096",
+      "law_title": "高次脳機能障害者支援法",
+      "law_num": "令和七年法律第九十六号",
+      "category": "社会福祉",
+      "law_revision_id": "507AC1000000096_20260401_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "si-category-social-welfare"
+      ]
+    },
+    {
+      "law_id": "508AC0000000010",
+      "law_title": "農業構造転換の推進に必要な施策の集中的な実施の財源に充てるための日本中央競馬会の国庫納付金の納付に関する臨時措置法",
+      "law_num": "令和八年法律第十号",
+      "category": "地方財政",
+      "law_revision_id": "508AC0000000010_20260331_000000000000000",
+      "current_revision_status": "CurrentEnforced",
+      "matched_conditions": [
+        "lt-category-local-finance"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "condition_id": "lt-local-tax-items",
+      "law_id": "325AC0000000226",
+      "elm": "MainProvision-Article_4",
+      "law_revision_id": "325AC0000000226_20261101_508AC0000000002",
+      "text": "（道府県が課することができる税目）第四条道府県税は、普通税及び目的税とする。２道府県は、普通税として、次に掲げるものを課するものとする。ただし、徴収に要すべき経費が徴収すべき税額に比して多額であると認められるものその他特別の事情があるものについては、この限りでない。一道府県民税二事業税三地方消費税四不動産取得税五道府県たばこ税六ゴルフ場利用税七軽油引取税八自動車税九鉱区税３道府県は、前項各号に掲げるものを除くほか、別に税目を起こして、普通税を課することができる。４道府県は、目的税として、狩猟税を課するものとする。５道府県は、前項に規定するものを除くほか、目的税として、水利地益税を課することができる。６道府県は、前二項に規定するものを除くほか、別に税目を起こして、目的税を課することができる。"
+    },
+    {
+      "condition_id": "lt-local-tax-items",
+      "law_id": "325AC0000000226",
+      "elm": "MainProvision-Article_5",
+      "law_revision_id": "325AC0000000226_20261101_508AC0000000002",
+      "text": "（市町村が課することができる税目）第五条市町村税は、普通税及び目的税とする。２市町村は、普通税として、次に掲げるものを課するものとする。ただし、徴収に要すべき経費が徴収すべき税額に比して多額であると認められるものその他特別の事情があるものについては、この限りでない。一市町村民税二固定資産税三軽自動車税四市町村たばこ税五鉱産税六特別土地保有税３市町村は、前項に掲げるものを除く外、別に税目を起して、普通税を課することができる。４鉱泉浴場所在の市町村は、目的税として、入湯税を課するものとする。５指定都市等（第七百一条の三十一第一項第一号の指定都市等をいう。）は、目的税として、事業所税を課するものとする。６市町村は、前二項に規定するものを除くほか、目的税として、次に掲げるものを課することができる。一都市計画税二水利地益税三共同施設税四宅地開発税五国民健康保険税７市町村は、第四項及び第五項に規定するもの並びに前項各号に掲げるものを除くほか、別に税目を起こして、目的税を課することができる。"
+    }
+  ]
+}

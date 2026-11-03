@@ -1,0 +1,1757 @@
+# 最初のリリースの対象法令の判定結果（schemas/survey-judgments.schema.json）。
+# candidates.json の全件を判定する。全件に判定があることは tests/survey.test.ts で検査する。
+# target: 最初のリリースの対象、later: 全体の範囲だが最初のリリースの対象外、pending: ユーザーの判断が必要、excluded: 対象外。
+survey_id: first-release-scope
+judged_against: 2026-11-03T03:22:26Z
+judgments:
+  - law_id: 129AC0000000089
+    law_title: 民法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 131AC0000000011
+    law_title: 民法施行法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 131AC0000000014
+    law_title: 外国法人の登記及び夫婦財産契約の登記に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 132AC0000000093
+    law_title: 行旅病人及行旅死亡人取扱法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 138AC0000000052
+    law_title: 担保付社債信託法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 143AC0000000054
+    law_title: 関税定率法
+    judgment: target
+    reason: 関税の課税標準と税率（関税率表）を定める
+    articles:
+      - 第三条（課税標準及び税率）
+    groups:
+      - customs-duty
+  - law_id: 211AC0000000070
+    law_title: 健康保険法
+    judgment: target
+    reason: 健康保険の保険料を徴収する。保険料率は保険者が定めるが、法定の範囲・標準報酬等を法令で定める
+    articles:
+      - 第百五十五条（保険料）
+    groups:
+      - health-insurance-premium
+      - child-rearing-support-levy
+  - law_id: 306AC0000000015
+    law_title: 抵当証券法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 306AC0000000042
+    law_title: 無尽業法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 308AC0000000021
+    law_title: 農村負債整理組合法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 312AC0000000025
+    law_title: 森林保険法
+    judgment: excluded
+    reason: 国立研究開発法人が行う森林保険（任意加入）を定める。法令で加入・支払いが義務付けられた負担ではない
+  - law_id: 314AC0000000073
+    law_title: 船員保険法
+    judgment: target
+    reason: 船員保険の保険料を徴収する
+    articles:
+      - 第百十四条（保険料の徴収）
+    groups:
+      - seamen-insurance-premium
+      - child-rearing-support-levy
+  - law_id: 318AC0000000043
+    law_title: 金融機関の信託業務の兼営等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 321AC0000000007
+    law_title: 会社経理応急措置法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 321AC0000000025
+    law_title: 労働関係調整法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 321AC0000000039
+    law_title: 金融機関再建整備法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 321AC0000000040
+    law_title: 企業再建整備法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない。全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 322AC0000000049
+    law_title: 労働基準法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 322AC0000000050
+    law_title: 労働者災害補償保険法
+    judgment: excluded
+    reason: 労災保険の給付等を定める。労災保険料は労働保険の保険料の徴収等に関する法律で定める
+  - law_id: 322AC0000000054
+    law_title: 昭和二十二年法律第五十四号（私的独占の禁止及び公正取引の確保に関する法律）
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 322AC0000000067
+    law_title: 地方自治法
+    judgment: pending
+    reason: 地方公共団体の分担金・使用料・手数料・加入金を定める（第二百二十四条以下）。使用料・手数料は対象外だが、分担金（受益者からの徴収）を対象とするかユーザーの判断が必要
+  - law_id: 322AC0000000109
+    law_title: 昭和二十二年法律第百九号（生命保険中央会及び損害保険中央会の保険業務に関する権利義務の承継等に関する法律）
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 322AC0000000120
+    law_title: 国家公務員法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 322AC0000000132
+    law_title: 農業協同組合法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 322AC0000000141
+    law_title: 職業安定法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 322AC0000000159
+    law_title: 昭和二十二年法律第百五十九号（赤十字の標章及び名称等の使用の制限に関する法律）
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 322AC0000000164
+    law_title: 児童福祉法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 322AC0000000175
+    law_title: 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律）
+    judgment: later
+    reason: 災害被害者に対する税の減免・徴収猶予を定める。レベル4（減免）に当たる
+  - law_id: 322AC0000000185
+    law_title: 農業保険法
+    judgment: excluded
+    reason: 農業保険（任意加入）を定める。全文検索の該当は非課税規定と、国庫による保険料の負担に関する規定
+  - law_id: 322IO0000000074
+    law_title: 閉鎖機関令
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 323AC0000000025
+    law_title: 金融商品取引法
+    judgment: later
+    reason: 投資者保護基金への会員の負担金等を定める。法令に基づく負担金に当たり得るため、区分 ot として後続で確認する
+  - law_id: 323AC0000000109
+    law_title: 地方財政法
+    judgment: excluded
+    reason: 国と地方公共団体の財政運営の基本を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 323AC0000000129
+    law_title: 医療情報基盤・診療報酬審査支払機構法
+    judgment: excluded
+    reason: 診療報酬の審査支払等を行う機構の組織を定める。負担を課す規定ではない
+  - law_id: 323AC0000000130
+    law_title: 船員職業安定法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 323AC0000000144
+    law_title: 当せん金付証票法
+    judgment: excluded
+    reason: 公営競技・宝くじ等の施行と、施行者等の納付金・交付金を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 323AC0000000158
+    law_title: 競馬法
+    judgment: excluded
+    reason: 公営競技・宝くじ等の施行と、施行者等の納付金・交付金を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 323AC0000000193
+    law_title: 損害保険料率算出団体に関する法律
+    judgment: excluded
+    reason: 損害保険料率算出団体の組織・業務を定める。負担を課す規定ではない（自賠責保険料は自動車損害賠償保障法で扱う）
+  - law_id: 323AC0000000198
+    law_title: 民生委員法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 323AC0000000200
+    law_title: 消費生活協同組合法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 323AC0000000205
+    law_title: 医療法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 323AC0000000242
+    law_title: 水産業協同組合法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 323AC0000000257
+    law_title: 行政執行法人の労働関係に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 323AC1000000209
+    law_title: 自転車競技法
+    judgment: excluded
+    reason: 公営競技・宝くじ等の施行と、施行者等の納付金・交付金を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 323CO0000000298
+    law_title: 連合国財産上の家屋等の譲渡等に関する政令
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 324AC0000000083
+    law_title: 公共企業体労働関係法の施行に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 324AC0000000174
+    law_title: 労働組合法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 324AC0000000181
+    law_title: 中小企業等協同組合法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 324AC0000000182
+    law_title: 中小企業等協同組合法施行法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 324AC0000000183
+    law_title: 協同組合による金融事業に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 324AC1000000205
+    law_title: 弁護士法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 324AC1000000283
+    law_title: 身体障害者福祉法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 324CO0000000310
+    law_title: 連合国財産である株式の回復に関する政令
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 325AC0000000047
+    law_title: 社会保険医療協議会法
+    judgment: excluded
+    reason: 社会保険医療協議会の組織を定める。負担を課す規定ではない
+  - law_id: 325AC0000000067
+    law_title: 貿易保険法
+    judgment: excluded
+    reason: 貿易保険（任意加入）を定める。法令で加入・支払いが義務付けられた負担ではない
+  - law_id: 325AC0000000073
+    law_title: 相続税法
+    judgment: target
+    reason: 相続税と贈与税を課し、納税義務者を定める
+    articles:
+      - 第一条の三（相続税の納税義務者）
+      - 第一条の四（贈与税の納税義務者）
+    groups:
+      - inheritance-tax
+      - gift-tax
+  - law_id: 325AC0000000110
+    law_title: 資産再評価法
+    judgment: later
+    reason: 再評価税を課す規定がある。昭和期の資産再評価に係る税で、現行で新たな課税が生じるかは未確認のため、過去の制度として後続で確認する
+  - law_id: 325AC0000000144
+    law_title: 生活保護法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 325AC0000000177
+    law_title: 船主相互保険組合法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 325AC0000000211
+    law_title: 地方交付税法
+    judgment: excluded
+    reason: 地方交付税（国から地方公共団体への財政移転）を定める。新たな負担を課すものではない
+  - law_id: 325AC0000000226
+    law_title: 地方税法
+    judgment: target
+    reason: 道府県税・市町村税の法定税の税目を列挙し、各税目の課税要件・標準税率・制限税率を定める
+    articles:
+      - 第四条（道府県が課することができる税目）
+      - 第五条（市町村が課することができる税目）
+    groups:
+      - prefectural-inhabitant-tax
+      - enterprise-tax
+      - local-consumption-tax
+      - real-estate-acquisition-tax
+      - prefectural-tobacco-tax
+      - golf-course-use-tax
+      - light-oil-delivery-tax
+      - automobile-tax
+      - mining-area-tax
+      - hunting-tax
+      - prefectural-water-utilization-and-land-benefit-tax
+      - municipal-inhabitant-tax
+      - fixed-assets-tax
+      - light-motor-vehicle-tax
+      - municipal-tobacco-tax
+      - mineral-product-tax
+      - special-land-holding-tax
+      - bathing-tax
+      - business-office-tax
+      - city-planning-tax
+      - municipal-water-utilization-and-land-benefit-tax
+      - common-facilities-tax
+      - housing-land-development-tax
+      - national-health-insurance-tax
+  - law_id: 325AC0000000239
+    law_title: 商品先物取引法
+    judgment: later
+    reason: 委託者保護基金への会員の負担金等を定める。法令に基づく負担金に当たり得るため、区分 ot として後続で確認する
+  - law_id: 325AC0000000256
+    law_title: 旧令による共済組合等からの年金受給者のための特別措置法
+    judgment: excluded
+    reason: 旧令共済組合等の年金受給者のための特別措置を定める。負担を課す規定ではない
+  - law_id: 325AC0000000261
+    law_title: 地方公務員法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 325AC1000000197
+    law_title: 司法書士法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 325AC1000000208
+    law_title: 小型自動車競走法
+    judgment: excluded
+    reason: 公営競技・宝くじ等の施行と、施行者等の納付金・交付金を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 325AC1000000228
+    law_title: 土地家屋調査士法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 326AC0000000045
+    law_title: 社会福祉法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 326AC0000000126
+    law_title: 宗教法人法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 326AC0000000264
+    law_title: 連合国財産補償法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 326AC0100000198
+    law_title: 投資信託及び投資法人に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 326AC1000000004
+    law_title: 行政書士法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 326AC1000000145
+    law_title: 納税貯蓄組合法
+    judgment: excluded
+    reason: 納税貯蓄組合の制度を定める。負担を課す規定ではない
+  - law_id: 326AC1000000237
+    law_title: 税理士法
+    judgment: excluded
+    reason: 税理士の資格・業務を定める。負担を課す規定ではない
+  - law_id: 326AC1000000238
+    law_title: 信用金庫法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 326AC1000000242
+    law_title: モーターボート競走法
+    judgment: excluded
+    reason: 公営競技・宝くじ等の施行と、施行者等の納付金・交付金を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 326CO0000000006
+    law_title: 連合国財産の返還等に関する政令
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 327AC0000000111
+    law_title: 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 327AC0000000112
+    law_title: 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 327AC0000000113
+    law_title: 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う国税通則法等の臨時特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 327AC0000000119
+    law_title: 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 327AC0000000127
+    law_title: 戦傷病者戦没者遺族等援護法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 327AC0000000187
+    law_title: 長期信用銀行法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 327AC0000000195
+    law_title: 貸付信託法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 327AC0000000289
+    law_title: 地方公営企業等の労働関係に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 327AC0000000299
+    law_title: 輸出入取引法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 327AC0000000346
+    law_title: 中小漁業融資保証法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 327AC1000000028
+    law_title: 漁船損害等補償法
+    judgment: excluded
+    reason: 漁船損害等の補償（漁船保険）を定める。全文検索の該当は保険料率に関する規定で、法令で加入・支払いが義務付けられた負担と確認できない
+  - law_id: 327AC1000000305
+    law_title: 日本赤十字社法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 328AC0000000006
+    law_title: 酒税法
+    judgment: target
+    reason: 酒税を課し、納税義務者を定める
+    articles:
+      - 第六条（納税義務者）
+    groups:
+      - liquor-tax
+  - law_id: 328AC0000000007
+    law_title: 酒税の保全及び酒類業組合等に関する法律
+    judgment: excluded
+    reason: 酒税の保全と酒類業組合を定める。負担を課す規定ではない
+  - law_id: 328AC0000000161
+    law_title: 未帰還者留守家族等援護法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 328AC0000000171
+    law_title: 電気事業及び石炭鉱業における争議行為の方法の規制に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 328AC0000000196
+    law_title: 信用保証協会法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 328AC0000000206
+    law_title: 社会保険審査官及び社会保険審査会法
+    judgment: excluded
+    reason: 社会保険の審査請求の手続を定める。負担を課す規定ではない
+  - law_id: 328AC0000000245
+    law_title: 私立学校教職員共済法
+    judgment: later
+    reason: 私立学校教職員共済の掛金を徴収する。掛金の率は日本私立学校振興・共済事業団が定める（保険者決定値）
+  - law_id: 328AC0100000227
+    law_title: 労働金庫法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 329AC0000000061
+    law_title: 関税法
+    judgment: target
+    reason: 輸入貨物に関税を課する
+    articles:
+      - 第三条（課税物件）
+    groups:
+      - customs-duty
+  - law_id: 329AC0000000110
+    law_title: 株式会社以外の法人の再評価積立金の資本組入に関する法律
+    judgment: excluded
+    reason: 再評価積立金の資本組入れを定める。負担を課す規定ではない
+  - law_id: 329AC0000000112
+    law_title: 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 329AC0000000115
+    law_title: 厚生年金保険法
+    judgment: target
+    reason: 厚生年金保険の保険料を徴収し、保険料率を法律で定める
+    articles:
+      - 第八十一条（保険料）
+    groups:
+      - employees-pension-insurance-premium
+  - law_id: 329AC0000000149
+    law_title: 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 329AC0000000188
+    law_title: 日本国における国際連合の軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 329AC0000000194
+    law_title: 遺産、相続及び贈与に対する租税に関する二重課税の回避及び脱税の防止のための日本国とアメリカ合衆国との間の条約の実施に伴う相続税法の特例等に関する法律
+    judgment: later
+    reason: 日米相続税条約の実施に伴う相続税法の特例を定める。レベル4（特例）に当たる
+  - law_id: 329AC0000000205
+    law_title: 日本中央競馬会法
+    judgment: excluded
+    reason: 公営競技・宝くじ等の施行と、施行者等の納付金・交付金を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 329AC1000000189
+    law_title: 奄美群島振興開発特別措置法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 330AC0000000037
+    law_title: 輸入品に対する内国消費税の徴収等に関する法律
+    judgment: excluded
+    reason: 輸入品に係る消費税等の徴収手続を定める。課税は消費税法・酒税法等の各税法で定める（各税の負担項目の条項として後続で参照し得る）
+  - law_id: 330AC0000000097
+    law_title: 自動車損害賠償保障法
+    judgment: later
+    reason: 自賠責保険料（data/scope-decisions.yaml で対象と判断済み）。区分 ot で、最初のリリースの対象外
+  - law_id: 330AC0000000104
+    law_title: 地方揮発油税法
+    judgment: target
+    reason: 地方揮発油税（国税）を課し、納税義務者を定める
+    articles:
+      - 第五条（納税義務者）
+    groups:
+      - local-gasoline-tax
+  - law_id: 330AC0000000113
+    law_title: 地方揮発油譲与税法
+    judgment: excluded
+    reason: 国税の収入額の一部を地方公共団体に譲与することを定める。新たな負担を課すものではない
+  - law_id: 331AC0000000082
+    law_title: 国有資産等所在市町村交付金法
+    judgment: excluded
+    reason: 国有資産等所在市町村交付金（国等から市町村への交付金）を定める。住民・事業者に負担を課すものではない
+  - law_id: 331AC0000000126
+    law_title: 労働保険審査官及び労働保険審査会法
+    judgment: excluded
+    reason: 労働保険の審査請求の手続を定める。負担を課す規定ではない
+  - law_id: 332AC0000000026
+    law_title: 租税特別措置法
+    judgment: later
+    reason: 税の特例（非課税、軽減税率、課税の停止等）を定める。レベル4（減免・特例）に当たるため最初のリリースの対象外
+  - law_id: 332AC0000000037
+    law_title: とん税法
+    judgment: target
+    reason: 外国貿易船の入港にとん税を課する
+    articles:
+      - 第一条（課税物件）
+    groups:
+      - tonnage-due
+  - law_id: 332AC0000000038
+    law_title: 特別とん税法
+    judgment: target
+    reason: 外国貿易船の入港に特別とん税を課する
+    articles:
+      - 第一条（課税目的及び課税物件）
+    groups:
+      - special-tonnage-due
+  - law_id: 332AC0000000055
+    law_title: 揮発油税法
+    judgment: target
+    reason: 揮発油税を課し、納税義務者を定める
+    articles:
+      - 第三条（納税義務者）
+    groups:
+      - gasoline-tax
+  - law_id: 332AC0000000077
+    law_title: 特別とん譲与税法
+    judgment: excluded
+    reason: 国税の収入額の一部を地方公共団体に譲与することを定める。新たな負担を課すものではない
+  - law_id: 332AC0000000094
+    law_title: 滞納処分と強制執行等との手続の調整に関する法律
+    judgment: excluded
+    reason: 滞納処分と強制執行等の手続の調整を定める。負担を課す規定ではない
+  - law_id: 332AC0000000104
+    law_title: 国有提供施設等所在市町村助成交付金に関する法律
+    judgment: excluded
+    reason: 国と地方公共団体の間の財政措置（交付金・補助・財政健全化等）を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 332AC0000000109
+    law_title: 引揚者給付金等支給法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 332AC0000000185
+    law_title: 中小企業団体の組織に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 333AC0000000128
+    law_title: 国家公務員共済組合法
+    judgment: later
+    reason: 共済組合の掛金を徴収する。短期給付等の掛金の率は共済組合が定める（保険者決定値）。厚生年金に相当する部分は厚生年金保険法による
+  - law_id: 333AC0000000192
+    law_title: 国民健康保険法
+    judgment: target
+    reason: 国民健康保険の保険料を徴収する。料率は保険者が定めるが、賦課限度額等を法令で定める
+    articles:
+      - 第七十六条（保険料）
+    groups:
+      - national-health-insurance-premium
+      - child-rearing-support-levy
+  - law_id: 333AC0000000193
+    law_title: 国民健康保険法施行法
+    judgment: excluded
+    reason: 国民健康保険法の施行と経過措置を定める。現行の負担は国民健康保険法で定める
+  - law_id: 333AC1000000158
+    law_title: 駐留軍関係離職者等臨時措置法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 334AC0000000137
+    law_title: 最低賃金法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 334AC0000000141
+    law_title: 国民年金法
+    judgment: target
+    reason: 国民年金の保険料を徴収し、保険料額を法律で定める
+    articles:
+      - 第八十七条（保険料）
+    groups:
+      - national-pension-premium
+  - law_id: 334AC0000000147
+    law_title: 国税徴収法
+    judgment: excluded
+    reason: 国税の滞納処分等の徴収手続を定める。負担そのものを課す規定ではない
+  - law_id: 334AC0000000160
+    law_title: 中小企業退職金共済法
+    judgment: excluded
+    reason: 任意に契約する中小企業退職金共済を定める。法令で加入・支払いが義務付けられた負担ではない
+  - law_id: 334AC1000000007
+    law_title: 未帰還者に関する特別措置法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 335AC0000000030
+    law_title: じん肺法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 335AC0000000036
+    law_title: 関税暫定措置法
+    judgment: target
+    reason: 関税の暫定税率を定める（基本税率に代えて適用される税率）
+    articles:
+      - 第二条（暫定税率）
+    groups:
+      - customs-duty
+  - law_id: 335AC0000000037
+    law_title: 知的障害者福祉法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 335AC0000000123
+    law_title: 障害者の雇用の促進等に関する法律
+    judgment: later
+    reason: 障害者雇用納付金（法定雇用率を下回る事業主からの納付金）を定める。法令に基づく納付金で区分 ot に当たり、最初のリリースの対象外
+  - law_id: 336AC0000000081
+    law_title: 技術研究組合法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 336AC0000000112
+    law_title: 後進地域の開発に関する公共事業に係る国の負担割合の特例に関する法律
+    judgment: excluded
+    reason: 国と地方公共団体の間の財政措置（交付金・補助・財政健全化等）を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 336AC0000000155
+    law_title: 社会福祉施設職員等退職手当共済法
+    judgment: excluded
+    reason: 任意に加入する社会福祉施設職員等退職手当共済を定める。法令で加入・支払いが義務付けられた負担ではない
+  - law_id: 336AC0000000204
+    law_title: 農業信用保証保険法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 336AC0000000238
+    law_title: 児童扶養手当法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 337AC0000000066
+    law_title: 国税通則法
+    judgment: pending
+    reason: 附帯税（延滞税、利子税、加算税）を定める。国税通則法上は国税だが、義務違反・納付遅延に伴う負担であり、制裁・利息の性格をもつため、対象とするかユーザーの判断が必要
+  - law_id: 337AC0000000088
+    law_title: 辺地に係る公共的施設の総合整備のための財政上の特別措置等に関する法律
+    judgment: excluded
+    reason: 国と地方公共団体の間の財政措置（交付金・補助・財政健全化等）を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 337AC0000000144
+    law_title: 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律
+    judgment: later
+    reason: 外国居住者等の所得に対する所得税等の非課税の特例を定める。レベル4（特例）に当たる
+  - law_id: 337AC0000000152
+    law_title: 地方公務員等共済組合法
+    judgment: later
+    reason: 地方公務員等共済組合の掛金を徴収する。掛金の率は共済組合が定める（保険者決定値）
+  - law_id: 338AC0000000061
+    law_title: 戦没者等の妻に対する特別給付金支給法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 338AC0000000125
+    law_title: 商業登記法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 338AC0000000133
+    law_title: 老人福祉法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 338AC1000000168
+    law_title: 戦傷病者特別援護法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 339AC0000000101
+    law_title: 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 339AC0000000118
+    law_title: 労働災害防止団体法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 339AC0000000129
+    law_title: 母子及び父子並びに寡婦福祉法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 339AC0000000134
+    law_title: 特別児童扶養手当等の支給に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 340AC0000000033
+    law_title: 所得税法
+    judgment: target
+    reason: 所得税を課し、納税義務者を定める
+    articles:
+      - 第五条（納税義務者）
+    groups:
+      - income-tax
+  - law_id: 340AC0000000034
+    law_title: 法人税法
+    judgment: target
+    reason: 法人税を課し、納税義務者を定める
+    articles:
+      - 第四条
+    groups:
+      - corporation-tax
+  - law_id: 340AC0000000100
+    law_title: 戦没者等の遺族に対する特別弔慰金支給法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 340AC0000000124
+    law_title: 地方住宅供給公社法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 340AC0000000141
+    law_title: 母子保健法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 340AC0000000156
+    law_title: 石油ガス税法
+    judgment: target
+    reason: 石油ガス税を課し、納税義務者を定める
+    articles:
+      - 第四条（納税義務者）
+    groups:
+      - petroleum-gas-tax
+  - law_id: 340AC0000000157
+    law_title: 石油ガス譲与税法
+    judgment: excluded
+    reason: 国税の収入額の一部を地方公共団体に譲与することを定める。新たな負担を課すものではない
+  - law_id: 341AC0000000020
+    law_title: 都市開発資金の貸付けに関する法律
+    judgment: excluded
+    reason: 国と地方公共団体の間の財政措置（交付金・補助・財政健全化等）を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 341AC0000000073
+    law_title: 地震保険に関する法律
+    judgment: excluded
+    reason: 地震保険（任意加入）を定める。法令で加入・支払いが義務付けられた負担ではない
+  - law_id: 341AC0000000103
+    law_title: 野菜生産出荷安定法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 341AC0000000109
+    law_title: 戦傷病者等の妻に対する特別給付金支給法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 341AC0000000132
+    law_title: 労働施策の総合的な推進並びに労働者の雇用の安定及び職業生活の充実等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 342AC0000000023
+    law_title: 印紙税法
+    judgment: target
+    reason: 印紙税を課し、納税義務者を定める
+    articles:
+      - 第三条（納税義務者）
+    groups:
+      - stamp-tax
+  - law_id: 342AC0000000035
+    law_title: 登録免許税法
+    judgment: target
+    reason: 登録免許税を課し、納税義務者を定める
+    articles:
+      - 第三条（納税義務者）
+    groups:
+      - registration-and-license-tax
+  - law_id: 342AC0000000057
+    law_title: 戦没者の父母等に対する特別給付金支給法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 342AC0000000092
+    law_title: 炭鉱災害による一酸化炭素中毒症に関する特別措置法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 342AC0000000110
+    law_title: 公共用飛行場周辺における航空機騒音による障害の防止等に関する法律
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 342AC0000000114
+    law_title: 引揚者等に対する特別交付金の支給に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 342AC0000000122
+    law_title: 通関業法
+    judgment: excluded
+    reason: 通関業の許可・業務を定める。負担を課す規定ではない
+  - law_id: 342AC0000000135
+    law_title: 石炭鉱業年金基金法
+    judgment: later
+    reason: 石炭鉱業年金基金が掛金を徴収する。掛金の額は基金が定める（保険者決定値）
+  - law_id: 343AC0000000086
+    law_title: 金融機関の合併及び転換に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 343AC1000000089
+    law_title: 社会保険労務士法
+    judgment: excluded
+    reason: 社会保険労務士の資格・業務を定める。負担を課す規定ではない
+  - law_id: 344AC0000000046
+    law_title: 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律
+    judgment: later
+    reason: 租税条約等の実施に伴う所得税・法人税・地方税の特例を定める。レベル4（特例）に当たる
+  - law_id: 344AC0000000064
+    law_title: 職業能力開発促進法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 344AC0000000084
+    law_title: 労働保険の保険料の徴収等に関する法律
+    judgment: target
+    reason: 労働保険料（一般保険料等）を徴収し、雇用保険率・労災保険率の定め方を法令で定める
+    articles:
+      - 第十条（労働保険料）
+    groups:
+      - labour-insurance-premium
+  - law_id: 344AC0000000085
+    law_title: 失業保険法及び労働者災害補償保険法の一部を改正する法律及び労働保険の保険料の徴収等に関する法律の施行に伴う関係法律の整備等に関する法律
+    judgment: later
+    reason: 労働保険の保険料の徴収等に関する法律の施行に伴う経過措置を定める。レベル4（経過措置）に当たる
+  - law_id: 345AC0000000060
+    law_title: 家内労働法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 345AC0000000077
+    law_title: 清酒製造業等の安定に関する特別措置法
+    judgment: excluded
+    reason: 清酒製造業等の安定のための措置を定める。負担を課す規定ではない
+  - law_id: 345AC0000000098
+    law_title: 青少年の雇用の促進等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 345AC0000000136
+    law_title: 海洋汚染等及び海上災害の防止に関する法律
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 345AC1000000084
+    law_title: 障害者基本法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 346AC0000000034
+    law_title: 預金保険法
+    judgment: later
+    reason: 金融機関から預金保険料を徴収する。保険料率は預金保険機構が定める。法令に基づく負担で区分 ot に当たり、最初のリリースの対象外
+  - law_id: 346AC0000000065
+    law_title: コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関する通関条約（ＴＩＲ条約）の実施に伴う関税法等の特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 346AC0000000068
+    law_title: 高年齢者等の雇用の安定等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 346AC0000000073
+    law_title: 児童手当法
+    judgment: excluded
+    reason: 児童手当の支給を定める。事業主の拠出金は子ども・子育て支援法で定める
+  - law_id: 346AC0000000089
+    law_title: 自動車重量税法
+    judgment: target
+    reason: 自動車重量税を課し、納税義務者を定める
+    articles:
+      - 第四条（納税義務者）
+    groups:
+      - motor-vehicle-tonnage-tax
+  - law_id: 346AC0000000090
+    law_title: 自動車重量譲与税法
+    judgment: excluded
+    reason: 国税の収入額の一部を地方公共団体に譲与することを定める。新たな負担を課すものではない
+  - law_id: 346AC0000000092
+    law_title: 勤労者財産形成促進法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 346AC0000000112
+    law_title: 農村地域への産業の導入の促進等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 346AC0000000129
+    law_title: 沖縄の復帰に伴う特別措置に関する法律
+    judgment: later
+    reason: 沖縄の復帰に伴う税等の特例（軽減等）を定める。レベル4（特例）に当たる
+  - law_id: 347AC0000000007
+    law_title: 航空機燃料税法
+    judgment: target
+    reason: 航空機燃料税を課し、納税義務者を定める
+    articles:
+      - 第四条（納税義務者）
+    groups:
+      - aviation-fuel-tax
+  - law_id: 347AC0000000013
+    law_title: 航空機燃料譲与税法
+    judgment: excluded
+    reason: 国税の収入額の一部を地方公共団体に譲与することを定める。新たな負担を課すものではない
+  - law_id: 347AC0000000057
+    law_title: 労働安全衛生法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 347AC0000000066
+    law_title: 公有地の拡大の推進に関する法律
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 347AC0000000113
+    law_title: 雇用の分野における男女の均等な機会及び待遇の確保等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 348AC0000000053
+    law_title: 農水産業協同組合貯金保険法
+    judgment: later
+    reason: 農水産業協同組合から貯金保険料を徴収する。保険料率は機構が定める。法令に基づく負担で区分 ot に当たり、最初のリリースの対象外
+  - law_id: 348AC0000000070
+    law_title: 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に関する法律
+    judgment: later
+    reason: 条約・協定の実施に伴う税の特例（非課税・免除等）を定める。レベル4（特例）に当たる
+  - law_id: 349AC0000000079
+    law_title: 電源開発促進税法
+    judgment: target
+    reason: 電源開発促進税を課し、納税義務者を定める
+    articles:
+      - 第三条（納税義務者）
+    groups:
+      - power-development-promotion-tax
+  - law_id: 349AC0000000116
+    law_title: 雇用保険法
+    judgment: excluded
+    reason: 雇用保険の給付等を定める。雇用保険料は労働保険の保険料の徴収等に関する法律で定める
+  - law_id: 350AC0000000028
+    law_title: 作業環境測定法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 351AC0000000033
+    law_title: 建設労働者の雇用の改善等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 351AC0000000034
+    law_title: 賃金の支払の確保等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 352AC0000000054
+    law_title: 電子情報処理組織による輸出入等関連業務の処理等に関する法律
+    judgment: excluded
+    reason: 輸出入等関連業務の電子処理を定める。負担を課す規定ではない
+  - law_id: 352AC1000000094
+    law_title: 国際協定の締結等に伴う漁業離職者に関する臨時措置法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 352AC1000000096
+    law_title: 船員の雇用の促進に関する特別措置法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 353AC0000000025
+    law_title: 石油石炭税法
+    judgment: target
+    reason: 石油石炭税を課し、納税義務者を定める
+    articles:
+      - 第四条（納税義務者）
+    groups:
+      - petroleum-and-coal-tax
+  - law_id: 353AC0000000036
+    law_title: 森林組合法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 353AC0000000080
+    law_title: 職員団体等に対する法人格の付与に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 355AC0000000071
+    law_title: 非化石エネルギーの開発及び導入の促進に関する法律
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 355AC0000000091
+    law_title: こどもの国協会の解散及び事業の承継に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 356AC0000000028
+    law_title: 特定外貿埠頭の管理運営に関する法律
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 356AC0000000059
+    law_title: 銀行法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 357AC0000000080
+    law_title: 高齢者の医療の確保に関する法律
+    judgment: target
+    reason: 後期高齢者医療の保険料を徴収する。料率は広域連合が定めるが、賦課限度額等を法令で定める
+    articles:
+      - 第百四条（保険料）
+    groups:
+      - late-stage-elderly-medical-care-premium
+      - child-rearing-support-levy
+  - law_id: 357AC1000000085
+    law_title: 北方領土問題等の解決の促進のための特別措置に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 358AC1000000032
+    law_title: 貸金業法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 359AC0000000069
+    law_title: 日本たばこ産業株式会社法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 359AC0000000072
+    law_title: たばこ税法
+    judgment: target
+    reason: たばこ税を課し、納税義務者を定める
+    articles:
+      - 第四条（納税義務者）
+    groups:
+      - tobacco-tax
+  - law_id: 359AC0000000085
+    law_title: 日本電信電話株式会社等に関する法律
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 360AC0000000033
+    law_title: 電子情報処理組織による登記事務処理の円滑化のための措置等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 360AC0000000088
+    law_title: 労働者派遣事業の適正な運営の確保及び派遣労働者の保護等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 361AC0000000088
+    law_title: 旅客鉄道株式会社及び日本貨物鉄道株式会社に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 361AC0000000093
+    law_title: 日本国有鉄道改革法等施行法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 362AC0000000023
+    law_title: 地域雇用開発促進法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 362AC0000000030
+    law_title: 社会福祉士及び介護福祉士法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 362AC1000000105
+    law_title: 台湾住民である戦没者の遺族等に対する弔慰金等に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 363AC0000000031
+    law_title: 特定弔慰金等の支給の実施に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 363AC0000000040
+    law_title: 港湾労働法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 363AC0000000107
+    law_title: 税制改革法
+    judgment: excluded
+    reason: 税制改革の基本方針を定める。個別の負担は各税法で定める
+  - law_id: 363AC0000000108
+    law_title: 消費税法
+    judgment: target
+    reason: 消費税を課し、納税義務者を定める
+    articles:
+      - 第五条（納税義務者）
+    groups:
+      - consumption-tax
+  - law_id: 401AC0000000064
+    law_title: 地域における医療及び介護の総合的な確保の促進に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 403AC0000000002
+    law_title: 湾岸地域における平和回復活動を支援するため平成二年度において緊急に講ずべき財政上の措置に必要な財源の確保に係る臨時措置に関する法律
+    judgment: later
+    reason: 湾岸地域の平和回復活動の財源のための臨時の税を定める。期間を限った過去の制度として後続で確認する
+  - law_id: 403AC0000000045
+    law_title: 新幹線鉄道に係る鉄道施設の譲渡等に関する法律
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 403AC0000000057
+    law_title: 中小企業における労働力の確保及び良好な雇用の機会の創出のための雇用管理の改善の促進に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 403AC0000000066
+    law_title: 商品投資に係る事業の規制に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 403AC0000000069
+    law_title: 地価税法
+    judgment: later
+    reason: 地価税を課す規定があるが、租税特別措置法により課税が停止されている（停止の条項は後続で特定する）。最初のリリースの対象外
+  - law_id: 403AC0000000076
+    law_title: 育児休業、介護休業等育児又は家族介護を行う労働者の福祉に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 403AC0000000094
+    law_title: 国際的な協力の下に規制薬物に係る不正行為を助長する行為等の防止を図るための麻薬及び向精神薬取締法等の特例等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 404AC0000000015
+    law_title: 法人特別税法
+    judgment: later
+    reason: 法人特別税を課す規定がある。期間を限った臨時の税であり、過去の制度として後続で確認する
+  - law_id: 404AC0000000063
+    law_title: 介護労働者の雇用管理の改善等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 404AC0000000090
+    law_title: 労働時間等の設定の改善に関する特別措置法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 405AC0000000038
+    law_title: 福祉用具の研究開発及び普及の促進に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 405AC0000000044
+    law_title: 協同組織金融機関の優先出資に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 405AC0000000076
+    law_title: 短時間労働者及び有期雇用労働者の雇用管理の改善等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 406AC0000000077
+    law_title: 不動産特定共同事業法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 406AC1000000030
+    law_title: 中国残留邦人等の円滑な帰国の促進並びに永住帰国した中国残留邦人等及び特定配偶者の自立の支援に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 406AC1000000106
+    law_title: 政党交付金の交付を受ける政党等に対する法人格の付与に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 407AC0000000011
+    law_title: 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律
+    judgment: later
+    reason: 災害・感染症等に対処するための税の臨時特例を定める。レベル4（特例）に当たる
+  - law_id: 407AC0000000016
+    law_title: 阪神・淡路大震災に対処するための特別の財政援助及び助成に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 407AC0000000105
+    law_title: 保険業法
+    judgment: later
+    reason: 保険契約者保護機構への会員保険会社の負担金等を定める。法令に基づく負担金に当たり得るため、区分 ot として後続で確認する
+  - law_id: 407AC0100000129
+    law_title: 高齢社会対策基本法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 408AC0000000039
+    law_title: 塩事業法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 408AC0000000040
+    law_title: 社会保障研究所の解散に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 408AC0000000095
+    law_title: 金融機関等の更生手続の特例等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 408AC0000000118
+    law_title: 農林中央金庫及び特定農水産業協同組合等による信用事業の再編及び強化に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 409AC0000000048
+    law_title: 日本私立学校振興・共済事業団法
+    judgment: excluded
+    reason: 日本私立学校振興・共済事業団の組織を定める。掛金は私立学校教職員共済法で定める
+  - law_id: 409AC0000000089
+    law_title: 日本銀行法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 409AC0000000109
+    law_title: 財政構造改革の推進に関する特別措置法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 409AC0000000110
+    law_title: 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
+    judgment: excluded
+    reason: 国外送金等の調書の提出を定める。負担を課す規定ではない
+  - law_id: 409AC0000000123
+    law_title: 介護保険法
+    judgment: target
+    reason: 介護保険の保険料を徴収する。額は市町村が定めるが、所得段階の基準等を法令で定める
+    articles:
+      - 第百二十九条（保険料）
+    groups:
+      - long-term-care-insurance-premium
+  - law_id: 409AC0000000124
+    law_title: 介護保険法施行法
+    judgment: later
+    reason: 介護保険の保険料に関する経過措置を定める。レベル4（経過措置）に当たる
+  - law_id: 410AC0000000025
+    law_title: 電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律
+    judgment: excluded
+    reason: 国税関係帳簿書類の電子保存等の特例を定める。負担を課す規定ではない
+  - law_id: 410AC0000000076
+    law_title: 平成十四年ワールドカップサッカー大会特別措置法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 410AC0000000090
+    law_title: 投資事業有限責任組合契約に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 410AC0000000104
+    law_title: 動産及び債権の譲渡の対抗要件に関する民法の特例等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 410AC0000000105
+    law_title: 資産の流動化に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 410AC0000000137
+    law_title: 一般会計における債務の承継等に伴い必要な財源の確保に係る特別措置に関する法律
+    judgment: target
+    reason: 当分の間、たばこ特別税を課し、納税義務者を定める
+    articles:
+      - 第五条（納税義務者）
+    groups:
+      - tobacco-special-tax
+  - law_id: 410AC1000000130
+    law_title: 金融庁設置法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 411AC0000000017
+    law_title: 地方特例交付金等の地方財政の特別措置に関する法律
+    judgment: excluded
+    reason: 国と地方公共団体の間の財政措置（交付金・補助・財政健全化等）を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 411AC0000000152
+    law_title: 後見登記等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 411AC0000000176
+    law_title: 国立研究開発法人量子科学技術研究開発機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 411AC0000000192
+    law_title: 国立研究開発法人農業・食品産業技術総合研究機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 411AC0000000199
+    law_title: 国立研究開発法人水産研究・教育機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 411AC0000000208
+    law_title: 国立研究開発法人海上・港湾・航空技術研究所法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 411AC0000000214
+    law_title: 独立行政法人海技教育機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 411AC0000000218
+    law_title: 独立行政法人自動車技術総合機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 412AC0000000034
+    law_title: 平成十二年度における国民年金法による年金の額等の改定の特例に関する法律
+    judgment: excluded
+    reason: 年金額の改定の特例（給付）を定める。負担を課す規定ではない
+  - law_id: 412AC0000000103
+    law_title: 会社分割に伴う労働契約の承継等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 412AC1000000082
+    law_title: 児童虐待の防止等に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 413AC0000000013
+    law_title: 平成十三年度における国民年金法による年金の額等の改定の特例に関する法律
+    judgment: excluded
+    reason: 年金額の改定の特例（給付）を定める。負担を課す規定ではない
+  - law_id: 413AC0000000050
+    law_title: 確定給付企業年金法
+    judgment: excluded
+    reason: 任意に実施する確定給付企業年金を定める。法令で加入・支払いが義務付けられた負担ではない
+  - law_id: 413AC0000000075
+    law_title: 社債、株式等の振替に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 413AC0000000088
+    law_title: 確定拠出年金法
+    judgment: excluded
+    reason: 任意に加入する確定拠出年金を定める。法令で加入・支払いが義務付けられた負担ではない
+  - law_id: 413AC0000000093
+    law_title: 農林中央金庫法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 413AC0000000112
+    law_title: 個別労働関係紛争の解決の促進に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 414AC0000000021
+    law_title: 平成十四年度における国民年金法による年金の額等の改定の特例に関する法律
+    judgment: excluded
+    reason: 年金額の改定の特例（給付）を定める。負担を課す規定ではない
+  - law_id: 414AC0000000094
+    law_title: 独立行政法人エネルギー・金属鉱物資源機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 414AC0000000127
+    law_title: 独立行政法人農業者年金基金法
+    judgment: excluded
+    reason: 任意に加入する農業者年金を定める。法令で加入・支払いが義務付けられた負担ではない
+  - law_id: 414AC0000000136
+    law_title: 独立行政法人国際協力機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 414AC0000000154
+    law_title: 会社更生法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 414AC0000000171
+    law_title: 独立行政法人労働者健康安全機構法
+    judgment: excluded
+    reason: 独立行政法人労働者健康安全機構の組織を定める。負担を課す規定ではない
+  - law_id: 414AC0000000180
+    law_title: 独立行政法人鉄道建設・運輸施設整備支援機構法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 414AC1000000049
+    law_title: 身体障害者補助犬法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 414AC1000000105
+    law_title: ホームレスの自立の支援等に関する特別措置法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 414AC1000000143
+    law_title: 北朝鮮当局によって拉致された被害者等の支援に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 415AC0000000019
+    law_title: 平成十五年度における国民年金法による年金の額等の改定の特例に関する法律
+    judgment: excluded
+    reason: 年金額の改定の特例（給付）を定める。負担を課す規定ではない
+  - law_id: 415AC0000000100
+    law_title: 独立行政法人都市再生機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 415AC0000000114
+    law_title: 独立行政法人大学改革支援・学位授与機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 415AC0000000120
+    law_title: 次世代育成支援対策推進法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 415AC1000000133
+    law_title: 少子化社会対策基本法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 416AC0000000023
+    law_title: 平成十六年度における児童扶養手当法による手当の額等の改定の特例に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 416AC0000000102
+    law_title: 日本道路公団等民営化関係法施行法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 416AC0000000105
+    law_title: 年金積立金管理運用独立行政法人法
+    judgment: excluded
+    reason: 年金積立金の管理運用を行う法人の組織を定める。負担を課す規定ではない
+  - law_id: 416AC0000000122
+    law_title: 公益通報者保護法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 416AC0000000123
+    law_title: 不動産登記法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 416AC0000000135
+    law_title: 国立研究開発法人医薬基盤・健康・栄養研究所法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 416AC0000000143
+    law_title: 経済連携協定に基づく特定原産地証明書の発給等に関する法律
+    judgment: excluded
+    reason: 特定原産地証明書の発給等を定める。負担を課す規定ではない
+  - law_id: 416AC1000000166
+    law_title: 特定障害者に対する特別障害給付金の支給に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 416AC1000000167
+    law_title: 発達障害者支援法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 417AC0000000009
+    law_title: 児童扶養手当法による児童扶養手当の額等の改定の特例に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 417AC0000000040
+    law_title: 有限責任事業組合契約に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 417AC0000000087
+    law_title: 会社法の施行に伴う関係法律の整備等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 417AC0000000097
+    law_title: 郵政民営化法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない。全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 417AC0000000101
+    law_title: 独立行政法人郵便貯金簡易生命保険管理・郵便局ネットワーク支援機構法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 417AC0000000123
+    law_title: 障害者の日常生活及び社会生活を総合的に支援するための法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 417AC1000000124
+    law_title: 高齢者虐待の防止、高齢者の養護者に対する支援等に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 418AC0000000004
+    law_title: 石綿による健康被害の救済に関する法律
+    judgment: later
+    reason: 一般拠出金・特別拠出金を事業主等から徴収する。法令に基づく拠出金で区分 ot に当たり、最初のリリースの対象外
+  - law_id: 418AC0000000048
+    law_title: 一般社団法人及び一般財団法人に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 418AC0000000049
+    law_title: 公益社団法人及び公益財団法人の認定等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 418AC0000000050
+    law_title: 一般社団法人及び一般財団法人に関する法律及び公益社団法人及び公益財団法人の認定等に関する法律の施行に伴う関係法律の整備等に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 418AC0000000051
+    law_title: 競争の導入による公共サービスの改革に関する法律
+    judgment: excluded
+    reason: 公共サービスの民間委託等の手続を定める。全文検索の該当は、国民年金保険料の収納業務の委託に関する規定で、負担を課す規定ではない
+  - law_id: 418AC0000000108
+    law_title: 信託法
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 418AC0100000085
+    law_title: 自殺対策基本法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 419AC0000000057
+    law_title: 株式会社日本政策金融公庫法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 419AC0000000064
+    law_title: 地方公共団体金融機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 419AC0000000085
+    law_title: 株式会社日本政策投資銀行法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 419AC0000000094
+    law_title: 地方公共団体の財政の健全化に関する法律
+    judgment: excluded
+    reason: 国と地方公共団体の間の財政措置（交付金・補助・財政健全化等）を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 419AC0000000104
+    law_title: 社会保障協定の実施に伴う厚生年金保険法等の特例等に関する法律
+    judgment: later
+    reason: 社会保障協定の実施に伴う厚生年金保険法等の適用の特例を定める。レベル4（特例）に当たる
+  - law_id: 419AC0000000109
+    law_title: 日本年金機構法
+    judgment: excluded
+    reason: 日本年金機構の組織を定める。負担を課す規定ではない
+  - law_id: 419AC0000000128
+    law_title: 労働契約法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 419AC1000000111
+    law_title: 厚生年金保険の保険給付及び国民年金の給付に係る時効の特例等に関する法律
+    judgment: excluded
+    reason: 年金給付の時効の特例を定める。負担を課す規定ではない
+  - law_id: 419AC1000000131
+    law_title: 厚生年金保険の保険給付及び保険料の納付の特例等に関する法律
+    judgment: later
+    reason: 厚生年金保険料の特例納付を定める。レベル4（特例）に当たる
+  - law_id: 420AC0000000084
+    law_title: 地方税等減収補てん臨時交付金に関する法律
+    judgment: excluded
+    reason: 国と地方公共団体の間の財政措置（交付金・補助・財政健全化等）を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 421AC0000000071
+    law_title: 子ども・若者育成支援推進法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 421AC1000000037
+    law_title: 厚生年金保険の保険給付及び国民年金の給付の支払の遅延に係る加算金の支給に関する法律
+    judgment: excluded
+    reason: 年金給付の支払の遅延に係る加算金を定める。負担を課す規定ではない
+  - law_id: 421AC1000000081
+    law_title: 水俣病被害者の救済及び水俣病問題の解決に関する特別措置法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 422AC0000000008
+    law_title: 租税特別措置の適用状況の透明化等に関する法律
+    judgment: excluded
+    reason: 租税特別措置の適用状況の報告等を定める。負担を課す規定ではない
+  - law_id: 422AC0000000019
+    law_title: 平成二十二年度等における子ども手当の支給に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 422AC0100000045
+    law_title: 戦後強制抑留者に係る問題に関する特別措置法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 422AC1000000049
+    law_title: 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての個人の道府県民税及び市町村民税の臨時特例に関する法律
+    judgment: later
+    reason: 口蹄疫に係る手当金等についての個人住民税の臨時特例を定める。レベル4（特例）に当たる
+  - law_id: 422AC1000000050
+    law_title: 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律
+    judgment: later
+    reason: 口蹄疫に係る手当金等についての所得税・法人税の臨時特例を定める。レベル4（特例）に当たる
+  - law_id: 423AC0000000029
+    law_title: 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律
+    judgment: later
+    reason: 災害・感染症等に対処するための税の臨時特例を定める。レベル4（特例）に当たる
+  - law_id: 423AC0000000039
+    law_title: 株式会社国際協力銀行法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 423AC0000000040
+    law_title: 東日本大震災に対処するための特別の財政援助及び助成に関する法律
+    judgment: excluded
+    reason: 全文検索「保険料率」の該当は、民間の保険・共済、損害保険料率算出団体への言及、他の法律の改正規定等であり、公的負担を課す規定ではない
+  - law_id: 423AC0000000047
+    law_title: 職業訓練の実施等による特定求職者の就職の支援に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 423AC0000000054
+    law_title: 関西国際空港及び大阪国際空港の一体的かつ効率的な設置及び管理に関する法律
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 423AC0000000107
+    law_title: 平成二十三年度における子ども手当の支給等に関する特別措置法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 423AC0000000117
+    law_title: 東日本大震災からの復興のための施策を実施するために必要な財源の確保に関する特別措置法
+    judgment: target
+    reason: 復興特別所得税を課し、納税義務者を定める
+    articles:
+      - 第八条（納税義務者及び源泉徴収義務者）
+    groups:
+      - reconstruction-special-income-tax
+  - law_id: 423AC0000000118
+    law_title: 東日本大震災からの復興に関し地方公共団体が実施する防災のための施策に必要な財源の確保に係る地方税の臨時特例に関する法律
+    judgment: later
+    reason: 地方税（個人住民税均等割）の臨時の特例を定める。期間を限った過去の制度として後続で確認する
+  - law_id: 423AC0100000113
+    law_title: 株式会社東日本大震災事業者再生支援機構法
+    judgment: excluded
+    reason: 全文検索「税を課する」の該当は、権利の承継等に際して不動産取得税等を課さない旨の非課税規定等であり、負担を課す規定ではない
+  - law_id: 423AC1000000079
+    law_title: 障害者虐待の防止、障害者の養護者に対する支援等に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 424AC0000000065
+    law_title: 子ども・子育て支援法
+    judgment: target
+    reason: 事業主から子ども・子育て拠出金を徴収し、医療保険者に子ども・子育て支援納付金を課す
+    articles:
+      - 第六十九条（拠出金の徴収及び納付義務）
+    groups:
+      - child-rearing-contribution
+      - child-rearing-support-levy
+  - law_id: 424AC0000000068
+    law_title: 社会保障の安定財源の確保等を図る税制の抜本的な改革を行うための消費税法の一部を改正する等の法律
+    judgment: excluded
+    reason: 消費税法等の改正法。改正後の負担は消費税法・地方税法等で定める
+  - law_id: 424AC0000000102
+    law_title: 年金生活者支援給付金の支給に関する法律
+    judgment: excluded
+    reason: 年金生活者支援給付金の支給を定める。負担を課す規定ではない
+  - law_id: 424AC1000000050
+    law_title: 国等による障害者就労施設等からの物品等の調達の推進等に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 424AC1000000064
+    law_title: 社会保障制度改革推進法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 424AC1000000092
+    law_title: 母子家庭の母及び父子家庭の父の就業の支援に関する特別措置法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 425AC0000000065
+    law_title: 障害を理由とする差別の解消の推進に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 425AC0000000105
+    law_title: 生活困窮者自立支援法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 425AC0000000112
+    law_title: 持続可能な社会保障制度の確立を図るための改革の推進に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 425AC1000000064
+    law_title: こどもの貧困の解消に向けた対策の推進に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 425AC1000000066
+    law_title: 死刑再審無罪者に対し国民年金の給付等を行うための国民年金の保険料の納付の特例等に関する法律
+    judgment: later
+    reason: 国民年金の保険料の納付の特例を定める。レベル4（特例）に当たる
+  - law_id: 426AC0000000011
+    law_title: 地方法人税法
+    judgment: target
+    reason: 地方法人税（国税）を課し、納税義務者を定める
+    articles:
+      - 第四条（納税義務者）
+    groups:
+      - local-corporation-tax
+  - law_id: 426AC0000000112
+    law_title: 経済連携協定に基づく申告原産品に係る情報の提供等に関する法律
+    judgment: excluded
+    reason: 申告原産品に係る情報の提供等を定める。負担を課す規定ではない
+  - law_id: 426AC0000000137
+    law_title: 専門的知識等を有する有期雇用労働者等に関する特別措置法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 426AC1000000097
+    law_title: 介護・障害福祉従事者の人材確保のための介護・障害福祉従事者の処遇改善に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 426AC1000000100
+    law_title: 過労死等防止対策推進法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 427AC0000000064
+    law_title: 女性の職業生活における活躍の推進に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 427AC1000000069
+    law_title: 労働者の職務に応じた待遇の確保等のための施策の推進に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 428AC0100000110
+    law_title: 民間あっせん機関による養子縁組のあっせんに係る児童の保護等に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 428AC0100000111
+    law_title: 建設工事従事者の安全及び健康の確保の推進に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 428AC1000000012
+    law_title: 戦没者の遺骨収集の推進に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 430AC0000000016
+    law_title: 国際観光旅客税法
+    judgment: target
+    reason: 国際観光旅客税を課し、納税義務者を定める
+    articles:
+      - 第四条（納税義務者）
+    groups:
+      - international-tourist-tax
+  - law_id: 430AC1000000104
+    law_title: 成育過程にある者及びその保護者並びに妊産婦に対し必要な成育医療等を切れ目なく提供するための施策の総合的な推進に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 431AC0000000001
+    law_title: 平成三十年度分として交付すべき地方交付税の総額の特例に関する法律
+    judgment: excluded
+    reason: 国と地方公共団体の間の財政措置（交付金・補助・財政健全化等）を定める。住民・事業者に負担を課す規定ではない
+  - law_id: 431AC0000000003
+    law_title: 森林環境税及び森林環境譲与税に関する法律
+    judgment: target
+    reason: 森林環境税（国税）を課し、納税義務者を定める
+    articles:
+      - 第三条（納税義務者）
+    groups:
+      - forest-environment-tax
+  - law_id: 431AC0000000004
+    law_title: 特別法人事業税及び特別法人事業譲与税に関する法律
+    judgment: target
+    reason: 特別法人事業税（国税。e-Govの分類は地方財政）を課し、納税義務者を定める
+    articles:
+      - 第四条（納税義務者）
+    groups:
+      - special-corporate-enterprise-tax
+  - law_id: 501AC0100000032
+    law_title: 自殺対策の総合的かつ効果的な実施に資するための調査研究及びその成果の活用等の推進に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 502AC0000000025
+    law_title: 新型コロナウイルス感染症等の影響に対応するための国税関係法律の臨時特例に関する法律
+    judgment: later
+    reason: 災害・感染症等に対処するための税の臨時特例を定める。レベル4（特例）に当たる
+  - law_id: 502AC0000000054
+    law_title: 新型コロナウイルス感染症等の影響に対応するための雇用保険法の臨時特例等に関する法律
+    judgment: later
+    reason: 雇用保険法の臨時特例を定める。レベル4（特例）に当たる
+  - law_id: 502AC1000000078
+    law_title: 労働者協同組合法
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 503AC0000000081
+    law_title: 医療的ケア児及びその家族に対する支援に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 503AC1000000080
+    law_title: 中小事業主が行う事業に従事する者等の労働災害等に係る共済事業に関する法律
+    judgment: excluded
+    reason: 中小事業主等の労働災害等に係る共済事業（任意加入）を定める。法令で加入・支払いが義務付けられた負担ではない
+  - law_id: 504AC0100000052
+    law_title: 困難な問題を抱える女性への支援に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 504AC1000000077
+    law_title: こども基本法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 504AC1000000078
+    law_title: 性をめぐる個人の尊厳が重んぜられる社会の形成に資するために性行為映像制作物への出演に係る被害の防止を図り及び出演者の救済に資するための出演契約等に関する特則等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 505AC0000000025
+    law_title: 特定受託事業者に係る取引の適正化等に関する法律
+    judgment: excluded
+    reason: 法令分類「労働」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から労働条件・雇用施策等を定める法律と判断した
+  - law_id: 505AC0000000045
+    law_title: 孤独・孤立対策推進法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 505AC0000000069
+    law_title: 我が国の防衛力の抜本的な強化等のために必要な財源の確保に関する特別措置法
+    judgment: target
+    reason: 防衛特別法人税を課し、納税義務者を定める
+    articles:
+      - 第八条（納税義務者）
+    groups:
+      - defense-special-corporation-tax
+  - law_id: 506AC0000000001
+    law_title: 令和六年能登半島地震災害の被災者に係る所得税法及び災害被害者に対する租税の減免、徴収猶予等に関する法律の臨時特例に関する法律
+    judgment: later
+    reason: 災害・感染症等に対処するための税の臨時特例を定める。レベル4（特例）に当たる
+  - law_id: 506AC1000000013
+    law_title: 令和六年能登半島地震災害に係る住宅再建支援等給付金に係る差押禁止等に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 507AC0100000078
+    law_title: 手話に関する施策の推進に関する法律
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 507AC1000000096
+    law_title: 高次脳機能障害者支援法
+    judgment: excluded
+    reason: 法令分類「社会福祉」による候補。税・保険料・掛金に関する全文検索の条件に該当せず、題名・目的から給付・支援・施策を定める法律と判断した
+  - law_id: 508AC0000000010
+    law_title: 農業構造転換の推進に必要な施策の集中的な実施の財源に充てるための日本中央競馬会の国庫納付金の納付に関する臨時措置法
+    judgment: excluded
+    reason: 公営競技・宝くじ等の施行と、施行者等の納付金・交付金を定める。住民・事業者に負担を課す規定ではない

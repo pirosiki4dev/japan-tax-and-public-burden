@@ -1,3 +1,266 @@
-# 集計用グループ（schemas/groups.schema.json）。負担項目は burden.yaml の groups で所属を示す。
-# グループの追加は #143〜#146 で行う。
-groups: []
+# 集計用グループ（schemas/groups.schema.json）。負担項目は data/burdens.yaml の各項目の groups で所属を示す。
+# 法令上の名称ごとのグループは #143 の調査（docs/surveys/first-release-scope/）で定義した。
+# 集計方法は負担項目の登録時（#144〜#146）に、必要に応じて下位のグループを追加して定める。
+groups:
+  - group_id: national-tax
+    name: 国税
+    aggregation: classification
+    description: 区分 nt の負担項目の分類
+  - group_id: local-tax
+    name: 地方税
+    aggregation: classification
+    description: 区分 lt の負担項目の分類
+  - group_id: prefectural-tax
+    name: 道府県税
+    aggregation: classification
+    parent_group_id: local-tax
+    description: 地方税法第4条に列挙された道府県の法定税
+  - group_id: municipal-tax
+    name: 市町村税
+    aggregation: classification
+    parent_group_id: local-tax
+    description: 地方税法第5条に列挙された市町村の法定税
+  - group_id: social-insurance
+    name: 社会保険料
+    aggregation: classification
+    description: 区分 si の負担項目の分類
+  - group_id: income-tax
+    name: 所得税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: corporation-tax
+    name: 法人税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: local-corporation-tax
+    name: 地方法人税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: special-corporate-enterprise-tax
+    name: 特別法人事業税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: reconstruction-special-income-tax
+    name: 復興特別所得税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: defense-special-corporation-tax
+    name: 防衛特別法人税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: inheritance-tax
+    name: 相続税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: gift-tax
+    name: 贈与税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: consumption-tax
+    name: 消費税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: liquor-tax
+    name: 酒税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: tobacco-tax
+    name: たばこ税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: tobacco-special-tax
+    name: たばこ特別税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: gasoline-tax
+    name: 揮発油税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: local-gasoline-tax
+    name: 地方揮発油税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: petroleum-gas-tax
+    name: 石油ガス税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: aviation-fuel-tax
+    name: 航空機燃料税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: petroleum-and-coal-tax
+    name: 石油石炭税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: power-development-promotion-tax
+    name: 電源開発促進税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: motor-vehicle-tonnage-tax
+    name: 自動車重量税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: stamp-tax
+    name: 印紙税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: registration-and-license-tax
+    name: 登録免許税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: international-tourist-tax
+    name: 国際観光旅客税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: forest-environment-tax
+    name: 森林環境税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: customs-duty
+    name: 関税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: tonnage-due
+    name: とん税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: special-tonnage-due
+    name: 特別とん税
+    aggregation: classification
+    parent_group_id: national-tax
+  - group_id: prefectural-inhabitant-tax
+    name: 道府県民税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: enterprise-tax
+    name: 事業税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: local-consumption-tax
+    name: 地方消費税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: real-estate-acquisition-tax
+    name: 不動産取得税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: prefectural-tobacco-tax
+    name: 道府県たばこ税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: golf-course-use-tax
+    name: ゴルフ場利用税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: light-oil-delivery-tax
+    name: 軽油引取税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: automobile-tax
+    name: 自動車税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: mining-area-tax
+    name: 鉱区税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: hunting-tax
+    name: 狩猟税
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: prefectural-water-utilization-and-land-benefit-tax
+    name: 水利地益税（道府県）
+    aggregation: classification
+    parent_group_id: prefectural-tax
+  - group_id: municipal-inhabitant-tax
+    name: 市町村民税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: fixed-assets-tax
+    name: 固定資産税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: light-motor-vehicle-tax
+    name: 軽自動車税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: municipal-tobacco-tax
+    name: 市町村たばこ税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: mineral-product-tax
+    name: 鉱産税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: special-land-holding-tax
+    name: 特別土地保有税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: bathing-tax
+    name: 入湯税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: business-office-tax
+    name: 事業所税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: city-planning-tax
+    name: 都市計画税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: municipal-water-utilization-and-land-benefit-tax
+    name: 水利地益税（市町村）
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: common-facilities-tax
+    name: 共同施設税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: housing-land-development-tax
+    name: 宅地開発税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: national-health-insurance-tax
+    name: 国民健康保険税
+    aggregation: classification
+    parent_group_id: municipal-tax
+  - group_id: health-insurance-premium
+    name: 健康保険料
+    aggregation: classification
+    parent_group_id: social-insurance
+  - group_id: seamen-insurance-premium
+    name: 船員保険料
+    aggregation: classification
+    parent_group_id: social-insurance
+  - group_id: employees-pension-insurance-premium
+    name: 厚生年金保険料
+    aggregation: classification
+    parent_group_id: social-insurance
+  - group_id: national-pension-premium
+    name: 国民年金保険料
+    aggregation: classification
+    parent_group_id: social-insurance
+  - group_id: national-health-insurance-premium
+    name: 国民健康保険料
+    aggregation: classification
+    parent_group_id: social-insurance
+  - group_id: late-stage-elderly-medical-care-premium
+    name: 後期高齢者医療保険料
+    aggregation: classification
+    parent_group_id: social-insurance
+  - group_id: long-term-care-insurance-premium
+    name: 介護保険料
+    aggregation: classification
+    parent_group_id: social-insurance
+  - group_id: labour-insurance-premium
+    name: 労働保険料
+    aggregation: classification
+    parent_group_id: social-insurance
+  - group_id: child-rearing-contribution
+    name: 子ども・子育て拠出金
+    aggregation: classification
+    parent_group_id: social-insurance
+  - group_id: child-rearing-support-levy
+    name: 子ども・子育て支援金
+    aggregation: classification
+    parent_group_id: social-insurance

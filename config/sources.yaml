@@ -5,4 +5,5 @@ sources:
     name: e-Gov法令API
     base_url: https://laws.e-gov.go.jp/api/2/
     rate_limit: 公式の利用条件に従い、多重リクエストを避ける
+    request_interval_ms: 1000
     enabled: true

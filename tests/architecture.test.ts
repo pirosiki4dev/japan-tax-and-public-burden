@@ -27,6 +27,7 @@ test("relative specifiers resolve against the importing file", () => {
 test("allowed dependencies pass", () => {
   assert.deepEqual(checkFileImports("src/cli/x.ts", 'import "../data/y.ts"; import "node:fs";'), []);
   assert.deepEqual(checkFileImports("src/data/x.ts", 'import "../domain/y.ts"; import "yaml";'), []);
+  assert.deepEqual(checkFileImports("src/survey/x.ts", 'import "../data/y.ts"; import "../domain/z.ts";'), []);
   assert.deepEqual(checkFileImports("src/domain/x.ts", 'import type { T } from "./types.generated.ts";'), []);
 });
 

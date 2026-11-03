@@ -1,11 +1,12 @@
 /** src/ 直下のディレクトリを層とし、依存してよい層を定める（ADR 0003）。 */
-export const LAYERS = ["cli", "monitor", "build", "data", "domain"] as const;
+export const LAYERS = ["cli", "monitor", "build", "survey", "data", "domain"] as const;
 export type Layer = (typeof LAYERS)[number];
 
 const ALLOWED: Record<Layer, readonly Layer[]> = {
-  cli: ["cli", "monitor", "build", "data", "domain"],
+  cli: ["cli", "monitor", "build", "survey", "data", "domain"],
   monitor: ["monitor", "data", "domain"],
   build: ["build", "data", "domain"],
+  survey: ["survey", "data", "domain"],
   data: ["data", "domain"],
   domain: ["domain"]
 };

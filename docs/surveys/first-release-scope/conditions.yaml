@@ -1,0 +1,73 @@
+# 最初のリリースの対象法令を抽出する条件（schemas/survey-conditions.schema.json）。
+# `npm run survey -- --survey first-release-scope` で candidates.json を出力し、
+# `--check` で記録済みの結果との差分を確認する。
+survey_id: first-release-scope
+source_id: egov-law-api
+law_type: Act
+conditions:
+  # 国税
+  - condition_id: nt-category-national-tax
+    burden_category: national_tax
+    method: category
+    category_cd: "013"
+    description: e-Gov法令分類「国税」の法律
+  - condition_id: nt-keyword-tax-liability
+    burden_category: national_tax
+    method: keyword
+    keyword: を納める義務がある
+    description: 納税義務を定める規定（全文検索「を納める義務がある」）
+  - condition_id: nt-keyword-levy
+    burden_category: national_tax
+    method: keyword
+    keyword: 税を課する
+    description: 課税を定める規定（全文検索「税を課する」）
+  # 地方税（法定税）
+  - condition_id: lt-local-tax-items
+    burden_category: local_tax
+    method: articles
+    law_id: 325AC0000000226
+    elms:
+      - MainProvision-Article_4
+      - MainProvision-Article_5
+    description: 地方税法第4条（道府県が課することができる税目）・第5条（市町村が課することができる税目）の列挙
+  - condition_id: lt-category-local-finance
+    burden_category: local_tax
+    method: category
+    category_cd: "036"
+    description: e-Gov法令分類「地方財政」の法律
+  # 社会保険料
+  - condition_id: si-category-social-insurance
+    burden_category: social_insurance
+    method: category
+    category_cd: "040"
+    description: e-Gov法令分類「社会保険」の法律
+  - condition_id: si-category-social-welfare
+    burden_category: social_insurance
+    method: category
+    category_cd: "035"
+    description: e-Gov法令分類「社会福祉」の法律
+  - condition_id: si-category-labor
+    burden_category: social_insurance
+    method: category
+    category_cd: "020"
+    description: e-Gov法令分類「労働」の法律
+  - condition_id: si-keyword-premium-collection
+    burden_category: social_insurance
+    method: keyword
+    keyword: 保険料を徴収
+    description: 保険料の徴収を定める規定（全文検索「保険料を徴収」）
+  - condition_id: si-keyword-contribution-collection
+    burden_category: social_insurance
+    method: keyword
+    keyword: 掛金を徴収
+    description: 共済組合等の掛金の徴収を定める規定（全文検索「掛金を徴収」）
+  - condition_id: si-keyword-premium-payment-duty
+    burden_category: social_insurance
+    method: keyword
+    keyword: 保険料を納付する義務
+    description: 保険料の納付義務を定める規定（全文検索「保険料を納付する義務」）
+  - condition_id: si-keyword-premium-rate
+    burden_category: social_insurance
+    method: keyword
+    keyword: 保険料率
+    description: 保険料率を定める規定（全文検索「保険料率」）

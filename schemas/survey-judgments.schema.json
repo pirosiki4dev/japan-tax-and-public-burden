@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "survey-judgments.schema.json",
+  "title": "SurveyJudgments",
+  "description": "法令調査の判定結果（docs/surveys/<survey-id>/judgments.yaml）。抽出結果の全件を判定する。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "survey_id",
+    "judged_against",
+    "judgments"
+  ],
+  "properties": {
+    "survey_id": {
+      "$ref": "common.schema.json#/$defs/kebabId"
+    },
+    "judged_against": {
+      "description": "判定した抽出結果のretrieved_at。",
+      "$ref": "common.schema.json#/$defs/dateTime"
+    },
+    "judgments": {
+      "type": "array",
+      "items": {
+        "title": "SurveyJudgment",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "law_id",
+          "law_title",
+          "judgment",
+          "reason"
+        ],
+        "properties": {
+          "law_id": {
+            "$ref": "common.schema.json#/$defs/lawId"
+          },
+          "law_title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "judgment": {
+            "title": "SurveyJudgmentResult",
+            "description": "target: 最初のリリースの対象、later: 全体の範囲だが最初のリリースの対象外（特例・減免、過去の制度、保険者決定値、その他の公的負担等）、pending: 対象とするかユーザーの判断が必要、excluded: 負担を課す規定がない等で対象外。",
+            "enum": [
+              "target",
+              "later",
+              "pending",
+              "excluded"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 5
+          },
+          "articles": {
+            "description": "判定の根拠とした条項（原文表記）。",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "groups": {
+            "description": "targetの場合に対応するグループ（data/groups.yaml）。",
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/kebabId"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "judgment": {
+                  "const": "target"
+                }
+              },
+              "required": [
+                "judgment"
+              ]
+            },
+            "then": {
+              "required": [
+                "articles",
+                "groups"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
