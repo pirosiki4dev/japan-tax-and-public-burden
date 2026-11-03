@@ -68,7 +68,7 @@ test("a recorded status that differs from the derived status is a warning", asyn
 });
 
 test("a scope decision must reference an existing burden", async () => {
-  const root = await copyRepository({ "data/scope-decisions.yaml": { decisions: [{ decision_id: "x", subject: "x", decision: "included", reason: "対象とする理由の説明", decided_at: "2026-11-01", burden_id: "missing-tax" }] } });
+  const root = await copyRepository({ "data/scope-decisions.yaml": { decisions: [{ decision_id: "x", subject: "x", reason: "対象とする理由の説明", decided_at: "2026-11-01", burden_id: "missing-tax", source_urls: ["https://example.com/x"] }] } });
   const { errors } = await validate(root);
   assert.ok(errors.some((error) => error.includes("unknown burden_id missing-tax")), errors.join("\n"));
 });

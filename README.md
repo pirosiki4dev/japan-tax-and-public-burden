@@ -14,7 +14,7 @@
 ## 対象範囲
 
 - 全体: 法令に基づき、反対給付なしに、または加入・支払いが義務付けられて徴収される負担。国、地方自治体、保険者の単位まで、過去の制度を含め、税収・国民負担率との対応まで扱う。
-- 最初のリリース: 国税、地方税（法令上の制度と標準税率・制限税率）、社会保険料（法令で定まる率・金額）の現行の制度と公布済み未施行の制度。
+- 最初のリリース: 国税、地方税（法定税の法令上の制度と標準税率・制限税率）、社会保険料（法令で定まる率・金額）の現行の制度と公布済み未施行の制度。
 
 詳細は [ADR 0002](docs/adr/0002-rebuild-scope-and-requirements.md) を参照してください。
 
@@ -24,7 +24,7 @@
 | --- | --- |
 | `data/burdens/<burden-id>/` | 制度（`burden.yaml`）と、期間ごとの率・金額（`versions.yaml`） |
 | `data/legal-sources/<law-id>.yaml` | 根拠法令（e-Gov法令ID、確認済みの改正版） |
-| `data/scope-decisions.yaml` | 対象・対象外の個別判断 |
+| `data/scope-decisions.yaml` | 個別判断で対象とした負担 |
 | `config/sources.yaml` | 巡回する公式サイト |
 | `schemas/` | データ構造（JSON Schema） |
 | `src/` | 検証・生成・監視のプログラム（TypeScript） |
