@@ -6030,6 +6030,9 @@ burdens:
           collection_start:
             unknown: true
             reason: 法令に施行日・適用開始日と別の徴収開始日の定めを確認していない
+          application_end:
+            raw: 令和九年三月三十一日（令和九年四月一日以後は、たばこ税法第十一条第一項の規定にかかわらず、我が国の防衛力の抜本的な強化等のために必要な財源の確保に関する特別措置法第四十九条第一項及び令和七年法律第十三号附則第六十三条第二項の税率による）
+            value: 2027-03-31
         rate:
           kind: per_unit
           role: statutory
@@ -6053,10 +6056,138 @@ burdens:
           - https://laws.e-gov.go.jp/law/359AC0000000072
           - https://laws.e-gov.go.jp/api/2/law_data/359AC0000000072_20260525_506AC0000000052?elm=MainProvision-Article_11-Paragraph_1
         checked_at: 2026-11-03T21:42:57+09:00
+      - version_id: nt-000081-v2
+        dates:
+          promulgation:
+            raw: 令和七年三月三十一日（令和七年法律第十三号の公布の日）
+            value: 2025-03-31
+          enforcement:
+            raw: 令和八年四月一日（令和七年法律第十三号附則第一条第三号ヘ。同法第十二条による第四十九条の追加及び附則第六十三条の施行の日）
+            value: 2026-04-01
+          application_start:
+            raw: 令和九年四月一日（令和七年法律第十三号附則第六十三条第二項第一号の期間の初日）
+            value: 2027-04-01
+          collection_start:
+            unknown: true
+            reason: 法令に施行日・適用開始日と別の徴収開始日の定めを確認していない
+          application_end:
+            raw: 令和十年三月三十一日（令和七年法律第十三号附則第六十三条第二項第一号の期間の末日）
+            value: 2028-03-31
+        rate:
+          kind: per_unit
+          role: statutory
+          value: 7302
+          unit: yen
+          per: 千本
+          applies_to:
+            summary: 製造たばこ（特定販売業者以外の者により保税地域から引き取られるものを除く）
+            legal_basis:
+              law_id: 505AC0000000069
+              elm: SupplProvision[2]-Article_63-Paragraph_2-Item_1
+              article: 令和七年法律第十三号附則第六十三条第二項第一号
+          raw_text: 令和九年四月一日から令和十年三月三十一日まで千本につき七千三百二円
+        determination: stated
+        provisions:
+          - law_id: 505AC0000000069
+            elm: SupplProvision[2]-Article_63-Paragraph_2-Item_1
+            article: 令和七年法律第十三号附則第六十三条第二項第一号
+            role: value
+          - law_id: 505AC0000000069
+            elm: MainProvision-Article_49-Paragraph_1
+            article: 第四十九条第一項
+            role: condition
+        source_urls:
+          - https://laws.e-gov.go.jp/law/505AC0000000069
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=SupplProvision%5B2%5D-Article_63-Paragraph_2-Item_1
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=MainProvision-Article_49-Paragraph_1
+        checked_at: 2026-11-03T23:42:32+09:00
+      - version_id: nt-000081-v3
+        dates:
+          promulgation:
+            raw: 令和七年三月三十一日（令和七年法律第十三号の公布の日）
+            value: 2025-03-31
+          enforcement:
+            raw: 令和八年四月一日（令和七年法律第十三号附則第一条第三号ヘ。同法第十二条による第四十九条の追加及び附則第六十三条の施行の日）
+            value: 2026-04-01
+          application_start:
+            raw: 令和十年四月一日（令和七年法律第十三号附則第六十三条第二項第二号の期間の初日）
+            value: 2028-04-01
+          collection_start:
+            unknown: true
+            reason: 法令に施行日・適用開始日と別の徴収開始日の定めを確認していない
+          application_end:
+            raw: 令和十一年三月三十一日（令和七年法律第十三号附則第六十三条第二項第二号の期間の末日）
+            value: 2029-03-31
+        rate:
+          kind: per_unit
+          role: statutory
+          value: 7802
+          unit: yen
+          per: 千本
+          applies_to:
+            summary: 製造たばこ（特定販売業者以外の者により保税地域から引き取られるものを除く）
+            legal_basis:
+              law_id: 505AC0000000069
+              elm: SupplProvision[2]-Article_63-Paragraph_2-Item_2
+              article: 令和七年法律第十三号附則第六十三条第二項第二号
+          raw_text: 令和十年四月一日から令和十一年三月三十一日まで千本につき七千八百二円
+        determination: stated
+        provisions:
+          - law_id: 505AC0000000069
+            elm: SupplProvision[2]-Article_63-Paragraph_2-Item_2
+            article: 令和七年法律第十三号附則第六十三条第二項第二号
+            role: value
+          - law_id: 505AC0000000069
+            elm: MainProvision-Article_49-Paragraph_1
+            article: 第四十九条第一項
+            role: condition
+        source_urls:
+          - https://laws.e-gov.go.jp/law/505AC0000000069
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=SupplProvision%5B2%5D-Article_63-Paragraph_2-Item_2
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=MainProvision-Article_49-Paragraph_1
+        checked_at: 2026-11-03T23:42:32+09:00
+      - version_id: nt-000081-v4
+        dates:
+          promulgation:
+            raw: 令和七年三月三十一日（令和七年法律第十三号の公布の日）
+            value: 2025-03-31
+          enforcement:
+            raw: 令和八年四月一日（令和七年法律第十三号附則第一条第三号ヘ。同法第十二条による第四十九条の追加及び附則第六十三条の施行の日）
+            value: 2026-04-01
+          application_start:
+            raw: 令和十一年四月一日（第四十九条第一項は令和九年四月一日以後について定めるが、令和十一年三月三十一日までは令和七年法律第十三号附則第六十三条第二項の税率による）
+            value: 2029-04-01
+          collection_start:
+            unknown: true
+            reason: 法令に施行日・適用開始日と別の徴収開始日の定めを確認していない
+        rate:
+          kind: per_unit
+          role: statutory
+          value: 8302
+          unit: yen
+          per: 千本
+          applies_to:
+            summary: 製造たばこ（特定販売業者以外の者により保税地域から引き取られるものを除く）
+            legal_basis:
+              law_id: 505AC0000000069
+              elm: MainProvision-Article_49-Paragraph_1
+              article: 第四十九条第一項
+          raw_text: 千本につき八千三百二円
+        determination: stated
+        provisions:
+          - law_id: 505AC0000000069
+            elm: MainProvision-Article_49-Paragraph_1
+            article: 第四十九条第一項
+            role: value
+        source_urls:
+          - https://laws.e-gov.go.jp/law/505AC0000000069
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=MainProvision-Article_49-Paragraph_1
+        checked_at: 2026-11-03T23:42:32+09:00
     status: active
     source_urls:
       - https://laws.e-gov.go.jp/law/359AC0000000072
-    checked_at: 2026-11-03T21:42:57+09:00
+      - https://laws.e-gov.go.jp/law/505AC0000000069
+    checked_at: 2026-11-03T23:42:32+09:00
   - burden_id: nt-000082
     name: たばこ税（特定販売業者以外の者による保税地域からの引取り）
     category: national_tax
@@ -6108,6 +6239,9 @@ burdens:
           collection_start:
             unknown: true
             reason: 法令に施行日・適用開始日と別の徴収開始日の定めを確認していない
+          application_end:
+            raw: 令和九年三月三十一日（令和九年四月一日以後は、たばこ税法第十一条の規定にかかわらず、我が国の防衛力の抜本的な強化等のために必要な財源の確保に関する特別措置法第四十九条第二項及び令和七年法律第十三号附則第六十三条第三項の税率による）
+            value: 2027-03-31
         rate:
           kind: per_unit
           role: statutory
@@ -6131,10 +6265,138 @@ burdens:
           - https://laws.e-gov.go.jp/law/359AC0000000072
           - https://laws.e-gov.go.jp/api/2/law_data/359AC0000000072_20260525_506AC0000000052?elm=MainProvision-Article_11-Paragraph_2
         checked_at: 2026-11-03T21:42:57+09:00
+      - version_id: nt-000082-v2
+        dates:
+          promulgation:
+            raw: 令和七年三月三十一日（令和七年法律第十三号の公布の日）
+            value: 2025-03-31
+          enforcement:
+            raw: 令和八年四月一日（令和七年法律第十三号附則第一条第三号ヘ。同法第十二条による第四十九条の追加及び附則第六十三条の施行の日）
+            value: 2026-04-01
+          application_start:
+            raw: 令和九年四月一日（令和七年法律第十三号附則第六十三条第三項第一号の期間の初日）
+            value: 2027-04-01
+          collection_start:
+            unknown: true
+            reason: 法令に施行日・適用開始日と別の徴収開始日の定めを確認していない
+          application_end:
+            raw: 令和十年三月三十一日（令和七年法律第十三号附則第六十三条第三項第一号の期間の末日）
+            value: 2028-03-31
+        rate:
+          kind: per_unit
+          role: statutory
+          value: 14924
+          unit: yen
+          per: 千本
+          applies_to:
+            summary: 特定販売業者以外の者により保税地域から引き取られる製造たばこ
+            legal_basis:
+              law_id: 505AC0000000069
+              elm: SupplProvision[2]-Article_63-Paragraph_3-Item_1
+              article: 令和七年法律第十三号附則第六十三条第三項第一号
+          raw_text: 令和九年四月一日から令和十年三月三十一日まで千本につき一万四千九百二十四円
+        determination: stated
+        provisions:
+          - law_id: 505AC0000000069
+            elm: SupplProvision[2]-Article_63-Paragraph_3-Item_1
+            article: 令和七年法律第十三号附則第六十三条第三項第一号
+            role: value
+          - law_id: 505AC0000000069
+            elm: MainProvision-Article_49-Paragraph_2
+            article: 第四十九条第二項
+            role: condition
+        source_urls:
+          - https://laws.e-gov.go.jp/law/505AC0000000069
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=SupplProvision%5B2%5D-Article_63-Paragraph_3-Item_1
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=MainProvision-Article_49-Paragraph_2
+        checked_at: 2026-11-03T23:42:32+09:00
+      - version_id: nt-000082-v3
+        dates:
+          promulgation:
+            raw: 令和七年三月三十一日（令和七年法律第十三号の公布の日）
+            value: 2025-03-31
+          enforcement:
+            raw: 令和八年四月一日（令和七年法律第十三号附則第一条第三号ヘ。同法第十二条による第四十九条の追加及び附則第六十三条の施行の日）
+            value: 2026-04-01
+          application_start:
+            raw: 令和十年四月一日（令和七年法律第十三号附則第六十三条第三項第二号の期間の初日）
+            value: 2028-04-01
+          collection_start:
+            unknown: true
+            reason: 法令に施行日・適用開始日と別の徴収開始日の定めを確認していない
+          application_end:
+            raw: 令和十一年三月三十一日（令和七年法律第十三号附則第六十三条第三項第二号の期間の末日）
+            value: 2029-03-31
+        rate:
+          kind: per_unit
+          role: statutory
+          value: 15424
+          unit: yen
+          per: 千本
+          applies_to:
+            summary: 特定販売業者以外の者により保税地域から引き取られる製造たばこ
+            legal_basis:
+              law_id: 505AC0000000069
+              elm: SupplProvision[2]-Article_63-Paragraph_3-Item_2
+              article: 令和七年法律第十三号附則第六十三条第三項第二号
+          raw_text: 令和十年四月一日から令和十一年三月三十一日まで千本につき一万五千四百二十四円
+        determination: stated
+        provisions:
+          - law_id: 505AC0000000069
+            elm: SupplProvision[2]-Article_63-Paragraph_3-Item_2
+            article: 令和七年法律第十三号附則第六十三条第三項第二号
+            role: value
+          - law_id: 505AC0000000069
+            elm: MainProvision-Article_49-Paragraph_2
+            article: 第四十九条第二項
+            role: condition
+        source_urls:
+          - https://laws.e-gov.go.jp/law/505AC0000000069
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=SupplProvision%5B2%5D-Article_63-Paragraph_3-Item_2
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=MainProvision-Article_49-Paragraph_2
+        checked_at: 2026-11-03T23:42:32+09:00
+      - version_id: nt-000082-v4
+        dates:
+          promulgation:
+            raw: 令和七年三月三十一日（令和七年法律第十三号の公布の日）
+            value: 2025-03-31
+          enforcement:
+            raw: 令和八年四月一日（令和七年法律第十三号附則第一条第三号ヘ。同法第十二条による第四十九条の追加及び附則第六十三条の施行の日）
+            value: 2026-04-01
+          application_start:
+            raw: 令和十一年四月一日（第四十九条第二項は令和九年四月一日以後について定めるが、令和十一年三月三十一日までは令和七年法律第十三号附則第六十三条第三項の税率による）
+            value: 2029-04-01
+          collection_start:
+            unknown: true
+            reason: 法令に施行日・適用開始日と別の徴収開始日の定めを確認していない
+        rate:
+          kind: per_unit
+          role: statutory
+          value: 15924
+          unit: yen
+          per: 千本
+          applies_to:
+            summary: 特定販売業者以外の者により保税地域から引き取られる製造たばこ
+            legal_basis:
+              law_id: 505AC0000000069
+              elm: MainProvision-Article_49-Paragraph_2
+              article: 第四十九条第二項
+          raw_text: 千本につき一万五千九百二十四円
+        determination: stated
+        provisions:
+          - law_id: 505AC0000000069
+            elm: MainProvision-Article_49-Paragraph_2
+            article: 第四十九条第二項
+            role: value
+        source_urls:
+          - https://laws.e-gov.go.jp/law/505AC0000000069
+          - https://laws.e-gov.go.jp/api/2/law_data/505AC0000000069_20260401_508AC0000000012?elm=MainProvision-Article_49-Paragraph_2
+        checked_at: 2026-11-03T23:42:32+09:00
     status: active
     source_urls:
       - https://laws.e-gov.go.jp/law/359AC0000000072
-    checked_at: 2026-11-03T21:42:57+09:00
+      - https://laws.e-gov.go.jp/law/505AC0000000069
+    checked_at: 2026-11-03T23:42:32+09:00
   - burden_id: nt-000083
     name: たばこ特別税
     category: national_tax
@@ -8298,11 +8560,11 @@ burdens:
             raw: 令和二年三月三十一日（令和二年法律第五号の公布の日）
             value: 2020-03-31
           enforcement:
-            raw: 令和三年一月一日（令和二年法律第五号による改正規定の施行の日）
-            value: 2021-01-01
+            raw: 令和二年四月一日（令和二年法律第五号附則第一条本文。第七条中この法律第七条の改正規定は同条各号の例外に含まれない）
+            value: 2020-04-01
           application_start:
-            unknown: true
-            reason: 令和二年法律第五号附則第二十一条第一項は「施行日以後に開始する事業年度」について適用すると定めるが、同法の施行日（令和二年四月一日）とe-Gov法令APIの改正履歴でこの号が現れる版の施行日（令和三年一月一日）が一致せず、適用開始日を確定できない
+            raw: 施行日（令和二年四月一日）以後に開始する事業年度に係る法人の事業税と併せて賦課され、又は申告される特別法人事業税について適用（令和二年法律第五号附則第二十一条）
+            value: 2020-04-01
           collection_start:
             unknown: true
             reason: 法令に施行日・適用開始日と別の徴収開始日の定めを確認していない
@@ -8327,11 +8589,11 @@ burdens:
         source_urls:
           - https://laws.e-gov.go.jp/law/431AC0000000004
           - https://laws.e-gov.go.jp/api/2/law_data/431AC0000000004_20260401_508AC0000000002?elm=MainProvision-Article_7-Paragraph_1-Item_5
-        checked_at: 2026-11-03T21:42:57+09:00
+        checked_at: 2026-11-03T23:44:41+09:00
     status: active
     source_urls:
       - https://laws.e-gov.go.jp/law/431AC0000000004
-    checked_at: 2026-11-03T21:42:57+09:00
+    checked_at: 2026-11-03T23:44:41+09:00
   - burden_id: nt-000110
     name: 特別法人事業税（第四号事業の法人）
     category: national_tax
