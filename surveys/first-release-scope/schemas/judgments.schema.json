@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "survey-judgments.schema.json",
+  "$id": "judgments.schema.json",
   "title": "SurveyJudgments",
-  "description": "法令調査の判定結果（docs/surveys/<survey-id>/judgments.yaml）。抽出結果の全件を判定する。",
+  "description": "判定結果（surveys/first-release-scope/judgments.yaml）。抽出結果の全件を判定する。",
   "type": "object",
   "additionalProperties": false,
   "required": [

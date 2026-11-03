@@ -1,30 +1,29 @@
 import assert from "node:assert/strict";
-import { readdir } from "node:fs/promises";
-import { join } from "node:path";
 import { test } from "node:test";
-import { loadRepository } from "../src/data/repository.ts";
-import { loadSurveyCandidates, loadSurveyConditions, loadSurveyJudgments } from "../src/data/survey-files.ts";
-import { checkJudgments, diffCandidates, hasDifferences, mergeHits, type EgovLawHit } from "../src/domain/survey.ts";
-import type { SurveyCandidates } from "../src/domain/types.generated.ts";
-import { createEgovClient } from "../src/survey/egov-client.ts";
-import { runSurvey } from "../src/survey/run-survey.ts";
-import { ROOT } from "./helpers.ts";
+import { loadRepository } from "../../../src/data/repository.ts";
+import { createEgovClient } from "../src/egov-client.ts";
+import { loadCandidates, loadConditions, loadJudgments } from "../src/files.ts";
+import { generateSurveyTypes, readGeneratedTypes } from "../src/generate-types.ts";
+import { REPOSITORY_ROOT as ROOT } from "../src/paths.ts";
+import { runSurvey } from "../src/run-survey.ts";
+import { checkJudgments, diffCandidates, hasDifferences, mergeHits, type EgovLawHit } from "../src/survey.ts";
+import type { SurveyCandidates } from "../src/types.generated.ts";
 
-const surveyIds = (await readdir(join(ROOT, "docs/surveys"), { withFileTypes: true })).filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+test("survey files pass their schemas and every candidate is judged", async () => {
+  const conditions = await loadConditions();
+  const candidates = await loadCandidates();
+  const judgments = await loadJudgments();
+  const { data } = await loadRepository(ROOT);
+  assert.equal(conditions.survey_id, "first-release-scope");
+  assert.deepEqual(checkJudgments(candidates, judgments, new Set(data.groups.groups.map((group) => group.group_id))), []);
+});
 
-for (const surveyId of surveyIds) {
-  test(`survey ${surveyId}: files pass their schemas and every candidate is judged`, async () => {
-    const conditions = await loadSurveyConditions(ROOT, surveyId);
-    const candidates = await loadSurveyCandidates(ROOT, surveyId);
-    const judgments = await loadSurveyJudgments(ROOT, surveyId);
-    const { data } = await loadRepository(ROOT);
-    assert.equal(conditions.survey_id, surveyId);
-    assert.deepEqual(checkJudgments(candidates, judgments, new Set(data.groups.groups.map((group) => group.group_id))), []);
-  });
-}
+test("generated survey types are up to date", async () => {
+  assert.equal(await readGeneratedTypes(), await generateSurveyTypes(), "Run `node surveys/first-release-scope/src/generate-types.ts`");
+});
 
-test("survey first-release-scope: target laws and registered legal sources match", async () => {
-  const judgments = await loadSurveyJudgments(ROOT, "first-release-scope");
+test("target laws and registered legal sources match", async () => {
+  const judgments = await loadJudgments();
   const { data } = await loadRepository(ROOT);
   const targets = judgments.judgments.filter((judgment) => judgment.judgment === "target").map((judgment) => judgment.law_id).sort();
   assert.deepEqual(data.legalSources.map((source) => source.law_id), targets);

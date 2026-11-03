@@ -1,5 +1,5 @@
 # 最初のリリースの対象法令の判定結果（schemas/survey-judgments.schema.json）。
-# candidates.json の全件を判定する。全件に判定があることは tests/survey.test.ts で検査する。
+# candidates.json の全件を判定する。全件に判定があることは surveys/first-release-scope/tests/survey.test.ts で検査する。
 # target: 最初のリリースの対象、later: 全体の範囲だが最初のリリースの対象外、pending: ユーザーの判断が必要、excluded: 対象外。
 survey_id: first-release-scope
 judged_against: 2026-11-03T12:22:26+09:00

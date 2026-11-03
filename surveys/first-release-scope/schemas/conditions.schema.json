@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "survey-conditions.schema.json",
+  "$id": "conditions.schema.json",
   "title": "SurveyConditions",
-  "description": "法令調査の抽出条件（docs/surveys/<survey-id>/conditions.yaml）。",
+  "description": "抽出条件（surveys/first-release-scope/conditions.yaml）。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -51,7 +51,7 @@
           "$ref": "common.schema.json#/$defs/kebabId"
         },
         "burden_category": {
-          "$ref": "burden.schema.json#/properties/category"
+          "$ref": "common.schema.json#/$defs/burdenCategory"
         },
         "method": {
           "title": "SurveyMethod",

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "Survey common definitions",
+  "description": "法令調査（first-release-scope）の共通定義。通常運用の schemas/ とは独立させる。",
+  "$defs": {
+    "kebabId": {
+      "title": "SurveyKebabId",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "lawId": {
+      "title": "SurveyLawId",
+      "description": "e-Gov法令ID。",
+      "type": "string",
+      "pattern": "^[0-9]{3}[0-9A-Z]{12}$"
+    },
+    "elm": {
+      "title": "SurveyElement",
+      "description": "e-Gov法令API v2のelmパラメータで指定する条項の位置。",
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_]*(-[A-Za-z][A-Za-z0-9_]*)*$"
+    },
+    "dateTime": {
+      "title": "SurveyDateTime",
+      "description": "日本標準時（+09:00）のISO 8601日時。",
+      "type": "string",
+      "format": "date-time",
+      "pattern": "\\+09:00$"
+    },
+    "url": {
+      "title": "SurveyUrl",
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "burdenCategory": {
+      "title": "SurveyBurdenCategory",
+      "enum": [
+        "national_tax",
+        "local_tax",
+        "social_insurance",
+        "other_public_burden"
+      ]
+    }
+  }
+}

@@ -1,5 +1,5 @@
 # 集計用グループ（schemas/groups.schema.json）。負担項目は data/burdens.yaml の各項目の groups で所属を示す。
-# 法令上の名称ごとのグループは #143 の調査（docs/surveys/first-release-scope/）で定義した。
+# 法令上の名称ごとのグループは #143 の調査（surveys/first-release-scope/）で定義した。
 # 集計方法は負担項目の登録時（#144〜#146）に、必要に応じて下位のグループを追加して定める。
 groups:
   - group_id: national-tax

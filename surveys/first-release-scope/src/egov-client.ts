@@ -1,4 +1,4 @@
-import type { EgovLawHit } from "../domain/survey.ts";
+import type { EgovLawHit } from "./survey.ts";
 
 type Fetch = (url: string) => Promise<{ ok: boolean; status: number; json(): Promise<unknown> }>;
 

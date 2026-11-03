@@ -10,12 +10,11 @@
   "scripts": {
     "check": "npm run typecheck && npm test && npm run validate && npm run types:check && npm run architecture:check",
     "typecheck": "tsc --noEmit",
-    "test": "node --test \"tests/**/*.test.ts\"",
+    "test": "node --test \"tests/**/*.test.ts\" \"surveys/**/*.test.ts\"",
     "validate": "node src/cli/validate.ts",
     "types:generate": "node src/cli/generate-types.ts",
     "types:check": "node src/cli/generate-types.ts --check",
-    "architecture:check": "node src/cli/check-architecture.ts",
-    "survey": "node src/cli/survey.ts"
+    "architecture:check": "node src/cli/check-architecture.ts"
   },
   "devDependencies": {
     "@types/node": "^24.19.2",

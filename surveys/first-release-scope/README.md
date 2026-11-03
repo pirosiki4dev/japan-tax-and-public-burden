@@ -9,18 +9,23 @@
 
 日本の税と公的負担を網羅した公的な一覧はないため、e-Gov法令APIの法令データを母集団とし、記録した条件で候補の法律を抽出して、全件を判定した。網羅の範囲は「下記の抽出条件で得た法律を、すべて判定済み」であり、網羅性を証明するものではない。照合にはe-Gov法令検索（e-Gov法令API）だけを使い、他の一覧は使っていない。
 
+このフォルダは通常運用（検証、配布物の生成、監視）では使わない。通常運用の成果物と混ざらないよう、調査用のプログラム・Schema・テストもこのフォルダに置く。
+
 | ファイル | 内容 |
 | --- | --- |
 | `conditions.yaml` | 抽出条件 |
 | `candidates.json` | 抽出結果（プログラムが出力。手で編集しない） |
 | `judgments.yaml` | 全件の判定と理由・根拠条項 |
+| `schemas/` | 上記3ファイルのJSON Schema |
+| `src/` | 抽出プログラム（e-Gov法令APIのクライアント、抽出、差分、判定の検査）と、Schemaから生成した型（`types.generated.ts`。`node surveys/first-release-scope/src/generate-types.ts` で再生成） |
+| `tests/` | テスト（`npm test` に含まれる） |
 
 ## 再検証の方法
 
 ```sh
-npm run survey -- --survey first-release-scope --check   # 再実行し、記録済みの抽出結果との差分を表示する（差分があれば終了コード1）
-npm run survey -- --survey first-release-scope           # 抽出結果を書き直す（その後、judgments.yaml の判定を更新する）
-npm test                                                  # 全件に判定があること、対象と data/legal-sources.yaml が一致することを検査する
+node surveys/first-release-scope/src/cli.ts --check   # 再実行し、記録済みの抽出結果との差分を表示する（差分があれば終了コード1）
+node surveys/first-release-scope/src/cli.ts           # 抽出結果を書き直す（その後、judgments.yaml の判定を更新する）
+npm test                                              # 全件に判定があること、対象と data/legal-sources.yaml が一致することを検査する
 ```
 
 ## 抽出条件と件数

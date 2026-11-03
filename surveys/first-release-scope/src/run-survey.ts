@@ -1,6 +1,6 @@
-import { mergeHits } from "../domain/survey.ts";
-import { formatJst } from "../domain/time.ts";
-import type { SurveyArticle, SurveyCandidates, SurveyConditions } from "../domain/types.generated.ts";
+import { formatJst } from "../../../src/domain/time.ts";
+import { mergeHits } from "./survey.ts";
+import type { SurveyArticle, SurveyCandidates, SurveyConditions } from "./types.generated.ts";
 import type { EgovClient } from "./egov-client.ts";
 
 /** 抽出条件に従ってe-Gov法令APIを検索し、抽出結果を作る。 */

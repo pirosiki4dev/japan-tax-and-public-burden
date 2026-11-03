@@ -31,6 +31,7 @@
 | 正本（手で編集する） | `data/`、`config/sources.yaml`、`schemas/` | Pull Requestでレビューする |
 | 生成物（手で編集しない） | `src/domain/types.generated.ts` | `npm run types:generate` で再生成する |
 | 生成物（手で編集しない） | `dist/` | 配布物の生成コマンドで再生成する |
+| 調査の記録（通常運用では使わない） | `surveys/<survey-id>/` | 調査ごとに、条件・結果・判定・調査用のプログラムをまとめる。正本ではない |
 
 ## 変更手順
 

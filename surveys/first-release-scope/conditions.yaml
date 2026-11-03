@@ -1,5 +1,5 @@
 # 最初のリリースの対象法令を抽出する条件（schemas/survey-conditions.schema.json）。
-# `npm run survey -- --survey first-release-scope` で candidates.json を出力し、
+# `node surveys/first-release-scope/src/cli.ts` で candidates.json を出力し、
 # `--check` で記録済みの結果との差分を確認する。
 survey_id: first-release-scope
 source_id: egov-law-api

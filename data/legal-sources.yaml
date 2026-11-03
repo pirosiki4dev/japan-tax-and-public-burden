@@ -1,5 +1,5 @@
 # 根拠法令の正本（schemas/legal-sources.schema.json）。監視対象の一覧を兼ね、law_idの昇順に並べる。
-# 最初の登録は #143 の調査（docs/surveys/first-release-scope/）で対象と判定した法律。
+# 最初の登録は #143 の調査（surveys/first-release-scope/）で対象と判定した法律。
 # reviewed_revision_id は調査時点の改正版で、#144〜#146 はこの版を基準に負担項目を登録する。
 legal_sources:
   - law_id: 143AC0000000054

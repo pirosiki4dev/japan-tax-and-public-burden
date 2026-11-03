@@ -107,61 +107,6 @@ export type BurdenStatus = ("active" | "promulgated_not_effective" | "abolished"
  * sum: 所属する率・金額を足すと全体の負担になる、progressive: 区分ごとに計算して合計する（累進）、select_one: 条件によりどれか1つが適用される、classification: 分類だけで率・金額を合算しない。
  */
 export type GroupAggregation = ("sum" | "progressive" | "select_one" | "classification")
-/**
- * 英小文字・数字のkebab-caseによる永続ID。一度公開したIDは変更しない。
- */
-export type KebabId1 = string
-export type SurveyCondition = ({
-condition_id: KebabId
-burden_category: BurdenCategory
-method: SurveyMethod
-description: string
-category_cd?: string
-keyword?: string
-law_id?: LawId
-/**
- * @minItems 1
- */
-elms?: [EgovElement, ...(EgovElement)[]]
-} & {
-condition_id: KebabId
-burden_category: BurdenCategory
-method: SurveyMethod
-description: string
-category_cd?: string
-keyword?: string
-law_id?: LawId
-/**
- * @minItems 1
- */
-elms?: [EgovElement, ...(EgovElement)[]]
-})
-/**
- * category: e-Govの法令分類、keyword: 全文検索、articles: 指定した条項の取得（列挙規定の記録）。
- */
-export type SurveyMethod = ("category" | "keyword" | "articles")
-/**
- * 日本標準時（JST）のISO 8601日時。タイムゾーンは +09:00 で記録する。
- */
-export type DateTime1 = string
-export type SurveyJudgment = {
-law_id: LawId
-law_title: string
-judgment: SurveyJudgmentResult
-reason: string
-/**
- * 判定の根拠とした条項（原文表記）。
- */
-articles?: string[]
-/**
- * targetの場合に対応するグループ（data/groups.yaml）。
- */
-groups?: KebabId[]
-}
-/**
- * target: 最初のリリースの対象、later: 全体の範囲だが最初のリリースの対象外（特例・減免、過去の制度、保険者決定値、その他の公的負担等）、pending: 対象とするかユーザーの判断が必要、excluded: 負担を課す規定がない等で対象外。
- */
-export type SurveyJudgmentResult = ("target" | "later" | "pending" | "excluded")
 
 export interface RepositorySchemas {
 burdens?: Burdens
@@ -169,9 +114,6 @@ groups?: BurdenGroups
 "legal-sources"?: LegalSources
 "scope-decisions"?: ScopeDecisions
 sources?: SourceRegistry
-"survey-conditions"?: SurveyConditions
-"survey-candidates"?: SurveyCandidates
-"survey-judgments"?: SurveyJudgments
 }
 /**
  * 負担項目の正本（data/burdens.yaml）。burden_idの昇順に並べる。
@@ -375,79 +317,4 @@ rate_limit: string
  */
 request_interval_ms: number
 enabled: boolean
-}
-/**
- * 法令調査の抽出条件（docs/surveys/<survey-id>/conditions.yaml）。
- */
-export interface SurveyConditions {
-survey_id: KebabId
-source_id: KebabId1
-/**
- * e-Gov法令APIの法令種別。
- */
-law_type: ("Act" | "CabinetOrder" | "MinisterialOrdinance")
-/**
- * @minItems 1
- */
-conditions: [SurveyCondition, ...(SurveyCondition)[]]
-}
-/**
- * 法令調査の抽出結果（docs/surveys/<survey-id>/candidates.json）。プログラムが出力し、手で編集しない。
- */
-export interface SurveyCandidates {
-survey_id: KebabId
-retrieved_at: DateTime
-base_url: SourceUrl
-law_type: string
-condition_results: SurveyConditionResult[]
-laws: SurveyLaw[]
-/**
- * articles条件で取得した条項の本文。
- */
-articles: SurveyArticle[]
-}
-export interface SurveyConditionResult {
-condition_id: KebabId
-law_count: number
-/**
- * 廃止・失効のため除いた件数。
- */
-excluded_repealed_count?: number
-}
-export interface SurveyLaw {
-law_id: LawId
-law_title: string
-law_num: string
-/**
- * e-Govの法令分類。
- */
-category: string
-law_revision_id: string
-current_revision_status: string
-/**
- * @minItems 1
- */
-matched_conditions: [KebabId, ...(KebabId)[]]
-/**
- * 全文検索で該当した文の抜粋（条件ごとに先頭の1文）。
- */
-snippets?: {
-condition_id: KebabId
-text: string
-}[]
-}
-export interface SurveyArticle {
-condition_id: KebabId
-law_id: LawId
-elm: EgovElement
-law_revision_id: string
-text: string
-}
-/**
- * 法令調査の判定結果（docs/surveys/<survey-id>/judgments.yaml）。抽出結果の全件を判定する。
- */
-export interface SurveyJudgments {
-survey_id: KebabId
-judged_against: DateTime1
-judgments: SurveyJudgment[]
 }

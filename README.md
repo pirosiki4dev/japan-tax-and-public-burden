@@ -30,7 +30,7 @@
 | `schemas/` | データ構造（JSON Schema） |
 | `src/` | 検証・生成・監視のプログラム（TypeScript） |
 | `docs/adr/` | 設計判断の記録 |
-| `docs/surveys/` | 正本に登録する対象を決めた法令調査の記録（抽出条件、抽出結果、判定結果） |
+| `surveys/` | 正本に登録する対象を決めた法令調査の作業場所（通常運用では使わない） |
 
 各ファイルの役割と監視の流れを含む設計の詳細は、[ADR 0003](docs/adr/0003-rebuild-architecture-and-data-model.md) を参照してください。
 
@@ -48,7 +48,6 @@ npm run check
 | `npm run check` | CIと同じ検査をすべて実行する |
 | `npm run validate` | 正本と設定をSchemaと整合性規則で検証する |
 | `npm run types:generate` | `schemas/` からTypeScriptの型を生成する |
-| `npm run survey -- --survey <survey-id> [--check]` | e-Gov法令APIで法令調査の候補を抽出する（`--check` は記録済みの結果との差分の確認） |
 
 ## 貢献
 

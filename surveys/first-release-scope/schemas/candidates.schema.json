@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "survey-candidates.schema.json",
+  "$id": "candidates.schema.json",
   "title": "SurveyCandidates",
-  "description": "法令調査の抽出結果（docs/surveys/<survey-id>/candidates.json）。プログラムが出力し、手で編集しない。",
+  "description": "抽出結果（surveys/first-release-scope/candidates.json）。プログラムが出力し、手で編集しない。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -22,7 +22,7 @@
       "$ref": "common.schema.json#/$defs/dateTime"
     },
     "base_url": {
-      "$ref": "common.schema.json#/$defs/sourceUrl"
+      "$ref": "common.schema.json#/$defs/url"
     },
     "law_type": {
       "type": "string"
