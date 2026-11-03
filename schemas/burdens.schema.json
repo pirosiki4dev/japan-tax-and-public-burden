@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "burdens.schema.json",
+  "title": "Burdens",
+  "description": "負担項目の正本（data/burdens.yaml）。burden_idの昇順に並べる。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "burdens"
+  ],
+  "properties": {
+    "burdens": {
+      "type": "array",
+      "items": {
+        "$ref": "burden.schema.json"
+      }
+    }
+  }
+}

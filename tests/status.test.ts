@@ -9,8 +9,10 @@ function version(start: string | null, end?: string): BurdenVersion {
   return {
     version_id: `v-${start ?? "unknown"}`,
     dates: { promulgation: unknown, enforcement: unknown, application_start: date(start), collection_start: unknown, ...(end ? { application_end: date(end) } : {}) },
-    rates: [] as unknown as BurdenVersion["rates"],
-    source_url: "https://example.com/",
+    rate: { kind: "proportional", role: "statutory", value: 1, unit: "percent", applies_to: { summary: "テスト" }, raw_text: "テスト" },
+    determination: "stated",
+    provisions: [{ law_id: "999AC0000000001", elm: "MainProvision-Article_1", article: "第一条", role: "value" }],
+    source_urls: ["https://example.com/"],
     checked_at: "2026-11-01T00:00:00+09:00"
   };
 }

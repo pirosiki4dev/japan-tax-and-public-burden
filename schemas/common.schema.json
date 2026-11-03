@@ -9,11 +9,23 @@
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
+    "burdenId": {
+      "title": "BurdenId",
+      "description": "負担項目のID。区分の接頭辞（nt: 国税、lt: 地方税、si: 社会保険料、ot: その他の公的負担）と6桁の連番。意味を持たせず、一度使った番号は再利用しない。",
+      "type": "string",
+      "pattern": "^(nt|lt|si|ot)-[0-9]{6}$"
+    },
     "lawId": {
       "title": "LawId",
       "description": "e-Gov法令ID（例: 363AC0000000108）。",
       "type": "string",
       "pattern": "^[0-9]{3}[0-9A-Z]{12}$"
+    },
+    "elm": {
+      "title": "EgovElement",
+      "description": "e-Gov法令API v2のelmパラメータで指定する条項の位置（例: MainProvision-Article_89-Paragraph_1、AppdxTable_1）。",
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_]*(-[A-Za-z][A-Za-z0-9_]*)*$"
     },
     "dateTime": {
       "title": "DateTime",
@@ -38,10 +50,18 @@
       "description": "公式情報で確認できない値。推測で補完せず、根拠不足の理由を記録する。",
       "type": "object",
       "additionalProperties": false,
-      "required": ["unknown", "reason"],
+      "required": [
+        "unknown",
+        "reason"
+      ],
       "properties": {
-        "unknown": { "const": true },
-        "reason": { "type": "string", "minLength": 10 }
+        "unknown": {
+          "const": true
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 10
+        }
       }
     },
     "knownDate": {
@@ -49,17 +69,29 @@
       "description": "原文（和暦等）と正規化した日付。",
       "type": "object",
       "additionalProperties": false,
-      "required": ["raw", "value"],
+      "required": [
+        "raw",
+        "value"
+      ],
       "properties": {
-        "raw": { "type": "string", "minLength": 1 },
-        "value": { "$ref": "#/$defs/date" }
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "$ref": "#/$defs/date"
+        }
       }
     },
     "dateValue": {
       "title": "DateValue",
       "oneOf": [
-        { "$ref": "#/$defs/knownDate" },
-        { "$ref": "#/$defs/unknownValue" }
+        {
+          "$ref": "#/$defs/knownDate"
+        },
+        {
+          "$ref": "#/$defs/unknownValue"
+        }
       ]
     },
     "legalReference": {
@@ -67,10 +99,20 @@
       "description": "根拠法令と条項。条項は原文の表記で記録する。",
       "type": "object",
       "additionalProperties": false,
-      "required": ["law_id"],
+      "required": [
+        "law_id"
+      ],
       "properties": {
-        "law_id": { "$ref": "#/$defs/lawId" },
-        "article": { "type": "string", "minLength": 1 }
+        "law_id": {
+          "$ref": "#/$defs/lawId"
+        },
+        "elm": {
+          "$ref": "#/$defs/elm"
+        },
+        "article": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "knownItem": {
@@ -78,19 +120,77 @@
       "description": "要約と、必要に応じて原文・根拠条項を持つ説明項目。",
       "type": "object",
       "additionalProperties": false,
-      "required": ["summary"],
+      "required": [
+        "summary"
+      ],
       "properties": {
-        "summary": { "type": "string", "minLength": 1 },
-        "raw_text": { "type": "string", "minLength": 1 },
-        "legal_basis": { "$ref": "#/$defs/legalReference" }
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "raw_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legal_basis": {
+          "$ref": "#/$defs/legalReference"
+        }
       }
     },
     "describedItem": {
       "title": "DescribedItem",
       "oneOf": [
-        { "$ref": "#/$defs/knownItem" },
-        { "$ref": "#/$defs/unknownValue" }
+        {
+          "$ref": "#/$defs/knownItem"
+        },
+        {
+          "$ref": "#/$defs/unknownValue"
+        }
       ]
+    },
+    "provision": {
+      "title": "Provision",
+      "description": "値を定める、または値の決まり方に関わる条項。e-Gov法令APIで取得でき、監視の対象になる。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "law_id",
+        "elm",
+        "article",
+        "role"
+      ],
+      "properties": {
+        "law_id": {
+          "$ref": "#/$defs/lawId"
+        },
+        "elm": {
+          "$ref": "#/$defs/elm"
+        },
+        "article": {
+          "description": "条項の原文表記（例: 第八十九条第一項）。",
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "title": "ProvisionRole",
+          "description": "value: 値を定める、formula: 算式を定める、delegation: 政令・省令・告示等へ委任する、condition: 適用の条件を定める。",
+          "enum": [
+            "value",
+            "formula",
+            "delegation",
+            "condition"
+          ]
+        }
+      }
+    },
+    "sourceUrls": {
+      "title": "SourceUrls",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/sourceUrl"
+      }
     }
   }
 }

@@ -1,21 +1,10 @@
-import type { Burden, BurdenVersions, LegalSource, ScopeDecisions, SourceRegistry } from "./types.generated.ts";
-
-/** 制度ディレクトリ（data/burdens/<burden-id>/）の内容。 */
-export interface BurdenEntry {
-  directory: string;
-  burden: Burden;
-  versions: BurdenVersions;
-}
-
-export interface LegalSourceEntry {
-  fileStem: string;
-  source: LegalSource;
-}
+import type { Burden, BurdenGroups, LegalSource, ScopeDecisions, SourceRegistry } from "./types.generated.ts";
 
 /** Schema検証を通った正本と設定の全体。 */
 export interface RepositoryData {
-  burdens: BurdenEntry[];
-  legalSources: LegalSourceEntry[];
+  burdens: Burden[];
+  groups: BurdenGroups;
+  legalSources: LegalSource[];
   scopeDecisions: ScopeDecisions;
   sources: SourceRegistry;
 }

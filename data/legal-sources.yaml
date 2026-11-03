@@ -1,0 +1,3 @@
+# 根拠法令の正本（schemas/legal-sources.schema.json）。監視対象の一覧を兼ね、law_idの昇順に並べる。
+# 根拠法令の追加は #143 で行う。
+legal_sources: []

@@ -1,0 +1,357 @@
+# テスト専用の架空の負担項目。実在の制度・法令ではない。
+burdens:
+  - burden_id: nt-000001
+    name: 例示税（製造額100万円以下の部分）
+    category: national_tax
+    levying_body_type: national
+    groups:
+      - example-tax
+    legal_bases:
+      - law_id: 999AC0000000001
+        elm: MainProvision-Article_1
+        article: 第一条
+    liable_parties:
+      - summary: 例示物品を製造する者
+        legal_basis:
+          law_id: 999AC0000000001
+          elm: MainProvision-Article_2
+          article: 第二条
+    taxable_objects:
+      - summary: 例示物品の製造
+    tax_base:
+      - unknown: true
+        reason: テスト用に課税標準を不明として扱う
+    versions:
+      - version_id: nt-000001-v1
+        dates:
+          promulgation:
+            raw: 令和元年十二月一日
+            value: 2019-12-01
+          enforcement:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          application_start:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          collection_start:
+            unknown: true
+            reason: テスト用に徴収開始日を不明として扱う
+          application_end:
+            raw: 令和七年三月三十一日
+            value: 2025-03-31
+        rate:
+          kind: proportional
+          role: statutory
+          value: 5
+          unit: percent
+          bracket:
+            lower: 0
+            upper: 1000000
+            unit: yen
+          applies_to:
+            summary: 製造額のうち百万円以下の部分
+          raw_text: 製造額百万円以下の部分は、百分の五とする。
+        determination: stated
+        provisions:
+          - law_id: 999AC0000000001
+            elm: MainProvision-Article_3
+            article: 第三条
+            role: value
+        source_urls:
+          - https://example.com/laws/999AC0000000001
+        checked_at: 2026-11-01T09:00:00+09:00
+      - version_id: nt-000001-v2
+        dates:
+          promulgation:
+            raw: 令和六年十二月一日
+            value: 2024-12-01
+          enforcement:
+            raw: 令和七年四月一日
+            value: 2025-04-01
+          application_start:
+            raw: 令和七年四月一日
+            value: 2025-04-01
+          collection_start:
+            raw: 令和七年五月一日
+            value: 2025-05-01
+        rate:
+          kind: proportional
+          role: statutory
+          value: 6
+          unit: percent
+          bracket:
+            lower: 0
+            upper: 1000000
+            unit: yen
+          applies_to:
+            summary: 製造額のうち百万円以下の部分
+          raw_text: 製造額百万円以下の部分は、百分の六とする。
+        determination: stated
+        provisions:
+          - law_id: 999AC0000000001
+            elm: MainProvision-Article_3_2
+            article: 第三条の二
+            role: value
+        source_urls:
+          - https://example.com/laws/999AC0000000001
+        checked_at: 2026-11-01T09:00:00+09:00
+    status: active
+    source_urls:
+      - https://example.com/laws/999AC0000000001
+    checked_at: 2026-11-01T09:00:00+09:00
+  - burden_id: nt-000002
+    name: 例示税（製造額100万円を超える部分）
+    category: national_tax
+    levying_body_type: national
+    groups:
+      - example-tax
+    legal_bases:
+      - law_id: 999AC0000000001
+        elm: MainProvision-Article_1
+        article: 第一条
+    liable_parties:
+      - summary: 例示物品を製造する者
+        legal_basis:
+          law_id: 999AC0000000001
+          elm: MainProvision-Article_2
+          article: 第二条
+    taxable_objects:
+      - summary: 例示物品の製造
+    tax_base:
+      - unknown: true
+        reason: テスト用に課税標準を不明として扱う
+    versions:
+      - version_id: nt-000002-v1
+        dates:
+          promulgation:
+            raw: 令和元年十二月一日
+            value: 2019-12-01
+          enforcement:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          application_start:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          collection_start:
+            unknown: true
+            reason: テスト用に徴収開始日を不明として扱う
+        rate:
+          kind: proportional
+          role: statutory
+          value: 10
+          unit: percent
+          bracket:
+            lower: 1000000
+            upper: null
+            unit: yen
+          applies_to:
+            summary: 製造額のうち百万円を超える部分
+          raw_text: 製造額百万円を超える部分は、百分の十とする。
+        determination: stated
+        provisions:
+          - law_id: 999AC0000000001
+            elm: MainProvision-Article_3
+            article: 第三条
+            role: value
+        source_urls:
+          - https://example.com/laws/999AC0000000001
+        checked_at: 2026-11-01T09:00:00+09:00
+    status: active
+    source_urls:
+      - https://example.com/laws/999AC0000000001
+    checked_at: 2026-11-01T09:00:00+09:00
+  - burden_id: nt-000003
+    name: 例示液体税
+    category: national_tax
+    levying_body_type: national
+    groups:
+      - example-national-tax
+    legal_bases:
+      - law_id: 999AC0000000001
+        elm: MainProvision-Article_1
+        article: 第一条
+    liable_parties:
+      - summary: 例示液体を製造する者
+        legal_basis:
+          law_id: 999AC0000000001
+          elm: MainProvision-Article_2
+          article: 第二条
+    taxable_objects:
+      - summary: 例示液体の製造
+    tax_base:
+      - unknown: true
+        reason: テスト用に課税標準を不明として扱う
+    versions:
+      - version_id: nt-000003-v1
+        dates:
+          promulgation:
+            raw: 令和元年十二月一日
+            value: 2019-12-01
+          enforcement:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          application_start:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          collection_start:
+            unknown: true
+            reason: テスト用に徴収開始日を不明として扱う
+        rate:
+          kind: per_unit
+          role: statutory
+          value: 1000
+          unit: yen
+          per: 1キロリットル
+          applies_to:
+            summary: 例示液体
+          raw_text: 例示液体の税率は、一キロリットルにつき千円とする。
+        determination: published
+        formula:
+          raw_text: 基準額に、省令で定める方法により算定した改定率を乗じて得た額を告示する。
+          derivation: 告示された額（千円）を記録する。
+        provisions:
+          - law_id: 999AC0000000001
+            elm: MainProvision-Article_4
+            article: 第四条
+            role: delegation
+          - law_id: 999M60000000001
+            elm: MainProvision-Article_1
+            article: 第一条
+            role: formula
+        source_urls:
+          - https://example.com/laws/999AC0000000001
+          - https://example.com/laws/999M60000000001
+          - https://example.com/notices/example-liquid-tax
+        checked_at: 2026-11-01T09:00:00+09:00
+    status: active
+    source_urls:
+      - https://example.com/laws/999AC0000000001
+    checked_at: 2026-11-01T09:00:00+09:00
+  - burden_id: si-000001
+    name: 例示保険料（被保険者負担分）
+    category: social_insurance
+    levying_body_type: national
+    groups:
+      - example-insurance
+    legal_bases:
+      - law_id: 999AC0000000002
+        elm: MainProvision-Article_1
+        article: 第一条
+    liable_parties:
+      - summary: 被保険者
+        legal_basis:
+          law_id: 999AC0000000002
+          elm: MainProvision-Article_2
+          article: 第二条
+    taxable_objects:
+      - summary: 例示保険の被保険者であること
+    tax_base:
+      - unknown: true
+        reason: テスト用に課税標準を不明として扱う
+    versions:
+      - version_id: si-000001-v1
+        dates:
+          promulgation:
+            raw: 令和元年十二月一日
+            value: 2019-12-01
+          enforcement:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          application_start:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          collection_start:
+            unknown: true
+            reason: テスト用に徴収開始日を不明として扱う
+        rate:
+          kind: proportional
+          role: statutory
+          value: 4.5
+          unit: percent
+          applies_to:
+            summary: 標準報酬
+          raw_text: 保険料率は、千分の九十とする。
+        determination: calculated
+        formula:
+          raw_text: 被保険者及び事業主は、それぞれ保険料額の二分の一を負担する。
+          derivation: 9% × 1/2 = 4.5%
+        provisions:
+          - law_id: 999AC0000000002
+            elm: MainProvision-Article_5
+            article: 第五条
+            role: value
+          - law_id: 999AC0000000002
+            elm: MainProvision-Article_6
+            article: 第六条
+            role: formula
+        source_urls:
+          - https://example.com/laws/999AC0000000002
+        checked_at: 2026-11-01T09:00:00+09:00
+    status: active
+    source_urls:
+      - https://example.com/laws/999AC0000000002
+    checked_at: 2026-11-01T09:00:00+09:00
+  - burden_id: si-000002
+    name: 例示保険料（事業主負担分）
+    category: social_insurance
+    levying_body_type: national
+    groups:
+      - example-insurance
+    legal_bases:
+      - law_id: 999AC0000000002
+        elm: MainProvision-Article_1
+        article: 第一条
+    liable_parties:
+      - summary: 事業主
+        legal_basis:
+          law_id: 999AC0000000002
+          elm: MainProvision-Article_2
+          article: 第二条
+    taxable_objects:
+      - summary: 例示保険の被保険者を使用すること
+    tax_base:
+      - unknown: true
+        reason: テスト用に課税標準を不明として扱う
+    versions:
+      - version_id: si-000002-v1
+        dates:
+          promulgation:
+            raw: 令和元年十二月一日
+            value: 2019-12-01
+          enforcement:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          application_start:
+            raw: 令和二年四月一日
+            value: 2020-04-01
+          collection_start:
+            unknown: true
+            reason: テスト用に徴収開始日を不明として扱う
+        rate:
+          kind: proportional
+          role: statutory
+          value: 4.5
+          unit: percent
+          applies_to:
+            summary: 標準報酬
+          raw_text: 保険料率は、千分の九十とする。
+        determination: calculated
+        formula:
+          raw_text: 被保険者及び事業主は、それぞれ保険料額の二分の一を負担する。
+          derivation: 9% × 1/2 = 4.5%
+        provisions:
+          - law_id: 999AC0000000002
+            elm: MainProvision-Article_5
+            article: 第五条
+            role: value
+          - law_id: 999AC0000000002
+            elm: MainProvision-Article_6
+            article: 第六条
+            role: formula
+        source_urls:
+          - https://example.com/laws/999AC0000000002
+        checked_at: 2026-11-01T09:00:00+09:00
+    status: active
+    source_urls:
+      - https://example.com/laws/999AC0000000002
+    checked_at: 2026-11-01T09:00:00+09:00

@@ -1,8 +1,8 @@
 import { readdir, readFile } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { parse } from "yaml";
-import type { BurdenEntry, LegalSourceEntry, RepositoryData } from "../domain/repository.ts";
-import type { Burden, BurdenVersions, LegalSource, ScopeDecisions, SourceRegistry } from "../domain/types.generated.ts";
+import type { RepositoryData } from "../domain/repository.ts";
+import type { Burdens, BurdenGroups, LegalSources, ScopeDecisions, SourceRegistry } from "../domain/types.generated.ts";
 import { createSchemaValidator, type SchemaName, type SchemaValidator } from "./schema.ts";
 
 export interface LoadResult {
@@ -54,23 +54,10 @@ export async function loadRepository(root: string, schemaDir = join(root, "schem
     return schemaErrors.length === 0 ? (document as T) : undefined;
   }
 
-  const burdensDir = join(root, "data/burdens");
-  const burdens: BurdenEntry[] = [];
-  const burdenDirectories = (await readdir(burdensDir, { withFileTypes: true }).catch(() => [])).filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
-  for (const directory of burdenDirectories) {
-    const burden = await load<Burden>(join(burdensDir, directory, "burden.yaml"), "burden");
-    const versions = await load<BurdenVersions>(join(burdensDir, directory, "versions.yaml"), "versions");
-    if (burden && versions) burdens.push({ directory, burden, versions });
-  }
+  const { burdens } = (await load<Burdens>(join(root, "data/burdens.yaml"), "burdens")) ?? { burdens: [] };
 
-  const legalSourcesDir = join(root, "data/legal-sources");
-  const legalSources: LegalSourceEntry[] = [];
-  for (const path of await listFiles(legalSourcesDir)) {
-    if (!path.endsWith(".yaml") || relative(legalSourcesDir, path).includes("/")) continue;
-    const source = await load<LegalSource>(path, "legal-source");
-    if (source) legalSources.push({ fileStem: relative(legalSourcesDir, path).replace(/\.yaml$/, ""), source });
-  }
-
+  const legalSources = (await load<LegalSources>(join(root, "data/legal-sources.yaml"), "legal-sources"))?.legal_sources ?? [];
+  const groups = (await load<BurdenGroups>(join(root, "data/groups.yaml"), "groups")) ?? { groups: [] };
   const scopeDecisions = (await load<ScopeDecisions>(join(root, "data/scope-decisions.yaml"), "scope-decisions")) ?? { decisions: [] };
   const sources = (await load<SourceRegistry>(join(root, "config/sources.yaml"), "sources")) ?? { sources: [] };
 
@@ -78,5 +65,5 @@ export async function loadRepository(root: string, schemaDir = join(root, "schem
     if (!handled.has(path)) errors.push(`${display(path)}: no validation route (unexpected file)`);
   }
 
-  return { data: { burdens, legalSources, scopeDecisions, sources }, errors };
+  return { data: { burdens, groups, legalSources, scopeDecisions, sources }, errors };
 }

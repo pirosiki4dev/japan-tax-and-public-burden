@@ -1,8 +1,8 @@
 decisions:
   - decision_id: example-included
-    subject: 例示税
+    subject: 例示液体税
     reason: テスト用の対象判断の記録
     decided_at: 2026-11-01
-    burden_id: example-tax
+    burden_id: nt-000003
     source_urls:
       - https://example.com/laws/example

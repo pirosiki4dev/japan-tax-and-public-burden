@@ -7,7 +7,9 @@
 - 制度ごとの判断（対象範囲、抽出対象等）をコードへ直書きせず、正本データまたは設定に置く。
 - 公布日、施行日、適用開始日、徴収開始日を個別に扱い、推測で補完しない。
 - 和暦等の原文と正規化値を併記する。不明値は `unknown: true` と根拠不足の理由を記録する。
-- 率・金額が変わるごと、または段階的に適用されるごとに、別の版（`versions.yaml` の要素）として保存する。
+- `burden_id` は1つの率または金額ごとに、ADR 0003の採番規則（区分の接頭辞と6桁の連番）で採番する。一度使った番号は削除・再利用しない。
+- 率・金額や根拠の条項の位置が変わるごと、または段階的に適用されるごとに、別の版（`data/burdens.yaml` の各負担項目の `versions` の要素）として保存する。
+- 法律が政令・省令等に委任している場合は、委任元と委任先の条項を同じ負担項目の `provisions` に記録する。
 - 金額の確定区分、期間、単位、集計範囲を保存し、内数を二重計上しない。
 - 対象範囲はADR 0002に従う。区分表だけでは判定できない負担は個別に判断し、対象とした場合は `data/scope-decisions.yaml` へ理由と根拠URLを、対象外とした場合はADR 0002へ理由を記録する。
 - ニュース等で検知した未確認事項はIssue、公式根拠に基づくデータ変更はPull Requestで扱う。
@@ -17,7 +19,7 @@
 ## 参照する資料
 
 - 要件と対象範囲: `docs/adr/0002-rebuild-scope-and-requirements.md`
-- 技術方針、フォルダ構成、データモデル、監視方式: `docs/adr/0003-rebuild-architecture-and-data-model.md`
+- 技術方針、フォルダ構成、データモデル、ファイルの役割、監視方式: `docs/adr/0003-rebuild-architecture-and-data-model.md`
 - データ構造: `schemas/`
 - 旧版（`legacy-v0` タグ）は比較のための参照だけに使い、その要件・データ・調査結果を根拠にしない。
 
@@ -48,7 +50,7 @@
 e-Gov法令APIの監視が作成した改正検知Issueは、次の手順で扱う。
 
 1. 人が改正内容を確認し、マスタへ反映するかを判断する。
-2. 反映する場合も反映しない場合も、Pull Requestで `data/legal-sources/<law-id>.yaml` の `reviewed_revision_id` と `reviewed_at` を更新する。反映する場合は同じPull Requestで正本も更新する。
+2. 反映する場合も反映しない場合も、Pull Requestで `data/legal-sources.yaml` の該当法令の `reviewed_revision_id` と `reviewed_at` を更新する。反映する場合は同じPull Requestで正本も更新する。
 3. Pull Requestのマージ後、判断の結果をIssueに記録してCloseする。
 
 ## Issueとプルリクエストの関連付け

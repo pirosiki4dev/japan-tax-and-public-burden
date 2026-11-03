@@ -1,0 +1,3 @@
+# 負担項目の正本（schemas/burdens.schema.json）。1つの率または金額を1項目とし、burden_idの昇順に並べる。
+# 負担項目の追加は #144〜#146 で行う。
+burdens: []

@@ -2,82 +2,78 @@
 
 
 /**
+ * 負担項目のID。区分の接頭辞（nt: 国税、lt: 地方税、si: 社会保険料、ot: その他の公的負担）と6桁の連番。意味を持たせず、一度使った番号は再利用しない。
+ */
+export type BurdenId = string
+/**
+ * burden_idの接頭辞と一致させる（national_tax: nt、local_tax: lt、social_insurance: si、other_public_burden: ot）。
+ */
+export type BurdenCategory = ("national_tax" | "local_tax" | "social_insurance" | "other_public_burden")
+export type LevyingBodyType = ("national" | "prefecture" | "municipality" | "insurer")
+/**
  * 英小文字・数字のkebab-caseによる永続ID。一度公開したIDは変更しない。
  */
 export type KebabId = string
-export type BurdenCategory = ("national_tax" | "local_tax" | "social_insurance" | "other_public_burden")
-export type LevyingBodyType = ("national" | "prefecture" | "municipality" | "insurer")
 /**
  * e-Gov法令ID（例: 363AC0000000108）。
  */
 export type LawId = string
+/**
+ * e-Gov法令API v2のelmパラメータで指定する条項の位置（例: MainProvision-Article_89-Paragraph_1、AppdxTable_1）。
+ */
+export type EgovElement = string
 export type DescribedItem = (KnownItem | UnknownValue)
-export type BurdenStatus = ("active" | "promulgated_not_effective" | "abolished")
+export type BurdenVersion = ({
+version_id: KebabId
+dates: VersionDates
+rate: Rate
+determination: Determination
+formula?: Formula
 /**
- * 根拠とした公式一次情報のURL。
+ * 監視する条項。法律が政令・省令に委任している場合は、委任元と委任先の両方を含める。
+ * 
+ * @minItems 1
  */
-export type SourceUrl = string
+provisions: [Provision, ...(Provision)[]]
+source_urls: SourceUrls
+checked_at: DateTime
+} & {
+version_id: KebabId
+dates: VersionDates
+rate: Rate
+determination: Determination
+formula?: Formula
 /**
- * タイムゾーン付きのISO 8601日時。
+ * 監視する条項。法律が政令・省令に委任している場合は、委任元と委任先の両方を含める。
+ * 
+ * @minItems 1
  */
-export type DateTime = string
+provisions: [Provision, ...(Provision)[]]
+source_urls: SourceUrls
+checked_at: DateTime
+})
 export type DateValue = (KnownDate | UnknownValue)
 export type IsoDate = string
-export type Rate = ({
-rate_id: KebabId
+export type Rate = {
 kind: RateKind
 role: RateRole
-value?: number
+value: number
 unit: RateUnit
 /**
  * 従量の基準となる数量（原文の表記。例: 1キロリットル）。
  */
 per?: string
-/**
- * 累進区分の境界の単位。
- */
-bracket_unit?: "yen"
-/**
- * @minItems 1
- */
-brackets?: [RateBracket, ...(RateBracket)[]]
+bracket?: RateBracket
 applies_to: DescribedItem
 /**
- * @minItems 1
+ * 値を定める原文。
  */
-shares?: [RateShare, ...(RateShare)[]]
-legal_basis: LegalReference
 raw_text: string
-} & {
-rate_id: KebabId
-kind: RateKind
-role: RateRole
-value?: number
-unit: RateUnit
+}
 /**
- * 従量の基準となる数量（原文の表記。例: 1キロリットル）。
+ * proportional: 比例（累進の1区分を含む）、fixed_amount: 定額、per_unit: 従量。
  */
-per?: string
-/**
- * 累進区分の境界の単位。
- */
-bracket_unit?: "yen"
-/**
- * @minItems 1
- */
-brackets?: [RateBracket, ...(RateBracket)[]]
-applies_to: DescribedItem
-/**
- * @minItems 1
- */
-shares?: [RateShare, ...(RateShare)[]]
-legal_basis: LegalReference
-raw_text: string
-})
-/**
- * proportional: 比例、progressive: 累進、fixed_amount: 定額、per_unit: 従量。
- */
-export type RateKind = ("proportional" | "progressive" | "fixed_amount" | "per_unit")
+export type RateKind = ("proportional" | "fixed_amount" | "per_unit")
 /**
  * statutory: 法定、standard: 標準税率、limit: 制限税率、reduced: 軽減。
  */
@@ -86,23 +82,68 @@ export type RateRole = ("statutory" | "standard" | "limit" | "reduced")
  * valueの単位。percentは100分率（10は10%）。
  */
 export type RateUnit = ("percent" | "per_mille" | "yen")
+/**
+ * 値の決まり方。stated: 条文に値が書かれている、calculated: 条文の算式から計算する、published: 告示等、e-Gov法令APIで取得できない公表物で定まる。
+ */
+export type Determination = ("stated" | "calculated" | "published")
+/**
+ * value: 値を定める、formula: 算式を定める、delegation: 政令・省令・告示等へ委任する、condition: 適用の条件を定める。
+ */
+export type ProvisionRole = ("value" | "formula" | "delegation" | "condition")
+/**
+ * @minItems 1
+ */
+export type SourceUrls = [SourceUrl, ...(SourceUrl)[]]
+/**
+ * 根拠とした公式一次情報のURL。
+ */
+export type SourceUrl = string
+/**
+ * タイムゾーン付きのISO 8601日時。
+ */
+export type DateTime = string
+export type BurdenStatus = ("active" | "promulgated_not_effective" | "abolished")
+/**
+ * sum: 所属する率・金額を足すと全体の負担になる、progressive: 区分ごとに計算して合計する（累進）、select_one: 条件によりどれか1つが適用される、classification: 分類だけで率・金額を合算しない。
+ */
+export type GroupAggregation = ("sum" | "progressive" | "select_one" | "classification")
 
 export interface RepositorySchemas {
-burden?: Burden
-versions?: BurdenVersions
-"legal-source"?: LegalSource
+burdens?: Burdens
+groups?: BurdenGroups
+"legal-sources"?: LegalSources
 "scope-decisions"?: ScopeDecisions
 sources?: SourceRegistry
 }
 /**
- * 制度（data/burdens/<burden-id>/burden.yaml）。レベル1・2の情報を持つ。
+ * 負担項目の正本（data/burdens.yaml）。burden_idの昇順に並べる。
+ */
+export interface Burdens {
+burdens: Burden[]
+}
+/**
+ * 負担項目（data/burdens.yaml の burdens の要素）。1つの率または金額を1項目とし、負担者が異なれば項目を分ける。レベル1・2の情報と、期間ごとの版を持つ。
  */
 export interface Burden {
-burden_id: KebabId
+burden_id: BurdenId
 name: string
 category: BurdenCategory
 levying_body_type: LevyingBodyType
 /**
+ * 所属する集計用グループ（data/groups.yaml のgroup_id）。
+ * 
+ * @minItems 1
+ */
+groups: [KebabId, ...(KebabId)[]]
+/**
+ * 分割・統合で終了した前身の負担項目。
+ * 
+ * @minItems 1
+ */
+predecessors?: [BurdenId, ...(BurdenId)[]]
+/**
+ * 負担そのものの根拠（課税・徴収を定める条項）。
+ * 
  * @minItems 1
  */
 legal_bases: [LegalReference, ...(LegalReference)[]]
@@ -124,8 +165,14 @@ taxable_objects: [DescribedItem, ...(DescribedItem)[]]
  * @minItems 1
  */
 tax_base: [DescribedItem, ...(DescribedItem)[]]
+/**
+ * 版。率・金額、または根拠の条項の位置が変わるごとに追加する。
+ * 
+ * @minItems 1
+ */
+versions: [BurdenVersion, ...(BurdenVersion)[]]
 status: BurdenStatus
-source_url: SourceUrl
+source_urls: SourceUrls
 checked_at: DateTime
 }
 /**
@@ -133,6 +180,7 @@ checked_at: DateTime
  */
 export interface LegalReference {
 law_id: LawId
+elm?: EgovElement
 article?: string
 }
 /**
@@ -149,26 +197,6 @@ legal_basis?: LegalReference
 export interface UnknownValue {
 unknown: true
 reason: string
-}
-/**
- * 版（data/burdens/<burden-id>/versions.yaml）。率・金額が変わるごとに版を追加する。
- */
-export interface BurdenVersions {
-burden_id: KebabId
-/**
- * @minItems 1
- */
-versions: [BurdenVersion, ...(BurdenVersion)[]]
-}
-export interface BurdenVersion {
-version_id: KebabId
-dates: VersionDates
-/**
- * @minItems 1
- */
-rates: [Rate, ...(Rate)[]]
-source_url: SourceUrl
-checked_at: DateTime
 }
 /**
  * 公布日、施行日、適用開始日、徴収開始日を個別に持つ。適用終了日は終了が定まっている場合だけ持つ。
@@ -188,22 +216,59 @@ raw: string
 value: IsoDate
 }
 /**
- * 累進の区分。upperがnullの区分は上限なし。
+ * 累進の区分のうち、この項目が適用される範囲。upperがnullの場合は上限なし。
  */
 export interface RateBracket {
 lower: number
 upper: (number | null)
-value: number
+unit: "yen"
 }
 /**
- * 負担割合（本人・事業主・国庫等）。ratioは0より大きく1以下。
+ * calculated・publishedの場合の算式。原文と、値を求めた過程を記録する。
  */
-export interface RateShare {
-party: string
-ratio: number
+export interface Formula {
+/**
+ * 算式の原文。
+ */
+raw_text: string
+/**
+ * 値を求めた過程（例: 18.3% × 1/2 = 9.15%）。
+ */
+derivation: string
 }
 /**
- * 根拠法令（data/legal-sources/<law-id>.yaml）。監視対象の一覧を兼ねる。
+ * 値を定める、または値の決まり方に関わる条項。e-Gov法令APIで取得でき、監視の対象になる。
+ */
+export interface Provision {
+law_id: LawId
+elm: EgovElement
+/**
+ * 条項の原文表記（例: 第八十九条第一項）。
+ */
+article: string
+role: ProvisionRole
+}
+/**
+ * 集計用グループ（data/groups.yaml）。負担項目はdata/burdens.yamlの各項目のgroupsで所属を示す。
+ */
+export interface BurdenGroups {
+groups: BurdenGroup[]
+}
+export interface BurdenGroup {
+group_id: KebabId
+name: string
+aggregation: GroupAggregation
+parent_group_id?: KebabId
+description?: string
+}
+/**
+ * 根拠法令の正本（data/legal-sources.yaml）。law_idの昇順に並べる。
+ */
+export interface LegalSources {
+legal_sources: LegalSource[]
+}
+/**
+ * 根拠法令（data/legal-sources.yaml の legal_sources の要素）。監視対象の一覧を兼ねる。
  */
 export interface LegalSource {
 law_id: LawId
@@ -230,7 +295,7 @@ decision_id: KebabId
 subject: string
 reason: string
 decided_at: IsoDate
-burden_id?: KebabId
+burden_id?: BurdenId
 /**
  * @minItems 1
  */
