@@ -19,7 +19,7 @@
 ## 参照する資料
 
 - 要件と対象範囲: `docs/adr/0002-rebuild-scope-and-requirements.md`
-- 技術方針、フォルダ構成、データモデル、監視方式: `docs/adr/0003-rebuild-architecture-and-data-model.md`
+- 技術方針、フォルダ構成、データモデル、ファイルの役割、監視方式: `docs/adr/0003-rebuild-architecture-and-data-model.md`
 - データ構造: `schemas/`
 - 旧版（`legacy-v0` タグ）は比較のための参照だけに使い、その要件・データ・調査結果を根拠にしない。
 
@@ -50,7 +50,7 @@
 e-Gov法令APIの監視が作成した改正検知Issueは、次の手順で扱う。
 
 1. 人が改正内容を確認し、マスタへ反映するかを判断する。
-2. 反映する場合も反映しない場合も、Pull Requestで `data/legal-sources/<law-id>.yaml` の `reviewed_revision_id` と `reviewed_at` を更新する。反映する場合は同じPull Requestで正本も更新する。
+2. 反映する場合も反映しない場合も、Pull Requestで `data/legal-sources.yaml` の該当法令の `reviewed_revision_id` と `reviewed_at` を更新する。反映する場合は同じPull Requestで正本も更新する。
 3. Pull Requestのマージ後、判断の結果をIssueに記録してCloseする。
 
 ## Issueとプルリクエストの関連付け

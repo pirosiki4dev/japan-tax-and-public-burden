@@ -12,6 +12,7 @@ export const CATEGORY_PREFIX: Readonly<Record<BurdenCategory, string>> = {
 
 /** 値の決まり方ごとに、監視する条項として最低限必要な役割（いずれか1つ）。 */
 const BURDENS_FILE = "data/burdens.yaml";
+const LEGAL_SOURCES_FILE = "data/legal-sources.yaml";
 
 const REQUIRED_PROVISION_ROLES: Readonly<Record<BurdenVersion["determination"], readonly ProvisionRole[]>> = {
   stated: ["value"],
@@ -27,6 +28,14 @@ function duplicates(values: readonly string[]): string[] {
     seen.add(value);
   }
   return [...found].sort();
+}
+
+/** 一覧がキーの昇順に並んでいることを検査する。 */
+function checkSorted(keys: readonly string[], file: string, key: string, errors: string[]): void {
+  keys.forEach((value, index) => {
+    const previous = keys[index - 1];
+    if (previous !== undefined && previous > value) errors.push(`${file}: ${value} must come after ${previous} (sort by ${key})`);
+  });
 }
 
 function itemReferences(items: readonly DescribedItem[]): LegalReference[] {
@@ -63,27 +72,23 @@ function checkGroups(groups: readonly BurdenGroup[], errors: string[]): Map<stri
 export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string }): Findings {
   const errors: string[] = [];
   const warnings: string[] = [];
-  const lawIds = new Set(data.legalSources.map(({ source }) => source.law_id));
+  const lawIds = new Set(data.legalSources.map((source) => source.law_id));
   const referencedLaws = new Set<string>();
   const requireLaw = (reference: { law_id: string }, location: string): void => {
     referencedLaws.add(reference.law_id);
-    if (!lawIds.has(reference.law_id)) errors.push(`${location}: unknown law_id ${reference.law_id} (add data/legal-sources/${reference.law_id}.yaml)`);
+    if (!lawIds.has(reference.law_id)) errors.push(`${location}: unknown law_id ${reference.law_id} (add it to ${LEGAL_SOURCES_FILE})`);
   };
 
-  for (const { fileStem, source } of data.legalSources) {
-    if (fileStem !== source.law_id) errors.push(`data/legal-sources/${fileStem}.yaml: file name must match law_id ${source.law_id}`);
-  }
-  for (const lawId of duplicates(data.legalSources.map(({ source }) => source.law_id))) errors.push(`law_id: duplicate ${lawId}`);
+  const sourceLawIds = data.legalSources.map((source) => source.law_id);
+  for (const lawId of duplicates(sourceLawIds)) errors.push(`${LEGAL_SOURCES_FILE}: duplicate law_id ${lawId}`);
+  checkSorted(sourceLawIds, LEGAL_SOURCES_FILE, "law_id", errors);
 
   const groups = checkGroups(data.groups.groups, errors);
   const usedGroups = new Set<string>();
   const burdenIds = new Set(data.burdens.map((burden) => burden.burden_id));
 
   for (const burdenId of duplicates(data.burdens.map((burden) => burden.burden_id))) errors.push(`${BURDENS_FILE}: duplicate burden_id ${burdenId}`);
-  data.burdens.forEach((burden, index) => {
-    const previous = data.burdens[index - 1];
-    if (previous && previous.burden_id > burden.burden_id) errors.push(`${BURDENS_FILE}: ${burden.burden_id} must come after ${previous.burden_id} (sort by burden_id)`);
-  });
+  checkSorted(data.burdens.map((burden) => burden.burden_id), BURDENS_FILE, "burden_id", errors);
 
   const versionIds: string[] = [];
   for (const burden of data.burdens) {
@@ -136,8 +141,8 @@ export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string })
   for (const group of data.groups.groups) {
     if (!usedGroups.has(group.group_id)) warnings.push(`data/groups.yaml ${group.group_id}: no burden or child group belongs to this group`);
   }
-  for (const { fileStem } of data.legalSources) {
-    if (!referencedLaws.has(fileStem)) warnings.push(`data/legal-sources/${fileStem}.yaml: not referenced by any burden`);
+  for (const { law_id: lawId } of data.legalSources) {
+    if (!referencedLaws.has(lawId)) warnings.push(`${LEGAL_SOURCES_FILE} ${lawId}: not referenced by any burden`);
   }
 
   for (const decisionId of duplicates(data.scopeDecisions.decisions.map((decision) => decision.decision_id))) errors.push(`data/scope-decisions.yaml: duplicate decision_id ${decisionId}`);

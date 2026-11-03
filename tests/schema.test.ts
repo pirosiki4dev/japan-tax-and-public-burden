@@ -17,7 +17,7 @@ function clone<T>(value: T): T {
 test("valid fixture documents pass their schemas", async () => {
   assert.deepEqual(validator.validate("burdens", await readFixture("data/burdens.yaml"), "burdens"), []);
   assert.deepEqual(validator.validate("groups", await readFixture("data/groups.yaml"), "groups"), []);
-  assert.deepEqual(validator.validate("legal-source", await readFixture("data/legal-sources/999AC0000000001.yaml"), "law"), []);
+  assert.deepEqual(validator.validate("legal-sources", await readFixture("data/legal-sources.yaml"), "laws"), []);
   assert.deepEqual(validator.validate("scope-decisions", await readFixture("data/scope-decisions.yaml"), "decisions"), []);
   assert.deepEqual(validator.validate("sources", await readFixture("config/sources.yaml"), "sources"), []);
 });

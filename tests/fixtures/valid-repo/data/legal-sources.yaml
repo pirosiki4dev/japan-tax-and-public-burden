@@ -1,0 +1,18 @@
+# テスト専用の架空の法令。実在の法令ではない。
+legal_sources:
+  - law_id: 999AC0000000001
+    title: 例示税法
+    law_number_raw: 令和元年法律第九百九十九号
+    reviewed_revision_id: 999AC0000000001_20250401_000000000000000
+    reviewed_at: 2026-11-01T09:00:00+09:00
+    source_url: https://example.com/laws/999AC0000000001
+  - law_id: 999AC0000000002
+    title: 例示保険法
+    reviewed_revision_id: 999AC0000000002_20200401_000000000000000
+    reviewed_at: 2026-11-01T09:00:00+09:00
+    source_url: https://example.com/laws/999AC0000000002
+  - law_id: 999M60000000001
+    title: 例示税法施行規則
+    reviewed_revision_id: 999M60000000001_20200401_000000000000000
+    reviewed_at: 2026-11-01T09:00:00+09:00
+    source_url: https://example.com/laws/999M60000000001

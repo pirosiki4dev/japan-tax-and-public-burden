@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { test } from "node:test";
 import { validateRepository } from "../src/data/validate-repository.ts";
-import type { Burden, Burdens } from "../src/domain/types.generated.ts";
+import type { Burden, Burdens, LegalSources } from "../src/domain/types.generated.ts";
 import { copyRepository, readFixture, ROOT, SCHEMA_DIR, VALID_REPO } from "./helpers.ts";
 
 const AS_OF = "2026-11-01";
@@ -49,12 +49,12 @@ test("a monitored provision must be in a registered law", async () => {
   assert.ok(errors.some((error) => error.includes("provisions[2]: unknown law_id 999CO0000000009")), errors.join("\n"));
 });
 
-test("a legal source file name must match its law_id", async () => {
-  const root = await copyRepository();
-  await rm(join(root, "data/legal-sources/999AC0000000001.yaml"));
-  await writeFile(join(root, "data/legal-sources/999AC0000000009.yaml"), (await import("yaml")).stringify(await readFixture("data/legal-sources/999AC0000000001.yaml")));
-  const { errors } = await validate(root);
-  assert.ok(errors.some((error) => error.includes("file name must match law_id")), errors.join("\n"));
+test("legal sources must be unique and sorted by law_id", async () => {
+  const document = await readFixture<LegalSources>("data/legal-sources.yaml");
+  document.legal_sources.push(structuredClone(document.legal_sources[0]!));
+  const { errors } = await validate(await copyRepository({ "data/legal-sources.yaml": document }));
+  assert.ok(errors.some((error) => error.includes("duplicate law_id 999AC0000000001")), errors.join("\n"));
+  assert.ok(errors.some((error) => error.includes("999AC0000000001 must come after 999M60000000001")), errors.join("\n"));
 });
 
 test("the determination requires a provision with a matching role", async () => {

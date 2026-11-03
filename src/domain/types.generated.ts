@@ -111,7 +111,7 @@ export type GroupAggregation = ("sum" | "progressive" | "select_one" | "classifi
 export interface RepositorySchemas {
 burdens?: Burdens
 groups?: BurdenGroups
-"legal-source"?: LegalSource
+"legal-sources"?: LegalSources
 "scope-decisions"?: ScopeDecisions
 sources?: SourceRegistry
 }
@@ -262,7 +262,13 @@ parent_group_id?: KebabId
 description?: string
 }
 /**
- * 根拠法令（data/legal-sources/<law-id>.yaml）。監視対象の一覧を兼ねる。
+ * 根拠法令の正本（data/legal-sources.yaml）。law_idの昇順に並べる。
+ */
+export interface LegalSources {
+legal_sources: LegalSource[]
+}
+/**
+ * 根拠法令（data/legal-sources.yaml の legal_sources の要素）。監視対象の一覧を兼ねる。
  */
 export interface LegalSource {
 law_id: LawId

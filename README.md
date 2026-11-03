@@ -24,14 +24,14 @@
 | --- | --- |
 | `data/burdens.yaml` | 負担項目（1つの率または金額）と、期間ごとの値・監視する条項 |
 | `data/groups.yaml` | 負担項目を括って集計するためのグループ |
-| `data/legal-sources/<law-id>.yaml` | 根拠法令（e-Gov法令ID、確認済みの改正版） |
+| `data/legal-sources.yaml` | 根拠法令（e-Gov法令ID、確認済みの改正版）。監視対象の一覧を兼ねる |
 | `data/scope-decisions.yaml` | 個別判断で対象とした負担 |
 | `config/sources.yaml` | 巡回する公式サイト |
 | `schemas/` | データ構造（JSON Schema） |
 | `src/` | 検証・生成・監視のプログラム（TypeScript） |
 | `docs/adr/` | 設計判断の記録 |
 
-設計の詳細は [ADR 0003](docs/adr/0003-rebuild-architecture-and-data-model.md) を参照してください。
+各ファイルの役割と監視の流れを含む設計の詳細は、[ADR 0003](docs/adr/0003-rebuild-architecture-and-data-model.md) を参照してください。
 
 ## 開発
 
