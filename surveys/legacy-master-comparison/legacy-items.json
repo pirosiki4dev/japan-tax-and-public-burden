@@ -1,0 +1,1411 @@
+{
+  "source": "legacy-v0:data/master/canonical.json, legacy-v0:data/master/initial-import.json",
+  "items": [
+    {
+      "legacy_id": "adverse-drug-reaction-contribution",
+      "name": "副作用拠出金",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "414AC0000000192"
+      ],
+      "law_names": [
+        "独立行政法人医薬品医療機器総合機構法"
+      ]
+    },
+    {
+      "legacy_id": "agricultural-cooperative-savings-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "348AC0000000053"
+      ],
+      "law_names": [
+        "農水産業協同組合貯金保険法"
+      ]
+    },
+    {
+      "legacy_id": "agricultural-cooperative-savings-insurance-premium",
+      "name": "unknown",
+      "legacy_category": "insurance_premium",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "348AC0000000053"
+      ],
+      "law_names": [
+        "農水産業協同組合貯金保険法"
+      ]
+    },
+    {
+      "legacy_id": "agricultural-cooperative-savings-special-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "348AC0000000053"
+      ],
+      "law_names": [
+        "農水産業協同組合貯金保険法"
+      ]
+    },
+    {
+      "legacy_id": "agricultural-mutual-aid-special-operations-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "hold",
+      "law_ids": [],
+      "law_names": []
+    },
+    {
+      "legacy_id": "asbestos-relief-general-contribution",
+      "name": "石綿健康被害救済一般拠出金",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "418AC0000000004"
+      ],
+      "law_names": [
+        "石綿による健康被害の救済に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "asbestos-relief-special-contribution",
+      "name": "石綿健康被害救済特別拠出金",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "418AC0000000004"
+      ],
+      "law_names": [
+        "石綿による健康被害の救済に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "automobile-accident-countermeasure-levy",
+      "name": "自動車事故対策事業賦課金",
+      "legacy_category": "levy",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "330AC0000000097"
+      ],
+      "law_names": [
+        "自動車損害賠償保障法"
+      ]
+    },
+    {
+      "legacy_id": "automobile-tax",
+      "name": "自動車税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "automobile-weight-tax",
+      "name": "自動車重量税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "346AC0000000089"
+      ],
+      "law_names": [
+        "自動車重量税法"
+      ]
+    },
+    {
+      "legacy_id": "aviation-fuel-tax",
+      "name": "航空機燃料税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "347AC0000000007"
+      ],
+      "law_names": [
+        "航空機燃料税法"
+      ]
+    },
+    {
+      "legacy_id": "banks-shareholdings-purchase-corporation-contribution",
+      "name": "銀行等保有株式取得機構に対する拠出金",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "413AC0000000131"
+      ],
+      "law_names": [
+        "銀行等の株式等の保有の制限等に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "bathing-tax",
+      "name": "入湯税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "broadband-service-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "359AC0000000086"
+      ],
+      "law_names": [
+        "電気通信事業法"
+      ]
+    },
+    {
+      "legacy_id": "business-office-tax",
+      "name": "事業所税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "child-care-contribution",
+      "name": "子ども・子育て拠出金",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "424AC0000000065"
+      ],
+      "law_names": [
+        "子ども・子育て支援法"
+      ]
+    },
+    {
+      "legacy_id": "city-planning-tax",
+      "name": "都市計画税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "commodity-customer-protection-fund-charge",
+      "name": "日本商品委託者保護基金に対する負担金",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000239"
+      ],
+      "law_names": [
+        "商品先物取引法"
+      ]
+    },
+    {
+      "legacy_id": "common-facilities-tax",
+      "name": "共同施設税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "common-utility-tunnel-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "338AC0000000081"
+      ],
+      "law_names": [
+        "共同溝の整備等に関する特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "consumption-tax",
+      "name": "消費税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "363AC0000000108"
+      ],
+      "law_names": [
+        "消費税法"
+      ]
+    },
+    {
+      "legacy_id": "corporation-tax",
+      "name": "法人税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "340AC0000000034"
+      ],
+      "law_names": [
+        "法人税法"
+      ]
+    },
+    {
+      "legacy_id": "customs-duty",
+      "name": "関税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "329AC0000000061"
+      ],
+      "law_names": [
+        "関税法"
+      ]
+    },
+    {
+      "legacy_id": "decommissioning-facilitation-charge",
+      "name": "廃炉円滑化負担金",
+      "legacy_category": "burden_charge",
+      "legacy_status": "hold",
+      "law_ids": [],
+      "law_names": []
+    },
+    {
+      "legacy_id": "defense-special-corporation-tax",
+      "name": "防衛特別法人税",
+      "legacy_category": "national_tax",
+      "legacy_status": "hold",
+      "law_ids": [],
+      "law_names": []
+    },
+    {
+      "legacy_id": "defense-special-income-tax",
+      "name": "防衛特別所得税",
+      "legacy_category": "national_tax",
+      "legacy_status": "hold",
+      "law_ids": [],
+      "law_names": []
+    },
+    {
+      "legacy_id": "deposit-insurance-corporation-charge",
+      "name": "預金保険機構に対する負担金",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "346AC0000000034"
+      ],
+      "law_names": [
+        "預金保険法"
+      ]
+    },
+    {
+      "legacy_id": "deposit-insurance-corporation-special-charge",
+      "name": "預金保険機構に対する特定負担金",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "346AC0000000034"
+      ],
+      "law_names": [
+        "預金保険法"
+      ]
+    },
+    {
+      "legacy_id": "deposit-insurance-premium",
+      "name": "預金保険料",
+      "legacy_category": "insurance_premium",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "346AC0000000034"
+      ],
+      "law_names": [
+        "預金保険法"
+      ]
+    },
+    {
+      "legacy_id": "disability-employment-levy",
+      "name": "障害者雇用納付金",
+      "legacy_category": "payment",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "335AC0000000123"
+      ],
+      "law_names": [
+        "障害者の雇用の促進等に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "east-japan-business-rehabilitation-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "423AC0100000113"
+      ],
+      "law_names": [
+        "株式会社東日本大震災事業者再生支援機構法"
+      ]
+    },
+    {
+      "legacy_id": "educational-public-transmission-compensation",
+      "name": "授業目的公衆送信補償金",
+      "legacy_category": "payment",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "345AC0000000048"
+      ],
+      "law_names": [
+        "著作権法"
+      ]
+    },
+    {
+      "legacy_id": "electricity-business-compensation-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "407M50000400077"
+      ],
+      "law_names": [
+        "電気事業法施行規則"
+      ]
+    },
+    {
+      "legacy_id": "employment-insurance-premium",
+      "name": "雇用保険料",
+      "legacy_category": "social_insurance_premium",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "349AC0000000116"
+      ],
+      "law_names": [
+        "雇用保険法"
+      ]
+    },
+    {
+      "legacy_id": "enterprise-tax",
+      "name": "事業税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "financial-adr-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "hold",
+      "law_ids": [],
+      "law_names": []
+    },
+    {
+      "legacy_id": "fixed-asset-tax",
+      "name": "固定資産税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "forest-environment-tax",
+      "name": "森林環境税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "431AC0000000003"
+      ],
+      "law_names": [
+        "森林環境税及び森林環境譲与税に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "fossil-fuel-levy",
+      "name": "化石燃料賦課金",
+      "legacy_category": "levy",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "505AC0000000032"
+      ],
+      "law_names": [
+        "脱炭素成長型経済構造への円滑な移行の推進に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "gasoline-tax",
+      "name": "揮発油税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "332AC0000000055"
+      ],
+      "law_names": [
+        "揮発油税法"
+      ]
+    },
+    {
+      "legacy_id": "golf-course-utilization-tax",
+      "name": "ゴルフ場利用税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "gx-specified-business-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "505AC0000000032"
+      ],
+      "law_names": [
+        "脱炭素成長型経済構造への円滑な移行の推進に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "hepatitis-c-special-relief-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "420AC1000000002"
+      ],
+      "law_names": [
+        "特定フィブリノゲン製剤及び特定血液凝固第ＩＸ因子製剤によるＣ型肝炎感染被害者を救済するための給付金の支給に関する特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "high-level-waste-disposal-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "412AC0000000117"
+      ],
+      "law_names": [
+        "特定放射性廃棄物の最終処分に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "hunting-tax",
+      "name": "狩猟税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "imported-sugar-adjustment-charge",
+      "name": "unknown",
+      "legacy_category": "adjustment_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "340AC0000000109"
+      ],
+      "law_names": [
+        "砂糖及びでん粉の価格調整に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "income-tax",
+      "name": "所得税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "340AC0000000033"
+      ],
+      "law_names": [
+        "所得税法"
+      ]
+    },
+    {
+      "legacy_id": "infection-contribution",
+      "name": "感染拠出金",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "414AC0000000192"
+      ],
+      "law_names": [
+        "独立行政法人医薬品医療機器総合機構法"
+      ]
+    },
+    {
+      "legacy_id": "inheritance-and-gift-tax",
+      "name": "unknown",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000073"
+      ],
+      "law_names": [
+        "相続税法"
+      ]
+    },
+    {
+      "legacy_id": "international-oil-pollution-fund-annual-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "350AC0000000095"
+      ],
+      "law_names": [
+        "船舶油濁等損害賠償保障法"
+      ]
+    },
+    {
+      "legacy_id": "international-tourist-tax",
+      "name": "国際観光旅客税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "430AC0000000016"
+      ],
+      "law_names": [
+        "国際観光旅客税法"
+      ]
+    },
+    {
+      "legacy_id": "investor-protection-fund-charge",
+      "name": "日本投資者保護基金に対する負担金",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "323AC0000000025"
+      ],
+      "law_names": [
+        "金融商品取引法"
+      ]
+    },
+    {
+      "legacy_id": "irrigation-water-facility-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "414AC0000000182"
+      ],
+      "law_names": [
+        "独立行政法人水資源機構法"
+      ]
+    },
+    {
+      "legacy_id": "library-public-transmission-compensation",
+      "name": "図書館等公衆送信補償金",
+      "legacy_category": "payment",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "345AC0000000048"
+      ],
+      "law_names": [
+        "著作権法"
+      ]
+    },
+    {
+      "legacy_id": "light-motor-vehicle-tax",
+      "name": "軽自動車税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "light-oil-delivery-tax",
+      "name": "軽油引取税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "liquor-tax",
+      "name": "酒税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "328AC0000000006"
+      ],
+      "law_names": [
+        "酒税法"
+      ]
+    },
+    {
+      "legacy_id": "local-consumption-tax",
+      "name": "地方消費税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "local-corporation-tax",
+      "name": "地方法人税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "426AC0000000011"
+      ],
+      "law_names": [
+        "地方法人税法"
+      ]
+    },
+    {
+      "legacy_id": "local-gasoline-tax",
+      "name": "地方揮発油税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "330AC0000000104"
+      ],
+      "law_names": [
+        "地方揮発油税法"
+      ]
+    },
+    {
+      "legacy_id": "local-tobacco-tax",
+      "name": "地方たばこ税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "long-term-care-insurance-premium",
+      "name": "unknown",
+      "legacy_category": "social_insurance_premium",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "409AC0000000123"
+      ],
+      "law_names": [
+        "介護保険法"
+      ]
+    },
+    {
+      "legacy_id": "medical-insurance-premium",
+      "name": "unknown",
+      "legacy_category": "social_insurance_premium",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "211AC0000000070",
+        "333AC0000000192",
+        "357AC0000000080"
+      ],
+      "law_names": [
+        "健康保険法",
+        "国民健康保険法",
+        "高齢者の医療の確保に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "minamata-specified-business-compensation-levy",
+      "name": "unknown",
+      "legacy_category": "levy",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "421AC1000000081"
+      ],
+      "law_names": [
+        "水俣病被害者の救済及び水俣病問題の解決に関する特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "mineral-product-tax",
+      "name": "鉱産税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "mining-area-tax",
+      "name": "鉱区税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "mining-pollution-prevention-fund-contribution",
+      "name": "鉱害防止事業基金に対する拠出金",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "348AC0000000026"
+      ],
+      "law_names": [
+        "金属鉱業等鉱害対策特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "multipurpose-dam-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "332AC0000000035"
+      ],
+      "law_names": [
+        "特定多目的ダム法"
+      ]
+    },
+    {
+      "legacy_id": "national-health-insurance-tax",
+      "name": "国民健康保険税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "non-statutory-ordinary-tax-category",
+      "name": "法定外普通税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "non-statutory-purpose-tax-category",
+      "name": "法定外目的税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "nonlife-insurance-rate-organization-charge",
+      "name": "unknown",
+      "legacy_category": "fee",
+      "legacy_status": "hold",
+      "law_ids": [],
+      "law_names": []
+    },
+    {
+      "legacy_id": "nuclear-damage-support-general-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "423AC0000000094"
+      ],
+      "law_names": [
+        "原子力損害賠償・廃炉等支援機構法"
+      ]
+    },
+    {
+      "legacy_id": "nuclear-damage-support-special-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "423AC0000000094"
+      ],
+      "law_names": [
+        "原子力損害賠償・廃炉等支援機構法"
+      ]
+    },
+    {
+      "legacy_id": "nuclear-decommissioning-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "417AC0000000048"
+      ],
+      "law_names": [
+        "原子力発電における使用済燃料の再処理等の実施及び廃炉の推進に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "participant-protection-trust-charge",
+      "name": "加入者保護信託への負担金",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "413AC0000000075"
+      ],
+      "law_names": [
+        "社債、株式等の振替に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "pension-insurance-premium",
+      "name": "unknown",
+      "legacy_category": "social_insurance_premium",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "329AC0000000115",
+        "334AC0000000141"
+      ],
+      "law_names": [
+        "厚生年金保険法",
+        "国民年金法"
+      ]
+    },
+    {
+      "legacy_id": "petroleum-and-coal-tax",
+      "name": "石油石炭税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "353AC0000000025"
+      ],
+      "law_names": [
+        "石油石炭税法"
+      ]
+    },
+    {
+      "legacy_id": "petroleum-gas-tax",
+      "name": "石油ガス税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "340AC0000000156"
+      ],
+      "law_names": [
+        "石油ガス税法"
+      ]
+    },
+    {
+      "legacy_id": "pharmaceutical-safety-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "414AC0000000192"
+      ],
+      "law_names": [
+        "独立行政法人医薬品医療機器総合機構法"
+      ]
+    },
+    {
+      "legacy_id": "policyholder-protection-fund-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "407AC0000000105"
+      ],
+      "law_names": [
+        "保険業法"
+      ]
+    },
+    {
+      "legacy_id": "pollution-load-levy",
+      "name": "汚染負荷量賦課金",
+      "legacy_category": "levy",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "348AC0000000111"
+      ],
+      "law_names": [
+        "公害健康被害の補償等に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "pollution-prevention-project-business-charge",
+      "name": "公害防止事業費事業者負担金",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "345AC0000000133"
+      ],
+      "law_names": [
+        "公害防止事業費事業者負担法"
+      ]
+    },
+    {
+      "legacy_id": "port-environment-improvement-charge",
+      "name": "港湾環境整備負担金",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000218"
+      ],
+      "law_names": [
+        "港湾法"
+      ]
+    },
+    {
+      "legacy_id": "port-transport-business-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "hold",
+      "law_ids": [],
+      "law_names": []
+    },
+    {
+      "legacy_id": "postal-network-support-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "417AC0000000101"
+      ],
+      "law_names": [
+        "独立行政法人郵便貯金簡易生命保険管理・郵便局ネットワーク支援機構法"
+      ]
+    },
+    {
+      "legacy_id": "postal-transport-consignment-compensation",
+      "name": "郵便物運送委託補償金",
+      "legacy_category": "payment",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "324AC0000000284"
+      ],
+      "law_names": [
+        "郵便物運送委託法"
+      ]
+    },
+    {
+      "legacy_id": "power-development-promotion-tax",
+      "name": "電源開発促進税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "349AC0000000079"
+      ],
+      "law_names": [
+        "電源開発促進税法"
+      ]
+    },
+    {
+      "legacy_id": "private-recording-compensation",
+      "name": "私的録音録画補償金",
+      "legacy_category": "payment",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "345AC0000000048"
+      ],
+      "law_names": [
+        "著作権法"
+      ]
+    },
+    {
+      "legacy_id": "railway-barrier-free-fee",
+      "name": "unknown",
+      "legacy_category": "fee",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "361AC0000000092"
+      ],
+      "law_names": [
+        "鉄道事業法"
+      ]
+    },
+    {
+      "legacy_id": "real-estate-acquisition-tax",
+      "name": "不動産取得税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "reconstruction-special-income-tax",
+      "name": "復興特別所得税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "423AC0000000117"
+      ],
+      "law_names": [
+        "東日本大震災からの復興のための施策を実施するために必要な財源の確保に関する特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "regional-economy-revitalization-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "421AC0000000063"
+      ],
+      "law_names": [
+        "株式会社地域経済活性化支援機構法"
+      ]
+    },
+    {
+      "legacy_id": "registration-and-license-tax",
+      "name": "登録免許税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "342AC0000000035"
+      ],
+      "law_names": [
+        "登録免許税法"
+      ]
+    },
+    {
+      "legacy_id": "renewable-energy-surcharge",
+      "name": "再生可能エネルギー発電促進賦課金",
+      "legacy_category": "levy",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "423AC0000000108"
+      ],
+      "law_names": [
+        "再生可能エネルギー電気の利用の促進に関する特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "reprocessing-contribution",
+      "name": "再処理等拠出金",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "417AC0000000048"
+      ],
+      "law_names": [
+        "原子力発電における使用済燃料の再処理等の実施及び廃炉の推進に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "resident-tax",
+      "name": "住民税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "residential-land-development-tax",
+      "name": "宅地開発税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "special-corporate-enterprise-tax",
+      "name": "特別法人事業税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "431AC0000000004"
+      ],
+      "law_names": [
+        "特別法人事業税及び特別法人事業譲与税に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "special-landholding-tax",
+      "name": "特別土地保有税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "special-tobacco-tax",
+      "name": "たばこ特別税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "410AC0000000137"
+      ],
+      "law_names": [
+        "一般会計における債務の承継等に伴い必要な財源の確保に係る特別措置に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "special-tonnage-tax",
+      "name": "特別とん税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "332AC0000000038"
+      ],
+      "law_names": [
+        "特別とん税法"
+      ]
+    },
+    {
+      "legacy_id": "specified-pollution-levy",
+      "name": "unknown",
+      "legacy_category": "levy",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "348AC0000000111"
+      ],
+      "law_names": [
+        "公害健康被害の補償等に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "stamp-tax",
+      "name": "印紙税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "342AC0000000023"
+      ],
+      "law_names": [
+        "印紙税法"
+      ]
+    },
+    {
+      "legacy_id": "supplementary-nuclear-damage-general-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "426AC0000000133"
+      ],
+      "law_names": [
+        "原子力損害の補完的な補償に関する条約の実施に伴う原子力損害賠償資金の補助等に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "supplementary-nuclear-damage-special-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "426AC0000000133"
+      ],
+      "law_names": [
+        "原子力損害の補完的な補償に関する条約の実施に伴う原子力損害賠償資金の補助等に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "supplementary-oil-pollution-fund-annual-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "350AC0000000095"
+      ],
+      "law_names": [
+        "船舶油濁等損害賠償保障法"
+      ]
+    },
+    {
+      "legacy_id": "taxi-center-business-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "421AC0000000064"
+      ],
+      "law_names": [
+        "特定地域及び準特定地域における一般乗用旅客自動車運送事業の適正化及び活性化に関する特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "telephone-accessibility-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "502AC0000000053"
+      ],
+      "law_names": [
+        "聴覚障害者等による電話の利用の円滑化に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "tobacco-tax",
+      "name": "たばこ税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "359AC0000000072"
+      ],
+      "law_names": [
+        "たばこ税法"
+      ]
+    },
+    {
+      "legacy_id": "tonnage-tax",
+      "name": "とん税",
+      "legacy_category": "national_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "332AC0000000037"
+      ],
+      "law_names": [
+        "とん税法"
+      ]
+    },
+    {
+      "legacy_id": "tru-waste-disposal-contribution",
+      "name": "unknown",
+      "legacy_category": "contribution",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "412AC0000000117"
+      ],
+      "law_names": [
+        "特定放射性廃棄物の最終処分に関する法律"
+      ]
+    },
+    {
+      "legacy_id": "universal-service-fee",
+      "name": "unknown",
+      "legacy_category": "fee",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "359AC0000000086"
+      ],
+      "law_names": [
+        "電気通信事業法"
+      ]
+    },
+    {
+      "legacy_id": "utility-tunnel-management-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "407AC0000000039"
+      ],
+      "law_names": [
+        "電線共同溝の整備等に関する特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "utility-tunnel-other-occupant-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "407AC0000000039"
+      ],
+      "law_names": [
+        "電線共同溝の整備等に関する特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "utility-tunnel-planned-occupant-construction-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "407AC0000000039"
+      ],
+      "law_names": [
+        "電線共同溝の整備等に関する特別措置法"
+      ]
+    },
+    {
+      "legacy_id": "water-and-land-benefit-tax",
+      "name": "水利地益税",
+      "legacy_category": "local_tax",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "law_names": [
+        "地方税法"
+      ]
+    },
+    {
+      "legacy_id": "water-resources-facility-user-charge",
+      "name": "unknown",
+      "legacy_category": "burden_charge",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "414AC0000000182"
+      ],
+      "law_names": [
+        "独立行政法人水資源機構法"
+      ]
+    },
+    {
+      "legacy_id": "workers-compensation-insurance-premium",
+      "name": "労災保険料",
+      "legacy_category": "social_insurance_premium",
+      "legacy_status": "canonical",
+      "law_ids": [
+        "322AC0000000050"
+      ],
+      "law_names": [
+        "労働者災害補償保険法"
+      ]
+    }
+  ]
+}

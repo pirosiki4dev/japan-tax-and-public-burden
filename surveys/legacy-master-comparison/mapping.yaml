@@ -1,0 +1,595 @@
+# 旧版マスタ（legacy-v0）の各項目と、最初のリリースの調査結果（surveys/first-release-scope/）の対応。
+# 旧版は比較のためだけに使い、根拠にしない。全件が対応付けられていることは tests/compare.test.ts で検査する。
+# result: target（最初のリリースの対象のグループに対応）、later（全体の範囲だが初回は対象外）、pending（ユーザーの判断が必要）、excluded（対象外）、not_found（現行の法令データで規定を確認できない）
+mappings:
+  - legacy_id: adverse-drug-reaction-contribution
+    legacy_name: 副作用拠出金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: agricultural-cooperative-savings-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: agricultural-cooperative-savings-insurance-premium
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: agricultural-cooperative-savings-special-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: agricultural-mutual-aid-special-operations-charge
+    legacy_name: unknown
+    result: later
+    reason: 旧版では法令を特定できず保留。法令に基づく負担金に当たり得る（区分 ot）。根拠法令の特定を含め、区分 ot を扱う段階で確認する
+  - legacy_id: asbestos-relief-general-contribution
+    legacy_name: 石綿健康被害救済一般拠出金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: asbestos-relief-special-contribution
+    legacy_name: 石綿健康被害救済特別拠出金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: automobile-accident-countermeasure-levy
+    legacy_name: 自動車事故対策事業賦課金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: automobile-tax
+    legacy_name: 自動車税
+    result: target
+    groups:
+      - automobile-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: automobile-weight-tax
+    legacy_name: 自動車重量税
+    result: target
+    groups:
+      - motor-vehicle-tonnage-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: aviation-fuel-tax
+    legacy_name: 航空機燃料税
+    result: target
+    groups:
+      - aviation-fuel-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: banks-shareholdings-purchase-corporation-contribution
+    legacy_name: 銀行等保有株式取得機構に対する拠出金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: bathing-tax
+    legacy_name: 入湯税
+    result: target
+    groups:
+      - bathing-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: broadband-service-charge
+    legacy_name: unknown
+    result: later
+    reason: 電気通信事業法に基づく負担金で、ユニバーサルサービス料（data/scope-decisions.yaml で対象と判断済み）と同種。区分 ot で、最初のリリースの対象外
+  - legacy_id: business-office-tax
+    legacy_name: 事業所税
+    result: target
+    groups:
+      - business-office-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: child-care-contribution
+    legacy_name: 子ども・子育て拠出金
+    result: target
+    groups:
+      - child-rearing-contribution
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: city-planning-tax
+    legacy_name: 都市計画税
+    result: target
+    groups:
+      - city-planning-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: commodity-customer-protection-fund-charge
+    legacy_name: 日本商品委託者保護基金に対する負担金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: common-facilities-tax
+    legacy_name: 共同施設税
+    result: target
+    groups:
+      - common-facilities-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: common-utility-tunnel-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: consumption-tax
+    legacy_name: 消費税
+    result: target
+    groups:
+      - consumption-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: corporation-tax
+    legacy_name: 法人税
+    result: target
+    groups:
+      - corporation-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: customs-duty
+    legacy_name: 関税
+    result: target
+    groups:
+      - customs-duty
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: decommissioning-facilitation-charge
+    legacy_name: 廃炉円滑化負担金
+    result: pending
+    reason: 旧版では法令を特定できず保留。託送料金を通じて回収される負担で、根拠は電気事業法の省令等。法令に基づく負担金に当たるか、ユーザーの判断が必要
+  - legacy_id: defense-special-corporation-tax
+    legacy_name: 防衛特別法人税
+    result: target
+    groups:
+      - defense-special-corporation-tax
+    reason: 旧版では法令を特定できず保留。新しい構成では我が国の防衛力の抜本的な強化等のために必要な財源の確保に関する特別措置法第8条で特定した
+  - legacy_id: defense-special-income-tax
+    legacy_name: 防衛特別所得税
+    result: not_found
+    reason: e-Gov法令APIの全文検索で該当する法律がない（#143 の調査報告）。現行の法令データで規定を確認できないため登録しない。規定が施行・公表された段階で再確認する
+  - legacy_id: deposit-insurance-corporation-charge
+    legacy_name: 預金保険機構に対する負担金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: deposit-insurance-corporation-special-charge
+    legacy_name: 預金保険機構に対する特定負担金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: deposit-insurance-premium
+    legacy_name: 預金保険料
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: disability-employment-levy
+    legacy_name: 障害者雇用納付金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: east-japan-business-rehabilitation-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: educational-public-transmission-compensation
+    legacy_name: 授業目的公衆送信補償金
+    result: pending
+    reason: 著作権法に基づく補償金。著作物の利用の対価に当たるか、法令に基づく負担金に当たるか、ユーザーの判断が必要
+  - legacy_id: electricity-business-compensation-charge
+    legacy_name: unknown
+    result: pending
+    reason: 電気事業法施行規則に基づき託送料金を通じて回収される負担（賠償負担金等）。料金（対価）に当たるか、法令に基づく負担金に当たるか、ユーザーの判断が必要
+  - legacy_id: employment-insurance-premium
+    legacy_name: 雇用保険料
+    result: target
+    groups:
+      - labour-insurance-premium
+    reason: 旧版は雇用保険法を根拠としたが、保険料は労働保険の保険料の徴収等に関する法律で定まる（新しい構成の根拠法令）
+    replaced_law_ids:
+      - 349AC0000000116
+  - legacy_id: enterprise-tax
+    legacy_name: 事業税
+    result: target
+    groups:
+      - enterprise-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: financial-adr-charge
+    legacy_name: unknown
+    result: pending
+    reason: 旧版では法令を特定できず保留。指定紛争解決機関への負担金は、加入・負担の義務が複数の法律と契約に基づく。法令に基づく負担金に当たるか、ユーザーの判断が必要
+  - legacy_id: fixed-asset-tax
+    legacy_name: 固定資産税
+    result: target
+    groups:
+      - fixed-assets-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: forest-environment-tax
+    legacy_name: 森林環境税
+    result: target
+    groups:
+      - forest-environment-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: fossil-fuel-levy
+    legacy_name: 化石燃料賦課金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: gasoline-tax
+    legacy_name: 揮発油税
+    result: target
+    groups:
+      - gasoline-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: golf-course-utilization-tax
+    legacy_name: ゴルフ場利用税
+    result: target
+    groups:
+      - golf-course-use-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: gx-specified-business-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: hepatitis-c-special-relief-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: high-level-waste-disposal-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: hunting-tax
+    legacy_name: 狩猟税
+    result: target
+    groups:
+      - hunting-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: imported-sugar-adjustment-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: income-tax
+    legacy_name: 所得税
+    result: target
+    groups:
+      - income-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: infection-contribution
+    legacy_name: 感染拠出金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: inheritance-and-gift-tax
+    legacy_name: unknown
+    result: target
+    groups:
+      - inheritance-tax
+      - gift-tax
+    reason: 旧版は1件、新しい構成は相続税と贈与税の2グループ
+  - legacy_id: international-oil-pollution-fund-annual-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: international-tourist-tax
+    legacy_name: 国際観光旅客税
+    result: target
+    groups:
+      - international-tourist-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: investor-protection-fund-charge
+    legacy_name: 日本投資者保護基金に対する負担金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: irrigation-water-facility-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: library-public-transmission-compensation
+    legacy_name: 図書館等公衆送信補償金
+    result: pending
+    reason: 著作権法に基づく補償金。著作物の利用の対価に当たるか、法令に基づく負担金に当たるか、ユーザーの判断が必要
+  - legacy_id: light-motor-vehicle-tax
+    legacy_name: 軽自動車税
+    result: target
+    groups:
+      - light-motor-vehicle-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: light-oil-delivery-tax
+    legacy_name: 軽油引取税
+    result: target
+    groups:
+      - light-oil-delivery-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: liquor-tax
+    legacy_name: 酒税
+    result: target
+    groups:
+      - liquor-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: local-consumption-tax
+    legacy_name: 地方消費税
+    result: target
+    groups:
+      - local-consumption-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: local-corporation-tax
+    legacy_name: 地方法人税
+    result: target
+    groups:
+      - local-corporation-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: local-gasoline-tax
+    legacy_name: 地方揮発油税
+    result: target
+    groups:
+      - local-gasoline-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: local-tobacco-tax
+    legacy_name: 地方たばこ税
+    result: target
+    groups:
+      - prefectural-tobacco-tax
+      - municipal-tobacco-tax
+    reason: 旧版の「地方たばこ税」は、地方税法上の道府県たばこ税と市町村たばこ税に分かれる
+  - legacy_id: long-term-care-insurance-premium
+    legacy_name: unknown
+    result: target
+    groups:
+      - long-term-care-insurance-premium
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: medical-insurance-premium
+    legacy_name: unknown
+    result: target
+    groups:
+      - health-insurance-premium
+      - national-health-insurance-premium
+      - late-stage-elderly-medical-care-premium
+    reason: 旧版は医療保険料の総称1件。新しい構成は保険者の制度ごとに分ける（船員保険料も別グループ）
+  - legacy_id: minamata-specified-business-compensation-levy
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: mineral-product-tax
+    legacy_name: 鉱産税
+    result: target
+    groups:
+      - mineral-product-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: mining-area-tax
+    legacy_name: 鉱区税
+    result: target
+    groups:
+      - mining-area-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: mining-pollution-prevention-fund-contribution
+    legacy_name: 鉱害防止事業基金に対する拠出金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: multipurpose-dam-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: national-health-insurance-tax
+    legacy_name: 国民健康保険税
+    result: target
+    groups:
+      - national-health-insurance-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: non-statutory-ordinary-tax-category
+    legacy_name: 法定外普通税
+    result: later
+    reason: 法定外税は ADR 0002（#151）により全体の範囲だが、最初のリリースの対象外。旧版は分類の総称で、個別の税は自治体の条例で定まる
+  - legacy_id: non-statutory-purpose-tax-category
+    legacy_name: 法定外目的税
+    result: later
+    reason: 法定外税は ADR 0002（#151）により全体の範囲だが、最初のリリースの対象外。旧版は分類の総称で、個別の税は自治体の条例で定まる
+  - legacy_id: nonlife-insurance-rate-organization-charge
+    legacy_name: unknown
+    result: pending
+    reason: 旧版では法令を特定できず保留（旧版は法令に基づく直接の義務ではない可能性を記録）。対象とするか、ユーザーの判断が必要
+  - legacy_id: nuclear-damage-support-general-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: nuclear-damage-support-special-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: nuclear-decommissioning-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: participant-protection-trust-charge
+    legacy_name: 加入者保護信託への負担金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: pension-insurance-premium
+    legacy_name: unknown
+    result: target
+    groups:
+      - employees-pension-insurance-premium
+      - national-pension-premium
+    reason: 旧版は年金保険料の総称1件。新しい構成は厚生年金保険料と国民年金保険料に分ける
+  - legacy_id: petroleum-and-coal-tax
+    legacy_name: 石油石炭税
+    result: target
+    groups:
+      - petroleum-and-coal-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: petroleum-gas-tax
+    legacy_name: 石油ガス税
+    result: target
+    groups:
+      - petroleum-gas-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: pharmaceutical-safety-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: policyholder-protection-fund-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: pollution-load-levy
+    legacy_name: 汚染負荷量賦課金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: pollution-prevention-project-business-charge
+    legacy_name: 公害防止事業費事業者負担金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: port-environment-improvement-charge
+    legacy_name: 港湾環境整備負担金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: port-transport-business-contribution
+    legacy_name: unknown
+    result: excluded
+    reason: 旧版では法令を特定できず保留。旧版は政府答弁により法令に基づかない（業界の自主ルール）と記録している。ADR 0002 の判定基準（法令に基づくこと）を満たさない
+  - legacy_id: postal-network-support-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: postal-transport-consignment-compensation
+    legacy_name: 郵便物運送委託補償金
+    result: excluded
+    reason: 郵便物の運送の委託に伴う補償金で、国民・事業者が負担する公的負担ではない
+  - legacy_id: power-development-promotion-tax
+    legacy_name: 電源開発促進税
+    result: target
+    groups:
+      - power-development-promotion-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: private-recording-compensation
+    legacy_name: 私的録音録画補償金
+    result: pending
+    reason: 著作権法に基づく補償金。著作物の利用の対価（ADR 0002 の対象外の「対価」）に当たるか、法令に基づく負担金に当たるか、ユーザーの判断が必要
+  - legacy_id: railway-barrier-free-fee
+    legacy_name: unknown
+    result: excluded
+    reason: 鉄道運賃に上乗せされる料金で、運送サービスの対価（ADR 0002 の対象外の「公共料金」）に当たる
+  - legacy_id: real-estate-acquisition-tax
+    legacy_name: 不動産取得税
+    result: target
+    groups:
+      - real-estate-acquisition-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: reconstruction-special-income-tax
+    legacy_name: 復興特別所得税
+    result: target
+    groups:
+      - reconstruction-special-income-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: regional-economy-revitalization-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: registration-and-license-tax
+    legacy_name: 登録免許税
+    result: target
+    groups:
+      - registration-and-license-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: renewable-energy-surcharge
+    legacy_name: 再生可能エネルギー発電促進賦課金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: reprocessing-contribution
+    legacy_name: 再処理等拠出金
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: resident-tax
+    legacy_name: 住民税
+    result: target
+    groups:
+      - prefectural-inhabitant-tax
+      - municipal-inhabitant-tax
+    reason: 旧版の「住民税」は、地方税法上の道府県民税と市町村民税に分かれる
+  - legacy_id: residential-land-development-tax
+    legacy_name: 宅地開発税
+    result: target
+    groups:
+      - housing-land-development-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: special-corporate-enterprise-tax
+    legacy_name: 特別法人事業税
+    result: target
+    groups:
+      - special-corporate-enterprise-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: special-landholding-tax
+    legacy_name: 特別土地保有税
+    result: target
+    groups:
+      - special-land-holding-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: special-tobacco-tax
+    legacy_name: たばこ特別税
+    result: target
+    groups:
+      - tobacco-special-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: special-tonnage-tax
+    legacy_name: 特別とん税
+    result: target
+    groups:
+      - special-tonnage-due
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: specified-pollution-levy
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: stamp-tax
+    legacy_name: 印紙税
+    result: target
+    groups:
+      - stamp-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: supplementary-nuclear-damage-general-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: supplementary-nuclear-damage-special-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: supplementary-oil-pollution-fund-annual-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: taxi-center-business-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: telephone-accessibility-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: tobacco-tax
+    legacy_name: たばこ税
+    result: target
+    groups:
+      - tobacco-tax
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: tonnage-tax
+    legacy_name: とん税
+    result: target
+    groups:
+      - tonnage-due
+    reason: 最初のリリースの対象（同じ税目・保険料のグループに対応する）
+  - legacy_id: tru-waste-disposal-contribution
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: universal-service-fee
+    legacy_name: unknown
+    result: later
+    reason: data/scope-decisions.yaml で対象と判断済み（区分 ot）。最初のリリースの対象外
+  - legacy_id: utility-tunnel-management-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: utility-tunnel-other-occupant-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: utility-tunnel-planned-occupant-construction-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: water-and-land-benefit-tax
+    legacy_name: 水利地益税
+    result: target
+    groups:
+      - prefectural-water-utilization-and-land-benefit-tax
+      - municipal-water-utilization-and-land-benefit-tax
+    reason: 水利地益税は道府県と市町村の両方が課することができるため、2つのグループに対応する
+  - legacy_id: water-resources-facility-user-charge
+    legacy_name: unknown
+    result: later
+    reason: 法令に基づく賦課金・拠出金・負担金（区分 ot）に当たり得る。ADR 0002 により全体の範囲だが、最初のリリースの対象外
+  - legacy_id: workers-compensation-insurance-premium
+    legacy_name: 労災保険料
+    result: target
+    groups:
+      - labour-insurance-premium
+    reason: 旧版は労働者災害補償保険法を根拠としたが、保険料は労働保険の保険料の徴収等に関する法律で定まる（新しい構成の根拠法令）
+    replaced_law_ids:
+      - 322AC0000000050
