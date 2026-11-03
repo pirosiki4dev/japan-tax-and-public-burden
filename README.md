@@ -22,7 +22,7 @@
 
 | パス | 内容 |
 | --- | --- |
-| `data/burdens/<burden-id>/` | 負担項目（1つの率または金額。`burden.yaml`）と、期間ごとの値・監視する条項（`versions.yaml`） |
+| `data/burdens.yaml` | 負担項目（1つの率または金額）と、期間ごとの値・監視する条項 |
 | `data/groups.yaml` | 負担項目を括って集計するためのグループ |
 | `data/legal-sources/<law-id>.yaml` | 根拠法令（e-Gov法令ID、確認済みの改正版） |
 | `data/scope-decisions.yaml` | 個別判断で対象とした負担 |

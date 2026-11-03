@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "burden.schema.json",
   "title": "Burden",
-  "description": "負担項目（data/burdens/<burden-id>/burden.yaml）。1つの率または金額を1項目とし、負担者が異なれば項目を分ける。レベル1・2の情報を持つ。",
+  "description": "負担項目（data/burdens.yaml の burdens の要素）。1つの率または金額を1項目とし、負担者が異なれば項目を分ける。レベル1・2の情報と、期間ごとの版を持つ。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -15,65 +15,350 @@
     "liable_parties",
     "taxable_objects",
     "tax_base",
+    "versions",
     "status",
     "source_urls",
     "checked_at"
   ],
   "properties": {
-    "burden_id": { "$ref": "common.schema.json#/$defs/burdenId" },
-    "name": { "type": "string", "minLength": 1 },
+    "burden_id": {
+      "$ref": "common.schema.json#/$defs/burdenId"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
     "category": {
       "title": "BurdenCategory",
       "description": "burden_idの接頭辞と一致させる（national_tax: nt、local_tax: lt、social_insurance: si、other_public_burden: ot）。",
-      "enum": ["national_tax", "local_tax", "social_insurance", "other_public_burden"]
+      "enum": [
+        "national_tax",
+        "local_tax",
+        "social_insurance",
+        "other_public_burden"
+      ]
     },
     "levying_body_type": {
       "title": "LevyingBodyType",
-      "enum": ["national", "prefecture", "municipality", "insurer"]
+      "enum": [
+        "national",
+        "prefecture",
+        "municipality",
+        "insurer"
+      ]
     },
     "groups": {
       "description": "所属する集計用グループ（data/groups.yaml のgroup_id）。",
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": { "$ref": "common.schema.json#/$defs/kebabId" }
+      "items": {
+        "$ref": "common.schema.json#/$defs/kebabId"
+      }
     },
     "predecessors": {
       "description": "分割・統合で終了した前身の負担項目。",
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": { "$ref": "common.schema.json#/$defs/burdenId" }
+      "items": {
+        "$ref": "common.schema.json#/$defs/burdenId"
+      }
     },
     "legal_bases": {
       "description": "負担そのものの根拠（課税・徴収を定める条項）。",
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "common.schema.json#/$defs/legalReference" }
+      "items": {
+        "$ref": "common.schema.json#/$defs/legalReference"
+      }
     },
     "liable_parties": {
       "description": "納税義務者・負担者。",
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "common.schema.json#/$defs/describedItem" }
+      "items": {
+        "$ref": "common.schema.json#/$defs/describedItem"
+      }
     },
     "taxable_objects": {
       "description": "課税対象・負担の対象。",
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "common.schema.json#/$defs/describedItem" }
+      "items": {
+        "$ref": "common.schema.json#/$defs/describedItem"
+      }
     },
     "tax_base": {
       "description": "課税標準・算定基礎。",
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "common.schema.json#/$defs/describedItem" }
+      "items": {
+        "$ref": "common.schema.json#/$defs/describedItem"
+      }
+    },
+    "versions": {
+      "description": "版。率・金額、または根拠の条項の位置が変わるごとに追加する。",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/version"
+      }
     },
     "status": {
       "title": "BurdenStatus",
-      "enum": ["active", "promulgated_not_effective", "abolished"]
+      "enum": [
+        "active",
+        "promulgated_not_effective",
+        "abolished"
+      ]
     },
-    "source_urls": { "$ref": "common.schema.json#/$defs/sourceUrls" },
-    "checked_at": { "$ref": "common.schema.json#/$defs/dateTime" }
+    "source_urls": {
+      "$ref": "common.schema.json#/$defs/sourceUrls"
+    },
+    "checked_at": {
+      "$ref": "common.schema.json#/$defs/dateTime"
+    }
+  },
+  "$defs": {
+    "version": {
+      "title": "BurdenVersion",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version_id",
+        "dates",
+        "rate",
+        "determination",
+        "provisions",
+        "source_urls",
+        "checked_at"
+      ],
+      "properties": {
+        "version_id": {
+          "$ref": "common.schema.json#/$defs/kebabId"
+        },
+        "dates": {
+          "$ref": "#/$defs/versionDates"
+        },
+        "rate": {
+          "$ref": "#/$defs/rate"
+        },
+        "determination": {
+          "title": "Determination",
+          "description": "値の決まり方。stated: 条文に値が書かれている、calculated: 条文の算式から計算する、published: 告示等、e-Gov法令APIで取得できない公表物で定まる。",
+          "enum": [
+            "stated",
+            "calculated",
+            "published"
+          ]
+        },
+        "formula": {
+          "description": "calculated・publishedの場合の算式。原文と、値を求めた過程を記録する。",
+          "$ref": "#/$defs/formula"
+        },
+        "provisions": {
+          "description": "監視する条項。法律が政令・省令に委任している場合は、委任元と委任先の両方を含める。",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "common.schema.json#/$defs/provision"
+          }
+        },
+        "source_urls": {
+          "$ref": "common.schema.json#/$defs/sourceUrls"
+        },
+        "checked_at": {
+          "$ref": "common.schema.json#/$defs/dateTime"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "determination": {
+                "enum": [
+                  "calculated",
+                  "published"
+                ]
+              }
+            },
+            "required": [
+              "determination"
+            ]
+          },
+          "then": {
+            "required": [
+              "formula"
+            ]
+          }
+        }
+      ]
+    },
+    "versionDates": {
+      "title": "VersionDates",
+      "description": "公布日、施行日、適用開始日、徴収開始日を個別に持つ。適用終了日は終了が定まっている場合だけ持つ。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "promulgation",
+        "enforcement",
+        "application_start",
+        "collection_start"
+      ],
+      "properties": {
+        "promulgation": {
+          "$ref": "common.schema.json#/$defs/dateValue"
+        },
+        "enforcement": {
+          "$ref": "common.schema.json#/$defs/dateValue"
+        },
+        "application_start": {
+          "$ref": "common.schema.json#/$defs/dateValue"
+        },
+        "collection_start": {
+          "$ref": "common.schema.json#/$defs/dateValue"
+        },
+        "application_end": {
+          "$ref": "common.schema.json#/$defs/dateValue"
+        }
+      }
+    },
+    "formula": {
+      "title": "Formula",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw_text",
+        "derivation"
+      ],
+      "properties": {
+        "raw_text": {
+          "description": "算式の原文。",
+          "type": "string",
+          "minLength": 1
+        },
+        "derivation": {
+          "description": "値を求めた過程（例: 18.3% × 1/2 = 9.15%）。",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "bracket": {
+      "title": "RateBracket",
+      "description": "累進の区分のうち、この項目が適用される範囲。upperがnullの場合は上限なし。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lower",
+        "upper",
+        "unit"
+      ],
+      "properties": {
+        "lower": {
+          "type": "number",
+          "minimum": 0
+        },
+        "upper": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "unit": {
+          "enum": [
+            "yen"
+          ]
+        }
+      }
+    },
+    "rate": {
+      "title": "Rate",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "role",
+        "value",
+        "unit",
+        "applies_to",
+        "raw_text"
+      ],
+      "properties": {
+        "kind": {
+          "title": "RateKind",
+          "description": "proportional: 比例（累進の1区分を含む）、fixed_amount: 定額、per_unit: 従量。",
+          "enum": [
+            "proportional",
+            "fixed_amount",
+            "per_unit"
+          ]
+        },
+        "role": {
+          "title": "RateRole",
+          "description": "statutory: 法定、standard: 標準税率、limit: 制限税率、reduced: 軽減。",
+          "enum": [
+            "statutory",
+            "standard",
+            "limit",
+            "reduced"
+          ]
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "title": "RateUnit",
+          "description": "valueの単位。percentは100分率（10は10%）。",
+          "enum": [
+            "percent",
+            "per_mille",
+            "yen"
+          ]
+        },
+        "per": {
+          "description": "従量の基準となる数量（原文の表記。例: 1キロリットル）。",
+          "type": "string",
+          "minLength": 1
+        },
+        "bracket": {
+          "$ref": "#/$defs/bracket"
+        },
+        "applies_to": {
+          "$ref": "common.schema.json#/$defs/describedItem"
+        },
+        "raw_text": {
+          "description": "値を定める原文。",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "per_unit"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "required": [
+              "per"
+            ]
+          },
+          "else": {
+            "properties": {
+              "per": false
+            }
+          }
+        }
+      ]
+    }
   }
 }

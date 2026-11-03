@@ -1,8 +1,8 @@
 import { readdir, readFile } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { parse } from "yaml";
-import type { BurdenEntry, LegalSourceEntry, RepositoryData } from "../domain/repository.ts";
-import type { Burden, BurdenGroups, BurdenVersions, LegalSource, ScopeDecisions, SourceRegistry } from "../domain/types.generated.ts";
+import type { LegalSourceEntry, RepositoryData } from "../domain/repository.ts";
+import type { Burdens, BurdenGroups, LegalSource, ScopeDecisions, SourceRegistry } from "../domain/types.generated.ts";
 import { createSchemaValidator, type SchemaName, type SchemaValidator } from "./schema.ts";
 
 export interface LoadResult {
@@ -54,14 +54,7 @@ export async function loadRepository(root: string, schemaDir = join(root, "schem
     return schemaErrors.length === 0 ? (document as T) : undefined;
   }
 
-  const burdensDir = join(root, "data/burdens");
-  const burdens: BurdenEntry[] = [];
-  const burdenDirectories = (await readdir(burdensDir, { withFileTypes: true }).catch(() => [])).filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
-  for (const directory of burdenDirectories) {
-    const burden = await load<Burden>(join(burdensDir, directory, "burden.yaml"), "burden");
-    const versions = await load<BurdenVersions>(join(burdensDir, directory, "versions.yaml"), "versions");
-    if (burden && versions) burdens.push({ directory, burden, versions });
-  }
+  const { burdens } = (await load<Burdens>(join(root, "data/burdens.yaml"), "burdens")) ?? { burdens: [] };
 
   const legalSourcesDir = join(root, "data/legal-sources");
   const legalSources: LegalSourceEntry[] = [];

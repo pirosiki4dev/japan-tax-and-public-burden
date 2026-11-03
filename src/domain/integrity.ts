@@ -11,6 +11,8 @@ export const CATEGORY_PREFIX: Readonly<Record<BurdenCategory, string>> = {
 };
 
 /** 値の決まり方ごとに、監視する条項として最低限必要な役割（いずれか1つ）。 */
+const BURDENS_FILE = "data/burdens.yaml";
+
 const REQUIRED_PROVISION_ROLES: Readonly<Record<BurdenVersion["determination"], readonly ProvisionRole[]>> = {
   stated: ["value"],
   calculated: ["formula"],
@@ -75,32 +77,36 @@ export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string })
 
   const groups = checkGroups(data.groups.groups, errors);
   const usedGroups = new Set<string>();
-  const burdenIds = new Set(data.burdens.map(({ burden }) => burden.burden_id));
+  const burdenIds = new Set(data.burdens.map((burden) => burden.burden_id));
+
+  for (const burdenId of duplicates(data.burdens.map((burden) => burden.burden_id))) errors.push(`${BURDENS_FILE}: duplicate burden_id ${burdenId}`);
+  data.burdens.forEach((burden, index) => {
+    const previous = data.burdens[index - 1];
+    if (previous && previous.burden_id > burden.burden_id) errors.push(`${BURDENS_FILE}: ${burden.burden_id} must come after ${previous.burden_id} (sort by burden_id)`);
+  });
 
   const versionIds: string[] = [];
-  for (const { directory, burden, versions } of data.burdens) {
-    const base = `data/burdens/${directory}`;
-    if (burden.burden_id !== directory) errors.push(`${base}/burden.yaml: burden_id ${burden.burden_id} must match directory name`);
-    if (versions.burden_id !== directory) errors.push(`${base}/versions.yaml: burden_id ${versions.burden_id} must match directory name`);
+  for (const burden of data.burdens) {
+    const base = `${BURDENS_FILE} ${burden.burden_id}`;
     const prefix = CATEGORY_PREFIX[burden.category];
-    if (!burden.burden_id.startsWith(`${prefix}-`)) errors.push(`${base}/burden.yaml: burden_id must start with ${prefix}- for category ${burden.category}`);
+    if (!burden.burden_id.startsWith(`${prefix}-`)) errors.push(`${base}: burden_id must start with ${prefix}- for category ${burden.category}`);
 
     for (const groupId of burden.groups) {
       usedGroups.add(groupId);
       const group = groups.get(groupId);
-      if (!group) errors.push(`${base}/burden.yaml: unknown group ${groupId}`);
-      else if (group.aggregation === "progressive" && versions.versions.some((version) => version.rate.bracket === undefined)) errors.push(`${base}/versions.yaml: every version must have rate.bracket because group ${groupId} is progressive`);
+      if (!group) errors.push(`${base}: unknown group ${groupId}`);
+      else if (group.aggregation === "progressive" && burden.versions.some((version) => version.rate.bracket === undefined)) errors.push(`${base}: every version must have rate.bracket because group ${groupId} is progressive`);
     }
     for (const predecessor of burden.predecessors ?? []) {
-      if (predecessor === burden.burden_id) errors.push(`${base}/burden.yaml: predecessors must not include itself`);
-      else if (!burdenIds.has(predecessor)) errors.push(`${base}/burden.yaml: unknown predecessor ${predecessor}`);
+      if (predecessor === burden.burden_id) errors.push(`${base}: predecessors must not include itself`);
+      else if (!burdenIds.has(predecessor)) errors.push(`${base}: unknown predecessor ${predecessor}`);
     }
 
-    burden.legal_bases.forEach((reference, index) => requireLaw(reference, `${base}/burden.yaml legal_bases[${index}]`));
-    for (const reference of itemReferences([...burden.liable_parties, ...burden.taxable_objects, ...burden.tax_base])) requireLaw(reference, `${base}/burden.yaml`);
+    burden.legal_bases.forEach((reference, index) => requireLaw(reference, `${base} legal_bases[${index}]`));
+    for (const reference of itemReferences([...burden.liable_parties, ...burden.taxable_objects, ...burden.tax_base])) requireLaw(reference, base);
 
-    for (const version of versions.versions) {
-      const location = `${base}/versions.yaml ${version.version_id}`;
+    for (const version of burden.versions) {
+      const location = `${base} ${version.version_id}`;
       versionIds.push(version.version_id);
       const { promulgation, enforcement } = version.dates;
       if ("value" in promulgation && "value" in enforcement && promulgation.value > enforcement.value) errors.push(`${location}: promulgation must not be after enforcement`);
@@ -118,9 +124,9 @@ export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string })
       if (!version.provisions.some((provision) => required.includes(provision.role))) errors.push(`${location}: determination ${version.determination} requires a provision with role ${required.join(" or ")}`);
     }
 
-    const derived = deriveStatus(versions.versions, asOf);
+    const derived = deriveStatus(burden.versions, asOf);
     if (derived === undefined) warnings.push(`${base}: status cannot be derived from version dates as of ${asOf}`);
-    else if (derived !== burden.status) warnings.push(`${base}/burden.yaml: status ${burden.status} differs from ${derived} derived as of ${asOf}`);
+    else if (derived !== burden.status) warnings.push(`${base}: status ${burden.status} differs from ${derived} derived as of ${asOf}`);
   }
   for (const versionId of duplicates(versionIds)) errors.push(`version_id: duplicate ${versionId}`);
 

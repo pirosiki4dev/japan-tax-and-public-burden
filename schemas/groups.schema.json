@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "groups.schema.json",
   "title": "BurdenGroups",
-  "description": "集計用グループ（data/groups.yaml）。負担項目はburden.yamlのgroupsで所属を示す。",
+  "description": "集計用グループ（data/groups.yaml）。負担項目はdata/burdens.yamlの各項目のgroupsで所属を示す。",
   "type": "object",
   "additionalProperties": false,
   "required": ["groups"],

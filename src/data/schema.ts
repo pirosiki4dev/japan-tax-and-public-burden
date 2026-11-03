@@ -6,7 +6,7 @@ import addFormatsModule from "ajv-formats";
 
 const addFormats = addFormatsModule as unknown as (ajv: Ajv2020) => void;
 
-export const SCHEMA_NAMES = ["burden", "versions", "groups", "legal-source", "scope-decisions", "sources"] as const;
+export const SCHEMA_NAMES = ["burdens", "groups", "legal-source", "scope-decisions", "sources"] as const;
 export type SchemaName = (typeof SCHEMA_NAMES)[number];
 
 export interface SchemaValidator {

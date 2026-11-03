@@ -23,19 +23,6 @@ export type LawId = string
  */
 export type EgovElement = string
 export type DescribedItem = (KnownItem | UnknownValue)
-export type BurdenStatus = ("active" | "promulgated_not_effective" | "abolished")
-/**
- * @minItems 1
- */
-export type SourceUrls = [SourceUrl, ...(SourceUrl)[]]
-/**
- * 根拠とした公式一次情報のURL。
- */
-export type SourceUrl = string
-/**
- * タイムゾーン付きのISO 8601日時。
- */
-export type DateTime = string
 export type BurdenVersion = ({
 version_id: KebabId
 dates: VersionDates
@@ -104,20 +91,38 @@ export type Determination = ("stated" | "calculated" | "published")
  */
 export type ProvisionRole = ("value" | "formula" | "delegation" | "condition")
 /**
+ * @minItems 1
+ */
+export type SourceUrls = [SourceUrl, ...(SourceUrl)[]]
+/**
+ * 根拠とした公式一次情報のURL。
+ */
+export type SourceUrl = string
+/**
+ * タイムゾーン付きのISO 8601日時。
+ */
+export type DateTime = string
+export type BurdenStatus = ("active" | "promulgated_not_effective" | "abolished")
+/**
  * sum: 所属する率・金額を足すと全体の負担になる、progressive: 区分ごとに計算して合計する（累進）、select_one: 条件によりどれか1つが適用される、classification: 分類だけで率・金額を合算しない。
  */
 export type GroupAggregation = ("sum" | "progressive" | "select_one" | "classification")
 
 export interface RepositorySchemas {
-burden?: Burden
-versions?: BurdenVersions
+burdens?: Burdens
 groups?: BurdenGroups
 "legal-source"?: LegalSource
 "scope-decisions"?: ScopeDecisions
 sources?: SourceRegistry
 }
 /**
- * 負担項目（data/burdens/<burden-id>/burden.yaml）。1つの率または金額を1項目とし、負担者が異なれば項目を分ける。レベル1・2の情報を持つ。
+ * 負担項目の正本（data/burdens.yaml）。burden_idの昇順に並べる。
+ */
+export interface Burdens {
+burdens: Burden[]
+}
+/**
+ * 負担項目（data/burdens.yaml の burdens の要素）。1つの率または金額を1項目とし、負担者が異なれば項目を分ける。レベル1・2の情報と、期間ごとの版を持つ。
  */
 export interface Burden {
 burden_id: BurdenId
@@ -160,6 +165,12 @@ taxable_objects: [DescribedItem, ...(DescribedItem)[]]
  * @minItems 1
  */
 tax_base: [DescribedItem, ...(DescribedItem)[]]
+/**
+ * 版。率・金額、または根拠の条項の位置が変わるごとに追加する。
+ * 
+ * @minItems 1
+ */
+versions: [BurdenVersion, ...(BurdenVersion)[]]
 status: BurdenStatus
 source_urls: SourceUrls
 checked_at: DateTime
@@ -186,16 +197,6 @@ legal_basis?: LegalReference
 export interface UnknownValue {
 unknown: true
 reason: string
-}
-/**
- * 版（data/burdens/<burden-id>/versions.yaml）。率・金額、または根拠条項の位置が変わるごとに版を追加する。
- */
-export interface BurdenVersions {
-burden_id: BurdenId
-/**
- * @minItems 1
- */
-versions: [BurdenVersion, ...(BurdenVersion)[]]
 }
 /**
  * 公布日、施行日、適用開始日、徴収開始日を個別に持つ。適用終了日は終了が定まっている場合だけ持つ。
@@ -248,7 +249,7 @@ article: string
 role: ProvisionRole
 }
 /**
- * 集計用グループ（data/groups.yaml）。負担項目はburden.yamlのgroupsで所属を示す。
+ * 集計用グループ（data/groups.yaml）。負担項目はdata/burdens.yamlの各項目のgroupsで所属を示す。
  */
 export interface BurdenGroups {
 groups: BurdenGroup[]
