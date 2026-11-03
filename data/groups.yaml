@@ -48,6 +48,11 @@ groups:
     name: 防衛特別法人税
     aggregation: classification
     parent_group_id: national-tax
+  - group_id: defense-special-income-tax
+    name: 防衛特別所得税
+    aggregation: classification
+    parent_group_id: national-tax
+    description: 令和八年法律第十二号で創設され、令和九年一月一日に施行される（#144 で追加。#143 の調査時点では施行前のため現行の条文になかった）
   - group_id: inheritance-tax
     name: 相続税
     aggregation: classification
@@ -128,6 +133,62 @@ groups:
     name: 特別とん税
     aggregation: classification
     parent_group_id: national-tax
+  # 国税の集計用の下位グループ（#144）
+  - group_id: income-tax-progressive
+    name: 所得税の税率（居住者）
+    aggregation: progressive
+    parent_group_id: income-tax
+    description: 所得税法第八十九条第一項の表の区分ごとの税率
+  - group_id: income-tax-withholding
+    name: 所得税等の源泉徴収
+    aggregation: classification
+    parent_group_id: national-tax
+    description: 源泉徴収で徴収する所得税・復興特別所得税・防衛特別所得税の税率。申告で精算する税額の内数になる場合があるため合算しない
+  - group_id: corporation-tax-special-family-company
+    name: 法人税の特定同族会社の特別税率
+    aggregation: progressive
+    parent_group_id: corporation-tax
+    description: 法人税法第六十七条第一項各号の課税留保金額の区分ごとの税率
+  - group_id: inheritance-tax-progressive
+    name: 相続税の税率
+    aggregation: progressive
+    parent_group_id: inheritance-tax
+    description: 相続税法第十六条の表の区分ごとの税率
+  - group_id: gift-tax-progressive
+    name: 贈与税の税率
+    aggregation: progressive
+    parent_group_id: gift-tax
+    description: 相続税法第二十一条の七の表の区分ごとの税率
+  - group_id: consumption-tax-rates
+    name: 消費税の税率
+    aggregation: select_one
+    parent_group_id: consumption-tax
+    description: 消費税法第二十九条の税率。取引の区分によりどれか1つが適用される
+  - group_id: liquor-tax-distilled
+    name: 酒税（蒸留酒類）
+    aggregation: sum
+    parent_group_id: liquor-tax
+    description: 酒税法第二十三条第一項第三号の基本の税率と、アルコール分二十一度以上の加算額
+  - group_id: liquor-tax-compound
+    name: 酒税（混成酒類）
+    aggregation: sum
+    parent_group_id: liquor-tax
+    description: 酒税法第二十三条第一項第四号の基本の税率と、アルコール分二十一度以上の加算額
+  - group_id: liquor-tax-sweet-fruit-wine-liqueur
+    name: 酒税（甘味果実酒及びリキュール）
+    aggregation: sum
+    parent_group_id: liquor-tax
+    description: 酒税法第二十三条第四項第三号の基本の税率と、アルコール分十三度以上の加算額
+  - group_id: tonnage-due-payment-options
+    name: とん税の納付方法別の税率
+    aggregation: select_one
+    parent_group_id: tonnage-due
+    description: とん税法第三条各号。入港ごとの納付か一年分の一時納付のどちらか
+  - group_id: special-tonnage-due-payment-options
+    name: 特別とん税の納付方法別の税率
+    aggregation: select_one
+    parent_group_id: special-tonnage-due
+    description: 特別とん税法第三条各号。入港ごとの納付か一年分の一時納付のどちらか
   - group_id: prefectural-inhabitant-tax
     name: 道府県民税
     aggregation: classification
