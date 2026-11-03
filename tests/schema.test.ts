@@ -65,7 +65,12 @@ for (const [name, mutate] of invalidRates) {
   });
 }
 
-test("scope decision schema rejects burden_id on excluded decisions", () => {
-  const document = { decisions: [{ decision_id: "x", subject: "x", decision: "excluded", reason: "対象外とする理由の説明", decided_at: "2026-11-01", burden_id: "example-tax" }] };
+test("scope decision schema rejects decisions without source URLs", () => {
+  const document = { decisions: [{ decision_id: "x", subject: "x", reason: "対象とする理由の説明", decided_at: "2026-11-01", source_urls: [] }] };
+  assert.notDeepEqual(validator.validate("scope-decisions", document, "decisions"), []);
+});
+
+test("scope decision schema does not record excluded decisions", () => {
+  const document = { decisions: [{ decision_id: "x", subject: "x", decision: "excluded", reason: "対象外とする理由の説明", decided_at: "2026-11-01", source_urls: ["https://example.com/x"] }] };
   assert.notDeepEqual(validator.validate("scope-decisions", document, "decisions"), []);
 });

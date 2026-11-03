@@ -86,7 +86,6 @@ export type RateRole = ("statutory" | "standard" | "limit" | "reduced")
  * valueの単位。percentは100分率（10は10%）。
  */
 export type RateUnit = ("percent" | "per_mille" | "yen")
-export type ScopeDecisionResult = ("included" | "excluded")
 
 export interface RepositorySchemas {
 burden?: Burden
@@ -221,7 +220,7 @@ reviewed_at: DateTime
 source_url: SourceUrl
 }
 /**
- * 対象・対象外の個別判断の記録（data/scope-decisions.yaml）。
+ * 区分表だけでは判定できない負担のうち、対象と判断したものの記録（data/scope-decisions.yaml）。対象外と判断したものはADR 0002に記録し、ここには記録しない。
  */
 export interface ScopeDecisions {
 decisions: ScopeDecision[]
@@ -229,11 +228,13 @@ decisions: ScopeDecision[]
 export interface ScopeDecision {
 decision_id: KebabId
 subject: string
-decision: ScopeDecisionResult
 reason: string
 decided_at: IsoDate
 burden_id?: KebabId
-source_urls?: SourceUrl[]
+/**
+ * @minItems 1
+ */
+source_urls: [SourceUrl, ...(SourceUrl)[]]
 }
 /**
  * 巡回する公式サイトの一覧（config/sources.yaml）。巡回URLはこのファイルだけに置く。

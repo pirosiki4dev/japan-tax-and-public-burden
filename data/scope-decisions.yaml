@@ -1,3 +1,20 @@
-# 対象・対象外の個別判断の記録（schemas/scope-decisions.schema.json）。
-# 判断の追加は #143 で行う。
-decisions: []
+# 区分表（ADR 0002）だけでは判定できない負担のうち、対象と判断したものの記録。
+# 構造は schemas/scope-decisions.schema.json。対象外と判断したものはADR 0002に記録し、ここには記録しない。
+# burden_id は、制度データを登録したときに追加する。
+decisions:
+  - decision_id: nhk-receiving-fee
+    subject: NHK受信料（日本放送協会の受信料）
+    reason: >-
+      放送法第64条第1項により、特定受信設備を設置した者等は日本放送協会と受信契約を締結しなければならないとされており、
+      法令で加入が義務付けられた負担に当たるため対象とする。
+    decided_at: 2026-11-03
+    source_urls:
+      - https://laws.e-gov.go.jp/law/325AC0000000132
+  - decision_id: universal-service-fee
+    subject: ユニバーサルサービス料（基礎的電気通信役務の提供に係る負担金と、その利用者への転嫁分）
+    reason: >-
+      電気通信事業法第110条等により、基礎的電気通信役務支援機関が一定規模を超える電気通信事業者から負担金を徴収する。
+      利用者への転嫁は事業者が判断し、利用者に個々の裁量がないため、利用者への転嫁分を含めて対象とする。
+    decided_at: 2026-11-03
+    source_urls:
+      - https://laws.e-gov.go.jp/law/359AC0000000086

@@ -44,7 +44,7 @@ ADR 0002で全体の対象範囲と最初のリリースの範囲を決めた。
 │   │       └── versions.yaml   # 期間ごとの率・金額と日付（レベル3）
 │   ├── legal-sources/
 │   │   └── <law-id>.yaml       # 根拠法令（e-Gov法令ID、確認済みの改正版）
-│   └── scope-decisions.yaml    # 対象・対象外の個別判断の記録
+│   └── scope-decisions.yaml    # 個別判断で対象とした負担の記録
 ├── config/
 │   └── sources.yaml            # 巡回する公式サイトのURL（唯一の置き場所）
 ├── schemas/                    # JSON Schema（データ構造の正本）

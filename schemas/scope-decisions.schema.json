@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "scope-decisions.schema.json",
   "title": "ScopeDecisions",
-  "description": "対象・対象外の個別判断の記録（data/scope-decisions.yaml）。",
+  "description": "区分表だけでは判定できない負担のうち、対象と判断したものの記録（data/scope-decisions.yaml）。対象外と判断したものはADR 0002に記録し、ここには記録しない。",
   "type": "object",
   "additionalProperties": false,
   "required": ["decisions"],
@@ -17,21 +17,19 @@
       "title": "ScopeDecision",
       "type": "object",
       "additionalProperties": false,
-      "required": ["decision_id", "subject", "decision", "reason", "decided_at"],
+      "required": ["decision_id", "subject", "reason", "decided_at", "source_urls"],
       "properties": {
         "decision_id": { "$ref": "common.schema.json#/$defs/kebabId" },
         "subject": { "type": "string", "minLength": 1 },
-        "decision": { "title": "ScopeDecisionResult", "enum": ["included", "excluded"] },
         "reason": { "type": "string", "minLength": 10 },
         "decided_at": { "$ref": "common.schema.json#/$defs/date" },
         "burden_id": { "$ref": "common.schema.json#/$defs/kebabId" },
         "source_urls": {
           "type": "array",
+          "minItems": 1,
           "items": { "$ref": "common.schema.json#/$defs/sourceUrl" }
         }
-      },
-      "if": { "properties": { "decision": { "const": "excluded" } }, "required": ["decision"] },
-      "then": { "properties": { "burden_id": false } }
+      }
     }
   }
 }
