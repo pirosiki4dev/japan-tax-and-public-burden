@@ -27,6 +27,7 @@ const invalidBurdens: Array<[string, (document: Record<string, unknown>) => void
   ["empty source_urls", (document) => { document.source_urls = []; }],
   ["non-https source URL", (document) => { document.source_urls = ["http://example.com/"]; }],
   ["checked_at without time zone", (document) => { document.checked_at = "2026-11-01T09:00:00"; }],
+  ["checked_at in UTC instead of JST", (document) => { document.checked_at = "2026-11-01T00:00:00Z"; }],
   ["a meaningful burden_id", (document) => { document.burden_id = "income-tax"; }],
   ["burden_id with an unknown prefix", (document) => { document.burden_id = "xx-000001"; }],
   ["burden_id without six digits", (document) => { document.burden_id = "nt-1"; }],

@@ -3,4 +3,5 @@ sources:
     name: 例示サイト
     base_url: https://example.com/
     rate_limit: テスト用
+    request_interval_ms: 0
     enabled: true

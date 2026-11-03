@@ -99,7 +99,7 @@ export type SourceUrls = [SourceUrl, ...(SourceUrl)[]]
  */
 export type SourceUrl = string
 /**
- * タイムゾーン付きのISO 8601日時。
+ * 日本標準時（JST）のISO 8601日時。タイムゾーンは +09:00 で記録する。
  */
 export type DateTime = string
 export type BurdenStatus = ("active" | "promulgated_not_effective" | "abolished")
@@ -312,5 +312,9 @@ source_id: KebabId
 name: string
 base_url: SourceUrl
 rate_limit: string
+/**
+ * 連続するリクエストの最小間隔（ミリ秒）。rate_limitの方針を機械的に守るための値。
+ */
+request_interval_ms: number
 enabled: boolean
 }
