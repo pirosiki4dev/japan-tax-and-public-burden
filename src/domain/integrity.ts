@@ -1,6 +1,21 @@
-import type { DescribedItem, LegalReference, Rate, RateBracket } from "./types.generated.ts";
+import type { BurdenCategory, BurdenGroup, BurdenVersion, DescribedItem, LegalReference, ProvisionRole } from "./types.generated.ts";
 import type { Findings, RepositoryData } from "./repository.ts";
 import { deriveStatus, versionEnd, versionStart } from "./status.ts";
+
+/** burden_id の接頭辞と区分の対応。 */
+export const CATEGORY_PREFIX: Readonly<Record<BurdenCategory, string>> = {
+  national_tax: "nt",
+  local_tax: "lt",
+  social_insurance: "si",
+  other_public_burden: "ot"
+};
+
+/** 値の決まり方ごとに、監視する条項として最低限必要な役割（いずれか1つ）。 */
+const REQUIRED_PROVISION_ROLES: Readonly<Record<BurdenVersion["determination"], readonly ProvisionRole[]>> = {
+  stated: ["value"],
+  calculated: ["formula"],
+  published: ["formula", "delegation"]
+};
 
 function duplicates(values: readonly string[]): string[] {
   const seen = new Set<string>();
@@ -16,21 +31,27 @@ function itemReferences(items: readonly DescribedItem[]): LegalReference[] {
   return items.flatMap((item) => ("legal_basis" in item && item.legal_basis ? [item.legal_basis] : []));
 }
 
-function checkBrackets(brackets: readonly RateBracket[], location: string, errors: string[]): void {
-  brackets.forEach((bracket, index) => {
-    const isLast = index === brackets.length - 1;
-    if (bracket.upper === null && !isLast) errors.push(`${location}: only the last bracket may have no upper bound`);
-    if (bracket.upper !== null && bracket.upper <= bracket.lower) errors.push(`${location}: bracket ${index} upper must be greater than lower`);
-    const previous = brackets[index - 1];
-    if (previous && previous.upper !== bracket.lower) errors.push(`${location}: bracket ${index} must start where bracket ${index - 1} ends`);
-  });
-}
-
-function checkShares(rate: Rate, location: string, errors: string[]): void {
-  if (!rate.shares) return;
-  const total = rate.shares.reduce((sum, share) => sum + share.ratio, 0);
-  if (Math.abs(total - 1) > 1e-9) errors.push(`${location}: share ratios must sum to 1 (got ${total})`);
-  for (const party of duplicates(rate.shares.map((share) => share.party))) errors.push(`${location}: duplicate share party ${party}`);
+function checkGroups(groups: readonly BurdenGroup[], errors: string[]): Map<string, BurdenGroup> {
+  const byId = new Map(groups.map((group) => [group.group_id, group]));
+  for (const groupId of duplicates(groups.map((group) => group.group_id))) errors.push(`data/groups.yaml: duplicate group_id ${groupId}`);
+  for (const group of groups) {
+    if (group.parent_group_id === undefined) continue;
+    if (!byId.has(group.parent_group_id)) {
+      errors.push(`data/groups.yaml ${group.group_id}: unknown parent_group_id ${group.parent_group_id}`);
+      continue;
+    }
+    const visited = new Set([group.group_id]);
+    let parent = byId.get(group.parent_group_id);
+    while (parent) {
+      if (visited.has(parent.group_id)) {
+        errors.push(`data/groups.yaml ${group.group_id}: parent_group_id forms a cycle`);
+        break;
+      }
+      visited.add(parent.group_id);
+      parent = parent.parent_group_id === undefined ? undefined : byId.get(parent.parent_group_id);
+    }
+  }
+  return byId;
 }
 
 /**
@@ -42,7 +63,7 @@ export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string })
   const warnings: string[] = [];
   const lawIds = new Set(data.legalSources.map(({ source }) => source.law_id));
   const referencedLaws = new Set<string>();
-  const requireLaw = (reference: LegalReference, location: string): void => {
+  const requireLaw = (reference: { law_id: string }, location: string): void => {
     referencedLaws.add(reference.law_id);
     if (!lawIds.has(reference.law_id)) errors.push(`${location}: unknown law_id ${reference.law_id} (add data/legal-sources/${reference.law_id}.yaml)`);
   };
@@ -52,11 +73,29 @@ export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string })
   }
   for (const lawId of duplicates(data.legalSources.map(({ source }) => source.law_id))) errors.push(`law_id: duplicate ${lawId}`);
 
+  const groups = checkGroups(data.groups.groups, errors);
+  const usedGroups = new Set<string>();
+  const burdenIds = new Set(data.burdens.map(({ burden }) => burden.burden_id));
+
   const versionIds: string[] = [];
   for (const { directory, burden, versions } of data.burdens) {
     const base = `data/burdens/${directory}`;
     if (burden.burden_id !== directory) errors.push(`${base}/burden.yaml: burden_id ${burden.burden_id} must match directory name`);
     if (versions.burden_id !== directory) errors.push(`${base}/versions.yaml: burden_id ${versions.burden_id} must match directory name`);
+    const prefix = CATEGORY_PREFIX[burden.category];
+    if (!burden.burden_id.startsWith(`${prefix}-`)) errors.push(`${base}/burden.yaml: burden_id must start with ${prefix}- for category ${burden.category}`);
+
+    for (const groupId of burden.groups) {
+      usedGroups.add(groupId);
+      const group = groups.get(groupId);
+      if (!group) errors.push(`${base}/burden.yaml: unknown group ${groupId}`);
+      else if (group.aggregation === "progressive" && versions.versions.some((version) => version.rate.bracket === undefined)) errors.push(`${base}/versions.yaml: every version must have rate.bracket because group ${groupId} is progressive`);
+    }
+    for (const predecessor of burden.predecessors ?? []) {
+      if (predecessor === burden.burden_id) errors.push(`${base}/burden.yaml: predecessors must not include itself`);
+      else if (!burdenIds.has(predecessor)) errors.push(`${base}/burden.yaml: unknown predecessor ${predecessor}`);
+    }
+
     burden.legal_bases.forEach((reference, index) => requireLaw(reference, `${base}/burden.yaml legal_bases[${index}]`));
     for (const reference of itemReferences([...burden.liable_parties, ...burden.taxable_objects, ...burden.tax_base])) requireLaw(reference, `${base}/burden.yaml`);
 
@@ -68,14 +107,15 @@ export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string })
       const start = versionStart(version);
       const end = versionEnd(version);
       if (start !== undefined && end !== undefined && start > end) errors.push(`${location}: application_start must not be after application_end`);
-      for (const rateId of duplicates(version.rates.map((rate) => rate.rate_id))) errors.push(`${location}: duplicate rate_id ${rateId}`);
-      for (const rate of version.rates) {
-        const rateLocation = `${location} ${rate.rate_id}`;
-        requireLaw(rate.legal_basis, rateLocation);
-        for (const reference of itemReferences([rate.applies_to])) requireLaw(reference, rateLocation);
-        if (rate.brackets) checkBrackets(rate.brackets, rateLocation, errors);
-        checkShares(rate, rateLocation, errors);
-      }
+
+      const { bracket } = version.rate;
+      if (bracket && bracket.upper !== null && bracket.upper <= bracket.lower) errors.push(`${location}: bracket upper must be greater than lower`);
+      for (const reference of itemReferences([version.rate.applies_to])) requireLaw(reference, location);
+
+      version.provisions.forEach((provision, index) => requireLaw(provision, `${location} provisions[${index}]`));
+      for (const key of duplicates(version.provisions.map((provision) => `${provision.law_id} ${provision.elm}`))) errors.push(`${location}: duplicate provision ${key}`);
+      const required = REQUIRED_PROVISION_ROLES[version.determination];
+      if (!version.provisions.some((provision) => required.includes(provision.role))) errors.push(`${location}: determination ${version.determination} requires a provision with role ${required.join(" or ")}`);
     }
 
     const derived = deriveStatus(versions.versions, asOf);
@@ -84,11 +124,16 @@ export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string })
   }
   for (const versionId of duplicates(versionIds)) errors.push(`version_id: duplicate ${versionId}`);
 
+  for (const group of data.groups.groups) {
+    if (group.parent_group_id !== undefined) usedGroups.add(group.parent_group_id);
+  }
+  for (const group of data.groups.groups) {
+    if (!usedGroups.has(group.group_id)) warnings.push(`data/groups.yaml ${group.group_id}: no burden or child group belongs to this group`);
+  }
   for (const { fileStem } of data.legalSources) {
     if (!referencedLaws.has(fileStem)) warnings.push(`data/legal-sources/${fileStem}.yaml: not referenced by any burden`);
   }
 
-  const burdenIds = new Set(data.burdens.map(({ burden }) => burden.burden_id));
   for (const decisionId of duplicates(data.scopeDecisions.decisions.map((decision) => decision.decision_id))) errors.push(`data/scope-decisions.yaml: duplicate decision_id ${decisionId}`);
   for (const decision of data.scopeDecisions.decisions) {
     if (decision.burden_id && !burdenIds.has(decision.burden_id)) errors.push(`data/scope-decisions.yaml ${decision.decision_id}: unknown burden_id ${decision.burden_id}`);

@@ -5,27 +5,36 @@ import type { Burden, BurdenVersions } from "../src/domain/types.generated.ts";
 import { readFixture, SCHEMA_DIR } from "./helpers.ts";
 
 const validator = await createSchemaValidator(SCHEMA_DIR);
-const burden = await readFixture<Burden>("data/burdens/example-tax/burden.yaml");
-const versions = await readFixture<BurdenVersions>("data/burdens/example-tax/versions.yaml");
+const burden = await readFixture<Burden>("data/burdens/nt-000001/burden.yaml");
+const versions = await readFixture<BurdenVersions>("data/burdens/nt-000001/versions.yaml");
+const publishedVersions = await readFixture<BurdenVersions>("data/burdens/nt-000003/versions.yaml");
 
 function clone<T>(value: T): T {
   return structuredClone(value);
 }
 
 test("valid fixture documents pass their schemas", async () => {
-  assert.deepEqual(validator.validate("burden", burden, "burden"), []);
-  assert.deepEqual(validator.validate("versions", versions, "versions"), []);
+  for (const id of ["nt-000001", "nt-000002", "nt-000003", "si-000001", "si-000002"]) {
+    assert.deepEqual(validator.validate("burden", await readFixture(`data/burdens/${id}/burden.yaml`), id), []);
+    assert.deepEqual(validator.validate("versions", await readFixture(`data/burdens/${id}/versions.yaml`), id), []);
+  }
+  assert.deepEqual(validator.validate("groups", await readFixture("data/groups.yaml"), "groups"), []);
   assert.deepEqual(validator.validate("legal-source", await readFixture("data/legal-sources/999AC0000000001.yaml"), "law"), []);
   assert.deepEqual(validator.validate("scope-decisions", await readFixture("data/scope-decisions.yaml"), "decisions"), []);
   assert.deepEqual(validator.validate("sources", await readFixture("config/sources.yaml"), "sources"), []);
 });
 
 const invalidBurdens: Array<[string, (document: Record<string, unknown>) => void]> = [
-  ["missing source_url", (document) => { delete document.source_url; }],
-  ["non-https source_url", (document) => { document.source_url = "http://example.com/"; }],
+  ["missing source_urls", (document) => { delete document.source_urls; }],
+  ["empty source_urls", (document) => { document.source_urls = []; }],
+  ["non-https source URL", (document) => { document.source_urls = ["http://example.com/"]; }],
   ["checked_at without time zone", (document) => { document.checked_at = "2026-11-01T09:00:00"; }],
-  ["non kebab-case burden_id", (document) => { document.burden_id = "Example_Tax"; }],
+  ["a meaningful burden_id", (document) => { document.burden_id = "income-tax"; }],
+  ["burden_id with an unknown prefix", (document) => { document.burden_id = "xx-000001"; }],
+  ["burden_id without six digits", (document) => { document.burden_id = "nt-1"; }],
+  ["missing groups", (document) => { delete document.groups; }],
   ["invalid law_id", (document) => { document.legal_bases = [{ law_id: "abc" }]; }],
+  ["invalid elm", (document) => { document.legal_bases = [{ law_id: "999AC0000000001", elm: "第一条" }]; }],
   ["unknown category", (document) => { document.category = "fee"; }],
   ["unknown value without reason", (document) => { document.tax_base = [{ unknown: true }]; }],
   ["unexpected property", (document) => { document.note = "x"; }]
@@ -39,31 +48,37 @@ for (const [name, mutate] of invalidBurdens) {
   });
 }
 
-type RateDocument = Record<string, unknown>;
-function firstRate(document: BurdenVersions, versionIndex: number, rateIndex: number): RateDocument {
-  return document.versions[versionIndex]!.rates[rateIndex] as unknown as RateDocument;
-}
+type Loose = Record<string, unknown>;
+const version = (document: BurdenVersions): Loose => document.versions[0] as unknown as Loose;
+const rate = (document: BurdenVersions): Loose => document.versions[0]!.rate as unknown as Loose;
 
-const invalidRates: Array<[string, (document: BurdenVersions) => void]> = [
-  ["progressive rate without brackets", (document) => { delete firstRate(document, 1, 0).brackets; }],
-  ["progressive rate with a single value", (document) => { firstRate(document, 1, 0).value = 5; }],
-  ["proportional rate without value", (document) => { delete firstRate(document, 0, 0).value; }],
-  ["proportional rate with brackets", (document) => { firstRate(document, 0, 0).brackets = [{ lower: 0, upper: null, value: 1 }]; }],
-  ["per-unit rate without per", (document) => { delete firstRate(document, 1, 1).per; }],
-  ["per on a non per-unit rate", (document) => { firstRate(document, 0, 0).per = "1個"; }],
-  ["share ratio above 1", (document) => { firstRate(document, 1, 0).shares = [{ party: "a", ratio: 1.5 }]; }],
-  ["missing collection_start", (document) => { delete (document.versions[0]!.dates as unknown as Record<string, unknown>).collection_start; }],
-  ["known date without raw text", (document) => { (document.versions[0]!.dates as unknown as Record<string, unknown>).enforcement = { value: "2020-04-01" }; }],
-  ["invalid normalized date", (document) => { (document.versions[0]!.dates as unknown as Record<string, unknown>).enforcement = { raw: "令和二年", value: "2020-13-01" }; }]
+const invalidVersions: Array<[string, BurdenVersions, (document: BurdenVersions) => void]> = [
+  ["a rate without value", versions, (document) => { delete rate(document).value; }],
+  ["multiple rates in one version", versions, (document) => { version(document).rates = [rate(document)]; }],
+  ["per on a non per-unit rate", versions, (document) => { rate(document).per = "1個"; }],
+  ["per-unit rate without per", publishedVersions, (document) => { delete rate(document).per; }],
+  ["published value without formula", publishedVersions, (document) => { delete version(document).formula; }],
+  ["unknown determination", versions, (document) => { version(document).determination = "guessed"; }],
+  ["no provisions", versions, (document) => { version(document).provisions = []; }],
+  ["a provision without elm", versions, (document) => { version(document).provisions = [{ law_id: "999AC0000000001", article: "第三条", role: "value" }]; }],
+  ["unknown provision role", versions, (document) => { version(document).provisions = [{ law_id: "999AC0000000001", elm: "MainProvision-Article_3", article: "第三条", role: "other" }]; }],
+  ["missing collection_start", versions, (document) => { delete (version(document).dates as Loose).collection_start; }],
+  ["known date without raw text", versions, (document) => { (version(document).dates as Loose).enforcement = { value: "2020-04-01" }; }],
+  ["invalid normalized date", versions, (document) => { (version(document).dates as Loose).enforcement = { raw: "令和二年", value: "2020-13-01" }; }]
 ];
 
-for (const [name, mutate] of invalidRates) {
+for (const [name, fixture, mutate] of invalidVersions) {
   test(`versions schema rejects ${name}`, () => {
-    const document = clone(versions);
+    const document = clone(fixture);
     mutate(document);
     assert.notDeepEqual(validator.validate("versions", document, "versions"), []);
   });
 }
+
+test("groups schema rejects an unknown aggregation", () => {
+  const document = { groups: [{ group_id: "x", name: "x", aggregation: "average" }] };
+  assert.notDeepEqual(validator.validate("groups", document, "groups"), []);
+});
 
 test("scope decision schema rejects decisions without source URLs", () => {
   const document = { decisions: [{ decision_id: "x", subject: "x", reason: "対象とする理由の説明", decided_at: "2026-11-01", source_urls: [] }] };

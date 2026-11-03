@@ -1,0 +1,30 @@
+burden_id: nt-000003
+versions:
+  - version_id: nt-000003-v1
+    dates:
+      promulgation: { raw: 令和元年十二月一日, value: 2019-12-01 }
+      enforcement: { raw: 令和二年四月一日, value: 2020-04-01 }
+      application_start: { raw: 令和二年四月一日, value: 2020-04-01 }
+      collection_start:
+        unknown: true
+        reason: テスト用に徴収開始日を不明として扱う
+    rate:
+      kind: per_unit
+      role: statutory
+      value: 1000
+      unit: yen
+      per: 1キロリットル
+      applies_to: { summary: 例示液体 }
+      raw_text: 例示液体の税率は、一キロリットルにつき千円とする。
+    determination: published
+    formula:
+      raw_text: 基準額に、省令で定める方法により算定した改定率を乗じて得た額を告示する。
+      derivation: 告示された額（千円）を記録する。
+    provisions:
+      - { law_id: 999AC0000000001, elm: MainProvision-Article_4, article: 第四条, role: delegation }
+      - { law_id: 999M60000000001, elm: MainProvision-Article_1, article: 第一条, role: formula }
+    source_urls:
+      - https://example.com/laws/999AC0000000001
+      - https://example.com/laws/999M60000000001
+      - https://example.com/notices/example-liquid-tax
+    checked_at: 2026-11-01T09:00:00+09:00

@@ -1,0 +1,20 @@
+# テスト専用の架空の負担項目。実在の制度・法令ではない。
+burden_id: nt-000001
+name: 例示税（製造額100万円以下の部分）
+category: national_tax
+levying_body_type: national
+groups: [example-tax]
+legal_bases:
+  - { law_id: 999AC0000000001, elm: MainProvision-Article_1, article: 第一条 }
+liable_parties:
+  - summary: 例示物品を製造する者
+    legal_basis: { law_id: 999AC0000000001, elm: MainProvision-Article_2, article: 第二条 }
+taxable_objects:
+  - summary: 例示物品の製造
+tax_base:
+  - unknown: true
+    reason: テスト用に課税標準を不明として扱う
+status: active
+source_urls:
+  - https://example.com/laws/999AC0000000001
+checked_at: 2026-11-01T09:00:00+09:00

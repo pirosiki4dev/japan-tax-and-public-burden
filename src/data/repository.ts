@@ -2,7 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { parse } from "yaml";
 import type { BurdenEntry, LegalSourceEntry, RepositoryData } from "../domain/repository.ts";
-import type { Burden, BurdenVersions, LegalSource, ScopeDecisions, SourceRegistry } from "../domain/types.generated.ts";
+import type { Burden, BurdenGroups, BurdenVersions, LegalSource, ScopeDecisions, SourceRegistry } from "../domain/types.generated.ts";
 import { createSchemaValidator, type SchemaName, type SchemaValidator } from "./schema.ts";
 
 export interface LoadResult {
@@ -71,6 +71,7 @@ export async function loadRepository(root: string, schemaDir = join(root, "schem
     if (source) legalSources.push({ fileStem: relative(legalSourcesDir, path).replace(/\.yaml$/, ""), source });
   }
 
+  const groups = (await load<BurdenGroups>(join(root, "data/groups.yaml"), "groups")) ?? { groups: [] };
   const scopeDecisions = (await load<ScopeDecisions>(join(root, "data/scope-decisions.yaml"), "scope-decisions")) ?? { decisions: [] };
   const sources = (await load<SourceRegistry>(join(root, "config/sources.yaml"), "sources")) ?? { sources: [] };
 
@@ -78,5 +79,5 @@ export async function loadRepository(root: string, schemaDir = join(root, "schem
     if (!handled.has(path)) errors.push(`${display(path)}: no validation route (unexpected file)`);
   }
 
-  return { data: { burdens, legalSources, scopeDecisions, sources }, errors };
+  return { data: { burdens, groups, legalSources, scopeDecisions, sources }, errors };
 }

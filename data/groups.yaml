@@ -1,0 +1,3 @@
+# 集計用グループ（schemas/groups.schema.json）。負担項目は burden.yaml の groups で所属を示す。
+# グループの追加は #143〜#146 で行う。
+groups: []

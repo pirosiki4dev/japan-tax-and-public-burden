@@ -1,0 +1,13 @@
+# テスト専用の架空のグループ。
+groups:
+  - group_id: example-national-tax
+    name: 例示国税
+    aggregation: classification
+  - group_id: example-tax
+    name: 例示税
+    aggregation: progressive
+    parent_group_id: example-national-tax
+  - group_id: example-insurance
+    name: 例示保険料
+    aggregation: sum
+    description: 被保険者分と事業主分を足すと、法定の保険料率になる

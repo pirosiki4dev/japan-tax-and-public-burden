@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "groups.schema.json",
+  "title": "BurdenGroups",
+  "description": "集計用グループ（data/groups.yaml）。負担項目はburden.yamlのgroupsで所属を示す。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["groups"],
+  "properties": {
+    "groups": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/group" }
+    }
+  },
+  "$defs": {
+    "group": {
+      "title": "BurdenGroup",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["group_id", "name", "aggregation"],
+      "properties": {
+        "group_id": { "$ref": "common.schema.json#/$defs/kebabId" },
+        "name": { "type": "string", "minLength": 1 },
+        "aggregation": {
+          "title": "GroupAggregation",
+          "description": "sum: 所属する率・金額を足すと全体の負担になる、progressive: 区分ごとに計算して合計する（累進）、select_one: 条件によりどれか1つが適用される、classification: 分類だけで率・金額を合算しない。",
+          "enum": ["sum", "progressive", "select_one", "classification"]
+        },
+        "parent_group_id": { "$ref": "common.schema.json#/$defs/kebabId" },
+        "description": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

@@ -2,12 +2,12 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "versions.schema.json",
   "title": "BurdenVersions",
-  "description": "版（data/burdens/<burden-id>/versions.yaml）。率・金額が変わるごとに版を追加する。",
+  "description": "版（data/burdens/<burden-id>/versions.yaml）。率・金額、または根拠条項の位置が変わるごとに版を追加する。",
   "type": "object",
   "additionalProperties": false,
   "required": ["burden_id", "versions"],
   "properties": {
-    "burden_id": { "$ref": "common.schema.json#/$defs/kebabId" },
+    "burden_id": { "$ref": "common.schema.json#/$defs/burdenId" },
     "versions": {
       "type": "array",
       "minItems": 1,
@@ -19,18 +19,35 @@
       "title": "BurdenVersion",
       "type": "object",
       "additionalProperties": false,
-      "required": ["version_id", "dates", "rates", "source_url", "checked_at"],
+      "required": ["version_id", "dates", "rate", "determination", "provisions", "source_urls", "checked_at"],
       "properties": {
         "version_id": { "$ref": "common.schema.json#/$defs/kebabId" },
         "dates": { "$ref": "#/$defs/versionDates" },
-        "rates": {
+        "rate": { "$ref": "#/$defs/rate" },
+        "determination": {
+          "title": "Determination",
+          "description": "値の決まり方。stated: 条文に値が書かれている、calculated: 条文の算式から計算する、published: 告示等、e-Gov法令APIで取得できない公表物で定まる。",
+          "enum": ["stated", "calculated", "published"]
+        },
+        "formula": {
+          "description": "calculated・publishedの場合の算式。原文と、値を求めた過程を記録する。",
+          "$ref": "#/$defs/formula"
+        },
+        "provisions": {
+          "description": "監視する条項。法律が政令・省令に委任している場合は、委任元と委任先の両方を含める。",
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/rate" }
+          "items": { "$ref": "common.schema.json#/$defs/provision" }
         },
-        "source_url": { "$ref": "common.schema.json#/$defs/sourceUrl" },
+        "source_urls": { "$ref": "common.schema.json#/$defs/sourceUrls" },
         "checked_at": { "$ref": "common.schema.json#/$defs/dateTime" }
-      }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "determination": { "enum": ["calculated", "published"] } }, "required": ["determination"] },
+          "then": { "required": ["formula"] }
+        }
+      ]
     },
     "versionDates": {
       "title": "VersionDates",
@@ -46,40 +63,38 @@
         "application_end": { "$ref": "common.schema.json#/$defs/dateValue" }
       }
     },
-    "bracket": {
-      "title": "RateBracket",
-      "description": "累進の区分。upperがnullの区分は上限なし。",
+    "formula": {
+      "title": "Formula",
       "type": "object",
       "additionalProperties": false,
-      "required": ["lower", "upper", "value"],
+      "required": ["raw_text", "derivation"],
+      "properties": {
+        "raw_text": { "description": "算式の原文。", "type": "string", "minLength": 1 },
+        "derivation": { "description": "値を求めた過程（例: 18.3% × 1/2 = 9.15%）。", "type": "string", "minLength": 1 }
+      }
+    },
+    "bracket": {
+      "title": "RateBracket",
+      "description": "累進の区分のうち、この項目が適用される範囲。upperがnullの場合は上限なし。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lower", "upper", "unit"],
       "properties": {
         "lower": { "type": "number", "minimum": 0 },
         "upper": { "type": ["number", "null"] },
-        "value": { "type": "number", "minimum": 0 }
-      }
-    },
-    "share": {
-      "title": "RateShare",
-      "description": "負担割合（本人・事業主・国庫等）。ratioは0より大きく1以下。",
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["party", "ratio"],
-      "properties": {
-        "party": { "type": "string", "minLength": 1 },
-        "ratio": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+        "unit": { "enum": ["yen"] }
       }
     },
     "rate": {
       "title": "Rate",
       "type": "object",
       "additionalProperties": false,
-      "required": ["rate_id", "kind", "role", "unit", "applies_to", "legal_basis", "raw_text"],
+      "required": ["kind", "role", "value", "unit", "applies_to", "raw_text"],
       "properties": {
-        "rate_id": { "$ref": "common.schema.json#/$defs/kebabId" },
         "kind": {
           "title": "RateKind",
-          "description": "proportional: 比例、progressive: 累進、fixed_amount: 定額、per_unit: 従量。",
-          "enum": ["proportional", "progressive", "fixed_amount", "per_unit"]
+          "description": "proportional: 比例（累進の1区分を含む）、fixed_amount: 定額、per_unit: 従量。",
+          "enum": ["proportional", "fixed_amount", "per_unit"]
         },
         "role": {
           "title": "RateRole",
@@ -97,30 +112,11 @@
           "type": "string",
           "minLength": 1
         },
-        "bracket_unit": {
-          "description": "累進区分の境界の単位。",
-          "enum": ["yen"]
-        },
-        "brackets": {
-          "type": "array",
-          "minItems": 1,
-          "items": { "$ref": "#/$defs/bracket" }
-        },
+        "bracket": { "$ref": "#/$defs/bracket" },
         "applies_to": { "$ref": "common.schema.json#/$defs/describedItem" },
-        "shares": {
-          "type": "array",
-          "minItems": 1,
-          "items": { "$ref": "#/$defs/share" }
-        },
-        "legal_basis": { "$ref": "common.schema.json#/$defs/legalReference" },
-        "raw_text": { "type": "string", "minLength": 1 }
+        "raw_text": { "description": "値を定める原文。", "type": "string", "minLength": 1 }
       },
       "allOf": [
-        {
-          "if": { "properties": { "kind": { "const": "progressive" } }, "required": ["kind"] },
-          "then": { "required": ["brackets", "bracket_unit"], "properties": { "value": false } },
-          "else": { "required": ["value"], "properties": { "brackets": false, "bracket_unit": false } }
-        },
         {
           "if": { "properties": { "kind": { "const": "per_unit" } }, "required": ["kind"] },
           "then": { "required": ["per"] },

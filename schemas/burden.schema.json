@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "burden.schema.json",
   "title": "Burden",
-  "description": "制度（data/burdens/<burden-id>/burden.yaml）。レベル1・2の情報を持つ。",
+  "description": "負担項目（data/burdens/<burden-id>/burden.yaml）。1つの率または金額を1項目とし、負担者が異なれば項目を分ける。レベル1・2の情報を持つ。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -10,26 +10,43 @@
     "name",
     "category",
     "levying_body_type",
+    "groups",
     "legal_bases",
     "liable_parties",
     "taxable_objects",
     "tax_base",
     "status",
-    "source_url",
+    "source_urls",
     "checked_at"
   ],
   "properties": {
-    "burden_id": { "$ref": "common.schema.json#/$defs/kebabId" },
+    "burden_id": { "$ref": "common.schema.json#/$defs/burdenId" },
     "name": { "type": "string", "minLength": 1 },
     "category": {
       "title": "BurdenCategory",
+      "description": "burden_idの接頭辞と一致させる（national_tax: nt、local_tax: lt、social_insurance: si、other_public_burden: ot）。",
       "enum": ["national_tax", "local_tax", "social_insurance", "other_public_burden"]
     },
     "levying_body_type": {
       "title": "LevyingBodyType",
       "enum": ["national", "prefecture", "municipality", "insurer"]
     },
+    "groups": {
+      "description": "所属する集計用グループ（data/groups.yaml のgroup_id）。",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/kebabId" }
+    },
+    "predecessors": {
+      "description": "分割・統合で終了した前身の負担項目。",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/burdenId" }
+    },
     "legal_bases": {
+      "description": "負担そのものの根拠（課税・徴収を定める条項）。",
       "type": "array",
       "minItems": 1,
       "items": { "$ref": "common.schema.json#/$defs/legalReference" }
@@ -56,7 +73,7 @@
       "title": "BurdenStatus",
       "enum": ["active", "promulgated_not_effective", "abolished"]
     },
-    "source_url": { "$ref": "common.schema.json#/$defs/sourceUrl" },
+    "source_urls": { "$ref": "common.schema.json#/$defs/sourceUrls" },
     "checked_at": { "$ref": "common.schema.json#/$defs/dateTime" }
   }
 }
