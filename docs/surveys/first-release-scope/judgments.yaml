@@ -2,7 +2,7 @@
 # candidates.json の全件を判定する。全件に判定があることは tests/survey.test.ts で検査する。
 # target: 最初のリリースの対象、later: 全体の範囲だが最初のリリースの対象外、pending: ユーザーの判断が必要、excluded: 対象外。
 survey_id: first-release-scope
-judged_against: 2026-11-03T03:22:26Z
+judged_against: 2026-11-03T12:22:26+09:00
 judgments:
   - law_id: 129AC0000000089
     law_title: 民法

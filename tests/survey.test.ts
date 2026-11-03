@@ -47,13 +47,13 @@ test("hits are merged by law, sorted, and repealed laws are excluded", () => {
 });
 
 function candidates(laws: SurveyCandidates["laws"], overrides: Partial<SurveyCandidates> = {}): SurveyCandidates {
-  return { survey_id: "s", retrieved_at: "2026-11-01T00:00:00Z", base_url: "https://example.com/", law_type: "Act", condition_results: [{ condition_id: "a-cond", law_count: laws.length }], laws, articles: [], ...overrides };
+  return { survey_id: "s", retrieved_at: "2026-11-01T09:00:00+09:00", base_url: "https://example.com/", law_type: "Act", condition_results: [{ condition_id: "a-cond", law_count: laws.length }], laws, articles: [], ...overrides };
 }
 
 test("diffs report added, removed, and revised laws but ignore the retrieval time", () => {
   const { laws } = mergeHits([{ conditionId: "a-cond", hits: [hit("999AC0000000001"), hit("999AC0000000002")] }]);
   const recorded = candidates(laws);
-  assert.equal(hasDifferences(diffCandidates(recorded, { ...recorded, retrieved_at: "2026-12-01T00:00:00Z" })), false);
+  assert.equal(hasDifferences(diffCandidates(recorded, { ...recorded, retrieved_at: "2026-12-01T09:00:00+09:00" })), false);
   const changed = mergeHits([{ conditionId: "a-cond", hits: [hit("999AC0000000002", { law_revision_id: "r2" }), hit("999AC0000000003")] }]).laws;
   const diff = diffCandidates(recorded, candidates(changed));
   assert.deepEqual(diff.added, ["999AC0000000003 法999AC0000000003"]);
@@ -65,7 +65,7 @@ test("judgments must cover every candidate exactly once", () => {
   const { laws } = mergeHits([{ conditionId: "a-cond", hits: [hit("999AC0000000001"), hit("999AC0000000002")] }]);
   const errors = checkJudgments(candidates(laws), {
     survey_id: "s",
-    judged_against: "2026-11-01T00:00:00Z",
+    judged_against: "2026-11-01T09:00:00+09:00",
     judgments: [
       { law_id: "999AC0000000001", law_title: "a", judgment: "target", reason: "課税する規定", articles: ["第一条"], groups: ["missing"] },
       { law_id: "999AC0000000001", law_title: "a", judgment: "excluded", reason: "重複した判定" },
@@ -128,7 +128,7 @@ test("a survey run records condition counts and article text", async () => {
       { condition_id: "c-art", burden_category: "local_tax", method: "articles", law_id: "999AC0000000001", elms: ["MainProvision-Article_4"], description: "条項" }
     ]
   }, fake as never, { baseUrl: "https://example.com/", now: () => new Date("2026-11-03T01:02:03.456Z") });
-  assert.equal(result.retrieved_at, "2026-11-03T01:02:03Z");
+  assert.equal(result.retrieved_at, "2026-11-03T10:02:03+09:00");
   assert.deepEqual(result.condition_results, [{ condition_id: "c-cat", law_count: 1, excluded_repealed_count: 0 }, { condition_id: "c-key", law_count: 1, excluded_repealed_count: 1 }]);
   assert.deepEqual(result.laws[0]!.matched_conditions, ["c-cat", "c-key"]);
   assert.equal(result.articles[0]!.text, "第四条");

@@ -29,9 +29,10 @@
     },
     "dateTime": {
       "title": "DateTime",
-      "description": "タイムゾーン付きのISO 8601日時。",
+      "description": "日本標準時（JST）のISO 8601日時。タイムゾーンは +09:00 で記録する。",
       "type": "string",
-      "format": "date-time"
+      "format": "date-time",
+      "pattern": "\\+09:00$"
     },
     "date": {
       "title": "IsoDate",

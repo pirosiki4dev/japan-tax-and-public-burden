@@ -1,4 +1,5 @@
 import { mergeHits } from "../domain/survey.ts";
+import { formatJst } from "../domain/time.ts";
 import type { SurveyArticle, SurveyCandidates, SurveyConditions } from "../domain/types.generated.ts";
 import type { EgovClient } from "./egov-client.ts";
 
@@ -21,7 +22,7 @@ export async function runSurvey(conditions: SurveyConditions, client: EgovClient
     }
   }
   const { laws, counts } = mergeHits(results);
-  const retrievedAt = new Date(Math.floor(now().getTime() / 1000) * 1000).toISOString().replace(".000Z", "Z");
+  const retrievedAt = formatJst(now());
   return {
     survey_id: conditions.survey_id,
     retrieved_at: retrievedAt,

@@ -99,7 +99,7 @@ export type SourceUrls = [SourceUrl, ...(SourceUrl)[]]
  */
 export type SourceUrl = string
 /**
- * タイムゾーン付きのISO 8601日時。
+ * 日本標準時（JST）のISO 8601日時。タイムゾーンは +09:00 で記録する。
  */
 export type DateTime = string
 export type BurdenStatus = ("active" | "promulgated_not_effective" | "abolished")
@@ -141,7 +141,7 @@ elms?: [EgovElement, ...(EgovElement)[]]
  */
 export type SurveyMethod = ("category" | "keyword" | "articles")
 /**
- * タイムゾーン付きのISO 8601日時。
+ * 日本標準時（JST）のISO 8601日時。タイムゾーンは +09:00 で記録する。
  */
 export type DateTime1 = string
 export type SurveyJudgment = {
