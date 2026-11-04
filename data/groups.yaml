@@ -335,10 +335,12 @@ groups:
     name: 健康保険料
     aggregation: classification
     parent_group_id: social-insurance
+    description: 一般保険料率は千分の三十から千分の百三十までの範囲内で保険者が決定する（協会は支部被保険者を単位に決定。健康保険法第百六十条第一項・第十三項）。介護保険料率は保険者が定め（同条第十六項）、子ども・子育て支援金率は政令で定める率（健康保険法施行令第四十五条の五で千分の二・五）の範囲内で保険者が定める（同法第百六十条の二）。保険者が選択する余地があるため、率と範囲は負担項目として登録しない。被保険者と事業主はそれぞれ保険料額の二分の一を負担する（任意継続被保険者は全額。同法第百六十一条第一項）
   - group_id: seamen-insurance-premium
     name: 船員保険料
     aggregation: classification
     parent_group_id: social-insurance
+    description: 疾病保険料率は千分の四十から千分の百三十まで（船員保険法第百二十一条第一項）、災害保健福祉保険料率は千分の十から千分の三十五まで（同法第百二十二条第一項）の範囲内で全国健康保険協会が決定し、子ども・子育て支援金率も協会が決定する（同法第百二十二条の二）。保険者が選択する余地があるため、率と範囲は負担項目として登録しない。負担の区分は同法第百二十五条による
   - group_id: employees-pension-insurance-premium
     name: 厚生年金保険料
     aggregation: classification
@@ -351,18 +353,22 @@ groups:
     name: 国民健康保険料
     aggregation: classification
     parent_group_id: social-insurance
+    description: 保険料の賦課額・保険料率等は、政令で定める基準に従って市町村の条例又は国民健康保険組合の規約で定める（国民健康保険法第八十一条）。保険者が定める値は登録せず、政令で定める賦課限度額だけを登録する
   - group_id: late-stage-elderly-medical-care-premium
     name: 後期高齢者医療保険料
     aggregation: classification
     parent_group_id: social-insurance
+    description: 保険料率は、政令で定める基準に従い後期高齢者医療広域連合の条例で定める（高齢者の医療の確保に関する法律第百四条第二項）。保険者が定める値は登録せず、政令で定める賦課限度額だけを登録する
   - group_id: long-term-care-insurance-premium
     name: 介護保険料
     aggregation: classification
     parent_group_id: social-insurance
+    description: 第一号被保険者の保険料率は、政令で定める基準に従い市町村の条例で定める（介護保険法第百二十九条第二項）。基準額は市町村が算定し、所得段階ごとの割合も特別の必要がある場合は市町村が設定できるため、政令の標準割合だけを登録する。第二号被保険者の保険料は医療保険者が医療保険の保険料と併せて徴収する
   - group_id: labour-insurance-premium
     name: 労働保険料
     aggregation: classification
     parent_group_id: social-insurance
+    description: 雇用保険率は法律に率がある（労働保険の保険料の徴収等に関する法律第十二条第四項）が、厚生労働大臣が同条第五項・第八項・第十項等により一年以内の期間を定めて変更するため、変更後の率を厚生労働省の公表資料により登録する。労災保険率と特別加入保険料率は同法施行規則で定める
   - group_id: child-rearing-contribution
     name: 子ども・子育て拠出金
     aggregation: classification
@@ -371,3 +377,45 @@ groups:
     name: 子ども・子育て支援金
     aggregation: classification
     parent_group_id: social-insurance
+    description: 子ども・子育て支援金率は、各医療保険の保険者が定める（健康保険法第百六十条の二等）。保険者が選択する余地があるため、負担項目として登録しない
+  # 社会保険料の集計用の下位グループ（#146）
+  - group_id: employees-pension-insurance-rate
+    name: 厚生年金保険料率
+    aggregation: sum
+    parent_group_id: employees-pension-insurance-premium
+    description: 被保険者分と事業主分を足すと厚生年金保険法第八十一条第四項の保険料率になる（第八十二条第一項により半額ずつ負担）
+  - group_id: employees-pension-insurance-rate-private-school
+    name: 厚生年金保険料率（第四号厚生年金被保険者）
+    aggregation: sum
+    parent_group_id: employees-pension-insurance-premium
+    description: 第四号厚生年金被保険者（私立学校教職員共済制度の加入者）の保険料率。被保険者分と事業主分を足すと保険料率になる。平成二十四年法律第六十三号附則第八十五条第二項により、日本私立学校振興・共済事業団が一定の範囲内の率を共済規程で定めることができる
+  - group_id: employment-insurance-rate-general
+    name: 雇用保険料率（一般の事業）
+    aggregation: sum
+    parent_group_id: labour-insurance-premium
+    description: 被保険者負担と事業主負担を足すと雇用保険率になる
+  - group_id: employment-insurance-rate-agriculture
+    name: 雇用保険料率（農林水産・清酒製造の事業）
+    aggregation: sum
+    parent_group_id: labour-insurance-premium
+    description: 被保険者負担と事業主負担を足すと雇用保険率になる
+  - group_id: employment-insurance-rate-construction
+    name: 雇用保険料率（建設の事業）
+    aggregation: sum
+    parent_group_id: labour-insurance-premium
+    description: 被保険者負担と事業主負担を足すと雇用保険率になる
+  - group_id: workers-accident-insurance-rates
+    name: 労災保険率
+    aggregation: select_one
+    parent_group_id: labour-insurance-premium
+    description: 事業の種類により、どれか1つが適用される（労働保険の保険料の徴収等に関する法律施行規則第十六条第一項・別表第一）。メリット制による増減（同法第十二条第三項）はレベル4として登録しない
+  - group_id: workers-accident-special-enrollment-2-rates
+    name: 第二種特別加入保険料率
+    aggregation: select_one
+    parent_group_id: labour-insurance-premium
+    description: 事業又は作業の種類により、どれか1つが適用される（労働保険の保険料の徴収等に関する法律施行規則第二十三条・別表第五）
+  - group_id: long-term-care-premium-standard-ratios
+    name: 介護保険料（第一号被保険者）の標準割合
+    aggregation: select_one
+    parent_group_id: long-term-care-insurance-premium
+    description: 介護保険法施行令第三十八条第一項の所得等の区分により、どれか1つが基準額に乗じられる

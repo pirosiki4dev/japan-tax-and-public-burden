@@ -1,7 +1,7 @@
 # 根拠法令の正本（schemas/legal-sources.schema.json）。監視対象の一覧を兼ね、law_idの昇順に並べる。
 # 最初の登録は #143 の調査（surveys/first-release-scope/）で対象と判定した法律。
 # reviewed_revision_id は調査時点の改正版で、#144〜#146 はこの版を基準に負担項目を登録する。
-# 政令・省令等は、負担項目の委任先として必要になったときに追加する（地方税法施行令は #145）。
+# 政令・省令等は、負担項目の委任先として必要になったときに追加する（地方税法施行令は #145、社会保険料の政令・省令は #146）。
 legal_sources:
   - law_id: 143AC0000000054
     title: 関税定率法
@@ -87,6 +87,12 @@ legal_sources:
     reviewed_revision_id: 333AC0000000192_20261001_507AC0000000087
     reviewed_at: 2026-11-03T12:22:26+09:00
     source_url: https://laws.e-gov.go.jp/law/333AC0000000192
+  - law_id: 333CO0000000362
+    title: 国民健康保険法施行令
+    law_number_raw: 昭和三十三年政令第三百六十二号
+    reviewed_revision_id: 333CO0000000362_20260801_508CO0000000240
+    reviewed_at: 2026-11-05T04:13:21+09:00
+    source_url: https://laws.e-gov.go.jp/law/333CO0000000362
   - law_id: 334AC0000000141
     title: 国民年金法
     law_number_raw: 昭和三十四年法律第百四十一号
@@ -147,6 +153,12 @@ legal_sources:
     reviewed_revision_id: 347AC0000000007_20250601_504AC0000000068
     reviewed_at: 2026-11-03T12:22:26+09:00
     source_url: https://laws.e-gov.go.jp/law/347AC0000000007
+  - law_id: 347M50002000008
+    title: 労働保険の保険料の徴収等に関する法律施行規則
+    law_number_raw: 昭和四十七年労働省令第八号
+    reviewed_revision_id: 347M50002000008_20260521_508M60000100088
+    reviewed_at: 2026-11-05T04:13:21+09:00
+    source_url: https://laws.e-gov.go.jp/law/347M50002000008
   - law_id: 349AC0000000079
     title: 電源開発促進税法
     law_number_raw: 昭和四十九年法律第七十九号
@@ -189,6 +201,24 @@ legal_sources:
     reviewed_revision_id: 410AC0000000137_20260525_506AC0000000052
     reviewed_at: 2026-11-03T12:22:26+09:00
     source_url: https://laws.e-gov.go.jp/law/410AC0000000137
+  - law_id: 410CO0000000412
+    title: 介護保険法施行令
+    law_number_raw: 平成十年政令第四百十二号
+    reviewed_revision_id: 410CO0000000412_20261001_508CO0000000274
+    reviewed_at: 2026-11-05T04:13:21+09:00
+    source_url: https://laws.e-gov.go.jp/law/410CO0000000412
+  - law_id: 417CO0000000092
+    title: 国民年金法による改定率の改定等に関する政令
+    law_number_raw: 平成十七年政令第九十二号
+    reviewed_revision_id: 417CO0000000092_20260401_508CO0000000075
+    reviewed_at: 2026-11-05T04:13:21+09:00
+    source_url: https://laws.e-gov.go.jp/law/417CO0000000092
+  - law_id: 419CO0000000318
+    title: 高齢者の医療の確保に関する法律施行令
+    law_number_raw: 平成十九年政令第三百十八号
+    reviewed_revision_id: 419CO0000000318_20261001_508CO0000000274
+    reviewed_at: 2026-11-05T04:13:21+09:00
+    source_url: https://laws.e-gov.go.jp/law/419CO0000000318
   - law_id: 423AC0000000117
     title: 東日本大震災からの復興のための施策を実施するために必要な財源の確保に関する特別措置法
     law_number_raw: 平成二十三年法律第百十七号
@@ -207,6 +237,12 @@ legal_sources:
     reviewed_revision_id: 426AC0000000011_20260401_507AC0000000013
     reviewed_at: 2026-11-03T12:22:26+09:00
     source_url: https://laws.e-gov.go.jp/law/426AC0000000011
+  - law_id: 426CO0000000213
+    title: 子ども・子育て支援法施行令
+    law_number_raw: 平成二十六年政令第二百十三号
+    reviewed_revision_id: 426CO0000000213_20261001_508CO0000000188
+    reviewed_at: 2026-11-05T04:13:21+09:00
+    source_url: https://laws.e-gov.go.jp/law/426CO0000000213
   - law_id: 430AC0000000016
     title: 国際観光旅客税法
     law_number_raw: 平成三十年法律第十六号
