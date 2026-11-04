@@ -19,7 +19,7 @@ export type KebabId = string
  */
 export type LawId = string
 /**
- * e-Gov法令API v2のelmパラメータで指定する条項の位置（例: MainProvision-Article_89-Paragraph_1、AppdxTable_1）。
+ * e-Gov法令API v2のelmパラメータで指定する条項の位置（例: MainProvision-Article_89-Paragraph_1、AppdxTable_1）。同名の要素が複数ある場合は、e-Gov法令APIの指定方法に従い出現順の番号を角括弧で付ける（例: 改正法の附則 SupplProvision[2]-Article_63-Paragraph_2-Item_1）。
  */
 export type EgovElement = string
 export type DescribedItem = (KnownItem | UnknownValue)

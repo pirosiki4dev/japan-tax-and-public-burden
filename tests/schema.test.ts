@@ -22,6 +22,12 @@ test("valid fixture documents pass their schemas", async () => {
   assert.deepEqual(validator.validate("sources", await readFixture("config/sources.yaml"), "sources"), []);
 });
 
+test("burdens schema accepts an indexed elm for an amending law's supplementary provisions", () => {
+  const document = clone(burden);
+  document.legal_bases = [{ law_id: "999AC0000000001", elm: "SupplProvision[2]-Article_63-Paragraph_2-Item_1" }];
+  assert.deepEqual(validator.validate("burdens", { burdens: [document] }, "burdens"), []);
+});
+
 const invalidBurdens: Array<[string, (document: Record<string, unknown>) => void]> = [
   ["missing source_urls", (document) => { delete document.source_urls; }],
   ["empty source_urls", (document) => { document.source_urls = []; }],
@@ -34,6 +40,7 @@ const invalidBurdens: Array<[string, (document: Record<string, unknown>) => void
   ["missing groups", (document) => { delete document.groups; }],
   ["invalid law_id", (document) => { document.legal_bases = [{ law_id: "abc" }]; }],
   ["invalid elm", (document) => { document.legal_bases = [{ law_id: "999AC0000000001", elm: "第一条" }]; }],
+  ["elm with an empty element index", (document) => { document.legal_bases = [{ law_id: "999AC0000000001", elm: "SupplProvision[]-Article_1" }]; }],
   ["unknown category", (document) => { document.category = "fee"; }],
   ["unknown value without reason", (document) => { document.tax_base = [{ unknown: true }]; }],
   ["unexpected property", (document) => { document.note = "x"; }]
