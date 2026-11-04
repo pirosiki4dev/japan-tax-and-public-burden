@@ -1,6 +1,7 @@
 # 根拠法令の正本（schemas/legal-sources.schema.json）。監視対象の一覧を兼ね、law_idの昇順に並べる。
 # 最初の登録は #143 の調査（surveys/first-release-scope/）で対象と判定した法律。
 # reviewed_revision_id は調査時点の改正版で、#144〜#146 はこの版を基準に負担項目を登録する。
+# 政令・省令等は、負担項目の委任先として必要になったときに追加する（地方税法施行令は #145）。
 legal_sources:
   - law_id: 143AC0000000054
     title: 関税定率法
@@ -32,6 +33,12 @@ legal_sources:
     reviewed_revision_id: 325AC0000000226_20261101_508AC0000000002
     reviewed_at: 2026-11-03T12:22:26+09:00
     source_url: https://laws.e-gov.go.jp/law/325AC0000000226
+  - law_id: 325CO0000000245
+    title: 地方税法施行令
+    law_number_raw: 昭和二十五年政令第二百四十五号
+    reviewed_revision_id: 325CO0000000245_20261101_508CO0000000083
+    reviewed_at: 2026-11-04T21:48:11+09:00
+    source_url: https://laws.e-gov.go.jp/law/325CO0000000245
   - law_id: 328AC0000000006
     title: 酒税法
     law_number_raw: 昭和二十八年法律第六号
