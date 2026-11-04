@@ -189,6 +189,52 @@ groups:
     aggregation: select_one
     parent_group_id: special-tonnage-due
     description: 特別とん税法第三条各号。入港ごとの納付か一年分の一時納付のどちらか
+  # 地方税の集計用の下位グループ（#145）
+  - group_id: prefectural-income-levy-rates
+    name: 道府県民税の所得割の税率
+    aggregation: select_one
+    parent_group_id: prefectural-inhabitant-tax
+    description: 地方税法第三十五条の標準税率。指定都市の区域内に住所を有するかどうかにより、どれか1つが適用される
+  - group_id: prefectural-corporate-per-capita-rates
+    name: 道府県民税の法人の均等割の税率
+    aggregation: select_one
+    parent_group_id: prefectural-inhabitant-tax
+    description: 地方税法第五十二条第一項の表の法人の区分ごとの標準税率
+  - group_id: enterprise-tax-special-corporation-progressive
+    name: 事業税の特別法人の所得割の税率
+    aggregation: progressive
+    parent_group_id: enterprise-tax
+    description: 地方税法第七十二条の二十四の七第一項第二号の所得の区分ごとの標準税率
+  - group_id: enterprise-tax-special-corporation-progressive-limit
+    name: 事業税の特別法人の所得割の制限税率
+    aggregation: progressive
+    parent_group_id: enterprise-tax
+    description: 上記の標準税率に同条第九項の倍率（一・二）を乗じた率
+  - group_id: enterprise-tax-other-corporation-progressive
+    name: 事業税のその他の法人の所得割の税率
+    aggregation: progressive
+    parent_group_id: enterprise-tax
+    description: 地方税法第七十二条の二十四の七第一項第三号の所得の区分ごとの標準税率
+  - group_id: enterprise-tax-other-corporation-progressive-limit
+    name: 事業税のその他の法人の所得割の制限税率
+    aggregation: progressive
+    parent_group_id: enterprise-tax
+    description: 上記の標準税率に同条第九項の倍率（一・二）を乗じた率
+  - group_id: municipal-income-levy-rates
+    name: 市町村民税の所得割の税率
+    aggregation: select_one
+    parent_group_id: municipal-inhabitant-tax
+    description: 地方税法第三百十四条の三の標準税率。指定都市の区域内に住所を有するかどうかにより、どれか1つが適用される
+  - group_id: municipal-corporate-per-capita-rates
+    name: 市町村民税の法人の均等割の税率
+    aggregation: select_one
+    parent_group_id: municipal-inhabitant-tax
+    description: 地方税法第三百十二条第一項の表の法人の区分ごとの標準税率
+  - group_id: municipal-corporate-per-capita-rates-limit
+    name: 市町村民税の法人の均等割の制限税率
+    aggregation: select_one
+    parent_group_id: municipal-inhabitant-tax
+    description: 上記の標準税率に同条第二項の倍率（一・二）を乗じた額
   - group_id: prefectural-inhabitant-tax
     name: 道府県民税
     aggregation: classification

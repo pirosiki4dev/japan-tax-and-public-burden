@@ -26,7 +26,9 @@ test("target laws and registered legal sources match", async () => {
   const judgments = await loadJudgments();
   const { data } = await loadRepository(ROOT);
   const targets = judgments.judgments.filter((judgment) => judgment.judgment === "target").map((judgment) => judgment.law_id).sort();
-  assert.deepEqual(data.legalSources.map((source) => source.law_id), targets);
+  // 調査の対象は法律。政令・省令等は負担項目の委任先として後から追加するため、照合しない
+  const acts = data.legalSources.map((source) => source.law_id).filter((lawId) => /^[0-9]{3}AC/.test(lawId));
+  assert.deepEqual(acts, targets);
 });
 
 const hit = (lawId: string, overrides: Partial<EgovLawHit> = {}): EgovLawHit => ({
