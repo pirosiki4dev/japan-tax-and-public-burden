@@ -1,4 +1,4 @@
-import type { Fetcher } from "./egov.ts";
+import type { Fetcher } from "./http.ts";
 import { markersIn, type PlannedIssue } from "./report.ts";
 
 export interface IssueTracker {

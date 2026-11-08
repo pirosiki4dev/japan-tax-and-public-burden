@@ -1,7 +1,8 @@
 import type { RepositoryData } from "../domain/repository.ts";
 import type { Source } from "../domain/types.generated.ts";
 import { checkLaw, provisionUsers, type LawCheck } from "./detect.ts";
-import { EgovClient, type Fetcher } from "./egov.ts";
+import { EgovClient } from "./egov.ts";
+import type { Fetcher } from "./http.ts";
 import type { IssueTracker } from "./github.ts";
 import { planIssues, type PlannedIssue } from "./report.ts";
 

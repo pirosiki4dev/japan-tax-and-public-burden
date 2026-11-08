@@ -1,7 +1,5 @@
+import type { Fetcher } from "./http.ts";
 import type { LawNode } from "./law-text.ts";
-
-/** fetch と同じ形の関数。テストでは保存した応答を返す関数に差し替える。 */
-export type Fetcher = (url: string, init?: RequestInit) => Promise<Response>;
 
 /** 改正履歴（law_revisions）の1つの改正版のうち、監視で使う項目。 */
 export interface RevisionSummary {
