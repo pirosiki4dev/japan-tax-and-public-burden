@@ -11,7 +11,7 @@ import type { Fetcher } from "../src/monitor/http.ts";
 import { GitHubIssues, type IssueTracker } from "../src/monitor/github.ts";
 import { locate, parseElm, textOf, type LawNode } from "../src/monitor/law-text.ts";
 import { markersIn, revisionKey, failureKey, type PlannedIssue } from "../src/monitor/report.ts";
-import { runEgovMonitor } from "../src/monitor/run.ts";
+import { runMonitor } from "../src/monitor/run.ts";
 import { ROOT, SCHEMA_DIR, VALID_REPO } from "./helpers.ts";
 
 const FIXTURES = join(ROOT, "tests/fixtures/egov");
@@ -102,7 +102,7 @@ test("compareProvision detects text changes, removals, and index shifts", async 
 test("only laws whose current revision differs from the reviewed revision become amendment issues", async () => {
   const { fetcher } = fixtureFetcher({ [`law_revisions/${M1}`]: () => json({ revisions: [{ law_revision_id: `${M1}_20200401_000000000000000`, current_revision_status: "CurrentEnforced", amendment_law_id: null, amendment_law_num: null, amendment_promulgate_date: null, amendment_enforcement_date: "2020-04-01" }] }) });
   const tracker = new MemoryTracker();
-  const result = await runEgovMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker });
+  const result = await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker });
 
   assert.equal(byLaw(result.checks, L1).kind, "revised");
   assert.equal(byLaw(result.checks, L2).kind, "unchanged");
@@ -124,7 +124,7 @@ test("only laws whose current revision differs from the reviewed revision become
 test("no issue is created while an open issue for the same law and revision exists", async () => {
   const { fetcher } = fixtureFetcher({ [`law_revisions/${M1}`]: () => json({ code: "404001" }, 404) });
   const tracker = new MemoryTracker(new Set([revisionKey(L1, CURRENT)]));
-  const result = await runEgovMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker });
+  const result = await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker });
   assert.deepEqual(result.skipped.map((issue) => issue.key), [revisionKey(L1, CURRENT)]);
   assert.deepEqual(tracker.created.map((issue) => issue.key), [failureKey(M1, "fetch_failed")]);
 });
@@ -141,7 +141,7 @@ test("fetch failures and format changes are reported separately from amendments"
   for (const [label, respond, kind, message] of cases) {
     const { fetcher } = fixtureFetcher({ [`law_revisions/${M1}`]: respond });
     const tracker = new MemoryTracker();
-    await runEgovMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker, lawIds: [M1] });
+    await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker, lawIds: [M1] });
     assert.equal(tracker.created.length, 1, label);
     const [issue] = tracker.created;
     assert.equal(issue!.key, failureKey(M1, kind), label);
@@ -154,7 +154,7 @@ test("fetch failures and format changes are reported separately from amendments"
 test("network errors are retried before being reported", async () => {
   let calls = 0;
   const { fetcher } = fixtureFetcher({ [`law_revisions/${L2}`]: () => { calls++; if (calls < 3) throw new TypeError("fetch failed"); return json({ revisions: [{ law_revision_id: `${L2}_20200401_000000000000000`, current_revision_status: "CurrentEnforced", amendment_law_id: null, amendment_law_num: null, amendment_promulgate_date: null, amendment_enforcement_date: null }] }); } });
-  const result = await runEgovMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, lawIds: [L2] });
+  const result = await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, lawIds: [L2] });
   assert.equal(calls, 3);
   assert.equal(result.checks[0]!.kind, "unchanged");
 });
@@ -172,29 +172,54 @@ test("requests keep the configured interval", async () => {
 
 test("a dry run creates no issues and the API base URL comes from config/sources.yaml", async () => {
   const { fetcher, requested } = fixtureFetcher({ [`law_revisions/${M1}`]: () => json({ code: "404001" }, 404) });
-  const result = await runEgovMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep });
+  const result = await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep });
   assert.equal(result.planned.length, 2);
   assert.deepEqual(result.created, []);
   assert.ok(requested.every((url) => url.startsWith(BASE)), requested.join("\n"));
 });
 
-test("the e-Gov source must be configured and enabled", async () => {
+test("each enabled source in config/sources.yaml is monitored, and sources without a monitor are reported", async () => {
   const data = await monitorData();
+  data.sources.sources.push(
+    { source_id: "example-page", name: "例示の公表ページ", base_url: "https://page.example.test/", rate_limit: "テスト用", request_interval_ms: 0, enabled: true },
+    { source_id: "example-disabled", name: "無効な巡回先", base_url: "https://disabled.example.test/", rate_limit: "テスト用", request_interval_ms: 0, enabled: false }
+  );
+  const { fetcher, requested } = fixtureFetcher({ [`law_revisions/${M1}`]: () => json({ code: "404001" }, 404) });
+  const logs: string[] = [];
+  const result = await runMonitor({ data, detectedAt: DETECTED_AT, fetcher, sleep: noSleep, log: (message) => logs.push(message) });
+  assert.deepEqual(result.sources, [
+    { source_id: "egov-law-api", status: "monitored" },
+    { source_id: "example-page", status: "not_implemented" },
+    { source_id: "example-disabled", status: "disabled" }
+  ]);
+  assert.ok(requested.every((url) => url.startsWith(BASE)), requested.join("\n"));
+  assert.ok(logs.some((line) => line.includes("example-page: 監視の処理が未実装")), logs.join("\n"));
+
+  const only = await runMonitor({ data, detectedAt: DETECTED_AT, fetcher, sleep: noSleep, sourceIds: ["example-page"] });
+  assert.deepEqual(only.sources, [{ source_id: "example-page", status: "not_implemented" }]);
+  assert.deepEqual(only.checks, []);
+});
+
+test("source and law filters are validated", async () => {
+  const data = await monitorData();
+  const { fetcher } = fixtureFetcher();
+  await assert.rejects(runMonitor({ data, detectedAt: DETECTED_AT, fetcher, sourceIds: ["missing-source"] }), /config\/sources.yaml にない source_id: missing-source/);
+  await assert.rejects(runMonitor({ data, detectedAt: DETECTED_AT, fetcher, lawIds: ["999AC0000000099"] }), /data\/legal-sources.yaml にない law_id/);
   data.sources.sources[0]!.enabled = false;
-  await assert.rejects(runEgovMonitor({ data, detectedAt: DETECTED_AT, fetcher: fixtureFetcher().fetcher }), /enabled: false/);
-  data.sources.sources = [];
-  await assert.rejects(runEgovMonitor({ data, detectedAt: DETECTED_AT, fetcher: fixtureFetcher().fetcher }), /egov-law-api がない/);
+  await assert.rejects(runMonitor({ data, detectedAt: DETECTED_AT, fetcher, lawIds: [L1] }), /有効な egov-law-api/);
+  const result = await runMonitor({ data, detectedAt: DETECTED_AT, fetcher });
+  assert.deepEqual(result.sources, [{ source_id: "egov-law-api", status: "disabled" }]);
 });
 
 test("GitHubIssues reads markers from open issues only and creates issues by POST", async () => {
   const calls: { url: string; method: string; body?: string }[] = [];
-  const page = (n: number) => Array.from({ length: n }, (_, i) => ({ body: `<!-- monitor-egov: revision A ${i} -->` }));
+  const page = (n: number) => Array.from({ length: n }, (_, i) => ({ body: `<!-- monitor: revision A ${i} -->` }));
   const fetcher: Fetcher = async (input, init) => {
     const url = String(input);
     calls.push({ url, method: init?.method ?? "GET", body: init?.body as string | undefined });
     if (init?.method === "POST") return json({ html_url: "https://github.com/o/r/issues/1" }, 201);
-    if (url.endsWith("page=1")) return json([...page(99), { body: "<!-- monitor-egov: revision PR -->", pull_request: {} }]);
-    return json([{ body: "<!-- monitor-egov: failure B fetch_failed -->" }, { body: null }]);
+    if (url.endsWith("page=1")) return json([...page(99), { body: "<!-- monitor: revision PR -->", pull_request: {} }]);
+    return json([{ body: "<!-- monitor: failure B fetch_failed -->" }, { body: null }]);
   };
   const github = new GitHubIssues({ repository: "o/r", token: "t", api: "https://api.example.test", fetcher });
   const keys = await github.openIssueKeys();
@@ -211,7 +236,7 @@ test("GitHubIssues reads markers from open issues only and creates issues by POS
 });
 
 test("the monitor workflow is manual only, read-only for contents, and limited to issues", async () => {
-  const workflow = await readFile(join(ROOT, ".github/workflows/monitor-egov.yml"), "utf8");
+  const workflow = await readFile(join(ROOT, ".github/workflows/monitor.yml"), "utf8");
   assert.match(workflow, /^permissions:\n  contents: read\n  issues: write\n\n/m);
   assert.doesNotMatch(workflow, /^\s*schedule:/m, "定期実行の開始はユーザーの判断で行う");
   assert.doesNotMatch(workflow, /contents: write|git push/);
