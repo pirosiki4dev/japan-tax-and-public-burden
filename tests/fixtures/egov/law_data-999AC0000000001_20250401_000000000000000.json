@@ -1,0 +1,436 @@
+{
+ "attached_files_info": null,
+ "law_info": {
+  "law_type": "Act",
+  "law_id": "999AC0000000001",
+  "law_num": "令和元年法律第九百九十九号",
+  "law_num_era": "Reiwa",
+  "law_num_year": 1,
+  "law_num_type": "Act",
+  "law_num_num": "999",
+  "promulgation_date": "2019-05-01"
+ },
+ "revision_info": {
+  "law_revision_id": "999AC0000000001_20250401_000000000000000"
+ },
+ "law_full_text": {
+  "tag": "Law",
+  "attr": {
+   "Era": "Reiwa",
+   "Year": "01",
+   "Num": "999",
+   "LawType": "Act",
+   "Lang": "ja"
+  },
+  "children": [
+   {
+    "tag": "LawNum",
+    "attr": {},
+    "children": [
+     "令和元年法律第九百九十九号"
+    ]
+   },
+   {
+    "tag": "LawBody",
+    "attr": {},
+    "children": [
+     {
+      "tag": "LawTitle",
+      "attr": {},
+      "children": [
+       "例示税法"
+      ]
+     },
+     {
+      "tag": "MainProvision",
+      "attr": {},
+      "children": [
+       {
+        "tag": "Chapter",
+        "attr": {
+         "Num": "1"
+        },
+        "children": [
+         {
+          "tag": "ChapterTitle",
+          "attr": {},
+          "children": [
+           "第一章　総則"
+          ]
+         },
+         {
+          "tag": "Article",
+          "attr": {
+           "Num": "1"
+          },
+          "children": [
+           {
+            "tag": "ArticleTitle",
+            "attr": {},
+            "children": [
+             "第一条"
+            ]
+           },
+           {
+            "tag": "Paragraph",
+            "attr": {
+             "Num": "1"
+            },
+            "children": [
+             {
+              "tag": "ParagraphNum",
+              "attr": {},
+              "children": []
+             },
+             {
+              "tag": "ParagraphSentence",
+              "attr": {},
+              "children": [
+               {
+                "tag": "Sentence",
+                "attr": {
+                 "Num": "1"
+                },
+                "children": [
+                 "この法律は、例示税について定める。"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "tag": "Article",
+          "attr": {
+           "Num": "2"
+          },
+          "children": [
+           {
+            "tag": "ArticleTitle",
+            "attr": {},
+            "children": [
+             "第二条"
+            ]
+           },
+           {
+            "tag": "Paragraph",
+            "attr": {
+             "Num": "1"
+            },
+            "children": [
+             {
+              "tag": "ParagraphNum",
+              "attr": {},
+              "children": []
+             },
+             {
+              "tag": "ParagraphSentence",
+              "attr": {},
+              "children": [
+               {
+                "tag": "Sentence",
+                "attr": {
+                 "Num": "1"
+                },
+                "children": [
+                 "例示税の課税標準は、価格とする。"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "tag": "Article",
+          "attr": {
+           "Num": "3"
+          },
+          "children": [
+           {
+            "tag": "ArticleTitle",
+            "attr": {},
+            "children": [
+             "第三条"
+            ]
+           },
+           {
+            "tag": "Paragraph",
+            "attr": {
+             "Num": "1"
+            },
+            "children": [
+             {
+              "tag": "ParagraphNum",
+              "attr": {},
+              "children": []
+             },
+             {
+              "tag": "ParagraphSentence",
+              "attr": {},
+              "children": [
+               {
+                "tag": "Sentence",
+                "attr": {
+                 "Num": "1"
+                },
+                "children": [
+                 "例示税の税率は、百分の十とする。"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "tag": "Article",
+          "attr": {
+           "Num": "3_2"
+          },
+          "children": [
+           {
+            "tag": "ArticleTitle",
+            "attr": {},
+            "children": [
+             "第三条の二"
+            ]
+           },
+           {
+            "tag": "Paragraph",
+            "attr": {
+             "Num": "1"
+            },
+            "children": [
+             {
+              "tag": "ParagraphNum",
+              "attr": {},
+              "children": []
+             },
+             {
+              "tag": "ParagraphSentence",
+              "attr": {},
+              "children": [
+               {
+                "tag": "Sentence",
+                "attr": {
+                 "Num": "1"
+                },
+                "children": [
+                 "軽減税率は、百分の八とする。"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "tag": "Article",
+          "attr": {
+           "Num": "4"
+          },
+          "children": [
+           {
+            "tag": "ArticleTitle",
+            "attr": {},
+            "children": [
+             "第四条"
+            ]
+           },
+           {
+            "tag": "Paragraph",
+            "attr": {
+             "Num": "1"
+            },
+            "children": [
+             {
+              "tag": "ParagraphNum",
+              "attr": {},
+              "children": []
+             },
+             {
+              "tag": "ParagraphSentence",
+              "attr": {},
+              "children": [
+               {
+                "tag": "Sentence",
+                "attr": {
+                 "Num": "1"
+                },
+                "children": [
+                 "税率の細目は、省令で定める。"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "SupplProvision",
+      "attr": {},
+      "children": [
+       {
+        "tag": "SupplProvisionLabel",
+        "attr": {},
+        "children": [
+         "附　則"
+        ]
+       },
+       {
+        "tag": "Article",
+        "attr": {
+         "Num": "1"
+        },
+        "children": [
+         {
+          "tag": "ArticleTitle",
+          "attr": {},
+          "children": [
+           "第一条"
+          ]
+         },
+         {
+          "tag": "Paragraph",
+          "attr": {
+           "Num": "1"
+          },
+          "children": [
+           {
+            "tag": "ParagraphNum",
+            "attr": {},
+            "children": []
+           },
+           {
+            "tag": "ParagraphSentence",
+            "attr": {},
+            "children": [
+             {
+              "tag": "Sentence",
+              "attr": {
+               "Num": "1"
+              },
+              "children": [
+               "この法律は、公布の日から施行する。"
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "SupplProvision",
+      "attr": {
+       "AmendLawNum": "令和七年法律第九百九十六号"
+      },
+      "children": [
+       {
+        "tag": "SupplProvisionLabel",
+        "attr": {},
+        "children": [
+         "附　則"
+        ]
+       },
+       {
+        "tag": "Article",
+        "attr": {
+         "Num": "1"
+        },
+        "children": [
+         {
+          "tag": "ArticleTitle",
+          "attr": {},
+          "children": [
+           "第一条"
+          ]
+         },
+         {
+          "tag": "Paragraph",
+          "attr": {
+           "Num": "1"
+          },
+          "children": [
+           {
+            "tag": "ParagraphNum",
+            "attr": {},
+            "children": []
+           },
+           {
+            "tag": "ParagraphSentence",
+            "attr": {},
+            "children": [
+             {
+              "tag": "Sentence",
+              "attr": {
+               "Num": "1"
+              },
+              "children": [
+               "経過措置の税率は、百分の五とする。"
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "AppdxTable",
+      "attr": {},
+      "children": [
+       {
+        "tag": "AppdxTableTitle",
+        "attr": {},
+        "children": [
+         "別表第一（第三条関係）"
+        ]
+       },
+       {
+        "tag": "TableStruct",
+        "attr": {},
+        "children": [
+         {
+          "tag": "Table",
+          "attr": {},
+          "children": [
+           {
+            "tag": "TableRow",
+            "attr": {},
+            "children": [
+             {
+              "tag": "TableColumn",
+              "attr": {},
+              "children": [
+               "区分　百分の十"
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
