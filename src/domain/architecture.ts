@@ -1,4 +1,4 @@
-/** src/ 直下のディレクトリを層とし、依存してよい層を定める（ADR 0003）。 */
+/** src/ 直下のディレクトリを層とし、依存してよい層を定める。各層の役割は ADR 0003「3. フォルダ構成」の「src/ の層」に記載する（変更するときは同時に更新する）。 */
 export const LAYERS = ["cli", "monitor", "build", "data", "domain"] as const;
 export type Layer = (typeof LAYERS)[number];
 
