@@ -1,0 +1,2 @@
+# 配布物（dist/）は生成した内容とバイト単位で比べる（npm run dist:check）。burdens.csv の改行（CRLF）を変換しない。
+/dist/** -text

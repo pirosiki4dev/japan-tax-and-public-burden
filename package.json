@@ -8,12 +8,14 @@
     "node": ">=24"
   },
   "scripts": {
-    "check": "npm run typecheck && npm test && npm run validate && npm run types:check && npm run architecture:check",
+    "check": "npm run typecheck && npm test && npm run validate && npm run types:check && npm run dist:check && npm run architecture:check",
     "typecheck": "tsc --noEmit",
     "test": "node --test \"tests/**/*.test.ts\" \"surveys/**/*.test.ts\"",
     "validate": "node src/cli/validate.ts",
     "types:generate": "node src/cli/generate-types.ts",
     "types:check": "node src/cli/generate-types.ts --check",
+    "dist:generate": "node src/cli/dist.ts",
+    "dist:check": "node src/cli/dist.ts --check",
     "architecture:check": "node src/cli/check-architecture.ts",
     "monitor": "node src/cli/monitor.ts"
   },
