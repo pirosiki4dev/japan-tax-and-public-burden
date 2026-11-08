@@ -56,7 +56,9 @@ export async function loadRepository(root: string, schemaDir = join(root, "schem
 
   const { burdens } = (await load<Burdens>(join(root, "data/burdens.yaml"), "burdens")) ?? { burdens: [] };
 
-  const legalSources = (await load<LegalSources>(join(root, "data/legal-sources.yaml"), "legal-sources"))?.legal_sources ?? [];
+  const legal = await load<LegalSources>(join(root, "data/legal-sources.yaml"), "legal-sources");
+  const legalSources = legal?.legal_sources ?? [];
+  const publishedDocuments = legal?.published_documents ?? [];
   const groups = (await load<BurdenGroups>(join(root, "data/groups.yaml"), "groups")) ?? { groups: [] };
   const scopeDecisions = (await load<ScopeDecisions>(join(root, "data/scope-decisions.yaml"), "scope-decisions")) ?? { decisions: [] };
   const sources = (await load<SourceRegistry>(join(root, "config/sources.yaml"), "sources")) ?? { sources: [] };
@@ -65,5 +67,5 @@ export async function loadRepository(root: string, schemaDir = join(root, "schem
     if (!handled.has(path)) errors.push(`${display(path)}: no validation route (unexpected file)`);
   }
 
-  return { data: { burdens, groups, legalSources, scopeDecisions, sources }, errors };
+  return { data: { burdens, groups, legalSources, publishedDocuments, scopeDecisions, sources }, errors };
 }

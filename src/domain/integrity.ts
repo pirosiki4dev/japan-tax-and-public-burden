@@ -151,5 +151,13 @@ export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string })
   }
   for (const sourceId of duplicates(data.sources.sources.map((source) => source.source_id))) errors.push(`config/sources.yaml: duplicate source_id ${sourceId}`);
 
+  const sourceIds = new Set(data.sources.sources.map((source) => source.source_id));
+  const documentSourceIds = data.publishedDocuments.map((document) => document.source_id);
+  for (const sourceId of duplicates(documentSourceIds)) errors.push(`${LEGAL_SOURCES_FILE}: duplicate published_documents source_id ${sourceId} (record only the latest document)`);
+  checkSorted(documentSourceIds, LEGAL_SOURCES_FILE, "source_id", errors);
+  for (const { source_id: sourceId } of data.publishedDocuments) {
+    if (!sourceIds.has(sourceId)) errors.push(`${LEGAL_SOURCES_FILE} published_documents ${sourceId}: unknown source_id (add it to config/sources.yaml)`);
+  }
+
   return { errors, warnings };
 }

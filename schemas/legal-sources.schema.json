@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "legal-sources.schema.json",
   "title": "LegalSources",
-  "description": "根拠法令の正本（data/legal-sources.yaml）。law_idの昇順に並べる。",
+  "description": "根拠の正本（data/legal-sources.yaml）。監視対象の一覧を兼ねる。legal_sources は law_id の昇順、published_documents は source_id の昇順に並べる。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -10,9 +10,55 @@
   ],
   "properties": {
     "legal_sources": {
+      "description": "e-Gov法令APIで取得する根拠法令。",
       "type": "array",
       "items": {
         "$ref": "legal-source.schema.json"
+      }
+    },
+    "published_documents": {
+      "description": "e-Gov法令APIで取得できない告示等の値を公表する資料。公表ページ（config/sources.yaml の巡回先）ごとに、最新の資料を1件だけ記録する。",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/publishedDocument"
+      }
+    }
+  },
+  "$defs": {
+    "publishedDocument": {
+      "title": "PublishedDocument",
+      "description": "公表ページに掲載された最新の資料と、人がマスタへの反映を確認したファイルのSHA-256。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "title",
+        "reviewed_sha256",
+        "reviewed_at",
+        "source_url"
+      ],
+      "properties": {
+        "source_id": {
+          "description": "資料を掲載する公表ページの、config/sources.yaml の source_id。",
+          "$ref": "common.schema.json#/$defs/kebabId"
+        },
+        "title": {
+          "description": "資料の題名（原文）。",
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewed_sha256": {
+          "description": "人がマスタへの反映を確認した資料のファイルのSHA-256（16進数の小文字）。数値と解釈されないよう、YAMLでは引用符で囲む。",
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "reviewed_at": {
+          "$ref": "common.schema.json#/$defs/dateTime"
+        },
+        "source_url": {
+          "description": "資料のURL。",
+          "$ref": "common.schema.json#/$defs/sourceUrl"
+        }
       }
     }
   }

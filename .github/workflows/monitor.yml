@@ -1,7 +1,7 @@
 name: Monitor sources
 
 # config/sources.yaml の巡回先を監視し、検知した変化をIssueにする（ADR 0003「最初のリリースの監視方式」）。
-# 現在はe-Gov法令APIで根拠法令（data/legal-sources.yaml）の改正を検知する。
+# e-Gov法令APIで根拠法令の改正を、公表ページで最新の資料の変化を検知する（確認済みの状態はどちらも data/legal-sources.yaml）。
 # 定期実行はユーザーの判断で開始する（AGENTS.md「停止と追加承認」）。開始するときは、次の schedule のコメントを外す。
 # 例: 毎日 6:00（JST）に実行する場合（cron は UTC で指定する）
 #   schedule:

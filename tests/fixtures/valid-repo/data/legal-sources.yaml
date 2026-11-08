@@ -1,4 +1,4 @@
-# テスト専用の架空の法令。実在の法令ではない。
+# テスト専用の架空の法令と資料。実在のものではない。
 legal_sources:
   - law_id: 999AC0000000001
     title: 例示税法
@@ -16,3 +16,9 @@ legal_sources:
     reviewed_revision_id: 999M60000000001_20200401_000000000000000
     reviewed_at: 2026-11-01T09:00:00+09:00
     source_url: https://example.com/laws/999M60000000001
+published_documents:
+  - source_id: example-source
+    title: 令和８年度 例示料率のご案内
+    reviewed_sha256: "0000000000000000000000000000000000000000000000000000000000000001"
+    reviewed_at: 2026-11-01T09:00:00+09:00
+    source_url: https://example.com/content/r8.pdf

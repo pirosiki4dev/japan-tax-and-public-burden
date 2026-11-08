@@ -68,6 +68,18 @@ export class HttpClient {
     }
   }
 
+  /** 応答の本文（文字列）。404 は undefined を返す。 */
+  async getText(url: string, accept = "text/html"): Promise<string | undefined> {
+    const response = await this.get(url, accept);
+    return response ? response.text() : undefined;
+  }
+
+  /** 応答の本文（バイト列）。404 は undefined を返す。 */
+  async getBytes(url: string, accept = "*/*"): Promise<Uint8Array | undefined> {
+    const response = await this.get(url, accept);
+    return response ? new Uint8Array(await response.arrayBuffer()) : undefined;
+  }
+
   /** 応答の本文（JSON）。404 は undefined を返す。JSONでなければ MonitorFailure（unexpected_format）にする。 */
   async getJson(url: string): Promise<unknown> {
     const response = await this.get(url, "application/json");

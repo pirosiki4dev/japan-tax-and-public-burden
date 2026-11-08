@@ -107,6 +107,14 @@ export type BurdenStatus = ("active" | "promulgated_not_effective" | "abolished"
  * sum: 所属する率・金額を足すと全体の負担になる、progressive: 区分ごとに計算して合計する（累進）、select_one: 条件によりどれか1つが適用される、classification: 分類だけで率・金額を合算しない。
  */
 export type GroupAggregation = ("sum" | "progressive" | "select_one" | "classification")
+/**
+ * 英小文字・数字のkebab-caseによる永続ID。一度公開したIDは変更しない。
+ */
+export type KebabId1 = string
+/**
+ * 根拠とした公式一次情報のURL。
+ */
+export type SourceUrl1 = string
 
 export interface RepositorySchemas {
 burdens?: Burdens
@@ -262,10 +270,17 @@ parent_group_id?: KebabId
 description?: string
 }
 /**
- * 根拠法令の正本（data/legal-sources.yaml）。law_idの昇順に並べる。
+ * 根拠の正本（data/legal-sources.yaml）。監視対象の一覧を兼ねる。legal_sources は law_id の昇順、published_documents は source_id の昇順に並べる。
  */
 export interface LegalSources {
+/**
+ * e-Gov法令APIで取得する根拠法令。
+ */
 legal_sources: LegalSource[]
+/**
+ * e-Gov法令APIで取得できない告示等の値を公表する資料。公表ページ（config/sources.yaml の巡回先）ごとに、最新の資料を1件だけ記録する。
+ */
+published_documents?: PublishedDocument[]
 }
 /**
  * 根拠法令（data/legal-sources.yaml の legal_sources の要素）。監視対象の一覧を兼ねる。
@@ -283,6 +298,22 @@ law_number_raw?: string
 reviewed_revision_id: string
 reviewed_at: DateTime
 source_url: SourceUrl
+}
+/**
+ * 公表ページに掲載された最新の資料と、人がマスタへの反映を確認したファイルのSHA-256。
+ */
+export interface PublishedDocument {
+source_id: KebabId1
+/**
+ * 資料の題名（原文）。
+ */
+title: string
+/**
+ * 人がマスタへの反映を確認した資料のファイルのSHA-256（16進数の小文字）。数値と解釈されないよう、YAMLでは引用符で囲む。
+ */
+reviewed_sha256: string
+reviewed_at: DateTime
+source_url: SourceUrl1
 }
 /**
  * 区分表だけでは判定できない負担のうち、対象と判断したものの記録（data/scope-decisions.yaml）。対象外と判断したものはADR 0002に記録し、ここには記録しない。
