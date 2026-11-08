@@ -3,7 +3,7 @@ import { mkdtemp, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
-import { buildDistribution, burdensCsv, CSV_COLUMNS, distributionAsOf, distributionDifferences, JSON_KEYS } from "../src/build/distribution.ts";
+import { buildDistribution, burdensCsv, CSV_COLUMNS, distributionAsOf, distributionDifferences } from "../src/build/distribution.ts";
 import { loadRepository } from "../src/data/repository.ts";
 import type { RepositoryData } from "../src/domain/repository.ts";
 import { ROOT, SCHEMA_DIR, VALID_REPO } from "./helpers.ts";
@@ -34,7 +34,7 @@ test("the same source data always produces the same distribution", async () => {
   const first = buildDistribution(await fixtureData());
   const second = buildDistribution(await fixtureData());
   assert.deepEqual(first, second);
-  assert.deepEqual(Object.keys(first), ["README.md", "burdens.csv", "burdens.json"]);
+  assert.deepEqual(Object.keys(first), ["burdens.csv", "burdens.json"]);
 });
 
 test("the as-of date is the latest confirmation date in the source data, not the generation date", async () => {
@@ -66,18 +66,22 @@ test("burdens.csv has one row per version with source URLs, checked_at, and the 
   assert.ok(rows.every((row) => row.length === header!.length));
 });
 
-test("burdens.json carries the as-of date and the source data, and the README documents every CSV column and JSON key", async () => {
+/** README.md の「配布物」の見出しの下にある表の1列目（バッククォート内）。 */
+async function documentedNames(heading: string): Promise<string[]> {
+  const readme = await readFile(join(ROOT, "README.md"), "utf8");
+  const section = readme.split(`### ${heading}\n`)[1]?.split(/\n#/)[0] ?? "";
+  return [...section.matchAll(/^\| `([^`]+)` \|/gm)].map((match) => match[1]!);
+}
+
+test("burdens.json carries the as-of date and the source data, and README.md documents every CSV column and JSON key in order", async () => {
   const data = await fixtureData();
   const files = buildDistribution(data);
   const json = JSON.parse(files["burdens.json"]!) as Record<string, unknown>;
-  assert.deepEqual(Object.keys(json), JSON_KEYS.map((key) => key.name));
   assert.equal(json.as_of, distributionAsOf(data));
   assert.deepEqual(json.burdens, data.burdens);
   assert.deepEqual(json.legal_sources, data.legalSources);
-  for (const name of [...CSV_COLUMNS.map((column) => column.name), ...JSON_KEYS.map((key) => key.name)]) {
-    assert.ok(files["README.md"]!.includes(`| \`${name}\` |`), `README.md must document ${name}`);
-  }
-  assert.ok(CSV_COLUMNS.every((column) => column.description.length > 0));
+  assert.deepEqual(await documentedNames("burdens.csv の列"), CSV_COLUMNS.map((column) => column.name));
+  assert.deepEqual(await documentedNames("burdens.json の最上位の項目"), Object.keys(json));
 });
 
 test("differences between dist/ and the generated files are reported", async () => {
