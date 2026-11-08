@@ -1,4 +1,4 @@
-name: e-Gov law monitor
+name: Monitor e-Gov laws
 
 # e-Gov法令APIで根拠法令（data/legal-sources.yaml）の改正を検知し、Issueを作成する（ADR 0003「最初のリリースの監視方式」）。
 # 定期実行はユーザーの判断で開始する（AGENTS.md「停止と追加承認」）。開始するときは、次の schedule のコメントを外す。
@@ -23,7 +23,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: egov-monitor
+  group: monitor-egov
   cancel-in-progress: false
 
 jobs:
@@ -49,4 +49,4 @@ jobs:
           args=()
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           for law in $LAWS; do args+=(--law "$law"); done
-          npm run --silent monitor:egov -- "${args[@]}"
+          npm run --silent egov:monitor -- "${args[@]}"

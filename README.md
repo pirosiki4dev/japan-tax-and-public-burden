@@ -48,7 +48,7 @@ npm run check
 | `npm run check` | CIと同じ検査をすべて実行する |
 | `npm run validate` | 正本と設定をSchemaと整合性規則で検証する |
 | `npm run types:generate` | `schemas/` からTypeScriptの型を生成する |
-| `npm run monitor:egov -- --dry-run` | e-Gov法令APIで根拠法令の改正を確認し、作成する改正検知Issueを表示する（`--dry-run` を外すとIssueを作成する。`GITHUB_TOKEN` と `GITHUB_REPOSITORY` が必要） |
+| `npm run egov:monitor -- --dry-run` | e-Gov法令APIで根拠法令の改正を確認し、作成する改正検知Issueを表示する（`--dry-run` を外すとIssueを作成する。`GITHUB_TOKEN` と `GITHUB_REPOSITORY` が必要） |
 
 ## 貢献
 

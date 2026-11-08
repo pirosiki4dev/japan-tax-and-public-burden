@@ -8,12 +8,12 @@ export interface PlannedIssue {
   body: string;
 }
 
-const MARKER = /<!-- egov-monitor: ([^\n]+?) -->/g;
+const MARKER = /<!-- monitor-egov: ([^\n]+?) -->/g;
 /** GitHubのIssue本文の上限（65,536文字）より余裕をもたせる。 */
 const BODY_LIMIT = 60000;
 const USERS_SHOWN = 5;
 
-export const marker = (key: string): string => `<!-- egov-monitor: ${key} -->`;
+export const marker = (key: string): string => `<!-- monitor-egov: ${key} -->`;
 
 /** Issue本文から重複防止の目印を取り出す。 */
 export function markersIn(body: string): string[] {

@@ -256,7 +256,7 @@ config/sources.yaml          data/legal-sources.yaml           data/burdens.yaml
 5. 取得の失敗やAPIの応答形式の変化は、改正の検知と区別したIssueにする。同じ法令の同じ種類の失敗について未完了のIssueがある場合は、新たに作成しない。
 6. 改正を検知した法令は、確認済みの版と現在施行中の版の全文を1回ずつ取得し、`provisions` の各条項の本文を照合して、結果（本文の変更、削除、附則・別表の番号のずれ等）を負担項目とともにIssueに記載する。出現順の番号で指す附則（`SupplProvision[n]`）は改正法令番号（`AmendLawNum` 属性）で、別表（`AppdxTable[n]`）は題名で同じ要素かを確かめ、番号がずれた場合は新しい番号を示す。
 
-監視は `npm run monitor:egov` で実行する（`--dry-run` でIssueを作成せずに結果を表示する）。workflow は `.github/workflows/egov-monitor.yml` で、定期実行の開始はユーザーが判断する。重複防止の目印は、Issue本文の先頭のHTMLコメント（`<!-- egov-monitor: ... -->`）に置く。
+監視は `npm run egov:monitor` で実行する（`--dry-run` でIssueを作成せずに結果を表示する）。workflow は `.github/workflows/monitor-egov.yml` で、定期実行の開始はユーザーが判断する。重複防止の目印は、Issue本文の先頭のHTMLコメント（`<!-- monitor-egov: ... -->`）に置く。
 
 監視の状態は正本の `reviewed_revision_id` だけで管理するため、Actionsがリポジトリへ書き込む必要はなく、権限はIssueの作成に限る。
 

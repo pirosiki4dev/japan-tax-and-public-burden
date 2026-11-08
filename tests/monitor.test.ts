@@ -187,13 +187,13 @@ test("the e-Gov source must be configured and enabled", async () => {
 
 test("GitHubIssues reads markers from open issues only and creates issues by POST", async () => {
   const calls: { url: string; method: string; body?: string }[] = [];
-  const page = (n: number) => Array.from({ length: n }, (_, i) => ({ body: `<!-- egov-monitor: revision A ${i} -->` }));
+  const page = (n: number) => Array.from({ length: n }, (_, i) => ({ body: `<!-- monitor-egov: revision A ${i} -->` }));
   const fetcher: Fetcher = async (input, init) => {
     const url = String(input);
     calls.push({ url, method: init?.method ?? "GET", body: init?.body as string | undefined });
     if (init?.method === "POST") return json({ html_url: "https://github.com/o/r/issues/1" }, 201);
-    if (url.endsWith("page=1")) return json([...page(99), { body: "<!-- egov-monitor: revision PR -->", pull_request: {} }]);
-    return json([{ body: "<!-- egov-monitor: failure B fetch_failed -->" }, { body: null }]);
+    if (url.endsWith("page=1")) return json([...page(99), { body: "<!-- monitor-egov: revision PR -->", pull_request: {} }]);
+    return json([{ body: "<!-- monitor-egov: failure B fetch_failed -->" }, { body: null }]);
   };
   const github = new GitHubIssues({ repository: "o/r", token: "t", api: "https://api.example.test", fetcher });
   const keys = await github.openIssueKeys();
@@ -210,7 +210,7 @@ test("GitHubIssues reads markers from open issues only and creates issues by POS
 });
 
 test("the monitor workflow is manual only, read-only for contents, and limited to issues", async () => {
-  const workflow = await readFile(join(ROOT, ".github/workflows/egov-monitor.yml"), "utf8");
+  const workflow = await readFile(join(ROOT, ".github/workflows/monitor-egov.yml"), "utf8");
   assert.match(workflow, /^permissions:\n  contents: read\n  issues: write\n\n/m);
   assert.doesNotMatch(workflow, /^\s*schedule:/m, "定期実行の開始はユーザーの判断で行う");
   assert.doesNotMatch(workflow, /contents: write|git push/);
