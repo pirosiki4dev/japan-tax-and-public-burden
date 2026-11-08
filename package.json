@@ -14,7 +14,8 @@
     "validate": "node src/cli/validate.ts",
     "types:generate": "node src/cli/generate-types.ts",
     "types:check": "node src/cli/generate-types.ts --check",
-    "architecture:check": "node src/cli/check-architecture.ts"
+    "architecture:check": "node src/cli/check-architecture.ts",
+    "monitor": "node src/cli/monitor.ts"
   },
   "devDependencies": {
     "@types/node": "^24.19.2",

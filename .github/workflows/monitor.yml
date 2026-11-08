@@ -1,0 +1,59 @@
+name: Monitor sources
+
+# config/sources.yaml の巡回先を監視し、検知した変化をIssueにする（ADR 0003「最初のリリースの監視方式」）。
+# 現在はe-Gov法令APIで根拠法令（data/legal-sources.yaml）の改正を検知する。
+# 定期実行はユーザーの判断で開始する（AGENTS.md「停止と追加承認」）。開始するときは、次の schedule のコメントを外す。
+# 例: 毎日 6:00（JST）に実行する場合（cron は UTC で指定する）
+#   schedule:
+#     - cron: "0 21 * * *"
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Issueを作成せず、作成するIssueをログに表示する
+        type: boolean
+        default: true
+      sources:
+        description: 監視する source_id（空白区切り。空なら有効な全巡回先）
+        type: string
+        default: ""
+      laws:
+        description: e-Gov法令APIで監視する law_id（空白区切り。空なら全法令）
+        type: string
+        default: ""
+
+# リポジトリへは書き込まない。権限はIssueの作成と、リポジトリの読み取りに限る。
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Run monitor
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+          SOURCES: ${{ inputs.sources }}
+          LAWS: ${{ inputs.laws }}
+        run: |
+          args=()
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          for source in $SOURCES; do args+=(--source "$source"); done
+          for law in $LAWS; do args+=(--law "$law"); done
+          npm run --silent monitor -- "${args[@]}"

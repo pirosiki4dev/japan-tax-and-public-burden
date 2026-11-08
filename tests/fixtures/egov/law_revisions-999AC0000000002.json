@@ -1,0 +1,37 @@
+{
+ "law_info": {
+  "law_type": "Act",
+  "law_id": "999AC0000000002",
+  "law_num": "令和元年法律第九百九十八号",
+  "law_num_era": "Reiwa",
+  "law_num_year": 1,
+  "law_num_type": "Act",
+  "law_num_num": "999",
+  "promulgation_date": "2019-05-01"
+ },
+ "revisions": [
+  {
+   "law_revision_id": "999AC0000000002_20200401_000000000000000",
+   "law_type": "Act",
+   "law_title": "例示税法",
+   "law_title_kana": "れいじぜいほう",
+   "abbrev": null,
+   "category": "国税",
+   "updated": "2026-04-01T12:00:00+09:00",
+   "amendment_promulgate_date": null,
+   "amendment_enforcement_date": "2020-04-01",
+   "amendment_enforcement_comment": null,
+   "amendment_scheduled_enforcement_date": null,
+   "amendment_law_id": null,
+   "amendment_law_title": "例示税法の一部を改正する法律",
+   "amendment_law_title_kana": null,
+   "amendment_law_num": null,
+   "amendment_type": "3",
+   "repeal_status": "None",
+   "repeal_date": null,
+   "remain_in_force": false,
+   "mission": "Partial",
+   "current_revision_status": "CurrentEnforced"
+  }
+ ]
+}

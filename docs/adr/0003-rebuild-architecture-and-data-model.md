@@ -11,6 +11,7 @@
 | --- | --- | --- |
 | 2026-11-03 | #143 | フォルダ構成に、通常運用と分けた法令調査の作業場所（`surveys/`）を追加した |
 | 2026-11-03 | #153 | IDの単位を「1つの率または金額」とし、意味を持たない連番で採番する方式に変更した。区分の判断基準、監視する条項（委任先を含む）、値の決まり方、集計用グループを追加した。負担項目を1制度1ディレクトリから `data/burdens.yaml` の1ファイルに、根拠法令を `data/legal-sources.yaml` の1ファイルに集約した。ファイルの役割と監視の流れを追記した |
+| 2026-11-08 | #148 | 監視で比べる改正版を「現在施行中の版」と定め、登録済みの条項の照合（附則・別表の番号のずれを含む）と、監視の実行方法（巡回先を1つのコマンドで順に監視する）と、共通の処理と巡回先ごとの処理の分け方を追記した。告示等の公表物の監視は #167 で扱うこととした |
 
 ## 文脈
 
@@ -57,7 +58,7 @@ ADR 0002で全体の対象範囲と最初のリリースの範囲を決めた。
 │   ├── domain/                 # 純粋な規則（日付、状態の導出、整合性）。I/Oを持たない
 │   ├── data/                   # 正本の読み込みと検証
 │   ├── build/                  # 配布物の生成
-│   ├── monitor/                # e-Gov法令APIの取得、改正の検知、Issueの作成
+│   ├── monitor/                # 巡回先の監視（共通の処理と、巡回先ごとのディレクトリ。例: egov/）、Issueの作成
 │   └── cli/                    # コマンドの入口（引数の解析と表示だけ）
 ├── tests/
 │   └── fixtures/               # 外部通信なしで使う公式応答の保存版
@@ -242,17 +243,20 @@ config/sources.yaml          data/legal-sources.yaml           data/burdens.yaml
 ```
 
 1. 監視は `data/legal-sources.yaml` の法令を順に、`config/sources.yaml` のURLとアクセス間隔に従ってe-Gov法令APIに問い合わせる。
-2. 最新の改正版が `reviewed_revision_id` と異なれば、改正検知Issueを作成する。
+2. 現在施行中の改正版が `reviewed_revision_id` と異なれば、改正検知Issueを作成する。
 3. `data/burdens.yaml` の `provisions` から、影響を受ける負担項目をIssueに列挙する。
 4. 人が確認し、Pull Requestで `data/burdens.yaml`（値が変わる場合）と `reviewed_revision_id` を更新する。
 
 #### 手順
 
 1. 監視対象の法令は、`data/legal-sources.yaml` の一覧から決める。監視対象だけを別に列挙する設定ファイルは持たない。条項単位の監視対象は、各版の `provisions` から決める。
-2. GitHub Actionsで定期的にe-Gov法令APIから各法令の最新の改正版を取得し、`reviewed_revision_id` と比べる。
+2. GitHub Actionsで定期的にe-Gov法令APIから各法令の現在施行中の改正版（`current_revision_status` が `CurrentEnforced` の版）を取得し、`reviewed_revision_id` と比べる。施行前の改正版（`UnEnforced`）は、施行されて現在施行中の版になったときに検知する。
 3. 異なる場合は、法令ID、新旧の改正版、根拠URL、検知日時を記載したIssueを作成する。同じ法令の同じ改正版について未完了のIssueがある場合は、新たに作成しない。
 4. 人がIssueを確認し、マスタへ反映するかを判断する。反映する場合も反映しない場合も、Pull Requestで `reviewed_revision_id` を更新し、そのIssueを閉じる。
-5. 取得の失敗やAPIの応答形式の変化は、改正の検知と区別したIssueにする。
+5. 取得の失敗やAPIの応答形式の変化は、改正の検知と区別したIssueにする。同じ法令の同じ種類の失敗について未完了のIssueがある場合は、新たに作成しない。
+6. 改正を検知した法令は、確認済みの版と現在施行中の版の全文を1回ずつ取得し、`provisions` の各条項の本文を照合して、結果（本文の変更、削除、附則・別表の番号のずれ等）を負担項目とともにIssueに記載する。出現順の番号で指す附則（`SupplProvision[n]`）は改正法令番号（`AmendLawNum` 属性）で、別表（`AppdxTable[n]`）は題名で同じ要素かを確かめ、番号がずれた場合は新しい番号を示す。
+
+監視は1つのコマンド `npm run monitor` で、`config/sources.yaml` の有効な巡回先を順に実行する（`--dry-run` でIssueを作成せずに結果を表示する）。`src/monitor/` の直下には巡回先に共通の処理（リクエストの間隔の維持と再試行、失敗の分類、Issueの重複防止と作成、巡回先の順次実行）を置き、応答の解釈と判定のように巡回先ごとに異なる処理だけを巡回先ごとのディレクトリ（例: `src/monitor/egov/`）に置く。監視の処理がない巡回先は、実行しない旨を表示する。URLはプログラムに書かず、`config/sources.yaml` の `base_url` と `data/legal-sources.yaml` の `source_url` から作る。workflow は `.github/workflows/monitor.yml` で、定期実行の開始はユーザーが判断する。重複防止の目印は、Issue本文の先頭のHTMLコメント（`<!-- monitor: ... -->`）に置く。
 
 監視の状態は正本の `reviewed_revision_id` だけで管理するため、Actionsがリポジトリへ書き込む必要はなく、権限はIssueの作成に限る。
 
@@ -270,6 +274,6 @@ config/sources.yaml          data/legal-sources.yaml           data/burdens.yaml
 ## 結果
 
 - 負担項目を追加するときは、`data/burdens.yaml` の要素と、新しい根拠法令であれば `data/legal-sources.yaml` の要素、新しいグループであれば `data/groups.yaml` の要素を追加するだけで、コードと設定の変更を要しない。
-- `determination: published` の値（告示等で公表される値）は、e-Gov法令APIの監視では値そのものの改定を検知できない。公表物の確認の運用は、監視の実装（#148）で決める。
+- `determination: published` の値（告示等で公表される値）は、e-Gov法令APIの監視では値そのものの改定を検知できない。公表物の監視は、e-Gov法令APIの監視（#148）と分け、#167 で扱う。
 - 旧版のファイルはすべて削除し、上記の構成で作り直す。`AGENTS.md`、`README.md`、テンプレート、CIもこの構成に合わせて作り直す。
 - 実装はサブIssueに分けて進める（例: 基盤とSchema、データ投入、配布物の生成、監視）。
