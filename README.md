@@ -28,6 +28,7 @@
 | `data/scope-decisions.yaml` | 個別判断で対象とした負担 |
 | `config/sources.yaml` | 巡回する公式サイト |
 | `schemas/` | データ構造（JSON Schema） |
+| `dist/` | 配布物（CSV・JSON）。正本から生成する。項目の意味は [dist/README.md](dist/README.md) |
 | `src/` | 検証・生成・監視のプログラム（TypeScript） |
 | `docs/adr/` | 設計判断の記録 |
 | `surveys/` | 正本に登録する対象を決めた法令調査の作業場所（通常運用では使わない） |
@@ -48,6 +49,7 @@ npm run check
 | `npm run check` | CIと同じ検査をすべて実行する |
 | `npm run validate` | 正本と設定をSchemaと整合性規則で検証する |
 | `npm run types:generate` | `schemas/` からTypeScriptの型を生成する |
+| `npm run dist:generate` | 正本から配布物（`dist/`）を生成する。正本を変更したら実行してコミットする |
 | `npm run monitor -- --dry-run` | `config/sources.yaml` の巡回先を監視し、作成するIssueを表示する。e-Gov法令APIで根拠法令の改正を、公表ページで最新の資料の変化を確認する（`--dry-run` を外すとIssueを作成する。`GITHUB_TOKEN` と `GITHUB_REPOSITORY` が必要） |
 
 ## 貢献
