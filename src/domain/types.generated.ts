@@ -107,11 +107,20 @@ export type BurdenStatus = ("active" | "promulgated_not_effective" | "abolished"
  * sum: 所属する率・金額を足すと全体の負担になる、progressive: 区分ごとに計算して合計する（累進）、select_one: 条件によりどれか1つが適用される、classification: 分類だけで率・金額を合算しない。
  */
 export type GroupAggregation = ("sum" | "progressive" | "select_one" | "classification")
+/**
+ * 英小文字・数字のkebab-caseによる永続ID。一度公開したIDは変更しない。
+ */
+export type KebabId1 = string
+/**
+ * 日本標準時（JST）のISO 8601日時。タイムゾーンは +09:00 で記録する。
+ */
+export type DateTime1 = string
 
 export interface RepositorySchemas {
 burdens?: Burdens
 groups?: BurdenGroups
 "legal-sources"?: LegalSources
+"published-sources"?: PublishedSources
 "scope-decisions"?: ScopeDecisions
 sources?: SourceRegistry
 }
@@ -283,6 +292,34 @@ law_number_raw?: string
 reviewed_revision_id: string
 reviewed_at: DateTime
 source_url: SourceUrl
+}
+/**
+ * 告示等の値を公表する公式ページの確認済みの状態（data/published-sources.yaml）。source_idの昇順に並べる。
+ */
+export interface PublishedSources {
+published_sources: PublishedSource[]
+}
+/**
+ * 1つの公表ページ（config/sources.yaml の巡回先）について、人が確認した掲載資料。
+ */
+export interface PublishedSource {
+source_id: KebabId1
+/**
+ * ページの本文に掲載された資料（掲載順）。
+ */
+documents: PublishedDocument[]
+reviewed_at: DateTime1
+}
+export interface PublishedDocument {
+/**
+ * リンクの文字列（原文）。
+ */
+title: string
+url: SourceUrl
+/**
+ * 資料のファイルのSHA-256（16進数の小文字）。
+ */
+sha256: string
 }
 /**
  * 区分表だけでは判定できない負担のうち、対象と判断したものの記録（data/scope-decisions.yaml）。対象外と判断したものはADR 0002に記録し、ここには記録しない。

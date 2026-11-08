@@ -1,0 +1,26 @@
+# 告示等の値を公表する公式ページの確認済みの状態（schemas/published-sources.schema.json）。source_idの昇順に並べる。
+# 監視（npm run monitor）は、ページの本文に掲載された資料のリンク（題名・URL）とファイルのSHA-256をこの状態と比べ、異なればIssueを作成する（#167）。
+# 人が掲載資料を確認したら、Pull Requestで documents と reviewed_at を更新する。sha256 は数値と解釈されないよう引用符で囲む。
+published_sources:
+  # 令和８年度の資料（001692566.pdf）は、#146 で雇用保険料率の値を確認した資料と同じファイル。
+  - source_id: mhlw-employment-insurance-rate
+    documents:
+      - title: 令和８年度の雇用保険料率について［352KB］
+        url: https://www.mhlw.go.jp/content/001692566.pdf
+        sha256: "69ca914736d051ffa067464756500c2a8cf597186e9cf091b54512a68d3b1be9"
+      - title: 令和7年度の雇用保険料率について［342KB］
+        url: https://www.mhlw.go.jp/content/001401966.pdf
+        sha256: "eda8a16a77c762247b7e7412c86f9f6accc33830620e2d8de047308cfca4022b"
+      - title: 令和6年度の雇用保険料率について［98KB］
+        url: https://www.mhlw.go.jp/content/001211914.pdf
+        sha256: "51792c90abc698e377875868df3aa35873fbcecf6d952b31a62ffe52a5d18a27"
+      - title: 令和５年度の雇用保険料率について［316KB］
+        url: https://www.mhlw.go.jp/content/001050206.pdf
+        sha256: "194c4e6384e47e43bf1110bb1e849e5bc542e6ee1b4a783d27b7e142e01430ee"
+      - title: 令和４年度の雇用保険料率について［110KB］
+        url: https://www.mhlw.go.jp/content/000921550.pdf
+        sha256: "e0a7859939540a272415a69ff6dc6e965d1182a133f8ddb3b3447a78c033d267"
+      - title: 令和３年度の雇用保険料率について［106KB］
+        url: https://www.mhlw.go.jp/content/000739455.pdf
+        sha256: "c7798b41124f41711ee1e06b5f118b8dbd9812be118d27ba8aa3c60933268bf0"
+    reviewed_at: 2026-11-08T18:00:12+09:00

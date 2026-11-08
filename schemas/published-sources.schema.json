@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "published-sources.schema.json",
+  "title": "PublishedSources",
+  "description": "告示等の値を公表する公式ページの確認済みの状態（data/published-sources.yaml）。source_idの昇順に並べる。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "published_sources"
+  ],
+  "properties": {
+    "published_sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/publishedSource"
+      }
+    }
+  },
+  "$defs": {
+    "publishedSource": {
+      "title": "PublishedSource",
+      "description": "1つの公表ページ（config/sources.yaml の巡回先）について、人が確認した掲載資料。",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "documents",
+        "reviewed_at"
+      ],
+      "properties": {
+        "source_id": {
+          "description": "config/sources.yaml の source_id。",
+          "$ref": "common.schema.json#/$defs/kebabId"
+        },
+        "documents": {
+          "description": "ページの本文に掲載された資料（掲載順）。",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/publishedDocument"
+          }
+        },
+        "reviewed_at": {
+          "description": "人が掲載資料を確認した日時。",
+          "$ref": "common.schema.json#/$defs/dateTime"
+        }
+      }
+    },
+    "publishedDocument": {
+      "title": "PublishedDocument",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "url",
+        "sha256"
+      ],
+      "properties": {
+        "title": {
+          "description": "リンクの文字列（原文）。",
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/sourceUrl"
+        },
+        "sha256": {
+          "description": "資料のファイルのSHA-256（16進数の小文字）。",
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}

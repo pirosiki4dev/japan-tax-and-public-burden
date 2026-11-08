@@ -251,11 +251,13 @@ test("the monitor workflow is manual only, read-only for contents, and limited t
   assert.doesNotMatch(workflow, /contents: write|git push/);
 });
 
-test("the e-Gov monitor builds URLs from config/sources.yaml and data/legal-sources.yaml, not from literals", async () => {
+test("source-specific monitors build URLs from config and data, not from literals", async () => {
   const { readdir } = await import("node:fs/promises");
-  const directory = join(ROOT, "src/monitor/egov");
-  for (const file of await readdir(directory)) {
-    const source = await readFile(join(directory, file), "utf8");
-    assert.doesNotMatch(source, /https?:\/\//, `${file} must not contain URLs (AGENTS.md)`);
+  for (const name of ["egov", "mhlw"]) {
+    const directory = join(ROOT, "src/monitor", name);
+    for (const file of await readdir(directory)) {
+      const source = await readFile(join(directory, file), "utf8");
+      assert.doesNotMatch(source, /https?:\/\//, `${name}/${file} must not contain URLs (AGENTS.md)`);
+    }
   }
 });

@@ -2,6 +2,7 @@ import type { RepositoryData } from "../domain/repository.ts";
 import type { Source } from "../domain/types.generated.ts";
 import { monitorEgov } from "./egov/monitor.ts";
 import type { Fetcher } from "./http.ts";
+import { monitorMhlwPage } from "./mhlw/monitor.ts";
 import { fileIssues, type GitHubIssues, type PlannedIssue } from "./issues.ts";
 
 /** 巡回先の監視に渡す共通の値。 */
@@ -26,10 +27,13 @@ export type SourceMonitor = (source: Source, context: MonitorContext) => Promise
 
 /** config/sources.yaml のうち、e-Gov法令APIの巡回先の source_id。 */
 export const EGOV_SOURCE_ID = "egov-law-api";
+/** config/sources.yaml のうち、厚生労働省「雇用保険料率について」の source_id。 */
+export const MHLW_EMPLOYMENT_INSURANCE_RATE_SOURCE_ID = "mhlw-employment-insurance-rate";
 
 /** 巡回先（source_id）と監視の処理の対応。処理のない巡回先は監視しない旨を報告する。 */
 const MONITORS: Record<string, SourceMonitor> = {
-  [EGOV_SOURCE_ID]: monitorEgov
+  [EGOV_SOURCE_ID]: monitorEgov,
+  [MHLW_EMPLOYMENT_INSURANCE_RATE_SOURCE_ID]: monitorMhlwPage
 };
 
 export interface MonitorOptions extends MonitorContext {
@@ -43,7 +47,7 @@ export interface MonitorOptions extends MonitorContext {
  * 巡回先ごとの実行結果。
  * - monitored: 監視した（summary は件数の内訳）
  * - disabled: config/sources.yaml で無効（enabled: false）
- * - not_implemented: 監視の処理が未実装（例: 厚生労働省の公表ページは #167）
+ * - not_implemented: 監視の処理が未実装
  */
 export interface SourceStatus {
   source_id: string;

@@ -1,0 +1,8 @@
+# テスト専用の架空の公表ページの確認済みの状態。実在のページではない。
+published_sources:
+  - source_id: example-source
+    documents:
+      - title: 令和８年度の例示料率について［100KB］
+        url: https://example.com/content/r8.pdf
+        sha256: "0000000000000000000000000000000000000000000000000000000000000001"
+    reviewed_at: 2026-11-01T09:00:00+09:00

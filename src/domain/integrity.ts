@@ -13,6 +13,7 @@ export const CATEGORY_PREFIX: Readonly<Record<BurdenCategory, string>> = {
 /** 値の決まり方ごとに、監視する条項として最低限必要な役割（いずれか1つ）。 */
 const BURDENS_FILE = "data/burdens.yaml";
 const LEGAL_SOURCES_FILE = "data/legal-sources.yaml";
+const PUBLISHED_SOURCES_FILE = "data/published-sources.yaml";
 
 const REQUIRED_PROVISION_ROLES: Readonly<Record<BurdenVersion["determination"], readonly ProvisionRole[]>> = {
   stated: ["value"],
@@ -150,6 +151,15 @@ export function checkIntegrity(data: RepositoryData, { asOf }: { asOf: string })
     if (decision.burden_id && !burdenIds.has(decision.burden_id)) errors.push(`data/scope-decisions.yaml ${decision.decision_id}: unknown burden_id ${decision.burden_id}`);
   }
   for (const sourceId of duplicates(data.sources.sources.map((source) => source.source_id))) errors.push(`config/sources.yaml: duplicate source_id ${sourceId}`);
+
+  const sourceIds = new Set(data.sources.sources.map((source) => source.source_id));
+  const publishedIds = data.publishedSources.map((published) => published.source_id);
+  for (const sourceId of duplicates(publishedIds)) errors.push(`${PUBLISHED_SOURCES_FILE}: duplicate source_id ${sourceId}`);
+  checkSorted(publishedIds, PUBLISHED_SOURCES_FILE, "source_id", errors);
+  for (const published of data.publishedSources) {
+    if (!sourceIds.has(published.source_id)) errors.push(`${PUBLISHED_SOURCES_FILE} ${published.source_id}: unknown source_id (add it to config/sources.yaml)`);
+    for (const url of duplicates(published.documents.map((document) => document.url))) errors.push(`${PUBLISHED_SOURCES_FILE} ${published.source_id}: duplicate document url ${url}`);
+  }
 
   return { errors, warnings };
 }

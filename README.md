@@ -25,6 +25,7 @@
 | `data/burdens.yaml` | 負担項目（1つの率または金額）と、期間ごとの値・監視する条項 |
 | `data/groups.yaml` | 負担項目を括って集計するためのグループ |
 | `data/legal-sources.yaml` | 根拠法令（e-Gov法令ID、確認済みの改正版）。監視対象の一覧を兼ねる |
+| `data/published-sources.yaml` | 告示等の値を公表する公式ページの確認済みの状態（掲載資料のリンクとSHA-256） |
 | `data/scope-decisions.yaml` | 個別判断で対象とした負担 |
 | `config/sources.yaml` | 巡回する公式サイト |
 | `schemas/` | データ構造（JSON Schema） |
@@ -48,7 +49,7 @@ npm run check
 | `npm run check` | CIと同じ検査をすべて実行する |
 | `npm run validate` | 正本と設定をSchemaと整合性規則で検証する |
 | `npm run types:generate` | `schemas/` からTypeScriptの型を生成する |
-| `npm run monitor -- --dry-run` | `config/sources.yaml` の巡回先を監視し、作成するIssueを表示する。現在はe-Gov法令APIで根拠法令の改正を確認する（`--dry-run` を外すとIssueを作成する。`GITHUB_TOKEN` と `GITHUB_REPOSITORY` が必要） |
+| `npm run monitor -- --dry-run` | `config/sources.yaml` の巡回先を監視し、作成するIssueを表示する。e-Gov法令APIで根拠法令の改正を、公表ページで掲載資料の変化を確認する（`--dry-run` を外すとIssueを作成する。`GITHUB_TOKEN` と `GITHUB_REPOSITORY` が必要） |
 
 ## 貢献
 
