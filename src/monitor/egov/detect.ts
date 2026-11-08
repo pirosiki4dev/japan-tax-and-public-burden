@@ -1,5 +1,6 @@
-import type { Burden, LegalSource } from "../domain/types.generated.ts";
-import { EgovClient, MonitorFailure, type FailureKind, type RevisionSummary } from "./egov.ts";
+import type { Burden, LegalSource } from "../../domain/types.generated.ts";
+import { MonitorFailure, type FailureKind } from "../http.ts";
+import type { EgovClient, RevisionSummary } from "./client.ts";
 import { headIdentity, indexOfIdentity, locate, normalizedText, withHeadIndex, type LawNode } from "./law-text.ts";
 
 /** 条項を参照している負担項目の版。 */

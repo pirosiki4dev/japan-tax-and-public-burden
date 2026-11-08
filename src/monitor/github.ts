@@ -1,11 +1,5 @@
 import type { Fetcher } from "./http.ts";
-import { markersIn, type PlannedIssue } from "./report.ts";
-
-export interface IssueTracker {
-  /** 未完了のIssueに埋め込まれた重複防止の目印 */
-  openIssueKeys(): Promise<Set<string>>;
-  create(issue: PlannedIssue): Promise<string>;
-}
+import { markersIn, type IssueTracker, type PlannedIssue } from "./issues.ts";
 
 /** GitHub REST API で、リポジトリのIssueを読み、作成する。Issueの作成以外の書き込みはしない。 */
 export class GitHubIssues implements IssueTracker {
@@ -14,11 +8,12 @@ export class GitHubIssues implements IssueTracker {
   private readonly token: string;
   private readonly fetcher: Fetcher;
 
-  constructor({ repository, token, api = "https://api.github.com", fetcher = fetch }: { repository: string; token: string; api?: string; fetcher?: Fetcher }) {
+  /** api は GitHub Actions が設定する GITHUB_API_URL。未設定なら github.com の API を使う。 */
+  constructor({ repository, token, api, fetcher = fetch }: { repository: string; token: string; api?: string; fetcher?: Fetcher }) {
     if (!/^[\w.-]+\/[\w.-]+$/.test(repository)) throw new Error(`Invalid repository: ${repository}`);
     this.repository = repository;
     this.token = token;
-    this.api = api.replace(/\/$/, "");
+    this.api = (api || "https://api.github.com").replace(/\/$/, "");
     this.fetcher = fetcher;
   }
 

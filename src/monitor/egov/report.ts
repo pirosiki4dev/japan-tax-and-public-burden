@@ -1,29 +1,21 @@
+import { issueBody, issueKey, type PlannedIssue } from "../issues.ts";
+import type { RevisionSummary } from "./client.ts";
 import type { LawCheck, ProvisionCheck, ProvisionStatus } from "./detect.ts";
-import type { RevisionSummary } from "./egov.ts";
 
-/** 作成するIssue。key は重複防止の目印で、本文の先頭にHTMLコメントとして埋め込む。 */
-export interface PlannedIssue {
-  key: string;
-  title: string;
-  body: string;
+/** e-Gov法令APIの監視のIssueの題名と本文。URLは config/sources.yaml の base_url と data/legal-sources.yaml の source_url から作る。 */
+export interface ReportContext {
+  /** config/sources.yaml の source_id（重複防止の目印の先頭に付ける） */
+  sourceId: string;
+  detectedAt: string;
+  revisionsUrl: (lawId: string) => string;
+  specUrl: string;
 }
 
-const MARKER = /<!-- monitor: ([^\n]+?) -->/g;
-/** GitHubのIssue本文の上限（65,536文字）より余裕をもたせる。 */
-const BODY_LIMIT = 60000;
 const USERS_SHOWN = 5;
 
-export const marker = (key: string): string => `<!-- monitor: ${key} -->`;
+export const revisionKey = (sourceId: string, lawId: string, revisionId: string): string => issueKey(sourceId, "revision", lawId, revisionId);
+export const failureKey = (sourceId: string, lawId: string, kind: string): string => issueKey(sourceId, "failure", lawId, kind);
 
-/** Issue本文から重複防止の目印を取り出す。 */
-export function markersIn(body: string): string[] {
-  return [...body.matchAll(MARKER)].map((match) => match[1]!);
-}
-
-export const revisionKey = (lawId: string, revisionId: string): string => `revision ${lawId} ${revisionId}`;
-export const failureKey = (lawId: string, kind: string): string => `failure ${lawId} ${kind}`;
-
-const lawPage = (lawId: string): string => `https://laws.e-gov.go.jp/law/${lawId}`;
 const cell = (value: string | null | undefined): string => (value ?? "（なし）").replace(/\|/g, "\\|");
 
 const STATUS_LABEL: Record<ProvisionStatus, string> = {
@@ -71,12 +63,10 @@ function provisionSection(check: Extract<LawCheck, { kind: "revised" }>): string
   return lines;
 }
 
-function revisedIssue(check: Extract<LawCheck, { kind: "revised" }>, detectedAt: string, apiBase: string): PlannedIssue {
+function revisedIssue(check: Extract<LawCheck, { kind: "revised" }>, context: ReportContext): PlannedIssue {
   const { source, current } = check;
-  const key = revisionKey(source.law_id, current.law_revision_id);
+  const key = revisionKey(context.sourceId, source.law_id, current.law_revision_id);
   const lines = [
-    marker(key),
-    "",
     "e-Gov法令APIの監視が、根拠法令の現在施行中の改正版が確認済みの版（`data/legal-sources.yaml` の `reviewed_revision_id`）と異なることを検知した。",
     "",
     "## 検知した改正",
@@ -86,8 +76,8 @@ function revisedIssue(check: Extract<LawCheck, { kind: "revised" }>, detectedAt:
     `| 法令 | ${cell(source.title)}（\`${source.law_id}\`）${source.law_number_raw ? `、${source.law_number_raw}` : ""} |`,
     `| 確認済みの改正版 | \`${source.reviewed_revision_id}\`（確認日時 ${source.reviewed_at}） |`,
     `| 現在施行中の改正版 | \`${current.law_revision_id}\` |`,
-    `| 根拠URL | ${lawPage(source.law_id)} 、${apiBase}law_revisions/${source.law_id} |`,
-    `| 検知日時 | ${detectedAt} |`,
+    `| 根拠URL | ${source.source_url} 、${context.revisionsUrl(source.law_id)} |`,
+    `| 検知日時 | ${context.detectedAt} |`,
     "",
     "## 確認済みの版より後の改正版（古い順）",
     "",
@@ -109,17 +99,15 @@ function revisedIssue(check: Extract<LawCheck, { kind: "revised" }>, detectedAt:
     "",
     "施行前の改正版（状態が UnEnforced）は、施行されて現在施行中の版になったときに検知する。"
   ];
-  return { key, title: `[改正検知] ${source.title}（${source.law_id}）の改正版 ${current.law_revision_id}`, body: truncate(lines.join("\n")) };
+  return { key, title: `[改正検知] ${source.title}（${source.law_id}）の改正版 ${current.law_revision_id}`, body: issueBody(key, lines) };
 }
 
 const FAILURE_LABEL = { fetch_failed: "取得の失敗", unexpected_format: "応答形式の変化" } as const;
 
-function failureIssue(check: Extract<LawCheck, { kind: "failed" }>, detectedAt: string): PlannedIssue {
+function failureIssue(check: Extract<LawCheck, { kind: "failed" }>, context: ReportContext): PlannedIssue {
   const { source, failure } = check;
-  const key = failureKey(source.law_id, failure.kind);
-  const body = [
-    marker(key),
-    "",
+  const key = failureKey(context.sourceId, source.law_id, failure.kind);
+  const body = issueBody(key, [
     `e-Gov法令APIの監視で、${FAILURE_LABEL[failure.kind]}が起きた。改正の検知ではない。この法令の改正の有無は確認できていない。`,
     "",
     "| 項目 | 値 |",
@@ -129,28 +117,23 @@ function failureIssue(check: Extract<LawCheck, { kind: "failed" }>, detectedAt: 
     `| 内容 | ${cell(failure.message)} |`,
     `| URL | ${failure.url} |`,
     `| 確認済みの改正版 | \`${source.reviewed_revision_id}\` |`,
-    `| 検知日時 | ${detectedAt} |`,
+    `| 検知日時 | ${context.detectedAt} |`,
     "",
     "## 対応",
     "",
     "- 一時的な失敗であれば、監視を手動で再実行して解消を確かめ、このIssueをCloseする。",
-    "- 応答形式の変化であれば、e-Gov法令APIの仕様（https://laws.e-gov.go.jp/api/2/swagger-ui/lawapi-v2.yaml）を確認し、監視の実装（`src/monitor/`）を直す。",
+    `- 応答形式の変化であれば、e-Gov法令APIの仕様（${context.specUrl}）を確認し、監視の実装（\`src/monitor/egov/\`）を直す。`,
     "",
     "同じ法令の同じ種類のIssueが開いている間は、新たに作成しない。"
-  ].join("\n");
+  ]);
   return { key, title: `[監視エラー] ${source.title}（${source.law_id}）: ${FAILURE_LABEL[failure.kind]}`, body };
 }
 
-function truncate(body: string): string {
-  if (body.length <= BODY_LIMIT) return body;
-  return `${body.slice(0, BODY_LIMIT)}\n\n（本文が長いため、ここで省略した。監視を \`--dry-run\` で実行すると全体を確認できる）`;
-}
-
 /** 照合の結果から、作成するIssueを決める。改正のない法令はIssueにしない。 */
-export function planIssues(checks: LawCheck[], detectedAt: string, apiBase: string): PlannedIssue[] {
+export function planIssues(checks: LawCheck[], context: ReportContext): PlannedIssue[] {
   return checks.flatMap((check) => {
-    if (check.kind === "revised") return [revisedIssue(check, detectedAt, apiBase)];
-    if (check.kind === "failed") return [failureIssue(check, detectedAt)];
+    if (check.kind === "revised") return [revisedIssue(check, context)];
+    if (check.kind === "failed") return [failureIssue(check, context)];
     return [];
   });
 }

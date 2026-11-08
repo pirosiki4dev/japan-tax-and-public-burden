@@ -5,13 +5,15 @@ import { test } from "node:test";
 import { loadRepository } from "../src/data/repository.ts";
 import type { RepositoryData } from "../src/domain/repository.ts";
 import type { Burden } from "../src/domain/types.generated.ts";
-import { compareProvision, type LawCheck } from "../src/monitor/detect.ts";
-import { EgovClient } from "../src/monitor/egov.ts";
+import { EgovClient } from "../src/monitor/egov/client.ts";
+import { compareProvision, type LawCheck } from "../src/monitor/egov/detect.ts";
+import { locate, parseElm, textOf, type LawNode } from "../src/monitor/egov/law-text.ts";
+import { monitorEgov } from "../src/monitor/egov/monitor.ts";
+import { failureKey, revisionKey } from "../src/monitor/egov/report.ts";
 import type { Fetcher } from "../src/monitor/http.ts";
-import { GitHubIssues, type IssueTracker } from "../src/monitor/github.ts";
-import { locate, parseElm, textOf, type LawNode } from "../src/monitor/law-text.ts";
-import { markersIn, revisionKey, failureKey, type PlannedIssue } from "../src/monitor/report.ts";
-import { runMonitor } from "../src/monitor/run.ts";
+import { GitHubIssues } from "../src/monitor/github.ts";
+import { markersIn, type IssueTracker, type PlannedIssue } from "../src/monitor/issues.ts";
+import { EGOV_SOURCE_ID, runMonitor } from "../src/monitor/run.ts";
 import { ROOT, SCHEMA_DIR, VALID_REPO } from "./helpers.ts";
 
 const FIXTURES = join(ROOT, "tests/fixtures/egov");
@@ -104,15 +106,17 @@ test("only laws whose current revision differs from the reviewed revision become
   const tracker = new MemoryTracker();
   const result = await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker });
 
-  assert.equal(byLaw(result.checks, L1).kind, "revised");
-  assert.equal(byLaw(result.checks, L2).kind, "unchanged");
-  assert.equal(byLaw(result.checks, M1).kind, "unchanged");
+  assert.deepEqual(result.sources, [{ source_id: EGOV_SOURCE_ID, status: "monitored", summary: { laws: 3, unchanged: 2, revised: 1, failed: 0 } }]);
+  const { checks } = await monitorEgov((await monitorData()).sources.sources[0]!, { data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep });
+  assert.equal(byLaw(checks, L1).kind, "revised");
+  assert.equal(byLaw(checks, L2).kind, "unchanged");
+  assert.equal(byLaw(checks, M1).kind, "unchanged");
   assert.equal(tracker.created.length, 1);
   const [issue] = tracker.created;
-  assert.equal(issue!.key, revisionKey(L1, CURRENT));
-  assert.deepEqual(markersIn(issue!.body), [revisionKey(L1, CURRENT)]);
+  assert.equal(issue!.key, revisionKey(EGOV_SOURCE_ID, L1, CURRENT));
+  assert.deepEqual(markersIn(issue!.body), [revisionKey(EGOV_SOURCE_ID, L1, CURRENT)]);
   assert.match(issue!.title, /^\[改正検知\] 例示税法（999AC0000000001）/);
-  for (const expected of [REVIEWED, CURRENT, `${L1}_20260401_507AC0000000996`, "https://laws.e-gov.go.jp/law/999AC0000000001", DETECTED_AT,
+  for (const expected of [REVIEWED, CURRENT, `${L1}_20260401_507AC0000000996`, "https://example.com/laws/999AC0000000001", `${BASE}law_revisions/${L1}`, DETECTED_AT,
     "| `MainProvision-Article_3` | 本文が変わった | nt-000001、nt-000002 |", "| `MainProvision-Article_4` | 現在施行中の版に見つからない | nt-000003 |",
     "新しい指定: `SupplProvision[3]-Article_1`、本文は変わらない"]) {
     assert.ok(issue!.body.includes(expected), `missing ${expected}\n${issue!.body}`);
@@ -123,10 +127,10 @@ test("only laws whose current revision differs from the reviewed revision become
 
 test("no issue is created while an open issue for the same law and revision exists", async () => {
   const { fetcher } = fixtureFetcher({ [`law_revisions/${M1}`]: () => json({ code: "404001" }, 404) });
-  const tracker = new MemoryTracker(new Set([revisionKey(L1, CURRENT)]));
+  const tracker = new MemoryTracker(new Set([revisionKey(EGOV_SOURCE_ID, L1, CURRENT)]));
   const result = await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker });
-  assert.deepEqual(result.skipped.map((issue) => issue.key), [revisionKey(L1, CURRENT)]);
-  assert.deepEqual(tracker.created.map((issue) => issue.key), [failureKey(M1, "fetch_failed")]);
+  assert.deepEqual(result.skipped.map((issue) => issue.key), [revisionKey(EGOV_SOURCE_ID, L1, CURRENT)]);
+  assert.deepEqual(tracker.created.map((issue) => issue.key), [failureKey(EGOV_SOURCE_ID, M1, "fetch_failed")]);
 });
 
 test("fetch failures and format changes are reported separately from amendments", async () => {
@@ -144,7 +148,7 @@ test("fetch failures and format changes are reported separately from amendments"
     await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker, lawIds: [M1] });
     assert.equal(tracker.created.length, 1, label);
     const [issue] = tracker.created;
-    assert.equal(issue!.key, failureKey(M1, kind), label);
+    assert.equal(issue!.key, failureKey(EGOV_SOURCE_ID, M1, kind), label);
     assert.match(issue!.title, /^\[監視エラー\]/, label);
     assert.match(issue!.body, message, label);
     assert.match(issue!.body, /改正の検知ではない/, label);
@@ -156,14 +160,14 @@ test("network errors are retried before being reported", async () => {
   const { fetcher } = fixtureFetcher({ [`law_revisions/${L2}`]: () => { calls++; if (calls < 3) throw new TypeError("fetch failed"); return json({ revisions: [{ law_revision_id: `${L2}_20200401_000000000000000`, current_revision_status: "CurrentEnforced", amendment_law_id: null, amendment_law_num: null, amendment_promulgate_date: null, amendment_enforcement_date: null }] }); } });
   const result = await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, lawIds: [L2] });
   assert.equal(calls, 3);
-  assert.equal(result.checks[0]!.kind, "unchanged");
+  assert.equal(result.sources[0]!.summary!.unchanged, 1);
 });
 
 test("requests keep the configured interval", async () => {
   let clock = 0;
   const waits: number[] = [];
   const { fetcher } = fixtureFetcher();
-  const client = new EgovClient({ baseUrl: BASE, intervalMs: 1000, fetcher, now: () => clock, sleep: async (ms) => { waits.push(ms); clock += ms; } });
+  const client = new EgovClient({ baseUrl: BASE, intervalMs: 1000, fetcher, now: () => clock, sleep: async (ms: number) => { waits.push(ms); clock += ms; } });
   await client.revisions(L1);
   clock += 300;
   await client.revisions(L2);
@@ -187,7 +191,7 @@ test("each enabled source in config/sources.yaml is monitored, and sources witho
   const { fetcher, requested } = fixtureFetcher({ [`law_revisions/${M1}`]: () => json({ code: "404001" }, 404) });
   const logs: string[] = [];
   const result = await runMonitor({ data, detectedAt: DETECTED_AT, fetcher, sleep: noSleep, log: (message) => logs.push(message) });
-  assert.deepEqual(result.sources, [
+  assert.deepEqual(result.sources.map(({ source_id, status }) => ({ source_id, status })), [
     { source_id: "egov-law-api", status: "monitored" },
     { source_id: "example-page", status: "not_implemented" },
     { source_id: "example-disabled", status: "disabled" }
@@ -197,7 +201,7 @@ test("each enabled source in config/sources.yaml is monitored, and sources witho
 
   const only = await runMonitor({ data, detectedAt: DETECTED_AT, fetcher, sleep: noSleep, sourceIds: ["example-page"] });
   assert.deepEqual(only.sources, [{ source_id: "example-page", status: "not_implemented" }]);
-  assert.deepEqual(only.checks, []);
+  assert.deepEqual(only.planned, []);
 });
 
 test("source and law filters are validated", async () => {
@@ -240,4 +244,13 @@ test("the monitor workflow is manual only, read-only for contents, and limited t
   assert.match(workflow, /^permissions:\n  contents: read\n  issues: write\n\n/m);
   assert.doesNotMatch(workflow, /^\s*schedule:/m, "定期実行の開始はユーザーの判断で行う");
   assert.doesNotMatch(workflow, /contents: write|git push/);
+});
+
+test("the e-Gov monitor builds URLs from config/sources.yaml and data/legal-sources.yaml, not from literals", async () => {
+  const { readdir } = await import("node:fs/promises");
+  const directory = join(ROOT, "src/monitor/egov");
+  for (const file of await readdir(directory)) {
+    const source = await readFile(join(directory, file), "utf8");
+    assert.doesNotMatch(source, /https?:\/\//, `${file} must not contain URLs (AGENTS.md)`);
+  }
 });

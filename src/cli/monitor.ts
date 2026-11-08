@@ -26,7 +26,7 @@ runMain(async () => {
     const token = process.env.GITHUB_TOKEN;
     const repository = process.env.GITHUB_REPOSITORY;
     if (!token || !repository) throw new Error("Issueを作成するには GITHUB_TOKEN と GITHUB_REPOSITORY が必要（確認だけなら --dry-run）");
-    tracker = new GitHubIssues({ repository, token });
+    tracker = new GitHubIssues({ repository, token, api: process.env.GITHUB_API_URL });
   }
 
   const result = await runMonitor({ data, detectedAt: formatJst(new Date()), sourceIds: values.source, lawIds: values.law, tracker, log: (message) => console.error(message) });
@@ -36,11 +36,9 @@ runMain(async () => {
   }
   for (const url of result.created) console.error(`created: ${url}`);
   for (const issue of result.skipped) console.error(`skipped (open issue exists): ${issue.title}`);
-  const count = (kind: string) => result.checks.filter((check) => check.kind === kind).length;
   console.error(JSON.stringify({
     dry_run: dryRun,
-    sources: Object.fromEntries(result.sources.map((source) => [source.source_id, source.status])),
-    laws: result.checks.length, unchanged: count("unchanged"), revised: count("revised"), failed: count("failed"),
+    sources: Object.fromEntries(result.sources.map(({ source_id, status, summary }) => [source_id, summary ? { status, ...summary } : { status }])),
     planned: result.planned.length, created: result.created.length, skipped: result.skipped.length
   }));
   return 0;
