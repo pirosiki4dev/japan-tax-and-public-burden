@@ -85,6 +85,18 @@ test("parseElm reads numbered, indexed, and plain parts", () => {
   assert.throws(() => parseElm("Article-1"), /unsupported elm part/);
 });
 
+test("parseElm and locate handle subdivisions of items (Subitem1, Subitem2)", () => {
+  assert.deepEqual(parseElm("MainProvision-Article_7-Paragraph_1-Item_2-Subitem1_1-Subitem2_2"), [
+    { tag: "MainProvision" }, { tag: "Article", num: "7" }, { tag: "Paragraph", num: "1" }, { tag: "Item", num: "2" }, { tag: "Subitem1", num: "1" }, { tag: "Subitem2", num: "2" }
+  ]);
+  const leaf = (num: string, body: string): LawNode => ({ tag: "Subitem2", attr: { Num: num }, children: [{ tag: "Subitem2Sentence", children: [body] }] });
+  const root: LawNode = { tag: "Law", children: [{ tag: "LawBody", children: [{ tag: "MainProvision", children: [{ tag: "Article", attr: { Num: "7" }, children: [{ tag: "Paragraph", attr: { Num: "1" }, children: [
+    { tag: "Item", attr: { Num: "2" }, children: [{ tag: "Subitem1", attr: { Num: "1" }, children: [leaf("1", "五千円"), leaf("2", "一トンごとに五千円")] }] }
+  ] }] }] }] }] };
+  assert.equal(textOf(locate(root, "MainProvision-Article_7-Paragraph_1-Item_2-Subitem1_1-Subitem2_2")!), "一トンごとに五千円");
+  assert.equal(locate(root, "MainProvision-Article_7-Paragraph_1-Item_2-Subitem1_1-Subitem2_3"), undefined);
+});
+
 test("locate finds articles through chapters and indexed supplementary provisions", async () => {
   const root = (await fixture(`law_data-${REVIEWED}.json`) as { law_full_text: LawNode }).law_full_text;
   assert.match(textOf(locate(root, "MainProvision-Article_3-Paragraph_1")!), /百分の十とする/);

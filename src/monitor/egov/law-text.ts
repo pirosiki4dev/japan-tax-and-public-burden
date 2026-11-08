@@ -18,15 +18,16 @@ export interface ElmPart {
 }
 
 /** 指定した要素を探すとき、中に入らない要素。条・項・号の入れ子と、改正文に引用された条文を越えないため。 */
-const STOP = new Set(["Article", "Paragraph", "Item", "Subitem1", "Subitem2", "Subitem3", "AmendProvision", "SupplProvision", "AppdxTable"]);
+const STOP = new Set(["Article", "Paragraph", "Item", ...Array.from({ length: 10 }, (_, i) => `Subitem${i + 1}`), "AmendProvision", "SupplProvision", "AppdxTable"]);
 
 export function parseElm(elm: string): ElmPart[] {
   return elm.split("-").map((part) => {
-    const indexed = /^([A-Za-z]+)\[(\d+)\]$/.exec(part);
+    // 要素名は英字で、号の細分（Subitem1〜Subitem10）だけ末尾に数字を持つ
+    const indexed = /^([A-Za-z]+\d*)\[(\d+)\]$/.exec(part);
     if (indexed) return { tag: indexed[1]!, index: Number(indexed[2]) };
-    const numbered = /^([A-Za-z]+)_(\d+(?:_\d+)*)$/.exec(part);
+    const numbered = /^([A-Za-z]+\d*)_(\d+(?:_\d+)*)$/.exec(part);
     if (numbered) return { tag: numbered[1]!, num: numbered[2]! };
-    if (/^[A-Za-z]+$/.test(part)) return { tag: part };
+    if (/^[A-Za-z]+\d*$/.test(part)) return { tag: part };
     throw new Error(`unsupported elm part: ${part} (${elm})`);
   });
 }
