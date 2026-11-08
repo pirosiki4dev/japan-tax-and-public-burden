@@ -11,8 +11,7 @@ import { locate, parseElm, textOf, type LawNode } from "../src/monitor/egov/law-
 import { monitorEgov } from "../src/monitor/egov/monitor.ts";
 import { failureKey, revisionKey } from "../src/monitor/egov/report.ts";
 import type { Fetcher } from "../src/monitor/http.ts";
-import { GitHubIssues } from "../src/monitor/github.ts";
-import { markersIn, type IssueTracker, type PlannedIssue } from "../src/monitor/issues.ts";
+import { GitHubIssues, markersIn, type PlannedIssue } from "../src/monitor/issues.ts";
 import { EGOV_SOURCE_ID, runMonitor } from "../src/monitor/run.ts";
 import { ROOT, SCHEMA_DIR, VALID_REPO } from "./helpers.ts";
 
@@ -63,12 +62,18 @@ async function monitorData(): Promise<RepositoryData> {
   return data;
 }
 
-class MemoryTracker implements IssueTracker {
-  readonly created: PlannedIssue[] = [];
-  readonly open: Set<string>;
-  constructor(open: Set<string> = new Set()) { this.open = open; }
-  async openIssueKeys(): Promise<Set<string>> { return new Set(this.open); }
-  async create(issue: PlannedIssue): Promise<string> { this.created.push(issue); return `https://github.example.test/issues/${this.created.length}`; }
+/** GitHub REST API の代わりに、未完了のIssueの目印を返し、作成したIssueを記録する GitHubIssues。 */
+function fakeGitHub(open: Set<string> = new Set()): { tracker: GitHubIssues; created: PlannedIssue[] } {
+  const created: PlannedIssue[] = [];
+  const fetcher: Fetcher = async (_input, init) => {
+    if (init?.method === "POST") {
+      const { title, body } = JSON.parse(init.body as string) as { title: string; body: string };
+      created.push({ key: markersIn(body)[0]!, title, body });
+      return json({ html_url: `https://github.example.test/issues/${created.length}` }, 201);
+    }
+    return json([...open].map((key) => ({ body: `<!-- monitor: ${key} -->` })));
+  };
+  return { tracker: new GitHubIssues({ repository: "o/r", token: "t", api: "https://api.example.test", fetcher }), created };
 }
 
 const noSleep = async (): Promise<void> => {};
@@ -103,7 +108,7 @@ test("compareProvision detects text changes, removals, and index shifts", async 
 
 test("only laws whose current revision differs from the reviewed revision become amendment issues", async () => {
   const { fetcher } = fixtureFetcher({ [`law_revisions/${M1}`]: () => json({ revisions: [{ law_revision_id: `${M1}_20200401_000000000000000`, current_revision_status: "CurrentEnforced", amendment_law_id: null, amendment_law_num: null, amendment_promulgate_date: null, amendment_enforcement_date: "2020-04-01" }] }) });
-  const tracker = new MemoryTracker();
+  const { tracker, created } = fakeGitHub();
   const result = await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker });
 
   assert.deepEqual(result.sources, [{ source_id: EGOV_SOURCE_ID, status: "monitored", summary: { laws: 3, unchanged: 2, revised: 1, failed: 0 } }]);
@@ -111,8 +116,8 @@ test("only laws whose current revision differs from the reviewed revision become
   assert.equal(byLaw(checks, L1).kind, "revised");
   assert.equal(byLaw(checks, L2).kind, "unchanged");
   assert.equal(byLaw(checks, M1).kind, "unchanged");
-  assert.equal(tracker.created.length, 1);
-  const [issue] = tracker.created;
+  assert.equal(created.length, 1);
+  const [issue] = created;
   assert.equal(issue!.key, revisionKey(EGOV_SOURCE_ID, L1, CURRENT));
   assert.deepEqual(markersIn(issue!.body), [revisionKey(EGOV_SOURCE_ID, L1, CURRENT)]);
   assert.match(issue!.title, /^\[改正検知\] 例示税法（999AC0000000001）/);
@@ -127,10 +132,10 @@ test("only laws whose current revision differs from the reviewed revision become
 
 test("no issue is created while an open issue for the same law and revision exists", async () => {
   const { fetcher } = fixtureFetcher({ [`law_revisions/${M1}`]: () => json({ code: "404001" }, 404) });
-  const tracker = new MemoryTracker(new Set([revisionKey(EGOV_SOURCE_ID, L1, CURRENT)]));
+  const { tracker, created } = fakeGitHub(new Set([revisionKey(EGOV_SOURCE_ID, L1, CURRENT)]));
   const result = await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker });
   assert.deepEqual(result.skipped.map((issue) => issue.key), [revisionKey(EGOV_SOURCE_ID, L1, CURRENT)]);
-  assert.deepEqual(tracker.created.map((issue) => issue.key), [failureKey(EGOV_SOURCE_ID, M1, "fetch_failed")]);
+  assert.deepEqual(created.map((issue) => issue.key), [failureKey(EGOV_SOURCE_ID, M1, "fetch_failed")]);
 });
 
 test("fetch failures and format changes are reported separately from amendments", async () => {
@@ -144,10 +149,10 @@ test("fetch failures and format changes are reported separately from amendments"
   ];
   for (const [label, respond, kind, message] of cases) {
     const { fetcher } = fixtureFetcher({ [`law_revisions/${M1}`]: respond });
-    const tracker = new MemoryTracker();
+    const { tracker, created } = fakeGitHub();
     await runMonitor({ data: await monitorData(), detectedAt: DETECTED_AT, fetcher, sleep: noSleep, tracker, lawIds: [M1] });
-    assert.equal(tracker.created.length, 1, label);
-    const [issue] = tracker.created;
+    assert.equal(created.length, 1, label);
+    const [issue] = created;
     assert.equal(issue!.key, failureKey(EGOV_SOURCE_ID, M1, kind), label);
     assert.match(issue!.title, /^\[監視エラー\]/, label);
     assert.match(issue!.body, message, label);

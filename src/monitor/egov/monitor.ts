@@ -1,5 +1,5 @@
 import type { Source } from "../../domain/types.generated.ts";
-import type { MonitorContext, SourceResult } from "../source-monitor.ts";
+import type { MonitorContext, SourceResult } from "../run.ts";
 import { EgovClient } from "./client.ts";
 import { checkLaw, provisionUsers, type LawCheck } from "./detect.ts";
 import { planIssues } from "./report.ts";

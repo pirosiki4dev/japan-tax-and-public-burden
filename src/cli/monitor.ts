@@ -1,7 +1,7 @@
 import { parseArgs } from "node:util";
 import { loadRepository } from "../data/repository.ts";
 import { formatJst } from "../domain/time.ts";
-import { GitHubIssues } from "../monitor/github.ts";
+import { GitHubIssues } from "../monitor/issues.ts";
 import { runMonitor } from "../monitor/run.ts";
 import { REPOSITORY_ROOT, runMain } from "./args.ts";
 

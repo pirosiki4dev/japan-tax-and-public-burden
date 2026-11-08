@@ -1,6 +1,28 @@
+import type { RepositoryData } from "../domain/repository.ts";
+import type { Source } from "../domain/types.generated.ts";
 import { monitorEgov } from "./egov/monitor.ts";
-import { fileIssues, type IssueTracker, type PlannedIssue } from "./issues.ts";
-import type { MonitorContext, SourceMonitor } from "./source-monitor.ts";
+import type { Fetcher } from "./http.ts";
+import { fileIssues, type GitHubIssues, type PlannedIssue } from "./issues.ts";
+
+/** 巡回先の監視に渡す共通の値。 */
+export interface MonitorContext {
+  data: RepositoryData;
+  detectedAt: string;
+  fetcher?: Fetcher;
+  sleep?: (ms: number) => Promise<void>;
+  /** e-Gov法令APIの監視で、この law_id の法令だけを監視する */
+  lawIds?: string[];
+  log?: (message: string) => void;
+}
+
+/** 1つの巡回先の監視の結果。summary は件数の内訳（表示用）。 */
+export interface SourceResult {
+  planned: PlannedIssue[];
+  summary: Record<string, number>;
+}
+
+/** 巡回先ごとの監視の処理。取得方式は巡回先ごとに異なるため、巡回先ごとのディレクトリに実装する（ADR 0003）。 */
+export type SourceMonitor = (source: Source, context: MonitorContext) => Promise<SourceResult>;
 
 /** config/sources.yaml のうち、e-Gov法令APIの巡回先の source_id。 */
 export const EGOV_SOURCE_ID = "egov-law-api";
@@ -14,7 +36,7 @@ export interface MonitorOptions extends MonitorContext {
   /** 指定すると、この source_id の巡回先だけを監視する */
   sourceIds?: string[];
   /** 指定しなければIssueを作成しない（確認用の実行） */
-  tracker?: IssueTracker;
+  tracker?: GitHubIssues;
 }
 
 /**
