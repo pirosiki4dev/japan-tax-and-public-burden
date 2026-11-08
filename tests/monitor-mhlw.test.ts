@@ -6,10 +6,9 @@ import { test } from "node:test";
 import { loadRepository } from "../src/data/repository.ts";
 import { validateRepository } from "../src/data/validate-repository.ts";
 import type { RepositoryData } from "../src/domain/repository.ts";
-import type { PublishedDocument, PublishedSources } from "../src/domain/types.generated.ts";
+import type { LegalSources, PublishedDocument } from "../src/domain/types.generated.ts";
 import type { Fetcher } from "../src/monitor/http.ts";
 import { GitHubIssues, markersIn, type PlannedIssue } from "../src/monitor/issues.ts";
-import { compareDocuments } from "../src/monitor/mhlw/monitor.ts";
 import { documentLinks } from "../src/monitor/mhlw/page.ts";
 import { MHLW_EMPLOYMENT_INSURANCE_RATE_SOURCE_ID as SOURCE_ID, runMonitor } from "../src/monitor/run.ts";
 import { copyRepository, readFixture, ROOT, SCHEMA_DIR, VALID_REPO } from "./helpers.ts";
@@ -24,7 +23,10 @@ const pageHtml = (): Promise<string> => readFile(join(ROOT, "tests/fixtures/mhlw
 const pdfBytes = (id: string): Uint8Array => new TextEncoder().encode(`%PDF-1.7 fixture ${id}`);
 const sha256 = (bytes: Uint8Array): string => createHash("sha256").update(bytes).digest("hex");
 const pdfUrl = (id: string): string => `${ORIGIN}/content/${id}.pdf`;
-const reviewedDocuments = (): PublishedDocument[] => PDF_IDS.map((id, i) => ({ title: TITLES[i]!, url: pdfUrl(id), sha256: sha256(pdfBytes(id)) }));
+const LATEST_SHA256 = sha256(pdfBytes(PDF_IDS[0]!));
+const reviewedDocument = (overrides: Partial<PublishedDocument> = {}): PublishedDocument => ({
+  source_id: SOURCE_ID, title: "令和８（2026）年度 雇用保険料率のご案内", reviewed_sha256: LATEST_SHA256, reviewed_at: "2026-11-08T09:00:00+09:00", source_url: pdfUrl(PDF_IDS[0]!), ...overrides
+});
 
 /** 保存したページと架空のPDFを返す fetch。外部通信はしない。 */
 function siteFetcher(overrides: Record<string, () => Response | Promise<Response>> = {}): { fetcher: Fetcher; requested: string[] } {
@@ -41,11 +43,11 @@ function siteFetcher(overrides: Record<string, () => Response | Promise<Response
   return { fetcher, requested };
 }
 
-async function monitorData(documents: PublishedDocument[] = reviewedDocuments()): Promise<RepositoryData> {
+async function monitorData(reviewed: PublishedDocument[] = [reviewedDocument()]): Promise<RepositoryData> {
   const { data, errors } = await loadRepository(VALID_REPO, SCHEMA_DIR);
   assert.deepEqual(errors, []);
   data.sources.sources = [{ source_id: SOURCE_ID, name: "厚生労働省「雇用保険料率について」", base_url: PAGE_URL, rate_limit: "テスト用", request_interval_ms: 0, enabled: true }];
-  data.publishedSources = [{ source_id: SOURCE_ID, documents, reviewed_at: "2026-11-08T09:00:00+09:00" }];
+  data.publishedDocuments = reviewed;
   data.burdens[0]!.source_urls = [...data.burdens[0]!.source_urls, PAGE_URL];
   return data;
 }
@@ -77,52 +79,53 @@ test("documentLinks ignores links outside the main content and non-PDF links, an
   assert.equal(documentLinks("<html><body>no main</body></html>", PAGE_URL), undefined);
 });
 
-test("compareDocuments distinguishes added, removed, title and content changes", () => {
-  const [a, b, c] = reviewedDocuments();
-  const changes = compareDocuments([{ ...a!, title: "新しい題名" }, { ...b!, sha256: "f".repeat(64) }, { title: "新資料", url: `${ORIGIN}/content/new.pdf`, sha256: "e".repeat(64) }], [a!, b!, c!]);
-  assert.deepEqual(changes.map((change) => [change.kind, change.document.url]), [
-    ["title_changed", a!.url], ["content_changed", b!.url], ["added", `${ORIGIN}/content/new.pdf`], ["removed", c!.url]
-  ]);
-});
-
-test("no issue is created when the page and its documents match the reviewed state", async () => {
+test("only the page and its latest document are fetched, and no issue is created when the SHA-256 matches", async () => {
   const { fetcher, requested } = siteFetcher();
   const { tracker, created } = fakeGitHub();
   const result = await run(await monitorData(), fetcher, tracker);
-  assert.deepEqual(result.sources, [{ source_id: SOURCE_ID, status: "monitored", summary: { documents: 6, added: 0, removed: 0, title_changed: 0, content_changed: 0, failed: 0 } }]);
+  assert.deepEqual(result.sources, [{ source_id: SOURCE_ID, status: "monitored", summary: { changed: 0, failed: 0 } }]);
   assert.deepEqual(created, []);
-  assert.deepEqual(requested, [PAGE_URL, ...PDF_IDS.map(pdfUrl)]);
+  assert.deepEqual(requested, [PAGE_URL, pdfUrl(PDF_IDS[0]!)]);
 });
 
-test("a new document, a replaced file, and a removed document produce one change issue with related burdens", async () => {
-  const reviewed = reviewedDocuments().slice(1);
-  reviewed[0]!.sha256 = "0".repeat(64);
-  reviewed.push({ title: "令和２年度の雇用保険料率について", url: pdfUrl("000000001"), sha256: "1".repeat(64) });
-  const { fetcher } = siteFetcher();
+test("a new latest document produces one change issue with related burdens, and is not duplicated while open", async () => {
+  const reviewed = [reviewedDocument({ title: "令和７（2025）年度 雇用保険料率のご案内", reviewed_sha256: sha256(pdfBytes(PDF_IDS[1]!)), source_url: pdfUrl(PDF_IDS[1]!) })];
   const { tracker, created } = fakeGitHub();
-  const result = await run(await monitorData(reviewed), fetcher, tracker);
+  const result = await run(await monitorData(reviewed), siteFetcher().fetcher, tracker);
   assert.equal(created.length, 1);
   const [issue] = created;
-  assert.match(issue!.key, new RegExp(`^${SOURCE_ID} change [0-9a-f]{16}$`));
+  assert.equal(issue!.key, `${SOURCE_ID} change ${LATEST_SHA256.slice(0, 16)}`);
   assert.match(issue!.title, /^\[公表資料の変化\]/);
-  for (const expected of [`| 掲載された | ${TITLES[0]} | ${pdfUrl(PDF_IDS[0]!)} |`, `| ファイルが変わった（変更前: \`${"0".repeat(64)}\`） |`, "| 掲載されなくなった | 令和２年度の雇用保険料率について |",
-    "- nt-000001 ", PAGE_URL, DETECTED_AT, `        sha256: "${sha256(pdfBytes(PDF_IDS[0]!))}"`]) {
+  for (const expected of ["| 変化 | 新しい資料が掲載された |", `| 最新の資料 | ${TITLES[0]}、${pdfUrl(PDF_IDS[0]!)} |`, `\`${LATEST_SHA256}\``, `\`${reviewed[0]!.reviewed_sha256}\``,
+    "- nt-000001 ", PAGE_URL, DETECTED_AT, "`published_documents`"]) {
     assert.ok(issue!.body.includes(expected), `missing ${expected}\n${issue!.body}`);
   }
-  assert.equal(result.sources[0]!.summary!.added, 1);
+  assert.equal(result.sources[0]!.summary!.changed, 1);
 
-  // 同じ状態の未完了のIssueがあれば作成しない
+  // 同じ最新の資料について未完了のIssueがあれば作成しない
   const again = fakeGitHub(new Set([issue!.key]));
   const second = await run(await monitorData(reviewed), siteFetcher().fetcher, again.tracker);
   assert.deepEqual(again.created, []);
   assert.deepEqual(second.skipped.map((skipped) => skipped.key), [issue!.key]);
 });
 
+test("a file replaced at the same URL and a missing reviewed document are reported as changes", async () => {
+  for (const [reviewed, expected] of [
+    [[reviewedDocument({ reviewed_sha256: "0".repeat(64) })], "| 変化 | 同じURLの資料のファイルが差し替えられた |"],
+    [[], "| 変化 | 確認済みの資料が未登録 |"]
+  ] as const) {
+    const { tracker, created } = fakeGitHub();
+    await run(await monitorData([...reviewed]), siteFetcher().fetcher, tracker);
+    assert.equal(created.length, 1, expected);
+    assert.ok(created[0]!.body.includes(expected), `missing ${expected}\n${created[0]!.body}`);
+  }
+});
+
 test("fetch failures and page structure changes are reported separately from document changes", async () => {
   const cases: [string, Record<string, () => Response>, string, RegExp][] = [
     ["page not found", { [PAGE_URL]: () => new Response("", { status: 404 }) }, "fetch_failed", /ページが見つからない/],
     ["server error", { [PAGE_URL]: () => new Response("", { status: 503 }) }, "fetch_failed", /HTTP 503/],
-    ["document not found", { [pdfUrl(PDF_IDS[2]!)]: () => new Response("", { status: 404 }) }, "fetch_failed", /掲載資料「令和6年度/],
+    ["latest document not found", { [pdfUrl(PDF_IDS[0]!)]: () => new Response("", { status: 404 }) }, "fetch_failed", /最新の資料「令和８年度/],
     ["main content missing", { [PAGE_URL]: () => new Response("<html><body>メンテナンス中</body></html>") }, "unexpected_format", /l-contentMain/],
     ["no documents", { [PAGE_URL]: () => new Response(`<div class="l-contentMain"><p>準備中</p><!-- /.l-contentMain --></div>`) }, "unexpected_format", /PDF）へのリンクがない/]
   ];
@@ -133,24 +136,24 @@ test("fetch failures and page structure changes are reported separately from doc
     assert.equal(created[0]!.key, `${SOURCE_ID} failure ${kind}`, label);
     assert.match(created[0]!.title, /^\[監視エラー\]/, label);
     assert.match(created[0]!.body, message, label);
-    assert.match(created[0]!.body, /掲載資料の変化の検知ではない/, label);
+    assert.match(created[0]!.body, /公表資料の変化の検知ではない/, label);
   }
 });
 
-test("published sources must reference configured sources, be sorted, and have unique document URLs", async () => {
-  const document = await readFixture<PublishedSources>("data/published-sources.yaml");
-  const entry = document.published_sources[0]!;
-  document.published_sources = [{ ...entry, source_id: "zz-unknown" }, entry];
-  entry.documents.push({ ...entry.documents[0]! });
-  const { errors } = await validateRepository(await copyRepository({ "data/published-sources.yaml": document }), { asOf: "2026-11-01", schemaDir: SCHEMA_DIR });
-  for (const expected of ["zz-unknown: unknown source_id", "example-source must come after zz-unknown", "duplicate document url https://example.com/content/r8.pdf"]) {
+test("published documents must reference configured sources, be sorted, and have one entry per source", async () => {
+  const document = await readFixture<LegalSources>("data/legal-sources.yaml");
+  const entry = document.published_documents![0]!;
+  document.published_documents = [{ ...entry, source_id: "zz-unknown" }, entry, { ...entry }];
+  const { errors } = await validateRepository(await copyRepository({ "data/legal-sources.yaml": document }), { asOf: "2026-11-01", schemaDir: SCHEMA_DIR });
+  for (const expected of ["zz-unknown: unknown source_id", "example-source must come after zz-unknown", "duplicate published_documents source_id example-source"]) {
     assert.ok(errors.some((error) => error.includes(expected)), `${expected}\n${errors.join("\n")}`);
   }
 });
 
-test("the repository's reviewed state of the MHLW page matches the saved page", async () => {
+test("the repository records the latest document of the saved MHLW page, and burdens cite it", async () => {
   const { data } = await loadRepository(ROOT, SCHEMA_DIR);
   const source = data.sources.sources.find((candidate) => candidate.source_id === SOURCE_ID)!;
-  const published = data.publishedSources.find((candidate) => candidate.source_id === SOURCE_ID)!;
-  assert.deepEqual(published.documents.map(({ title, url }) => ({ title, url })), documentLinks(await pageHtml(), source.base_url));
+  const reviewed = data.publishedDocuments.find((candidate) => candidate.source_id === SOURCE_ID)!;
+  assert.equal(reviewed.source_url, documentLinks(await pageHtml(), source.base_url)![0]!.url);
+  assert.ok(data.burdens.some((burden) => burden.versions.some((version) => version.source_urls.includes(reviewed.source_url))));
 });

@@ -10,6 +10,6 @@ sources:
   - source_id: mhlw-employment-insurance-rate
     name: 厚生労働省「雇用保険料率について」（告示で変更される雇用保険率の公表）
     base_url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000108634.html
-    rate_limit: 公式サイトの負荷を避け、1回の巡回でこのページと本文に掲載された資料（PDF）だけを、間隔を空けて順に取得する
+    rate_limit: 公式サイトの負荷を避け、1回の巡回でこのページと、本文に掲載された最新の資料（PDF）1件だけを、間隔を空けて取得する
     request_interval_ms: 1000
     enabled: true

@@ -1,4 +1,5 @@
-# 根拠法令の正本（schemas/legal-sources.schema.json）。監視対象の一覧を兼ね、law_idの昇順に並べる。
+# 根拠の正本（schemas/legal-sources.schema.json）。監視対象の一覧を兼ねる。
+# legal_sources はe-Gov法令APIで取得する根拠法令で、law_idの昇順に並べる。
 # 最初の登録は #143 の調査（surveys/first-release-scope/）で対象と判定した法律。
 # reviewed_revision_id は調査時点の改正版で、#144〜#146 はこの版を基準に負担項目を登録する。
 # 政令・省令等は、負担項目の委任先として必要になったときに追加する（地方税法施行令は #145、社会保険料の政令・省令は #146）。
@@ -267,3 +268,13 @@ legal_sources:
     reviewed_revision_id: 505AC0000000069_20260401_508AC0000000012
     reviewed_at: 2026-11-03T12:22:26+09:00
     source_url: https://laws.e-gov.go.jp/law/505AC0000000069
+# published_documents は、e-Gov法令APIで取得できない告示等の値を公表する資料で、source_idの昇順に並べる。
+# 公表ページ（config/sources.yaml の巡回先）ごとに、最新の資料を1件だけ記録する。過去の値は data/burdens.yaml の版として保存する。
+# 監視は公表ページの本文に掲載された最新の資料を取得し、ファイルのSHA-256が reviewed_sha256 と異なればIssueを作成する（#167）。
+published_documents:
+  # 令和８年度の雇用保険料率（data/burdens.yaml の si-000007〜si-000012 の版 v1）を登録した資料。
+  - source_id: mhlw-employment-insurance-rate
+    title: 令和８（2026）年度 雇用保険料率のご案内
+    reviewed_sha256: "69ca914736d051ffa067464756500c2a8cf597186e9cf091b54512a68d3b1be9"
+    reviewed_at: 2026-11-08T19:23:01+09:00
+    source_url: https://www.mhlw.go.jp/content/001692566.pdf

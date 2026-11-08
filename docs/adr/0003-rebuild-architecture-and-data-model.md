@@ -12,7 +12,7 @@
 | 2026-11-03 | #143 | フォルダ構成に、通常運用と分けた法令調査の作業場所（`surveys/`）を追加した |
 | 2026-11-03 | #153 | IDの単位を「1つの率または金額」とし、意味を持たない連番で採番する方式に変更した。区分の判断基準、監視する条項（委任先を含む）、値の決まり方、集計用グループを追加した。負担項目を1制度1ディレクトリから `data/burdens.yaml` の1ファイルに、根拠法令を `data/legal-sources.yaml` の1ファイルに集約した。ファイルの役割と監視の流れを追記した |
 | 2026-11-08 | #148 | 監視で比べる改正版を「現在施行中の版」と定め、登録済みの条項の照合（附則・別表の番号のずれを含む）と、監視の実行方法（巡回先を1つのコマンドで順に監視する）と、共通の処理と巡回先ごとの処理の分け方を追記した。告示等の公表物の監視は #167 で扱うこととした |
-| 2026-11-08 | #167 | 告示等の値を公表する公式ページの確認済みの状態を記録する `data/published-sources.yaml` を追加し、公表ページの監視（掲載資料のリンクとファイルのSHA-256の比較）を追記した |
+| 2026-11-08 | #167 | `data/legal-sources.yaml` に、e-Gov法令APIで取得できない告示等の値を公表する資料（公表ページごとに最新の1件と、確認済みのファイルのSHA-256）を記録する `published_documents` を追加し、公表ページの監視（最新の資料のSHA-256の比較）を追記した |
 
 ## 文脈
 
@@ -50,8 +50,7 @@ ADR 0002で全体の対象範囲と最初のリリースの範囲を決めた。
 ├── data/                       # 正本（手で編集する）
 │   ├── burdens.yaml            # 負担項目（レベル1・2）と、期間ごとの率・金額、日付、監視する条項（レベル3）
 │   ├── groups.yaml             # 集計用グループ
-│   ├── legal-sources.yaml      # 根拠法令（e-Gov法令ID、確認済みの改正版）。監視対象の一覧を兼ねる
-│   ├── published-sources.yaml  # 告示等の値を公表する公式ページの確認済みの状態（掲載資料のリンクとSHA-256）
+│   ├── legal-sources.yaml      # 根拠法令（e-Gov法令ID、確認済みの改正版）と告示等の公表資料（確認済みのSHA-256）。監視対象の一覧を兼ねる
 │   └── scope-decisions.yaml    # 個別判断で対象とした負担の記録
 ├── config/
 │   └── sources.yaml            # 巡回する公式サイトのURL（唯一の置き場所）
@@ -221,15 +220,16 @@ ADR 0002で全体の対象範囲と最初のリリースの範囲を決めた。
 | `reviewed_revision_id` | 人がマスタへの反映を確認した最新の改正版のID |
 | `reviewed_at` | その確認日時 |
 
-#### 公表ページの確認済みの状態（`published-sources.yaml` の `published_sources` の要素）
+#### 公表資料（`legal-sources.yaml` の `published_documents` の要素）
 
-告示等、e-Gov法令APIで取得できない公表物で定まる値（`determination: published`）について、値を公表する公式ページの掲載資料を人が確認した状態を記録する。
+告示等、e-Gov法令APIで取得できない公表物で定まる値（`determination: published`）の根拠の資料。公表ページ（`config/sources.yaml` の巡回先）ごとに最新の資料を1件だけ記録し、`source_id` の昇順に並べる。過去の値は、ほかの率・金額と同じく `data/burdens.yaml` の版として保存する。
 
 | 項目 | 内容 |
 | --- | --- |
-| `source_id` | `config/sources.yaml` の巡回先のID |
-| `documents` | ページの本文に掲載された資料（掲載順）。リンクの文字列（`title`）、URL（`url`）、ファイルのSHA-256（`sha256`） |
-| `reviewed_at` | 人が掲載資料を確認した日時 |
+| `source_id` | 資料を掲載する公表ページの、`config/sources.yaml` の巡回先のID |
+| `title`、`source_url` | 資料の題名、URL |
+| `reviewed_sha256` | 人がマスタへの反映を確認した資料のファイルのSHA-256 |
+| `reviewed_at` | その確認日時 |
 
 ### 5. 最初のリリースの監視方式
 
@@ -238,8 +238,7 @@ ADR 0002で全体の対象範囲と最初のリリースの範囲を決めた。
 | ファイル | 役割 | 単位 | 主な内容 | 更新するとき |
 | --- | --- | --- | --- | --- |
 | `config/sources.yaml` | どこから取得するか（巡回先の設定） | 情報源（サイト・API） | 情報源のID、名称、基本URL、アクセス間隔の上限、有効・無効 | 巡回先を追加するとき（例: 自治体・保険者の公式サイト） |
-| `data/legal-sources.yaml` | どの法令を監視し、どこまで人が確認したか | 法令 | e-Gov法令ID、題名、法令番号、確認済みの改正版ID（`reviewed_revision_id`）、確認日時 | 根拠法令を追加するとき、改正検知Issueを人が確認したとき |
-| `data/published-sources.yaml` | 公表ページの掲載資料を、どこまで人が確認したか | 公表ページ | 巡回先のID、掲載資料のリンクの文字列・URL・SHA-256、確認日時 | 公表資料の変化のIssueを人が確認したとき |
+| `data/legal-sources.yaml` | どの根拠を監視し、どこまで人が確認したか | 法令（`legal_sources`）、公表ページの最新の資料（`published_documents`） | 法令: e-Gov法令ID、題名、法令番号、確認済みの改正版ID（`reviewed_revision_id`）、確認日時。公表資料: 巡回先のID、題名、URL、確認済みのSHA-256（`reviewed_sha256`）、確認日時 | 根拠を追加するとき、改正検知Issue・公表資料の変化のIssueを人が確認したとき |
 | `data/burdens.yaml` | 何を記録するか（負担の正本） | 1つの率または金額 | ID、区分、負担者、グループ、版（率・金額、日付、値の決まり方、監視する条項） | 率・金額等が変わったとき、負担項目を追加するとき |
 
 - 根拠法令を負担項目に含めないのは、1つの法令が多くの負担項目の根拠になり、確認済みの改正版は法令ごとに1つの値だからである。
@@ -271,14 +270,14 @@ config/sources.yaml          data/legal-sources.yaml           data/burdens.yaml
 
 監視は1つのコマンド `npm run monitor` で、`config/sources.yaml` の有効な巡回先を順に実行する（`--dry-run` でIssueを作成せずに結果を表示する）。`src/monitor/` の直下には巡回先に共通の処理（リクエストの間隔の維持と再試行、失敗の分類、Issueの重複防止と作成、巡回先の順次実行）を置き、応答の解釈と判定のように巡回先ごとに異なる処理だけを巡回先ごとのディレクトリ（例: `src/monitor/egov/`）に置く。監視の処理がない巡回先は、実行しない旨を表示する。URLはプログラムに書かず、`config/sources.yaml` の `base_url` と `data/legal-sources.yaml` の `source_url` から作る。workflow は `.github/workflows/monitor.yml` で、定期実行の開始はユーザーが判断する。重複防止の目印は、Issue本文の先頭のHTMLコメント（`<!-- monitor: ... -->`）に置く。
 
-告示等の値を公表する公式ページ（`data/published-sources.yaml` に確認済みの状態がある巡回先）は、次のとおり監視する。
+告示等の値を公表する公式ページ（`data/legal-sources.yaml` の `published_documents` に資料がある巡回先）は、次のとおり監視する。
 
-1. ページを取得し、本文の領域に掲載された資料（PDF）のリンクの文字列とURLを取り出す。各資料を取得して、ファイルのSHA-256を求める。
-2. 確認済みの状態と比べ、資料の追加・削除、リンクの文字列の変更、ファイルの変更（同じURLでの差し替えを含む）があれば、変化した資料と、ページまたは資料を根拠URLに持つ負担項目を記載したIssueを作成する。同じ掲載状態について未完了のIssueがある場合は、新たに作成しない。
-3. 人がIssueを確認し、マスタへ反映するかを判断する。反映する場合も反映しない場合も、Pull Requestで `documents` と `reviewed_at` を更新し、そのIssueを閉じる。
+1. ページを取得し、本文の領域に掲載された最新の資料（最初のPDFへのリンク）を取り出す。その資料だけを取得して、ファイルのSHA-256を求める。
+2. `reviewed_sha256` と異なれば（新しい資料の掲載、または同じURLでの差し替え）、最新の資料と確認済みの資料、ページまたは資料を根拠URLに持つ負担項目を記載したIssueを作成する。同じ最新の資料について未完了のIssueがある場合は、新たに作成しない。
+3. 人が最新の資料の値を読み取り、マスタへ反映するかを判断する。反映する場合も反映しない場合も、Pull Requestで `published_documents` の要素（題名、`source_url`、`reviewed_sha256`、`reviewed_at`）を更新し、そのIssueを閉じる。
 4. 取得の失敗と、本文の領域や資料のリンクが見つからない場合（ページの構造の変化）は、変化の検知と区別したIssueにする。
 
-監視の状態は正本の `reviewed_revision_id` と `data/published-sources.yaml` だけで管理するため、Actionsがリポジトリへ書き込む必要はなく、権限はIssueの作成に限る。
+監視の状態は正本の `reviewed_revision_id` と `reviewed_sha256` だけで管理するため、Actionsがリポジトリへ書き込む必要はなく、権限はIssueの作成に限る。
 
 ## 検討した代替案
 
@@ -294,6 +293,6 @@ config/sources.yaml          data/legal-sources.yaml           data/burdens.yaml
 ## 結果
 
 - 負担項目を追加するときは、`data/burdens.yaml` の要素と、新しい根拠法令であれば `data/legal-sources.yaml` の要素、新しいグループであれば `data/groups.yaml` の要素を追加するだけで、コードと設定の変更を要しない。
-- `determination: published` の値（告示等で公表される値）は、e-Gov法令APIの監視では値そのものの改定を検知できない。公表物は、値を公表する公式ページの掲載資料を監視する（#167）。資料の中の値は自動で読み取らず、人が確認する。
+- `determination: published` の値（告示等で公表される値）は、e-Gov法令APIの監視では値そのものの改定を検知できない。公表物は、値を公表する公式ページの最新の資料のSHA-256を監視する（#167）。資料の中の値は自動で読み取らず、人が読み取ってマスタに反映する。
 - 旧版のファイルはすべて削除し、上記の構成で作り直す。`AGENTS.md`、`README.md`、テンプレート、CIもこの構成に合わせて作り直す。
 - 実装はサブIssueに分けて進める（例: 基盤とSchema、データ投入、配布物の生成、監視）。

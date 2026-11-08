@@ -2,7 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { parse } from "yaml";
 import type { RepositoryData } from "../domain/repository.ts";
-import type { Burdens, BurdenGroups, LegalSources, PublishedSources, ScopeDecisions, SourceRegistry } from "../domain/types.generated.ts";
+import type { Burdens, BurdenGroups, LegalSources, ScopeDecisions, SourceRegistry } from "../domain/types.generated.ts";
 import { createSchemaValidator, type SchemaName, type SchemaValidator } from "./schema.ts";
 
 export interface LoadResult {
@@ -56,8 +56,9 @@ export async function loadRepository(root: string, schemaDir = join(root, "schem
 
   const { burdens } = (await load<Burdens>(join(root, "data/burdens.yaml"), "burdens")) ?? { burdens: [] };
 
-  const legalSources = (await load<LegalSources>(join(root, "data/legal-sources.yaml"), "legal-sources"))?.legal_sources ?? [];
-  const publishedSources = (await load<PublishedSources>(join(root, "data/published-sources.yaml"), "published-sources"))?.published_sources ?? [];
+  const legal = await load<LegalSources>(join(root, "data/legal-sources.yaml"), "legal-sources");
+  const legalSources = legal?.legal_sources ?? [];
+  const publishedDocuments = legal?.published_documents ?? [];
   const groups = (await load<BurdenGroups>(join(root, "data/groups.yaml"), "groups")) ?? { groups: [] };
   const scopeDecisions = (await load<ScopeDecisions>(join(root, "data/scope-decisions.yaml"), "scope-decisions")) ?? { decisions: [] };
   const sources = (await load<SourceRegistry>(join(root, "config/sources.yaml"), "sources")) ?? { sources: [] };
@@ -66,5 +67,5 @@ export async function loadRepository(root: string, schemaDir = join(root, "schem
     if (!handled.has(path)) errors.push(`${display(path)}: no validation route (unexpected file)`);
   }
 
-  return { data: { burdens, groups, legalSources, publishedSources, scopeDecisions, sources }, errors };
+  return { data: { burdens, groups, legalSources, publishedDocuments, scopeDecisions, sources }, errors };
 }

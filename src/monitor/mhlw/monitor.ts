@@ -3,98 +3,59 @@ import type { Burden, PublishedDocument, Source } from "../../domain/types.gener
 import { HttpClient, MonitorFailure } from "../http.ts";
 import { issueBody, issueKey, type PlannedIssue } from "../issues.ts";
 import type { MonitorContext, SourceResult } from "../run.ts";
-import { documentLinks } from "./page.ts";
+import { documentLinks, type PageLink } from "./page.ts";
+
+/** 公表ページに掲載された最新の資料（本文の最初のPDF）と、そのファイルのSHA-256。 */
+export interface LatestDocument extends PageLink {
+  sha256: string;
+}
 
 /**
- * 掲載資料の変化。
- * - added: 確認済みの状態にない資料が掲載された
- * - removed: 確認済みの資料が掲載されなくなった
- * - title_changed: 同じURLのリンクの文字列が変わった
- * - content_changed: 同じURLの資料のファイルが変わった（SHA-256が異なる）
+ * 公表ページの確認の結果。
+ * - unchanged: 最新の資料のSHA-256が確認済みの値と同じ
+ * - changed: 最新の資料のSHA-256が確認済みの値と異なる（新しい資料の掲載、または同じURLでの差し替え）
+ * - failed: 取得の失敗、またはページの構造の変化
  */
-export type DocumentChangeKind = "added" | "removed" | "title_changed" | "content_changed";
-
-export interface DocumentChange {
-  kind: DocumentChangeKind;
-  /** 現在の資料（removed のときは確認済みの資料） */
-  document: PublishedDocument;
-  /** title_changed・content_changed のときの確認済みの資料 */
-  reviewed?: PublishedDocument;
-}
-
 export type PageCheck =
-  | { kind: "unchanged"; documents: PublishedDocument[] }
-  | { kind: "changed"; documents: PublishedDocument[]; changes: DocumentChange[] }
+  | { kind: "unchanged"; latest: LatestDocument }
+  | { kind: "changed"; latest: LatestDocument }
   | { kind: "failed"; failure: MonitorFailure };
 
-const sha256 = (bytes: Uint8Array | string): string => createHash("sha256").update(bytes).digest("hex");
+const sha256 = (bytes: Uint8Array): string => createHash("sha256").update(bytes).digest("hex");
 
-/** 現在の掲載資料と、確認済みの掲載資料を比べる。 */
-export function compareDocuments(current: PublishedDocument[], reviewed: PublishedDocument[]): DocumentChange[] {
-  const reviewedByUrl = new Map(reviewed.map((document) => [document.url, document]));
-  const currentUrls = new Set(current.map((document) => document.url));
-  const changes: DocumentChange[] = [];
-  for (const document of current) {
-    const before = reviewedByUrl.get(document.url);
-    if (!before) changes.push({ kind: "added", document });
-    else {
-      if (before.title !== document.title) changes.push({ kind: "title_changed", document, reviewed: before });
-      if (before.sha256 !== document.sha256) changes.push({ kind: "content_changed", document, reviewed: before });
-    }
-  }
-  for (const document of reviewed) if (!currentUrls.has(document.url)) changes.push({ kind: "removed", document });
-  return changes;
-}
-
-/** ページを取得し、本文の資料をすべて取得して、確認済みの状態と比べる。 */
-export async function checkPage(http: HttpClient, source: Source, reviewed: PublishedDocument[] | undefined): Promise<PageCheck> {
+/** ページを取得し、本文に掲載された最新の資料だけを取得して、確認済みのSHA-256と比べる。 */
+export async function checkPage(http: HttpClient, source: Source, reviewed: PublishedDocument | undefined): Promise<PageCheck> {
   try {
     const html = await http.getText(source.base_url);
     if (html === undefined) throw new MonitorFailure("fetch_failed", source.base_url, "ページが見つからない（HTTP 404）");
     const links = documentLinks(html, source.base_url);
     if (links === undefined) throw new MonitorFailure("unexpected_format", source.base_url, "本文の領域（l-contentMain）が見つからない");
-    if (links.length === 0) throw new MonitorFailure("unexpected_format", source.base_url, "本文の領域に資料（PDF）へのリンクがない");
-    const documents: PublishedDocument[] = [];
-    for (const link of links) {
-      const bytes = await http.getBytes(link.url, "application/pdf");
-      if (bytes === undefined) throw new MonitorFailure("fetch_failed", link.url, `掲載資料「${link.title}」が見つからない（HTTP 404）`);
-      documents.push({ title: link.title, url: link.url, sha256: sha256(bytes) });
-    }
-    const changes = compareDocuments(documents, reviewed ?? []);
-    return changes.length === 0 ? { kind: "unchanged", documents } : { kind: "changed", documents, changes };
+    const [link] = links;
+    if (!link) throw new MonitorFailure("unexpected_format", source.base_url, "本文の領域に資料（PDF）へのリンクがない");
+    const bytes = await http.getBytes(link.url, "application/pdf");
+    if (bytes === undefined) throw new MonitorFailure("fetch_failed", link.url, `最新の資料「${link.title}」が見つからない（HTTP 404）`);
+    const latest = { ...link, sha256: sha256(bytes) };
+    return { kind: latest.sha256 === reviewed?.reviewed_sha256 ? "unchanged" : "changed", latest };
   } catch (error) {
     if (error instanceof MonitorFailure) return { kind: "failed", failure: error };
     throw error;
   }
 }
 
-/** 公表ページまたは掲載資料を根拠URLに持つ負担項目。 */
+/** 公表ページまたは資料を根拠URLに持つ負担項目。 */
 export function relatedBurdens(burdens: Burden[], urls: Set<string>): Burden[] {
   return burdens.filter((burden) => [...burden.source_urls, ...burden.versions.flatMap((version) => version.source_urls)].some((url) => urls.has(url)));
 }
 
-const CHANGE_LABEL: Record<DocumentChangeKind, string> = {
-  added: "掲載された",
-  removed: "掲載されなくなった",
-  title_changed: "リンクの文字列が変わった",
-  content_changed: "ファイルが変わった"
-};
 const FAILURE_LABEL = { fetch_failed: "取得の失敗", unexpected_format: "ページの構造の変化" } as const;
 const cell = (value: string): string => value.replace(/\|/g, "\\|");
-const yamlString = (value: string): string => JSON.stringify(value);
 
-function changeRow(change: DocumentChange): string {
-  const detail = change.kind === "title_changed" ? `（変更前: ${cell(change.reviewed!.title)}）` : change.kind === "content_changed" ? `（変更前: \`${change.reviewed!.sha256}\`）` : "";
-  return `| ${CHANGE_LABEL[change.kind]}${detail} | ${cell(change.document.title)} | ${change.document.url} | \`${change.document.sha256}\` |`;
-}
-
-function changedIssue(source: Source, check: Extract<PageCheck, { kind: "changed" }>, context: MonitorContext, reviewedAt: string | undefined): PlannedIssue {
-  const state = sha256(JSON.stringify(check.documents.map(({ url, title, sha256: hash }) => [url, title, hash]).sort()));
-  const key = issueKey(source.source_id, "change", state.slice(0, 16));
-  const urls = new Set([source.base_url, ...check.documents.map((document) => document.url), ...check.changes.map((change) => change.document.url)]);
-  const burdens = relatedBurdens(context.data.burdens, urls);
+function changedIssue(source: Source, latest: LatestDocument, reviewed: PublishedDocument | undefined, context: MonitorContext): PlannedIssue {
+  const key = issueKey(source.source_id, "change", latest.sha256.slice(0, 16));
+  const kind = !reviewed ? "確認済みの資料が未登録" : latest.url === reviewed.source_url ? "同じURLの資料のファイルが差し替えられた" : "新しい資料が掲載された";
+  const burdens = relatedBurdens(context.data.burdens, new Set([source.base_url, latest.url, ...(reviewed ? [reviewed.source_url] : [])]));
   const lines = [
-    `公表ページの監視が、掲載資料が確認済みの状態（\`data/published-sources.yaml\`）と異なることを検知した。`,
+    "公表ページの監視が、最新の資料のファイルのSHA-256が確認済みの値（`data/legal-sources.yaml` の `published_documents` の `reviewed_sha256`）と異なることを検知した。",
     "",
     "## 検知した変化",
     "",
@@ -102,27 +63,22 @@ function changedIssue(source: Source, check: Extract<PageCheck, { kind: "changed
     "| --- | --- |",
     `| 巡回先 | ${cell(source.name)}（\`${source.source_id}\`） |`,
     `| ページ | ${source.base_url} |`,
-    `| 確認済みの状態の確認日時 | ${reviewedAt ?? "（未登録）"} |`,
+    `| 変化 | ${kind} |`,
+    `| 最新の資料 | ${cell(latest.title)}、${latest.url} |`,
+    `| 最新の資料のSHA-256 | \`${latest.sha256}\` |`,
+    `| 確認済みの資料 | ${reviewed ? `${cell(reviewed.title)}、${reviewed.source_url}（確認日時 ${reviewed.reviewed_at}）` : "（未登録）"} |`,
+    `| 確認済みのSHA-256 | ${reviewed ? `\`${reviewed.reviewed_sha256}\`` : "（未登録）"} |`,
     `| 検知日時 | ${context.detectedAt} |`,
-    "",
-    "| 変化 | 資料 | URL | SHA-256 |",
-    "| --- | --- | --- | --- |",
-    ...check.changes.map(changeRow),
     "",
     "## 関係する負担項目",
     "",
-    burdens.length === 0 ? "ページまたは掲載資料を根拠URLに持つ負担項目はない。" : burdens.map((burden) => `- ${burden.burden_id} ${burden.name}`).join("\n"),
+    burdens.length === 0 ? "ページまたは資料を根拠URLに持つ負担項目はない。" : burdens.map((burden) => `- ${burden.burden_id} ${burden.name}`).join("\n"),
     "",
     "## 対応",
     "",
-    "1. 変化した資料を確認し、マスタ（`data/burdens.yaml`）へ反映するかを判断する（例: 新年度の率は版を追加する）。",
-    "2. 反映する場合もしない場合も、Pull Requestで `data/published-sources.yaml` の `documents` と `reviewed_at` を更新する。現在の掲載資料は次のとおり。",
-    "3. Pull Requestのマージ後、判断の結果をこのIssueに記録してCloseする。",
-    "",
-    "```yaml",
-    "    documents:",
-    ...check.documents.flatMap((document) => [`      - title: ${yamlString(document.title)}`, `        url: ${document.url}`, `        sha256: ${yamlString(document.sha256)}`]),
-    "```"
+    "1. 最新の資料の値を読み取り、マスタ（`data/burdens.yaml`）へ反映するかを判断する（例: 新年度の率は版を追加する）。",
+    "2. 反映する場合もしない場合も、Pull Requestで `data/legal-sources.yaml` の `published_documents` の該当する要素を、最新の資料の題名、`reviewed_sha256`、`reviewed_at`、`source_url` に更新する。",
+    "3. Pull Requestのマージ後、判断の結果をこのIssueに記録してCloseする。"
   ];
   return { key, title: `[公表資料の変化] ${source.name}（${source.source_id}）`, body: issueBody(key, lines) };
 }
@@ -130,7 +86,7 @@ function changedIssue(source: Source, check: Extract<PageCheck, { kind: "changed
 function failureIssue(source: Source, failure: MonitorFailure, detectedAt: string): PlannedIssue {
   const key = issueKey(source.source_id, "failure", failure.kind);
   const lines = [
-    `公表ページの監視で、${FAILURE_LABEL[failure.kind]}が起きた。掲載資料の変化の検知ではない。掲載資料の変化の有無は確認できていない。`,
+    `公表ページの監視で、${FAILURE_LABEL[failure.kind]}が起きた。公表資料の変化の検知ではない。公表資料の変化の有無は確認できていない。`,
     "",
     "| 項目 | 値 |",
     "| --- | --- |",
@@ -150,18 +106,14 @@ function failureIssue(source: Source, failure: MonitorFailure, detectedAt: strin
   return { key, title: `[監視エラー] ${source.name}（${source.source_id}）: ${FAILURE_LABEL[failure.kind]}`, body: issueBody(key, lines) };
 }
 
-/** 厚生労働省の公表ページの掲載資料を、data/published-sources.yaml の確認済みの状態と比べる。 */
+/** 厚生労働省の公表ページの最新の資料を、data/legal-sources.yaml の published_documents の確認済みのSHA-256と比べる。 */
 export async function monitorMhlwPage(source: Source, context: MonitorContext): Promise<SourceResult> {
   const { log = () => {} } = context;
   const http = new HttpClient({ intervalMs: source.request_interval_ms, fetcher: context.fetcher, sleep: context.sleep });
-  const published = context.data.publishedSources.find((candidate) => candidate.source_id === source.source_id);
-  const check = await checkPage(http, source, published?.documents);
+  const reviewed = context.data.publishedDocuments.find((document) => document.source_id === source.source_id);
+  const check = await checkPage(http, source, reviewed);
   log(`${source.source_id}: ${check.kind}`);
-  const planned = check.kind === "changed" ? [changedIssue(source, check, context, published?.reviewed_at)]
+  const planned = check.kind === "changed" ? [changedIssue(source, check.latest, reviewed, context)]
     : check.kind === "failed" ? [failureIssue(source, check.failure, context.detectedAt)] : [];
-  const count = (kind: DocumentChangeKind) => (check.kind === "changed" ? check.changes.filter((change) => change.kind === kind).length : 0);
-  return {
-    planned,
-    summary: { documents: check.kind === "failed" ? 0 : check.documents.length, added: count("added"), removed: count("removed"), title_changed: count("title_changed"), content_changed: count("content_changed"), failed: check.kind === "failed" ? 1 : 0 }
-  };
+  return { planned, summary: { changed: check.kind === "changed" ? 1 : 0, failed: check.kind === "failed" ? 1 : 0 } };
 }

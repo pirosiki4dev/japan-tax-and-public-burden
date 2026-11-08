@@ -112,15 +112,14 @@ export type GroupAggregation = ("sum" | "progressive" | "select_one" | "classifi
  */
 export type KebabId1 = string
 /**
- * 日本標準時（JST）のISO 8601日時。タイムゾーンは +09:00 で記録する。
+ * 根拠とした公式一次情報のURL。
  */
-export type DateTime1 = string
+export type SourceUrl1 = string
 
 export interface RepositorySchemas {
 burdens?: Burdens
 groups?: BurdenGroups
 "legal-sources"?: LegalSources
-"published-sources"?: PublishedSources
 "scope-decisions"?: ScopeDecisions
 sources?: SourceRegistry
 }
@@ -271,10 +270,17 @@ parent_group_id?: KebabId
 description?: string
 }
 /**
- * 根拠法令の正本（data/legal-sources.yaml）。law_idの昇順に並べる。
+ * 根拠の正本（data/legal-sources.yaml）。監視対象の一覧を兼ねる。legal_sources は law_id の昇順、published_documents は source_id の昇順に並べる。
  */
 export interface LegalSources {
+/**
+ * e-Gov法令APIで取得する根拠法令。
+ */
 legal_sources: LegalSource[]
+/**
+ * e-Gov法令APIで取得できない告示等の値を公表する資料。公表ページ（config/sources.yaml の巡回先）ごとに、最新の資料を1件だけ記録する。
+ */
+published_documents?: PublishedDocument[]
 }
 /**
  * 根拠法令（data/legal-sources.yaml の legal_sources の要素）。監視対象の一覧を兼ねる。
@@ -294,32 +300,20 @@ reviewed_at: DateTime
 source_url: SourceUrl
 }
 /**
- * 告示等の値を公表する公式ページの確認済みの状態（data/published-sources.yaml）。source_idの昇順に並べる。
+ * 公表ページに掲載された最新の資料と、人がマスタへの反映を確認したファイルのSHA-256。
  */
-export interface PublishedSources {
-published_sources: PublishedSource[]
-}
-/**
- * 1つの公表ページ（config/sources.yaml の巡回先）について、人が確認した掲載資料。
- */
-export interface PublishedSource {
+export interface PublishedDocument {
 source_id: KebabId1
 /**
- * ページの本文に掲載された資料（掲載順）。
- */
-documents: PublishedDocument[]
-reviewed_at: DateTime1
-}
-export interface PublishedDocument {
-/**
- * リンクの文字列（原文）。
+ * 資料の題名（原文）。
  */
 title: string
-url: SourceUrl
 /**
- * 資料のファイルのSHA-256（16進数の小文字）。
+ * 人がマスタへの反映を確認した資料のファイルのSHA-256（16進数の小文字）。数値と解釈されないよう、YAMLでは引用符で囲む。
  */
-sha256: string
+reviewed_sha256: string
+reviewed_at: DateTime
+source_url: SourceUrl1
 }
 /**
  * 区分表だけでは判定できない負担のうち、対象と判断したものの記録（data/scope-decisions.yaml）。対象外と判断したものはADR 0002に記録し、ここには記録しない。
