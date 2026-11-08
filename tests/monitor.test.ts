@@ -244,10 +244,10 @@ test("GitHubIssues reads markers from open issues only and creates issues by POS
   assert.deepEqual(JSON.parse(calls[2]!.body!), { title: "t", body: "b" });
 });
 
-test("the monitor workflow runs daily at 6:17 JST and manually, read-only for contents, and limited to issues", async () => {
+test("the monitor workflow runs daily at 6:00 JST and manually, read-only for contents, and limited to issues", async () => {
   const workflow = await readFile(join(ROOT, ".github/workflows/monitor.yml"), "utf8");
   assert.match(workflow, /^permissions:\n  contents: read\n  issues: write\n\n/m);
-  assert.match(workflow, /^on:\n  schedule:\n    - cron: "17 21 \* \* \*"\n  workflow_dispatch:\n/m, "定期実行の時刻の変更はユーザーの判断で行う（#171）");
+  assert.match(workflow, /^on:\n  schedule:\n    - cron: "0 21 \* \* \*"\n  workflow_dispatch:\n/m, "定期実行の時刻の変更はユーザーの判断で行う（#171）");
   assert.match(workflow, /DRY_RUN: \$\{\{ github\.event_name == 'workflow_dispatch' && inputs\.dry_run \|\| 'false' \}\}/, "定期実行はIssueを作成する");
   assert.doesNotMatch(workflow, /contents: write|git push/);
 });

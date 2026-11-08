@@ -2,11 +2,11 @@ name: Monitor sources
 
 # config/sources.yaml の巡回先を監視し、検知した変化をIssueにする（ADR 0003「最初のリリースの監視方式」）。
 # e-Gov法令APIで根拠法令の改正を、公表ページで最新の資料の変化を検知する（確認済みの状態はどちらも data/legal-sources.yaml）。
-# 定期実行は毎日 6:17（JST）に全巡回先を監視し、Issueを作成する（#171）。cron は UTC で指定する。
-# 毎時0分は実行が集中して遅れやすいため避ける。時刻の変更・停止はユーザーの判断で行う（AGENTS.md「停止と追加承認」）。
+# 定期実行は毎日 6:00（JST）に全巡回先を監視し、Issueを作成する（#171）。cron は UTC で指定する。
+# 時刻の変更・停止はユーザーの判断で行う（AGENTS.md「停止と追加承認」）。
 on:
   schedule:
-    - cron: "17 21 * * *"
+    - cron: "0 21 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
