@@ -7,7 +7,7 @@
 
 ## 現在の状況
 
-フォルダ構成から設計し直して作り直しています（[#139](https://github.com/pirosiki4dev/japan-tax-and-public-burden/issues/139)）。現時点では基盤とデータ構造の定義だけがあり、制度データは未投入です。
+フォルダ構成から設計し直して作り直しました（[#139](https://github.com/pirosiki4dev/japan-tax-and-public-burden/issues/139)）。最初のリリースの範囲（下記「対象範囲」）の負担項目を `data/burdens.yaml` に登録し、配布物（`dist/`）を生成しています。根拠法令の改正と雇用保険率の告示の公表は、GitHub Actionsで毎日（6時。日本標準時）監視しています（下記「開発」の `npm run monitor`）。
 
 作り直し前の実装とデータは [`legacy-v0`](https://github.com/pirosiki4dev/japan-tax-and-public-burden/tree/legacy-v0) タグで参照できます。
 
